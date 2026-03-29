@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopNest | The Curated Sanctuary</title>
+  <meta name="description" content="ShopNest – Defining the digital flagship experience through curated quality and intentional design. Shop premium home, electronics, fashion and more." />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/shopnest-extras.css" />
+</head>
+<body>
+
+  <!-- FREE SHIPPING RIBBON -->
+  <div class="free-shipping-ribbon" aria-hidden="true">
+    <span>FREE SHIPPING ON ORDERS OVER PKR 5,000</span>
+  </div>
+
+  <!-- ========== ANNOUNCEMENT BAR ========== -->
+  <div class="announcement-bar" id="announcement-bar">
+    <p>🎉 Flash Sale Live Now — Up to <strong>60% Off</strong> Home Comfort &amp; Electronics &nbsp;|&nbsp; Free Delivery on orders over PKR 5,000</p>
+    <button class="announcement-close" id="announcement-close" aria-label="Close announcement">✕</button>
+  </div>
+
+  <!-- ========== HEADER / NAV ========== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <!-- Logo -->
+      <a href="index.html" class="logo" id="logo-link">
+        <img src="images/logo.png" alt="ShopNest Logo" class="logo-img" />
+        <span class="logo-text">ShopNest</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav" id="desktop-nav" aria-label="Main navigation">
+        <a href="shop.html" class="nav-link" id="nav-shop">Shop</a>
+        <a href="#categories" class="nav-link" id="nav-categories">Categories</a>
+        <a href="#flash-sale" class="nav-link nav-link--sale" id="nav-flash">⚡ Flash Sale</a>
+        <a href="#new-arrivals" class="nav-link" id="nav-trending">Trending</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <div class="search-bar" id="search-bar">
+          <span class="material-icons search-icon">search</span>
+          <input type="text" placeholder="Search products..." aria-label="Search products" id="search-input" />
+        </div>
+        <div class="icon-btn-wrap" id="wishlist-wrap">
+          <button class="icon-btn" id="btn-wishlist" aria-label="Wishlist">
+            <span class="material-icons" id="wishlist-header-icon">favorite_border</span>            <span class="cart-badge wishlist-badge" id="wishlist-icon-badge" style="display:none">0</span>
+          </button>
+          <span class="icon-tooltip">Wishlist</span>
+          <!-- Wishlist Dropdown -->
+          <div class="wishlist-dropdown" id="wishlist-dropdown">
+            <div class="wishlist-dropdown-header">
+              <span>My Wishlist</span>
+              <span class="wishlist-count-badge" id="wishlist-count-badge">0</span>
+            </div>
+            <div class="wishlist-dropdown-body" id="wishlist-dropdown-body">
+              <div class="wishlist-empty" id="wishlist-empty">
+                <span class="material-icons">favorite_border</span>
+                <p>Nothing added to wishlist yet</p>
+              </div>
+              <ul class="wishlist-items-list" id="wishlist-items-list"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="icon-btn-wrap" id="account-wrap">
+          <button class="icon-btn" id="btn-account" aria-label="Account">
+            <span class="material-icons">person_outline</span>
+          </button>
+          <span class="icon-tooltip">Profile</span>
+          <!-- Account Dropdown -->
+          <div class="account-dropdown" id="account-dropdown">
+            <div class="account-dropdown-header">
+              <span>My Account</span>
+            </div>
+            <div class="account-dropdown-body">
+              <div class="account-guest-view" id="account-guest-view">
+                <p>Sign in to view your profile and manage orders.</p>
+                <button class="btn btn-primary btn-full"><span class="material-icons" style="font-size:16px;">email</span> Continue with Email</button>
+                <button class="btn btn-outline btn-full" style="margin-top:0.5rem;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:16px; height:16px;" /> Continue with Google</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="icon-btn-wrap">
+          <a href="cart.html" class="icon-btn cart-btn" id="btn-cart" aria-label="Cart">
+            <span class="material-icons">shopping_bag</span>
+            <span class="cart-badge" id="cart-badge">0</span>
+          </a>
+          <span class="icon-tooltip">Cart</span>
+        </div>
+        <a href="contact.html" class="btn btn-contact-nav" id="btn-contact-nav">Contact Us</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Bar -->
+    <div class="category-bar" id="category-bar">
+      <div class="container category-bar-inner">
+        <a href="shop.html?cat=home" class="cat-link" id="cat-home"><span class="material-icons">home_work</span>Home &amp; Garden</a>
+        <a href="shop.html?cat=electronics" class="cat-link" id="cat-electronics"><span class="material-icons">devices</span>Electronics</a>
+        <a href="shop.html?cat=fashion" class="cat-link" id="cat-fashion"><span class="material-icons">checkroom</span>Fashion</a>
+        <a href="shop.html?cat=beauty" class="cat-link" id="cat-beauty"><span class="material-icons">spa</span>Beauty</a>
+        <a href="shop.html?cat=toys" class="cat-link" id="cat-toys"><span class="material-icons">toys</span>Toys</a>
+        <a href="shop.html?cat=supermarket" class="cat-link" id="cat-supermarket"><span class="material-icons">shopping_cart</span>Supermarket</a>
+        <a href="#" class="cat-link" id="cat-track"><span class="material-icons">local_shipping</span>Track Order</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Drawer -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <span class="logo-text">ShopNest</span>
+      <button class="mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+    </div>
+    <a href="shop.html" class="mobile-nav-link" id="mob-shop">🛍️ Shop</a>
+    <a href="#categories" class="mobile-nav-link" id="mob-categories">Categories</a>
+    <a href="#flash-sale" class="mobile-nav-link mobile-nav-link--sale" id="mob-flash">⚡ Flash Sale</a>
+    <a href="#new-arrivals" class="mobile-nav-link" id="mob-trending">Trending</a>
+    <a href="contact.html" class="mobile-nav-link mobile-nav-link--contact" id="mob-contact">📞 Contact Us</a>
+    <hr class="mobile-divider"/>
+    <a href="shop.html?cat=home" class="mobile-nav-link" id="mob-home">🏠 Home &amp; Garden</a>
+    <a href="shop.html?cat=electronics" class="mobile-nav-link" id="mob-electronics">📱 Electronics</a>
+    <a href="shop.html?cat=fashion" class="mobile-nav-link" id="mob-fashion">👗 Fashion</a>
+    <a href="shop.html?cat=beauty" class="mobile-nav-link" id="mob-beauty">✨ Beauty</a>
+    <a href="shop.html?cat=toys" class="mobile-nav-link" id="mob-toys">🧸 Toys</a>
+    <a href="shop.html?cat=supermarket" class="mobile-nav-link" id="mob-supermarket">🛒 Supermarket</a>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="images/hero_banner.png" alt="ShopNest curated home sanctuary" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="hero-label">HomeEssentials</span>
+        <h1 class="hero-headline">Upgrade Your<br/>Home Life.</h1>
+        <p class="hero-sub">Save up to <strong>60%</strong> on premium curated homeware. Curated pieces for the modern sanctuary — experience comfort redefined.</p>
+        <div class="hero-actions">
+          <a href="#categories" class="btn btn-primary" id="hero-shop-now">Shop Now</a>
+          <a href="#new-arrivals" class="btn btn-ghost" id="hero-view-arrivals">New Arrivals</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>200K+</strong><span>Happy Customers</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>50K+</strong><span>Products</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>4.9★</strong><span>Rating</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll"><span class="material-icons">keyboard_arrow_down</span></div>
+  </section>
+
+  <!-- ========== TRUST BADGES ========== -->
+  <section class="trust-strip" id="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-item" id="trust-delivery">
+        <span class="material-icons">local_shipping</span>
+        <div><strong>Free Delivery</strong><p>On all orders over PKR 5,000</p></div>
+      </div>
+      <div class="trust-item" id="trust-return">
+        <span class="material-icons">replay</span>
+        <div><strong>90 Days Return</strong><p>Hassle-free guarantee</p></div>
+      </div>
+      <div class="trust-item" id="trust-payment">
+        <span class="material-icons">lock</span>
+        <div><strong>Secure Payment</strong><p>100% protected checkout</p></div>
+      </div>
+      <div class="trust-item" id="trust-support">
+        <span class="material-icons">headset_mic</span>
+        <div><strong>24/7 Support</strong><p>Dedicated service desk</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CATEGORIES ========== -->
+  <section class="section" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">Collections</span>
+          <h2 class="section-title">Shop By Category</h2>
+        </div>
+        <a href="shop.html" class="link-arrow" id="view-all-cats">View All <span class="material-icons">arrow_forward</span></a>
+      </div>
+      <div class="cat-cards-grid">
+        <div class="cat-card cat-card--large" id="cat-card-kitchen">
+          <img src="images/category_kitchen.png" alt="Kitchenware Pro" class="cat-card-img" />
+          <div class="cat-card-overlay"></div>
+          <div class="cat-card-body">
+            <span class="cat-card-label">Kitchen</span>
+            <h3 class="cat-card-title">Kitchenware Pro</h3>
+            <p class="cat-card-sub">Chef-grade precision for your home.</p>
+            <a href="shop.html" class="btn btn-sm btn-white" id="shop-kitchen">Shop Pro Gear</a>
+          </div>
+        </div>
+        <div class="cat-card" id="cat-card-gadgets">
+          <img src="images/category_gadgets.png" alt="Gadget Zone" class="cat-card-img" />
+          <div class="cat-card-overlay"></div>
+          <div class="cat-card-body">
+            <span class="cat-card-label">Tech</span>
+            <h3 class="cat-card-title">Gadget Zone</h3>
+            <p class="cat-card-sub">Next-gen connectivity, today.</p>
+            <a href="shop.html" class="btn btn-sm btn-white" id="shop-gadgets">View Tech</a>
+          </div>
+        </div>
+        <div class="cat-card cat-card--accent" id="cat-card-sale">
+          <div class="cat-card-body cat-card-body--center">
+            <span class="cat-sale-tag">⚡ Flash Sale</span>
+            <h3 class="cat-card-title">Up to 60% Off<br/>Home Comfort</h3>
+            <p class="cat-card-sub">Limited time deals on premium products.</p>
+            <a href="#flash-sale" class="btn btn-sm btn-coral" id="shop-sale">Grab Deals</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEW ARRIVALS ========== -->
+  <section class="section section--light" id="new-arrivals">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">Just Dropped</span>
+          <h2 class="section-title">New Arrivals</h2>
+          <p class="section-desc">The latest additions to our curated sanctuary.</p>
+        </div>
+        <a href="shop.html" class="link-arrow" id="view-all-arrivals">View All <span class="material-icons">arrow_forward</span></a>
+      </div>
+      <div class="products-grid" id="products-grid">
+        <article class="product-card" id="sp-headphones" data-category="electronics" data-price="12500" data-rating="5" data-sale="true" data-new="false">
+          <div class="product-img-wrap">
+            <img src="images/product_headphones.png" alt="Acoustic Pro Headphones" class="product-img" loading="lazy" />
+            <div class="product-badges"><span class="badge badge--new">New</span></div>
+            <div class="product-actions">
+              <button class="product-action-btn" id="wish-headphones" aria-label="Add to wishlist"><span class="material-icons">favorite_border</span></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Electronics</span>
+            <h3 class="product-name">Acoustic Pro Headphones</h3>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(128)</span></div>
+            <div class="product-pricing">
+              <span class="price-current">PKR 12,500</span>
+              <span class="price-old">PKR 19,200</span>
+              <span class="price-save">35% off</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="add-headphones">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" id="sp-watch" data-category="fashion" data-price="8500" data-rating="4" data-sale="true" data-new="false">
+          <div class="product-img-wrap">
+            <img src="images/product_watch.png" alt="Minimalist Quartz Watch" class="product-img" loading="lazy" />
+            <div class="product-badges"><span class="badge badge--sale">−40%</span></div>
+            <div class="product-actions">
+              <button class="product-action-btn" id="wish-watch" aria-label="Add to wishlist"><span class="material-icons">favorite_border</span></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Fashion</span>
+            <h3 class="product-name">Minimalist Quartz Watch</h3>
+            <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">(94)</span></div>
+            <div class="product-pricing">
+              <span class="price-current">PKR 8,500</span>
+              <span class="price-old">PKR 14,200</span>
+              <span class="price-save">40% off</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="add-watch">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" id="sp-shades" data-category="fashion" data-price="4900" data-rating="5" data-sale="true" data-new="true">
+          <div class="product-img-wrap">
+            <img src="images/product_shades.png" alt="Polarized Retro Shades" class="product-img" loading="lazy" />
+            <div class="product-badges"><span class="badge badge--new">New</span></div>
+            <div class="product-actions">
+              <button class="product-action-btn" id="wish-shades" aria-label="Add to wishlist"><span class="material-icons">favorite_border</span></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Fashion</span>
+            <h3 class="product-name">Polarized Retro Shades</h3>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(212)</span></div>
+            <div class="product-pricing">
+              <span class="price-current">PKR 4,900</span>
+              <span class="price-old">PKR 8,200</span>
+              <span class="price-save">40% off</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="add-shades">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" id="sp-laptop" data-category="electronics" data-price="89000" data-rating="5" data-sale="true" data-new="false">
+          <div class="product-img-wrap">
+            <img src="images/product_laptop.png" alt="Zenith Book Pro" class="product-img" loading="lazy" />
+            <div class="product-badges"><span class="badge badge--sale">−25%</span></div>
+            <div class="product-actions">
+              <button class="product-action-btn" id="wish-laptop" aria-label="Add to wishlist"><span class="material-icons">favorite_border</span></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Electronics</span>
+            <h3 class="product-name">Zenith Book Pro</h3>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(76)</span></div>
+            <div class="product-pricing">
+              <span class="price-current">PKR 89,000</span>
+              <span class="price-old">PKR 118,000</span>
+              <span class="price-save">25% off</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="add-laptop">Add to Cart</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SELECTED ARRIVALS ========== -->
+  <section class="section" id="selected-arrivals">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">GadgetZone</span>
+          <h2 class="section-title">Selected Arrivals</h2>
+          <p class="section-desc">Curated objects for the intentional lifestyle.</p>
+        </div>
+      </div>
+      <div class="selected-grid">
+        <div class="selected-item" id="sel-headphones">
+          <div class="selected-num">01</div>
+          <div class="selected-info"><h4>Sonic Luxe Headphones</h4><p>Premium wireless audio with active noise cancellation</p></div>
+          <div class="selected-price">PKR 14,500</div>
+          <button class="btn btn-sm btn-outline" id="sel-add-headphones">Add</button>
+        </div>
+        <div class="selected-item" id="sel-origin">
+          <div class="selected-num">02</div>
+          <div class="selected-info"><h4>Origin Series 01</h4><p>Smart desk lamp with adaptive brightness control</p></div>
+          <div class="selected-price">PKR 7,200</div>
+          <button class="btn btn-sm btn-outline" id="sel-add-origin">Add</button>
+        </div>
+        <div class="selected-item" id="sel-lamp">
+          <div class="selected-num">03</div>
+          <div class="selected-info"><h4>Nordic Arc Lamp</h4><p>Sculptural floor lamp with warm spectrum lighting</p></div>
+          <div class="selected-price">PKR 18,500</div>
+          <button class="btn btn-sm btn-outline" id="sel-add-lamp">Add</button>
+        </div>
+        <div class="selected-item" id="sel-book">
+          <div class="selected-num">04</div>
+          <div class="selected-info"><h4>Zenith Book Pro</h4><p>Ultra-slim powerhouse for the modern professional</p></div>
+          <div class="selected-price">PKR 89,000</div>
+          <button class="btn btn-sm btn-outline" id="sel-add-book">Add</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FLASH SALE ========== -->
+  <section class="flash-sale" id="flash-sale">
+    <div class="container flash-inner">
+      <div class="flash-content">
+        <span class="flash-label">⚡ Limited Time</span>
+        <h2 class="flash-title">Flash Sale</h2>
+        <p class="flash-desc">Grab premium homeware and tech at unbeatable prices. Sale ends soon!</p>
+        <div class="countdown" id="countdown-timer">
+          <div class="countdown-unit"><span id="cd-hours">08</span><label>Hours</label></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit"><span id="cd-minutes">34</span><label>Minutes</label></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit"><span id="cd-seconds">59</span><label>Seconds</label></div>
+        </div>
+        <a href="shop.html" class="btn btn-coral" id="btn-flash-sale">Shop Flash Deals <span class="material-icons">arrow_forward</span></a>
+      </div>
+      <div class="flash-image-wrap">
+        <img src="images/product_lamp.png" alt="Nordic Arc Lamp – Flash Sale" class="flash-img" />
+        <div class="flash-badge-wrap">
+          <div class="flash-discount-badge">60%<br/><small>OFF</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEED MORE INFO ========== -->
+  <section class="newsletter-section" id="need-more-info">
+    <div class="container newsletter-inner">
+      <div class="newsletter-icon">💬</div>
+      <h2 class="newsletter-title" style="font-size: 2rem; margin-bottom: 0.5rem; font-weight: 600;">Need More Info?</h2>
+      <p class="newsletter-sub" style="margin-bottom: 1.5rem;">Having trouble placing an order or need assistance? Reach out to us on WhatsApp and we'll help you out directly.</p>
+      <a href="https://wa.me/1234567890" target="_blank" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.5rem; justify-content:center; text-decoration:none; padding:0.8rem 1.5rem; border-radius:30px; background-color:#25D366; border:none; color:white; font-weight:500;">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand" id="footer-brand">
+        <a href="index.html" class="logo logo--white" id="footer-logo">
+          <img src="images/logo.png" alt="ShopNest Logo" class="logo-img logo-img--white" />
+          <span class="logo-text">ShopNest</span>
+        </a>
+        <p>Creating a curated lifestyle through premium design and intentional commerce. Your sanctuary, delivered.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" id="social-instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="social-btn" id="social-facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-btn" id="social-email" aria-label="Email">
+            <span class="material-icons" style="font-size:18px">mail</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col" id="footer-care">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="#" id="ftr-track">Track Order</a></li>
+          <li><a href="#" id="ftr-return">90 Days Return</a></li>
+          <li><a href="#" id="ftr-payment">Secure Payment</a></li>
+          <li><a href="#" id="ftr-support">24/7 Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col" id="footer-company">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#" id="ftr-story">Our Story</a></li>
+          <li><a href="#" id="ftr-careers">Careers</a></li>
+          <li><a href="#" id="ftr-privacy">Privacy Policy</a></li>
+          <li><a href="#" id="ftr-terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col" id="footer-quick">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#" id="ftr-shipping">Shipping Info</a></li>
+          <li><a href="#" id="ftr-returns">Returns</a></li>
+          <li><a href="contact.html" id="ftr-contact">Contact Us</a></li>
+          <li><a href="#" id="ftr-affiliates">Affiliates</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2024 ShopNest Digital Flagship. All Rights Reserved.</p>
+        <div class="payment-icons">
+          <span class="pay-icon">VISA</span>
+          <span class="pay-icon">MC</span>
+          <span class="pay-icon">PayPal</span>
+          <span class="pay-icon">JazzCash</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <span class="material-icons">keyboard_arrow_up</span>
+  </button>
+
+  <!-- Quick View Modal -->
+  <div class="quick-view-overlay" id="quick-view-overlay">
+    <div class="quick-view-modal" id="quick-view-modal" role="dialog" aria-modal="true" aria-label="Product quick view">
+      <button class="quick-view-close" id="quick-view-close" aria-label="Close">
+        <span class="material-icons">close</span>
+      </button>
+      <div class="quick-view-content" id="quick-view-content"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+

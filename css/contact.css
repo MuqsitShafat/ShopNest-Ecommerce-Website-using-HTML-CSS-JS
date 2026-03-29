@@ -1,0 +1,338 @@
+/* ============================================================
+   SHOPNEST — Contact Page Styles (contact.css)
+   ============================================================ */
+
+/* ---- Contact Hero ---- */
+.contact-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
+  padding: var(--space-16) 0 var(--space-12);
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: var(--space-5);
+}
+.breadcrumb a { color: rgba(255,255,255,0.6); transition: color var(--transition-fast); }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb .material-icons { font-size: 1rem; }
+.breadcrumb span:last-child { color: rgba(255,255,255,0.9); }
+
+.contact-hero-title {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+}
+.contact-hero-desc {
+  font-size: 1.125rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  max-width: 580px;
+}
+
+/* ---- Stats Bar ---- */
+.contact-stats-bar {
+  background: var(--surface-white);
+  border-bottom: 1px solid var(--surface-container);
+  box-shadow: var(--shadow-card);
+}
+.contact-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.contact-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  border-right: 1px solid var(--surface-container);
+  transition: background var(--transition-fast);
+}
+.contact-stat:last-child { border-right: none; }
+.contact-stat:hover { background: var(--surface-low); }
+.contact-stat .material-icons {
+  font-size: 1.75rem;
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+.contact-stat strong {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+.contact-stat p {
+  font-size: 0.8125rem;
+  color: var(--on-surface-var);
+}
+
+/* ---- Main Contact Layout ---- */
+.contact-section { padding: var(--space-16) 0 var(--space-20); }
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+/* ---- Contact Form Card ---- */
+.contact-form-card {
+  background: var(--surface-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-10);
+}
+.contact-form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+  margin-top: var(--space-3);
+}
+.contact-form-desc {
+  font-size: 0.9375rem;
+  color: var(--on-surface-var);
+  margin-bottom: var(--space-8);
+  line-height: 1.6;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+.req { color: var(--secondary); margin-left: 2px; }
+.optional { font-size: 0.75rem; font-weight: 400; color: var(--on-surface-var); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem var(--space-4);
+  border: 1.5px solid var(--outline-var);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-family: var(--font-family);
+  color: var(--on-surface);
+  background: var(--surface-low);
+  outline: none;
+  transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+  width: 100%;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-mid);
+  background: var(--surface-white);
+  box-shadow: 0 0 0 3px rgba(22, 31, 47, 0.08);
+}
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-color: #ba1a1a;
+  background: #fff5f5;
+}
+.form-group textarea { resize: vertical; min-height: 140px; }
+.char-count {
+  font-size: 0.75rem;
+  color: var(--on-surface-var);
+  text-align: right;
+  margin-top: -var(--space-2);
+}
+.form-error {
+  font-size: 0.8125rem;
+  color: #ba1a1a;
+  min-height: 1rem;
+  display: block;
+}
+
+/* Checkbox */
+.form-checkbox { gap: var(--space-3); }
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 0.875rem;
+  color: var(--on-surface-var);
+  cursor: pointer;
+  line-height: 1.5;
+}
+.checkbox-label input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  accent-color: var(--secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.checkbox-label a { color: var(--secondary); text-decoration: underline; }
+
+/* Success state */
+.contact-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-5);
+  padding: var(--space-10) 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+.contact-success.visible { display: flex; }
+.success-icon { font-size: 3.5rem; }
+.contact-success h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.contact-success p { font-size: 1rem; color: var(--on-surface-var); max-width: 360px; line-height: 1.7; }
+
+/* ---- Contact Info Column ---- */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: sticky;
+  top: 7.5rem;
+}
+
+/* ---- Contact Channel Cards ---- */
+.contact-channels {
+  background: var(--surface-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.channel-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--surface-container);
+  transition: background var(--transition-fast);
+}
+.channel-card:last-child { border-bottom: none; }
+.channel-card:hover { background: var(--surface-low); }
+.channel-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.channel-icon--primary { background: rgba(183,29,63,0.1); color: var(--secondary); }
+.channel-icon--coral { background: rgba(233,69,96,0.1); color: var(--coral); }
+.channel-icon--success { background: rgba(34,197,94,0.1); color: #16a34a; }
+.channel-icon--whatsapp { background: rgba(37,211,102,0.1); color: #25d366; }
+.channel-icon .material-icons { font-size: 1.25rem; }
+.channel-body { flex: 1; min-width: 0; }
+.channel-body h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 2px; }
+.channel-body p { font-size: 0.8125rem; color: var(--on-surface-var); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.channel-status { display: inline-block; font-size: 0.75rem; font-weight: 600; color: #16a34a; }
+.channel-status--online::before { content: "●"; margin-right: 4px; }
+.channel-note { font-size: 0.75rem; color: var(--on-surface-var); }
+
+/* ---- FAQ Accordion ---- */
+.contact-faq {
+  background: var(--surface-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-6);
+}
+.faq-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-5);
+  color: var(--on-surface);
+}
+.faq-title .material-icons { font-size: 1.25rem; color: var(--secondary); }
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+.faq-item { border-bottom: 1px solid var(--surface-container); }
+.faq-item:last-child { border-bottom: none; }
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--on-surface);
+  padding: var(--space-4) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+.faq-question:hover { color: var(--secondary); }
+.faq-chevron { font-size: 1.125rem; color: var(--on-surface-var); flex-shrink: 0; transition: transform var(--transition-mid); }
+.faq-question[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); }
+.faq-answer {
+  font-size: 0.875rem;
+  color: var(--on-surface-var);
+  line-height: 1.7;
+  padding-bottom: var(--space-4);
+}
+
+/* ---- Store Info ---- */
+.contact-store-info {
+  background: var(--surface-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-6);
+}
+.contact-store-info p {
+  font-size: 0.9375rem;
+  color: var(--on-surface-var);
+  line-height: 1.8;
+  margin-bottom: var(--space-5);
+}
+.store-hours { display: flex; flex-direction: column; gap: var(--space-2); }
+.hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--on-surface-var);
+}
+.hours-row span:first-child { font-weight: 600; color: var(--on-surface); }
+.hours-row--note span:first-child { color: var(--secondary); }
+
+/* ============================================================
+   RESPONSIVE — Contact Page
+   ============================================================ */
+@media (max-width: 1024px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-info-col { position: static; }
+  .contact-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-stat:nth-child(2) { border-right: none; }
+  .contact-stat:nth-child(3) { border-top: 1px solid var(--surface-container); }
+  .contact-stat:nth-child(4) { border-top: 1px solid var(--surface-container); border-right: none; }
+}
+@media (max-width: 640px) {
+  .contact-form-card { padding: var(--space-6); }
+  .form-row { grid-template-columns: 1fr; gap: var(--space-5); }
+  .contact-stats-grid { grid-template-columns: 1fr 1fr; }
+  .contact-stat { padding: var(--space-4); flex-direction: column; text-align: center; gap: var(--space-2); }
+  .contact-stat:nth-child(2) { border-right: 1px solid var(--surface-container); }
+  .channel-card { flex-wrap: wrap; gap: var(--space-3); }
+}

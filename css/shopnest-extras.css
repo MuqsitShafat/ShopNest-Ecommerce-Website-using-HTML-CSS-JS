@@ -1,0 +1,345 @@
+/* ============================================================
+   SHOPNEST — Wishlist Dropdown, Quick View Modal, Header Styles
+   (Additions to style.css — loaded via main.js / all pages)
+   ============================================================ */
+
+/* ---- WISHLIST DROPDOWN ---- */
+#wishlist-wrap { position: relative; }
+
+.wishlist-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: -1rem;
+  width: 320px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 48px rgba(18,28,44,0.16);
+  border: 1px solid var(--surface-container);
+  z-index: 300;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  animation: dropdownIn 0.2s ease forwards;
+}
+.wishlist-dropdown.open { display: flex; }
+
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.wishlist-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1.125rem;
+  border-bottom: 1px solid var(--surface-container);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+.wishlist-count-badge {
+  background: var(--secondary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-full);
+  min-width: 1.375rem;
+  text-align: center;
+}
+
+.wishlist-dropdown-body {
+  max-height: 340px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.wishlist-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem 1rem;
+  color: var(--on-surface-var);
+  text-align: center;
+}
+.wishlist-empty .material-icons { font-size: 2.5rem; opacity: 0.4; }
+.wishlist-empty p { font-size: 0.9rem; }
+
+.wishlist-items-list { list-style: none; padding: 0; margin: 0; }
+
+.wishlist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 1.125rem;
+  border-bottom: 1px solid var(--surface-container);
+  transition: background 150ms ease;
+}
+.wishlist-item:last-child { border-bottom: none; }
+.wishlist-item:hover { background: var(--surface-low); }
+
+.wishlist-item-img {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  background: var(--surface-low);
+  flex-shrink: 0;
+}
+.wishlist-item-info { flex: 1; min-width: 0; }
+.wishlist-item-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--on-surface);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wishlist-item-price {
+  font-size: 0.8125rem;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-top: 2px;
+}
+.wishlist-item-remove {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--outline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  transition: background 150ms, color 150ms;
+  flex-shrink: 0;
+}
+.wishlist-item-remove:hover { background: rgba(183,29,63,0.08); color: var(--secondary); }
+
+/* ---- HEART WISHLIST BUTTON FIX ---- */
+.product-action-btn.wishlisted .material-icons {
+  color: var(--coral) !important;
+}
+/* Remove the red background on wishlist — only icon color changes */
+.product-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(4px);
+  border: none;
+  cursor: pointer;
+  color: var(--on-surface-var);
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(18,28,44,0.12);
+}
+.product-action-btn:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+/* ---- QUICK VIEW MODAL ---- */
+.quick-view-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18,28,44,0.55);
+  backdrop-filter: blur(6px);
+  z-index: 400;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.quick-view-overlay.open { display: flex; }
+
+.quick-view-modal {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: qvIn 0.3s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  box-shadow: 0 32px 80px rgba(18,28,44,0.24);
+}
+@keyframes qvIn {
+  from { opacity:0; transform: scale(0.9) translateY(20px); }
+  to   { opacity:1; transform: scale(1) translateY(0); }
+}
+
+.quick-view-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-low);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-surface-var);
+  transition: background 150ms, color 150ms;
+  z-index: 10;
+}
+.quick-view-close:hover { background: var(--surface-container); color: var(--on-surface); }
+
+.quick-view-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.qv-img-wrap {
+  background: var(--surface-low);
+  border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qv-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.qv-info {
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+.qv-cat {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--secondary);
+}
+.qv-name {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  line-height: 1.2;
+}
+.qv-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--on-surface-var);
+}
+.qv-rating .stars { color: #f59e0b; font-size: 1rem; }
+.qv-pricing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.qv-price-current {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+.qv-price-old {
+  font-size: 0.9375rem;
+  color: var(--on-surface-var);
+  text-decoration: line-through;
+}
+.qv-price-save {
+  background: rgba(34,197,94,0.12);
+  color: #16a34a;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+.qv-desc {
+  font-size: 0.9rem;
+  color: var(--on-surface-var);
+  line-height: 1.7;
+}
+.qv-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.qv-add-cart {
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.25rem;
+}
+.qv-add-wishlist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--on-surface-var);
+  background: none;
+  border: 1.5px solid var(--outline-var);
+  border-radius: var(--radius-md);
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  transition: border-color 150ms, color 150ms, background 150ms;
+}
+.qv-add-wishlist:hover { border-color: var(--coral); color: var(--coral); background: rgba(233,69,96,0.05); }
+.qv-add-wishlist .material-icons { font-size: 1.125rem; }
+
+@media (max-width: 600px) {
+  .quick-view-content { grid-template-columns: 1fr; }
+  .qv-img-wrap { border-radius: var(--radius-xl) var(--radius-xl) 0 0; aspect-ratio: 4/3; }
+  .quick-view-modal { border-radius: var(--radius-lg); }
+}
+
+/* ---- ACCOUNT DROPDOWN ---- */
+#account-wrap { position: relative; }
+
+.account-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: -1rem;
+  width: 280px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 48px rgba(18,28,44,0.16);
+  border: 1px solid var(--surface-container);
+  z-index: 300;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  animation: dropdownIn 0.2s ease forwards;
+}
+.account-dropdown.open { display: flex; }
+
+.account-dropdown-header {
+  padding: 0.875rem 1.125rem;
+  border-bottom: 1px solid var(--surface-container);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.account-dropdown-body {
+  padding: 1.25rem 1.125rem;
+}
+
+.account-guest-view p {
+  font-size: 0.875rem;
+  color: var(--on-surface-var);
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.5;
+}
