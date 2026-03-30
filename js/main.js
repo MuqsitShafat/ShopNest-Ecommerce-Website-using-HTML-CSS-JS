@@ -400,8 +400,13 @@ document.addEventListener('DOMContentLoaded', () => {
         id: btn.id,
         name: btn.closest('.selected-item')?.querySelector('h4')?.textContent || 'Product',
         price: parseInt((btn.closest('.selected-item')?.querySelector('.selected-price')?.textContent || '0').replace(/\D/g,'')),
-        img: '',
-        cat: ''
+        img: btn.dataset.img || (
+             btn.id.includes('headphones') ? 'images/product_headphones.png' :
+             btn.id.includes('lamp') ? 'images/product_lamp.png' :
+             btn.id.includes('book') ? 'images/product_laptop.png' :
+             'images/category_gadgets.png'
+        ),
+        cat: 'Electronics'
       };
       ShopNestCart.add(item);
       const orig = btn.textContent;

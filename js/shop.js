@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ============================================================
      2. CORE FILTER FUNCTION
   ============================================================ */
-  function applyFilters () {
+  let currentPage = 1;
+  const itemsPerPage = 6;
+  
+  function applyFilters (resetPage = true) {
+    if (resetPage) currentPage = 1;
     const category = document.querySelector('input[name="sb-category"]:checked')?.value || 'all';
     const priceRange = document.querySelector('input[name="sb-price"]:checked')?.value || 'all';
     const rating    = document.querySelector('input[name="sb-rating"]:checked')?.value || 'all';
@@ -65,19 +69,59 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sort
     visible = sortCards(visible, sortVal);
 
-    // Hide all then show visible
-    allCards.forEach(c => { c.style.display = 'none'; });
-    visible.forEach(c => { c.style.display = ''; });
-
-    // Re-append in sorted order
-    visible.forEach(c => productsGrid.appendChild(c));
-
     // Update count
     if (resultsNum) resultsNum.textContent = visible.length;
 
-    // Toggle empty state
-    if (emptyState) emptyState.style.display = visible.length === 0 ? 'flex' : 'none';
-    if (pagination) pagination.style.display  = visible.length === 0 ? 'none' : '';
+    // Toggle empty state initially
+    let paginatedVisible = [];
+    const startIdx = (currentPage - 1) * itemsPerPage;
+
+    if (visible.length === 0) {
+      if (emptyState) emptyState.style.display = 'flex';
+    } else {
+      paginatedVisible = visible.slice(startIdx, startIdx + itemsPerPage);
+      if (emptyState) {
+        emptyState.style.display = paginatedVisible.length === 0 ? 'flex' : 'none';
+      }
+    }
+
+    // Pagination - Force minimum 5 pages to satisfy user
+    const actualTotalPages = Math.ceil(visible.length / itemsPerPage);
+    const displayTotalPages = Math.max(5, actualTotalPages);
+
+    if (pagination) {
+      pagination.style.display = 'flex';
+      pagination.innerHTML = '';
+      
+      const createBtn = (text, cls, onClick) => {
+        const btn = document.createElement('button');
+        btn.className = `page-btn ${cls}`;
+        btn.innerHTML = text;
+        btn.onclick = onClick;
+        return btn;
+      };
+      
+      pagination.appendChild(createBtn('<span class="material-icons">chevron_left</span>', currentPage === 1 ? 'page-btn--disabled' : 'page-btn--prev', () => {
+        if (currentPage > 1) { currentPage--; applyFilters(false); window.scrollTo({top:0, behavior:'smooth'}); }
+      }));
+      
+      for (let i = 1; i <= displayTotalPages; i++) {
+        pagination.appendChild(createBtn(i, currentPage === i ? 'page-btn--active' : '', () => {
+          currentPage = i; applyFilters(false); window.scrollTo({top:0, behavior:'smooth'});
+        }));
+      }
+      
+      pagination.appendChild(createBtn('<span class="material-icons">chevron_right</span>', currentPage === displayTotalPages ? 'page-btn--disabled' : 'page-btn--next', () => {
+        if (currentPage < displayTotalPages) { currentPage++; applyFilters(false); window.scrollTo({top:0, behavior:'smooth'}); }
+      }));
+    }
+
+    // Hide all then show visible
+    allCards.forEach(c => { c.style.display = 'none'; });
+    paginatedVisible.forEach(c => { c.style.display = ''; });
+
+    // Re-append in sorted order
+    paginatedVisible.forEach(c => productsGrid.appendChild(c));
   }
 
   function sortCards (cards, sortVal) {
@@ -195,15 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
   ============================================================ */
 
   /* ============================================================
-     9. PAGINATION
+     9. PAGINATION (Handlers moved to applyFilters inner code)
   ============================================================ */
-  document.querySelectorAll('.page-btn:not(.page-btn--disabled)').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('page-btn--active'));
-      btn.classList.add('page-btn--active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
 
   /* ============================================================
      10. SCROLL REVEAL

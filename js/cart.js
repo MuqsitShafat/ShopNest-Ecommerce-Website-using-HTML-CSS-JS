@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentDiscount = 0;
   const SHIPPING_FEE = 250;
-  const FREE_SHIPPING_THRESHOLD = 50000; // Free shipping if over 50k PKR
+  const FREE_SHIPPING_THRESHOLD = 1000; // Free shipping if over 1k PKR
 
   function renderCart() {
     const items = typeof ShopNestCart !== 'undefined' ? ShopNestCart.get() : [];
@@ -157,6 +157,23 @@ document.addEventListener('DOMContentLoaded', () => {
          </div>
        `;
        document.body.appendChild(overlay);
+    });
+  }
+
+  // Payment method UI toggling
+  const paymentRadios = document.querySelectorAll('input[name="payment"]');
+  const onlineDetails = document.getElementById('online-payment-details');
+  if (paymentRadios.length && onlineDetails) {
+    paymentRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (e.target.value === 'online') {
+          onlineDetails.style.display = 'flex';
+          const firstSubRadio = onlineDetails.querySelector('input[name="online_method"]');
+          if(firstSubRadio) firstSubRadio.checked = true;
+        } else {
+          onlineDetails.style.display = 'none';
+        }
+      });
     });
   }
 
