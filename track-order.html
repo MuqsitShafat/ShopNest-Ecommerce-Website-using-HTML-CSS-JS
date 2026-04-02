@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track My Order — ShopNest</title>
+    <meta name="description" content="Track your ShopNest order in real-time. Enter your Order ID or phone number to see your delivery status." />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/shopnest-extras.css" />
+    <style>
+      .track-page {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f8fafc 0%, #e8f4fd 100%);
+        padding: 2rem 1rem 4rem;
+      }
+      .track-hero {
+        text-align: center;
+        padding: 3rem 1rem 2rem;
+      }
+      .track-hero-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary), var(--coral));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        box-shadow: 0 8px 30px rgba(var(--primary-rgb, 30, 64, 175), 0.3);
+      }
+      .track-hero-icon .material-icons { font-size: 2.5rem; color: #fff; }
+      .track-hero h1 { font-size: 2.2rem; font-weight: 700; color: #121c2c; margin-bottom: 0.5rem; }
+      .track-hero p { color: #6b7280; font-size: 1rem; }
+
+      .track-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 30px rgba(18, 28, 44, 0.08);
+        padding: 2rem;
+        max-width: 560px;
+        margin: 0 auto 2rem;
+      }
+      .track-input-group {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .track-input {
+        flex: 1;
+        min-width: 200px;
+        padding: 1rem 1.25rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .track-input:focus { border-color: var(--primary); }
+      .track-btn {
+        padding: 1rem 1.5rem;
+        background: linear-gradient(135deg, var(--primary), #1e3a8a);
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+        font-family: inherit;
+      }
+      .track-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(30, 58, 138, 0.3); }
+      .track-btn:active { transform: translateY(0); }
+      .track-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+        background: #f3f4f6;
+        border-radius: 10px;
+        padding: 4px;
+      }
+      .track-tab {
+        flex: 1;
+        padding: 0.6rem;
+        border: none;
+        background: transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #6b7280;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .track-tab.active {
+        background: #fff;
+        color: var(--primary);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      /* Result */
+      .track-result {
+        display: none;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 30px rgba(18, 28, 44, 0.1);
+        max-width: 700px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .track-result.visible { display: block; }
+      .track-result-header {
+        background: linear-gradient(135deg, #121c2c, #1e3a8a);
+        color: #fff;
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .track-order-id { font-size: 1.3rem; font-weight: 700; }
+      .track-order-meta { font-size: 0.85rem; opacity: 0.8; }
+      .track-status-badge {
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .status-pending { background: rgba(251,191,36,0.2); color: #fbbf24; }
+      .status-processing { background: rgba(59,130,246,0.2); color: #3b82f6; }
+      .status-shipped { background: rgba(139,92,246,0.2); color: #8b5cf6; }
+      .status-delivered { background: rgba(34,197,94,0.2); color: #22c55e; }
+      .status-cancelled { background: rgba(239,68,68,0.2); color: #ef4444; }
+
+      /* Progress stepper */
+      .track-stepper {
+        padding: 2rem;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        position: relative;
+        overflow-x: auto;
+      }
+      .stepper-line {
+        position: absolute;
+        top: 3.5rem;
+        left: 2rem;
+        right: 2rem;
+        height: 3px;
+        background: #e5e7eb;
+        z-index: 0;
+      }
+      .stepper-line-progress {
+        height: 100%;
+        background: linear-gradient(90deg, #22c55e, #3b82f6);
+        transition: width 0.8s ease;
+      }
+      .stepper-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        z-index: 1;
+        min-width: 80px;
+      }
+      .stepper-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e5e7eb;
+        border: 3px solid #e5e7eb;
+        transition: all 0.4s ease;
+      }
+      .stepper-icon .material-icons { font-size: 20px; color: #9ca3af; }
+      .stepper-icon.active {
+        background: linear-gradient(135deg,#22c55e,#16a34a);
+        border-color: #22c55e;
+        box-shadow: 0 4px 12px rgba(34,197,94,0.4);
+      }
+      .stepper-icon.active .material-icons { color: #fff; }
+      .stepper-icon.current {
+        background: linear-gradient(135deg,#3b82f6,#1d4ed8);
+        border-color: #3b82f6;
+        box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+        animation: pulse-step 1.5s infinite;
+      }
+      .stepper-icon.current .material-icons { color: #fff; }
+      @keyframes pulse-step {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+      .stepper-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #6b7280;
+        text-align: center;
+      }
+      .stepper-label.active-label { color: #16a34a; }
+      .stepper-label.current-label { color: #3b82f6; }
+
+      /* Order info */
+      .track-order-info {
+        padding: 1.5rem 2rem;
+        border-top: 1px solid #f3f4f6;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      @media (max-width:600px) {
+        .track-order-info { grid-template-columns: 1fr; }
+        .track-stepper { padding: 1.5rem 1rem; }
+        .stepper-line { left: 1rem; right: 1rem; }
+        .track-order-id { font-size: 1.1rem; }
+      }
+      .track-info-item label { font-size: 0.8rem; color: #9ca3af; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+      .track-info-item span { display: block; font-size: 0.95rem; color: #121c2c; font-weight: 600; margin-top: 0.2rem; }
+      .track-items-list {
+        padding: 0 2rem 2rem;
+        border-top: 1px solid #f3f4f6;
+      }
+      .track-items-list h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; color: #9ca3af; margin-bottom: 1rem; padding-top: 1.25rem; }
+      .track-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f9fafb;
+        font-size: 0.9rem;
+      }
+      .track-item:last-child { border-bottom: none; }
+      .track-item-name { color: #374151; font-weight: 600; }
+      .track-item-sub { color: #9ca3af; font-size: 0.8rem; }
+      .track-item-price { font-weight: 700; color: #121c2c; }
+      .track-error {
+        text-align: center;
+        padding: 2rem;
+        color: #ef4444;
+        display: none;
+      }
+      .track-error.visible { display: block; }
+      .track-error .material-icons { font-size: 3rem; color: #fca5a5; display: block; margin-bottom: 0.5rem; }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER (simplified) -->
+    <header class="header" id="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo" id="logo-link">
+          <img src="images/logo.png" alt="ShopNest Logo" class="logo-img" />
+          <span class="logo-text">ShopNest</span>
+        </a>
+        <nav class="nav" id="desktop-nav" aria-label="Main navigation">
+          <a href="shop.html" class="nav-link" id="nav-shop">Shop</a>
+          <a href="index.html#categories" class="nav-link" id="nav-categories">Categories</a>
+          <a href="index.html#flash-sale" class="nav-link nav-link--sale" id="nav-flash">⚡ Flash Sale</a>
+          <a href="index.html#new-arrivals" class="nav-link" id="nav-trending">Trending</a>
+        </nav>
+        <div class="header-actions">
+          <div class="icon-btn-wrap" id="account-wrap">
+            <button class="icon-btn" id="btn-account" aria-label="Account">
+              <span class="material-icons">person_outline</span>
+            </button>
+            <span class="icon-tooltip">Profile</span>
+            <div class="account-dropdown" id="account-dropdown">
+              <div class="account-dropdown-header"><span>My Account</span></div>
+              <div class="account-dropdown-body">
+                <div class="account-guest-view" id="account-guest-view">
+                  <p>Sign in to view your profile.</p>
+                  <button class="btn btn-primary btn-full"><span class="material-icons" style="font-size:16px;">email</span> Continue with Email</button>
+                  <button class="btn btn-outline btn-full" style="margin-top:0.5rem;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:16px;height:16px;" /> Continue with Google</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="icon-btn-wrap">
+            <a href="cart.html" class="icon-btn cart-btn" id="btn-cart" aria-label="Cart">
+              <span class="material-icons">shopping_bag</span>
+              <span class="cart-badge" id="cart-badge">0</span>
+            </a>
+            <span class="icon-tooltip">Cart</span>
+          </div>
+          <a href="contact.html" class="btn btn-contact-nav" id="btn-contact-nav">Contact Us</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+      <div class="mobile-menu-header">
+        <span class="logo-text">ShopNest</span>
+        <button class="mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+      </div>
+      <a href="shop.html" class="mobile-nav-link" id="mob-shop">Shop</a>
+      <a href="contact.html" class="mobile-nav-link mobile-nav-link--contact category-highlight" id="mob-contact"><strong>Contact Us</strong></a>
+    </nav>
+
+    <!-- MAIN TRACK PAGE -->
+    <main class="track-page">
+      <div class="track-hero">
+        <div class="track-hero-icon">
+          <span class="material-icons">local_shipping</span>
+        </div>
+        <h1>Track My Order</h1>
+        <p>Enter your Order ID (e.g. SN-98234) or phone number to see your delivery status.</p>
+      </div>
+
+      <div class="track-card">
+        <div class="track-tabs" role="tablist">
+          <button class="track-tab active" role="tab" id="tab-id" onclick="switchTab('id')">Order ID</button>
+          <button class="track-tab" role="tab" id="tab-phone" onclick="switchTab('phone')">Phone Number</button>
+        </div>
+        <div class="track-input-group">
+          <input
+            type="text"
+            id="track-input"
+            class="track-input"
+            placeholder="e.g. SN-98234"
+            autocomplete="off"
+          />
+          <button class="track-btn" id="track-btn" onclick="trackOrder()">
+            <span class="material-icons">search</span>
+            Track
+          </button>
+        </div>
+        <p style="font-size:0.8rem;color:#9ca3af;margin-top:0.75rem;margin-bottom:0;">
+          💡 Tip: Your Order ID was shown when you placed your order.
+        </p>
+      </div>
+
+      <!-- Error state -->
+      <div class="track-error" id="track-error">
+        <span class="material-icons">search_off</span>
+        <h3 id="track-error-msg">No order found</h3>
+        <p id="track-error-sub">Please double-check your Order ID or Phone Number.</p>
+      </div>
+
+      <!-- Result -->
+      <div class="track-result" id="track-result">
+        <div class="track-result-header">
+          <div>
+            <div class="track-order-id" id="res-order-id">SN-00000</div>
+            <div class="track-order-meta" id="res-order-date">Placed on —</div>
+          </div>
+          <div>
+            <span class="track-status-badge" id="res-status-badge">Pending</span>
+          </div>
+        </div>
+
+        <!-- Progress Stepper -->
+        <div class="track-stepper" id="track-stepper">
+          <div class="stepper-line"><div class="stepper-line-progress" id="stepper-progress"></div></div>
+
+          <div class="stepper-step">
+            <div class="stepper-icon" id="step-placed">
+              <span class="material-icons">check_circle</span>
+            </div>
+            <div class="stepper-label" id="step-placed-lbl">Order Placed</div>
+          </div>
+
+          <div class="stepper-step">
+            <div class="stepper-icon" id="step-processing">
+              <span class="material-icons">inventory_2</span>
+            </div>
+            <div class="stepper-label" id="step-processing-lbl">Processing</div>
+          </div>
+
+          <div class="stepper-step">
+            <div class="stepper-icon" id="step-shipped">
+              <span class="material-icons">local_shipping</span>
+            </div>
+            <div class="stepper-label" id="step-shipped-lbl">Shipped</div>
+          </div>
+
+          <div class="stepper-step">
+            <div class="stepper-icon" id="step-delivered">
+              <span class="material-icons">home</span>
+            </div>
+            <div class="stepper-label" id="step-delivered-lbl">Delivered</div>
+          </div>
+        </div>
+
+        <!-- Order Info -->
+        <div class="track-order-info">
+          <div class="track-info-item">
+            <label>Customer</label>
+            <span id="res-customer">—</span>
+          </div>
+          <div class="track-info-item">
+            <label>Phone</label>
+            <span id="res-phone">—</span>
+          </div>
+          <div class="track-info-item">
+            <label>Delivery Address</label>
+            <span id="res-address">—</span>
+          </div>
+          <div class="track-info-item">
+            <label>Payment Method</label>
+            <span id="res-payment">—</span>
+          </div>
+          <div class="track-info-item">
+            <label>Order Total</label>
+            <span id="res-total">—</span>
+          </div>
+        </div>
+
+        <!-- Items -->
+        <div class="track-items-list">
+          <h3>Items Ordered</h3>
+          <div id="res-items-list"></div>
+        </div>
+
+        <!-- WhatsApp CTA -->
+        <div style="padding:0 2rem 2rem;">
+          <a href="https://wa.me/923284430589" target="_blank"
+             style="display:flex;align-items:center;gap:0.5rem;justify-content:center;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border-radius:12px;padding:0.85rem;font-weight:600;text-decoration:none;transition:transform 0.2s;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+            Need help? Chat on WhatsApp — 03284430589
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <span class="material-icons">keyboard_arrow_up</span>
+    </button>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        query,
+        where,
+        getDocs,
+        limit,
+      } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+      /* ========== FIREBASE INIT (self-contained) ========== */
+      const firebaseConfig = {
+        apiKey: "AIzaSyC5dKkXC0QzbtrzSsYoZY-V38Y3MS8WDIQ",
+        authDomain: "shopnest-e2d57.firebaseapp.com",
+        projectId: "shopnest-e2d57",
+        storageBucket: "shopnest-e2d57.firebasestorage.app",
+        messagingSenderId: "171603675621",
+        appId: "1:171603675621:web:94dacd14762cc7494b870c",
+      };
+      const app = initializeApp(firebaseConfig, "track-order-app");
+      const db = getFirestore(app);
+
+      /* ========== TAB SWITCHING ========== */
+      let trackMode = "id";
+
+      window.switchTab = function (mode) {
+        trackMode = mode;
+        document.getElementById("tab-id").classList.toggle("active", mode === "id");
+        document.getElementById("tab-phone").classList.toggle("active", mode === "phone");
+        const input = document.getElementById("track-input");
+        input.value = "";
+        input.placeholder = mode === "id" ? "e.g. SN-98234" : "e.g. 03284430589";
+        document.getElementById("track-result").classList.remove("visible");
+        document.getElementById("track-error").classList.remove("visible");
+      };
+
+      /* ========== TRACK ORDER ========== */
+      window.trackOrder = async function () {
+        const inputVal = document.getElementById("track-input").value.trim();
+        const resultEl = document.getElementById("track-result");
+        const errorEl = document.getElementById("track-error");
+        const errMsg = document.getElementById("track-error-msg");
+        const errSub = document.getElementById("track-error-sub");
+        const btn = document.getElementById("track-btn");
+
+        resultEl.classList.remove("visible");
+        errorEl.classList.remove("visible");
+
+        if (!inputVal) {
+          errMsg.textContent = "Please enter an Order ID or Phone Number.";
+          errSub.textContent = "";
+          errorEl.classList.add("visible");
+          return;
+        }
+
+        btn.innerHTML = '<span class="material-icons" style="animation:spin 1s linear infinite;">sync</span> Searching…';
+        btn.disabled = true;
+
+        try {
+          let q;
+          if (trackMode === "id") {
+            // Normalize: uppercase, trim
+            const normalized = inputVal.toUpperCase().trim();
+            q = query(
+              collection(db, "orders"),
+              where("orderId", "==", normalized),
+              limit(1)
+            );
+          } else {
+            q = query(
+              collection(db, "orders"),
+              where("customer.phone", "==", inputVal),
+              limit(5)
+            );
+          }
+
+          const snapshot = await getDocs(q);
+
+          if (snapshot.empty) {
+            errMsg.textContent = `No order found for "${inputVal}"`;
+            errSub.textContent = "Please double-check your Order ID or Phone Number. Order IDs look like SN-75117.";
+            errorEl.classList.add("visible");
+          } else {
+            const orderDoc = snapshot.docs[0].data();
+            renderResult(orderDoc);
+            resultEl.classList.add("visible");
+            resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        } catch (err) {
+          console.error("Track order error:", err);
+          if (err.code === "permission-denied") {
+            errMsg.textContent = "Database access denied.";
+            errSub.textContent = "🔒 Firestore rules need to be updated. Go to Firebase Console → Firestore → Rules and allow read access to the orders collection.";
+          } else {
+            errMsg.textContent = "Error connecting to database.";
+            errSub.textContent = "Please check your internet connection and try again. (" + err.message + ")";
+          }
+          errorEl.classList.add("visible");
+        }
+
+        btn.innerHTML = '<span class="material-icons">search</span> Track';
+        btn.disabled = false;
+      };
+
+      /* ========== RENDER RESULT ========== */
+      function renderResult(order) {
+        document.getElementById("res-order-id").textContent = order.orderId || "—";
+
+        const date = order.createdAt
+          ? new Date(order.createdAt).toLocaleDateString("en-PK", {
+              day: "numeric", month: "long", year: "numeric",
+            })
+          : "—";
+        document.getElementById("res-order-date").textContent = `Placed on ${date}`;
+
+        const status = order.status || "Pending";
+        const statusBadge = document.getElementById("res-status-badge");
+        statusBadge.textContent = status;
+        statusBadge.className =
+          "track-status-badge status-" + status.toLowerCase().replace(/\s/g, "");
+
+        updateStepper(status);
+
+        const cust = order.customer || {};
+        document.getElementById("res-customer").textContent = cust.name || "—";
+        document.getElementById("res-phone").textContent = cust.phone || "—";
+        document.getElementById("res-address").textContent =
+          [cust.street, cust.city, cust.province].filter(Boolean).join(", ") || "—";
+        document.getElementById("res-payment").textContent = order.paymentMethod || "—";
+        document.getElementById("res-total").textContent =
+          order.total ? `PKR ${Number(order.total).toLocaleString()}` : "—";
+
+        const itemsContainer = document.getElementById("res-items-list");
+        const items = order.items || [];
+        itemsContainer.innerHTML =
+          items.length === 0
+            ? '<p style="color:#9ca3af;font-size:0.9rem;">No item details available.</p>'
+            : items
+                .map(
+                  (item) => `
+              <div class="track-item">
+                <div>
+                  <div class="track-item-name">${item.name}</div>
+                  <div class="track-item-sub">Qty: ${item.qty}</div>
+                </div>
+                <div class="track-item-price">PKR ${Number(
+                  item.total || item.price * item.qty
+                ).toLocaleString()}</div>
+              </div>`
+                )
+                .join("");
+      }
+
+      /* ========== STEPPER ========== */
+      function updateStepper(status) {
+        const stageMap = {
+          Pending: 0, Processing: 1, Shipped: 2, Delivered: 3, Cancelled: -1,
+        };
+        const stage = stageMap[status] ?? 0;
+        const steps = ["placed", "processing", "shipped", "delivered"];
+        const progressPct = ["5%", "35%", "70%", "100%"];
+
+        if (status === "Cancelled") {
+          steps.forEach((s) => {
+            document.getElementById(`step-${s}`).className = "stepper-icon";
+            document.getElementById(`step-${s}-lbl`).className = "stepper-label";
+          });
+          document.getElementById("stepper-progress").style.width = "0%";
+          return;
+        }
+
+        steps.forEach((s, i) => {
+          const icon = document.getElementById(`step-${s}`);
+          const lbl = document.getElementById(`step-${s}-lbl`);
+          if (i < stage) {
+            icon.className = "stepper-icon active";
+            lbl.className = "stepper-label active-label";
+          } else if (i === stage) {
+            icon.className = "stepper-icon current";
+            lbl.className = "stepper-label current-label";
+          } else {
+            icon.className = "stepper-icon";
+            lbl.className = "stepper-label";
+          }
+        });
+        document.getElementById("stepper-progress").style.width = progressPct[stage];
+      }
+
+      /* ========== ENTER KEY ========== */
+      document.getElementById("track-input").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") window.trackOrder();
+      });
+
+      /* ========== SPINNER CSS ========== */
+      const s = document.createElement("style");
+      s.textContent = "@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }";
+      document.head.appendChild(s);
+    </script>
+    <script type="module" src="js/firebase-auth.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Re-append in sorted order
     paginatedVisible.forEach((c) => productsGrid.appendChild(c));
 
-    // Wire up Buy Now buttons for visible cards
+    // Wire up Buy Now buttons for visible cards (redirect to cart immediately)
     paginatedVisible.forEach((card) => {
       const buyNowBtn = card.querySelector(".btn-buy-now");
       if (buyNowBtn && !buyNowBtn.dataset.wired) {
@@ -189,6 +189,8 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = "cart.html";
         });
       }
+      // Wire up Add-to-Cart for shop page cards (silent — already handled by main.js
+      // via initProductCards, but shop cards use class "shop-add-cart" which is matched)
     });
   }
 

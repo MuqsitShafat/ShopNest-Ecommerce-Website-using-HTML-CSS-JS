@@ -1,6 +1,12 @@
 /* ============================================================
-   SHOPNEST — Cart Fulfillment Logic
+   SHOPNEST — Cart Fulfillment Logic (with Firestore order saving)
    ============================================================ */
+
+// Generate a random ShopNest Order ID like "SN-98234"
+function generateOrderId() {
+  const num = Math.floor(10000 + Math.random() * 90000);
+  return `SN-${num}`;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const cartItemsList = document.getElementById("cart-items-list");
@@ -11,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const discountRow = document.getElementById("discount-row");
   const summaryDiscount = document.getElementById("summary-discount");
   const summaryTotal = document.getElementById("summary-total");
-
   const titleCount = document.getElementById("cart-title-count");
 
   let currentDiscount = 0;
@@ -98,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (subtotal > FREE_SHIPPING_THRESHOLD) shipping = 0;
 
     const totalBeforeDiscount = subtotal + shipping;
-
     const finalDiscount = Math.min(currentDiscount, subtotal);
     const total = totalBeforeDiscount - finalDiscount;
 
@@ -123,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (summaryTotal)
       summaryTotal.textContent = `PKR ${total.toLocaleString()}`;
 
-    // Show free shipping notice
     const shippingRow = document.getElementById("shipping-notice");
     if (shippingRow) {
       if (subtotal > 0 && subtotal <= FREE_SHIPPING_THRESHOLD) {
@@ -145,26 +148,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const onlineDetails = document.getElementById("online-payment-details");
   const placeOrderBtn = document.getElementById("place-order-btn");
 
-  let isOnlinePayment = false;
-  let paymentConfirmed = false;
+  let selectedPaymentMethod = "cod"; // default
 
   if (paymentRadios.length) {
     paymentRadios.forEach((radio) => {
       radio.addEventListener("change", (e) => {
+        selectedPaymentMethod = e.target.value;
         if (e.target.value === "online") {
-          isOnlinePayment = true;
-          paymentConfirmed = false;
           if (onlineDetails) onlineDetails.style.display = "block";
+          // Place order button is ALWAYS enabled — no forced "confirm first"
           if (placeOrderBtn) {
-            placeOrderBtn.disabled = true;
-            placeOrderBtn.style.opacity = "0.5";
-            placeOrderBtn.style.cursor = "not-allowed";
+            placeOrderBtn.disabled = false;
+            placeOrderBtn.style.opacity = "";
+            placeOrderBtn.style.cursor = "";
             placeOrderBtn.innerHTML =
-              '<span class="material-icons">lock</span> Confirm Payment First';
+              '<span class="material-icons">shopping_bag</span> Place Order';
           }
         } else {
-          isOnlinePayment = false;
-          paymentConfirmed = false;
           if (onlineDetails) onlineDetails.style.display = "none";
           if (placeOrderBtn) {
             placeOrderBtn.disabled = false;
@@ -178,47 +178,91 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Confirm payment button
-  const confirmPayBtn = document.getElementById("confirm-payment-btn");
-  if (confirmPayBtn) {
-    confirmPayBtn.addEventListener("click", () => {
-      paymentConfirmed = true;
-      confirmPayBtn.innerHTML = "✅ Payment Confirmed!";
-      confirmPayBtn.disabled = true;
-      confirmPayBtn.style.background = "#22c55e";
-      confirmPayBtn.style.borderColor = "#22c55e";
-      confirmPayBtn.style.color = "#fff";
-      if (placeOrderBtn) {
-        placeOrderBtn.disabled = false;
-        placeOrderBtn.style.opacity = "";
-        placeOrderBtn.style.cursor = "";
-        placeOrderBtn.innerHTML =
-          '<span class="material-icons">shopping_bag</span> Place Order';
-      }
-    });
-  }
-
-  // Place order logic
+  // Place order logic — saves to Firestore if available
   if (placeOrderBtn) {
-    placeOrderBtn.addEventListener("click", () => {
+    placeOrderBtn.addEventListener("click", async () => {
+      const items = typeof ShopNestCart !== "undefined" ? ShopNestCart.get() : [];
+      if (items.length === 0) return;
+
+      // Collect delivery info
+      const name = document.getElementById("addr-name")?.value.trim() || "";
+      const phone = document.getElementById("addr-phone")?.value.trim() || "";
+      const street = document.getElementById("addr-street")?.value.trim() || "";
+      const city = document.getElementById("addr-city")?.value.trim() || "";
+      const province = document.getElementById("addr-province")?.value || "";
+
+      if (!name || !phone || !street || !city || !province) {
+        if (typeof showToast === "function") {
+          showToast("Please fill in your delivery address!", "error");
+        } else {
+          alert("Please fill in your complete delivery address before placing the order.");
+        }
+        document.getElementById("address-section")?.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
+      const orderId = generateOrderId();
+      const subtotal = typeof ShopNestCart !== "undefined" ? ShopNestCart.total() : 0;
+      const shipping = subtotal > FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
+      const total = subtotal + shipping - currentDiscount;
+
+      const orderData = {
+        orderId,
+        createdAt: new Date().toISOString(),
+        status: "Pending",
+        paymentMethod: selectedPaymentMethod === "online" ? "Online Payment" : "Cash on Delivery",
+        customer: { name, phone, street, city, province },
+        items: items.map((i) => ({
+          id: i.id,
+          name: i.name,
+          price: i.price,
+          qty: i.qty,
+          total: i.price * i.qty,
+        })),
+        subtotal,
+        shipping,
+        discount: currentDiscount,
+        total,
+      };
+
+      // Try to save to Firestore
+      try {
+        // Dynamically import Firestore functions & use exported db from firebase-auth.js
+        const { db } = await import("./firebase-auth.js");
+        const { collection, addDoc } = await import(
+          "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"
+        );
+        await addDoc(collection(db, "orders"), orderData);
+        console.log("Order saved to Firestore:", orderId);
+      } catch (err) {
+        console.warn("Could not save order to Firestore:", err.message);
+        // Still allow order to go through even if Firestore fails
+      }
+
+      // Clear cart
       if (typeof ShopNestCart !== "undefined") ShopNestCart.save([]);
       renderCart();
       if (typeof refreshCartBadge === "function") refreshCartBadge();
 
+      // Show success modal
       const overlay = document.createElement("div");
       overlay.className = "order-success-overlay";
+      overlay.style.display = "flex";
       overlay.innerHTML = `
-         <div class="order-success-modal">
-           <div class="order-success-icon"><span class="material-icons" style="color: #22c55e; font-size: 4rem;">check_circle</span></div>
-           <h2>Order Placed!</h2>
-           <p>Your order has been successfully fulfilled. Thanks for shopping directly with ShopNest.</p>
-           <button class="btn btn-primary btn-full" onclick="window.location.href='index.html'">Return to Shop</button>
-         </div>
-       `;
+        <div class="order-success-modal">
+          <div class="order-success-icon"><span class="material-icons" style="color:#22c55e;font-size:4rem;">check_circle</span></div>
+          <h2>Order Placed! 🎉</h2>
+          <p style="font-size:0.95rem;color:#6b7280;margin-bottom:0.5rem;">Your Order ID is:</p>
+          <div style="background:#f3f4f6;border-radius:8px;padding:0.6rem 1.2rem;display:inline-block;font-weight:700;font-size:1.2rem;letter-spacing:1px;color:#121c2c;margin-bottom:1rem;">${orderId}</div>
+          <p>Your order has been successfully placed. We'll contact you at <strong>${phone}</strong> to confirm delivery.</p>
+          ${selectedPaymentMethod === "online" ? `<p style="background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);border-radius:8px;padding:0.75rem;font-size:0.9rem;color:#16a34a;"><strong>📱 Don't forget!</strong> Send your payment screenshot to <strong>03284430589</strong> on WhatsApp for faster processing.</p>` : ""}
+          <button class="btn btn-primary btn-full" onclick="window.location.href='index.html'" style="margin-top:1rem;">Return to Shop</button>
+        </div>
+      `;
       document.body.appendChild(overlay);
     });
   }
 
-  // Initial render trigger
+  // Initial render
   renderCart();
 });

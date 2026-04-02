@@ -4,10 +4,70 @@
    - Announcement bar, mobile menu, header scroll
    - Wishlist (localStorage, dropdown, heart icon)
    - Quick-view modal
-   - Cart (localStorage, badge, add-to-cart → redirect to cart)
+   - Cart (localStorage, badge, silent add-to-cart with toast)
    - Category bar routing (links with ?cat=)
    - Countdown timer, newsletter, scroll reveal
    ============================================================ */
+
+/* ============================================================
+   TOAST NOTIFICATION SYSTEM
+   ============================================================ */
+function showToast(message, type = "success") {
+  let toastContainer = document.getElementById("sn-toast-container");
+  if (!toastContainer) {
+    toastContainer = document.createElement("div");
+    toastContainer.id = "sn-toast-container";
+    toastContainer.style.cssText = `
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    `;
+    document.body.appendChild(toastContainer);
+  }
+
+  const toast = document.createElement("div");
+  const bgColor = type === "success" ? "linear-gradient(135deg,#22c55e,#16a34a)"
+    : type === "error" ? "linear-gradient(135deg,#ef4444,#b91c1c)"
+    : "linear-gradient(135deg,#3b82f6,#1d4ed8)";
+  toast.style.cssText = `
+    background: ${bgColor};
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  `;
+  toast.innerHTML = `<span class="material-icons" style="font-size:18px;">${
+    type === "success" ? "check_circle" : type === "error" ? "error" : "info"
+  }</span> ${message}`;
+  toastContainer.appendChild(toast);
+
+  requestAnimationFrame(() => {
+    toast.style.opacity = "1";
+    toast.style.transform = "translateY(0)";
+  });
+
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.style.transform = "translateY(12px)";
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
 
 /* ============================================================
    WISHLIST & CART — localStorage helpers
@@ -454,7 +514,7 @@ document.addEventListener("DOMContentLoaded", () => {
         imgWrap.addEventListener("click", () => openQuickView(card));
       }
 
-      // ---- Add to Cart button ----
+      // ---- Add to Cart button (silent — no redirect) ----
       const addBtn = card.querySelector(
         ".btn-primary.btn-full.shop-add-cart, .btn-primary.btn-full:not(.btn-buy-now)",
       );
@@ -469,19 +529,22 @@ document.addEventListener("DOMContentLoaded", () => {
           const img = card.querySelector(".product-img")?.src || "";
           const cat = card.querySelector(".product-cat")?.textContent || "";
           ShopNestCart.add({ id, name, price, img, cat });
-          // Brief visual feedback then redirect
+          // Brief visual feedback — NO redirect
           const orig = addBtn.innerHTML;
-          addBtn.innerHTML = "✓ Added! Redirecting…";
+          addBtn.innerHTML = `<span class="material-icons" style="font-size:16px;">check</span> Added!`;
           addBtn.style.background = "linear-gradient(135deg,#22c55e,#16a34a)";
           addBtn.disabled = true;
           refreshCartBadge();
+          showToast(`"${name}" added to cart! 🛒`);
           setTimeout(() => {
-            window.location.href = "cart.html";
-          }, 900);
+            addBtn.innerHTML = orig;
+            addBtn.style.background = "";
+            addBtn.disabled = false;
+          }, 2000);
         });
       }
 
-      // ---- Buy Now button ----
+      // ---- Buy Now button (clears cart, redirects) ----
       const buyNowBtn = card.querySelector(".btn-buy-now");
       if (buyNowBtn) {
         buyNowBtn.addEventListener("click", () => {
@@ -489,7 +552,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const price = parseInt(card.dataset.price) || 0;
           const img = card.querySelector(".product-img")?.src || "";
           const cat = card.querySelector(".product-cat")?.textContent || "";
-          // Clear cart and add only this item for direct purchase
           ShopNestCart.save([{ id, name, price, img, cat, qty: 1 }]);
           refreshCartBadge();
           window.location.href = "cart.html";
@@ -499,14 +561,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   initProductCards();
 
-  // Also handle index.html selected-items "Add" buttons
+  // Also handle index.html selected-items "Add" buttons (silent — no redirect)
   document.querySelectorAll('[id^="sel-add-"]').forEach((btn) => {
     btn.addEventListener("click", () => {
+      const name =
+        btn.closest(".selected-item")?.querySelector("h4")?.textContent || "Product";
       const item = {
         id: btn.id,
-        name:
-          btn.closest(".selected-item")?.querySelector("h4")?.textContent ||
-          "Product",
+        name,
         price: parseInt(
           (
             btn.closest(".selected-item")?.querySelector(".selected-price")
@@ -531,9 +593,13 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.style.color = "#fff";
       btn.style.borderColor = "#22c55e";
       refreshCartBadge();
+      showToast(`"${name}" added to cart! 🛒`);
       setTimeout(() => {
-        window.location.href = "cart.html";
-      }, 700);
+        btn.textContent = orig;
+        btn.style.background = "";
+        btn.style.color = "";
+        btn.style.borderColor = "";
+      }, 2000);
     });
   });
 
@@ -564,13 +630,16 @@ document.addEventListener("DOMContentLoaded", () => {
         img: btn.dataset.img,
         cat: btn.dataset.cat,
       });
-      btn.innerHTML = "✓ Added! Redirecting…";
+      btn.innerHTML = `<span class="material-icons" style="font-size:16px;">check</span> Added to Cart!`;
       btn.style.background = "linear-gradient(135deg,#22c55e,#16a34a)";
       btn.disabled = true;
       refreshCartBadge();
+      showToast(`"${btn.dataset.name}" added to cart! 🛒`);
       setTimeout(() => {
-        window.location.href = "cart.html";
-      }, 800);
+        btn.innerHTML = `<span class="material-icons">shopping_bag</span> Add to Cart`;
+        btn.style.background = "";
+        btn.disabled = false;
+      }, 2000);
     });
 
     qvContent.querySelector(".qv-buy-now")?.addEventListener("click", (e) => {

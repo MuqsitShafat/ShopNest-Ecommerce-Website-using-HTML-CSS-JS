@@ -1,15 +1,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-import { 
-  getAuth, 
-  GoogleAuthProvider, 
-  signInWithPopup, 
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-// Your web app's Firebase configuration from the screenshot
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC5dKkXC0QzbtrzSsYoZY-V38Y3MS8WDIQ",
   authDomain: "shopnest-e2d57.firebaseapp.com",
@@ -17,198 +18,189 @@ const firebaseConfig = {
   storageBucket: "shopnest-e2d57.firebasestorage.app",
   messagingSenderId: "171603675621",
   appId: "1:171603675621:web:94dacd14762cc7494b870c",
-  measurementId: "G-JT0986ELFP"
+  measurementId: "G-JT0986ELFP",
 };
 
-// Initialize Firebase
+// Initialize Firebase — app MUST be initialized before getFirestore/getAuth
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-// Initialize the Auth UI
+/* ============================================================
+   AUTH MODAL (Email / Password)
+   ============================================================ */
 function showAuthModal() {
-  let modal = document.getElementById('auth-modal');
+  let modal = document.getElementById("auth-modal");
+
   if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'auth-modal';
+    modal = document.createElement("div");
+    modal.id = "auth-modal";
+    modal.style.cssText =
+      "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(18,28,44,0.6);backdrop-filter:blur(4px);z-index:9999;display:flex;align-items:center;justify-content:center;";
     modal.innerHTML = `
-      <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(18,28,44,0.6);backdrop-filter:blur(4px);z-index:9999;display:flex;align-items:center;justify-content:center;">
-        <div style="background:#fff;padding:2.5rem;border-radius:16px;width:90%;max-width:400px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.15);">
-          <button id="auth-close" aria-label="Close" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-light);">&times;</button>
-          <h3 id="auth-title" style="margin-top:0;margin-bottom:1.5rem;font-size:1.5rem;color:var(--text-dark);">Sign In</h3>
-          <form id="auth-form" style="display:flex;flex-direction:column;gap:1.2rem;">
-            <input type="email" id="auth-email" placeholder="Email Address" required style="padding:1rem;border:1px solid #eaeaea;border-radius:8px;font-family:inherit;font-size:1rem;width:100%;box-sizing:border-box;"/>
-            <input type="password" id="auth-password" placeholder="Password" required minlength="6" style="padding:1rem;border:1px solid #eaeaea;border-radius:8px;font-family:inherit;font-size:1rem;width:100%;box-sizing:border-box;"/>
-            <p id="auth-error" style="color:var(--coral);font-size:0.85rem;margin:0;display:none;"></p>
-            <button type="submit" id="auth-submit" class="btn btn-primary btn-full" style="padding:1rem;">Sign In</button>
-          </form>
-          <p style="text-align:center;margin-top:1.5rem;font-size:0.95rem;color:var(--text-light);">
-            <span id="auth-switch-text">Don't have an account?</span> 
-            <a href="#" id="auth-switch-btn" style="color:var(--primary);font-weight:600;text-decoration:none;">Sign Up</a>
-          </p>
-        </div>
+      <div style="background:#fff;padding:2.5rem;border-radius:16px;width:90%;max-width:400px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.15);">
+        <button id="auth-close" aria-label="Close" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:gray;">&#x2715;</button>
+        <h3 id="auth-title" style="margin-top:0;margin-bottom:1.5rem;font-size:1.5rem;">Sign In</h3>
+        <form id="auth-form" style="display:flex;flex-direction:column;gap:1.2rem;">
+          <input type="email" id="auth-email" placeholder="Email Address" required style="padding:1rem;border:1px solid #eaeaea;border-radius:8px;width:100%;box-sizing:border-box;"/>
+          <input type="password" id="auth-password" placeholder="Password" required minlength="6" style="padding:1rem;border:1px solid #eaeaea;border-radius:8px;width:100%;box-sizing:border-box;"/>
+          <p id="auth-error" style="color:red;font-size:0.85rem;margin:0;display:none;"></p>
+          <button type="submit" id="auth-submit" class="btn btn-primary btn-full" style="padding:1rem;">Sign In</button>
+        </form>
+        <p style="text-align:center;margin-top:1.5rem;font-size:0.95rem;">
+          <span id="auth-switch-text">Don't have an account?</span> 
+          <a href="#" id="auth-switch-btn" style="color:blue;font-weight:600;text-decoration:none;">Sign Up</a>
+        </p>
       </div>
     `;
     document.body.appendChild(modal);
 
-    const closeBtn = document.getElementById('auth-close');
-    const form = document.getElementById('auth-form');
-    const switchBtn = document.getElementById('auth-switch-btn');
-    const title = document.getElementById('auth-title');
-    const submitBtn = document.getElementById('auth-submit');
-    const switchText = document.getElementById('auth-switch-text');
-    const errorMsg = document.getElementById('auth-error');
-    
-    let isLogin = true;
-
-    const resetForm = () => {
-      form.reset();
-      errorMsg.style.display = 'none';
-      isLogin = true;
-      title.innerText = 'Sign In';
-      submitBtn.innerText = 'Sign In';
-      switchText.innerText = "Don't have an account?";
-      switchBtn.innerText = 'Sign Up';
-    };
-
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      resetForm();
+    modal.querySelector("#auth-close").addEventListener("click", () => {
+      modal.style.display = "none";
     });
-    
-    switchBtn.addEventListener('click', (e) => {
+    modal.querySelector("#auth-switch-btn").addEventListener("click", (e) => {
       e.preventDefault();
-      isLogin = !isLogin;
-      title.innerText = isLogin ? 'Sign In' : 'Create Account';
-      submitBtn.innerText = isLogin ? 'Sign In' : 'Sign Up';
-      switchText.innerText = isLogin ? "Don't have an account?" : "Already have an account?";
-      switchBtn.innerText = isLogin ? 'Sign Up' : 'Sign In';
-      errorMsg.style.display = 'none';
+      const isLogin = document.getElementById("auth-submit").innerText === "Sign In";
+      document.getElementById("auth-title").innerText = isLogin ? "Create Account" : "Sign In";
+      document.getElementById("auth-submit").innerText = isLogin ? "Sign Up" : "Sign In";
+      document.getElementById("auth-switch-text").innerText = isLogin
+        ? "Already have an account?"
+        : "Don't have an account?";
+      document.getElementById("auth-switch-btn").innerText = isLogin ? "Sign In" : "Sign Up";
     });
 
-    form.addEventListener('submit', async (e) => {
+    modal.querySelector("#auth-form").addEventListener("submit", async (e) => {
       e.preventDefault();
-      const email = document.getElementById('auth-email').value;
-      const pass = document.getElementById('auth-password').value;
-      errorMsg.style.display = 'none';
-      submitBtn.disabled = true;
-      submitBtn.innerText = 'Please wait...';
-
+      const email = document.getElementById("auth-email").value;
+      const pass = document.getElementById("auth-password").value;
+      const btn = document.getElementById("auth-submit");
+      const errEl = document.getElementById("auth-error");
+      const isLogin = btn.innerText === "Sign In";
+      errEl.style.display = "none";
+      btn.disabled = true;
+      btn.textContent = "Please wait…";
       try {
-        if (isLogin) {
-          await signInWithEmailAndPassword(auth, email, pass);
-        } else {
-          await createUserWithEmailAndPassword(auth, email, pass);
-        }
-        modal.style.display = 'none';
-        resetForm();
+        if (isLogin) await signInWithEmailAndPassword(auth, email, pass);
+        else await createUserWithEmailAndPassword(auth, email, pass);
+        modal.style.display = "none";
       } catch (err) {
-        errorMsg.innerText = err.message.replace('Firebase: ', '');
-        errorMsg.style.display = 'block';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerText = isLogin ? 'Sign In' : 'Sign Up';
+        errEl.textContent = err.message;
+        errEl.style.display = "block";
+        btn.disabled = false;
+        btn.textContent = isLogin ? "Sign In" : "Sign Up";
       }
     });
   }
-  
-  modal.style.display = 'flex';
+
+  modal.style.display = "flex";
 }
 
-function initAuth() {
-  // Grab the Continue with Google button
-  // We identify it by its text content or image since it doesn't have an ID yet
-  const authButtons = document.querySelectorAll('.account-guest-view .btn');
-  let googleBtn = null;
-  let emailBtn = null;
+/* ============================================================
+   BIND AUTH BUTTONS on the guest view (called each time the
+   guest UI is rendered — both on initial load and after sign-out)
+   ============================================================ */
+function bindGuestButtons() {
+  // We find buttons inside the CURRENT guest view in the DOM
+  document.querySelectorAll(".account-guest-view").forEach((view) => {
+    const buttons = view.querySelectorAll(".btn");
+    buttons.forEach((btn) => {
+      // Avoid double-binding
+      if (btn.dataset.authBound) return;
+      btn.dataset.authBound = "1";
 
-  authButtons.forEach(btn => {
-    if (btn.textContent.includes('Google')) googleBtn = btn;
-    if (btn.textContent.includes('Email')) emailBtn = btn;
-  });
+      if (btn.textContent.includes("Google")) {
+        btn.addEventListener("click", async () => {
+          try {
+            btn.innerHTML = "Signing in…";
+            btn.disabled = true;
+            await signInWithPopup(auth, googleProvider);
+          } catch (error) {
+            console.error("Google Sign-In Error:", error.message);
+            alert("Failed to sign in with Google. " + error.message);
+            btn.innerHTML =
+              '<img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:16px;height:16px;" /> Continue with Google';
+            btn.disabled = false;
+          }
+        });
+      }
 
-  // Google Sign In trigger
-  if (googleBtn) {
-    googleBtn.addEventListener('click', async () => {
-      try {
-        googleBtn.innerHTML = 'Signing in...';
-        googleBtn.disabled = true;
-        const result = await signInWithPopup(auth, googleProvider);
-        const user = result.user;
-        console.log("Logged in gracefully: ", user.displayName);
-        // Will handle UI changes in the observer below
-      } catch (error) {
-        console.error("Authentication Error: ", error.message);
-        alert("Failed to sign in. " + error.message);
-        googleBtn.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:16px; height:16px;" /> Continue with Google';
-        googleBtn.disabled = false;
+      if (btn.textContent.includes("Email")) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          showAuthModal();
+          const accountDropdown = document.getElementById("account-dropdown");
+          if (accountDropdown) accountDropdown.classList.remove("open");
+        });
       }
     });
-  }
+  });
+}
 
-  // Email Sign In trigger
-  if (emailBtn) {
-    emailBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showAuthModal();
-      // Dropdown close gracefully
-      const accountDropdown = document.getElementById('account-dropdown');
-      if (accountDropdown) accountDropdown.classList.remove('open');
-    });
-  }
+/* ============================================================
+   INIT AUTH — watches auth state and updates header UI
+   ============================================================ */
+function initAuth() {
+  // Bind buttons that already exist in the static HTML
+  bindGuestButtons();
 
-  // Listen to auth state changes to update the Header UI
   onAuthStateChanged(auth, (user) => {
-    const accountDropdownBody = document.querySelector('.account-dropdown-body');
-    const headerAccountIcon = document.getElementById('btn-account');
-    
+    const accountDropdownBody = document.querySelector(".account-dropdown-body");
+    const headerAccountIcon = document.getElementById("btn-account");
+
     if (user) {
-      // User is signed in
+      // ---- User signed IN ----
       if (headerAccountIcon) {
         headerAccountIcon.innerHTML = `<span class="material-icons" style="color:var(--coral)">person</span>`;
       }
       if (accountDropdownBody) {
         accountDropdownBody.innerHTML = `
-          <div style="padding: 1rem; text-align: center;">
-            <img src="${user.photoURL || 'images/logo.png'}" style="width:48px;height:48px;border-radius:50%;margin-bottom:0.5rem;object-fit:cover;" />
-            <h4 style="margin:0;">${user.displayName || 'User'}</h4>
-            <p style="font-size:0.85rem; color:var(--text-light); margin-bottom:1rem;">${user.email}</p>
+          <div style="padding:1rem;text-align:center;">
+            <img src="${user.photoURL || "images/logo.png"}"
+                 style="width:48px;height:48px;border-radius:50%;margin-bottom:0.5rem;object-fit:cover;" />
+            <h4 style="margin:0;">${user.displayName || "User"}</h4>
+            <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:1rem;">${user.email}</p>
             <button id="btn-logout" class="btn btn-outline btn-full">Sign Out</button>
           </div>
         `;
-        document.getElementById('btn-logout').addEventListener('click', () => {
+        document.getElementById("btn-logout").addEventListener("click", () => {
           signOut(auth);
         });
       }
+      sessionStorage.setItem("was_logged_in", "true");
     } else {
-      // User is signed out
+      // ---- User signed OUT ----
       if (headerAccountIcon) {
         headerAccountIcon.innerHTML = `<span class="material-icons">person_outline</span>`;
       }
       if (accountDropdownBody) {
-        // Restore Guest UI
         accountDropdownBody.innerHTML = `
           <div class="account-guest-view" id="account-guest-view">
-            <p>Sign in to view your profile and manage orders.</p>
-            <button class="btn btn-primary btn-full"><span class="material-icons" style="font-size:16px;">email</span> Continue with Email</button>
-            <button class="btn btn-outline btn-full" style="margin-top:0.5rem;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:16px; height:16px;" /> Continue with Google</button>
+            <p>Sign in to view your profile.</p>
+            <button class="btn btn-primary btn-full">
+              <span class="material-icons" style="font-size:16px;">email</span> Continue with Email
+            </button>
+            <button class="btn btn-outline btn-full" style="margin-top:0.5rem;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width:16px;height:16px;" />
+              Continue with Google
+            </button>
           </div>
         `;
-        // Full page reload handles rebinding correctly
-        if (sessionStorage.getItem('was_logged_in')) {
-           window.location.reload();
-        }
+        // Bind the freshly created buttons
+        bindGuestButtons();
+
+        // If user just signed out (was logged in before), no full reload needed
+        // The UI is already updated above
       }
-    }
-    
-    if (user) {
-      sessionStorage.setItem('was_logged_in', 'true');
     }
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initAuth);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initAuth);
 } else {
   initAuth();
 }
+
+// Export so other files (cart.js etc.) can import auth + db
+export { auth, db };
