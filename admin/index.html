@@ -989,6 +989,9 @@
         container.innerHTML = onlineOrders.map((o) => {
           const cust = o.customer || {};
           const items = (o.items || []).slice(0, 3).map(i => i.name).join(", ");
+          // Build WhatsApp link to customer's number: strip non-digits, prepend 92 if needed
+          const rawPhone = (cust.phone || "").replace(/\D/g, "");
+          const waPhone = rawPhone.startsWith("92") ? rawPhone : rawPhone.startsWith("0") ? "92" + rawPhone.slice(1) : "92" + rawPhone;
           return `<div class="pay-verify-card">
             <div class="pay-verify-header">
               <div>
@@ -1005,8 +1008,8 @@
               <button class="btn-admin btn-danger" onclick="verifyPayment('${o._id}', 'Cancelled')">
                 <span class="material-icons">cancel</span> Cancel Order
               </button>
-              <a href="https://wa.me/923284430589" target="_blank" class="btn-admin btn-outline-admin">
-                <span class="material-icons">chat</span> WhatsApp
+              <a href="https://wa.me/${waPhone}" target="_blank" class="btn-admin btn-outline-admin" title="WhatsApp ${cust.name || 'customer'} (${cust.phone || ''})">
+                <span class="material-icons">chat</span> WhatsApp Customer
               </a>
             </div>
           </div>`;

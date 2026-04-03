@@ -240,8 +240,7 @@
       >
       <hr class="mobile-divider" />
       <!-- Mobile account / wishlist / track -->
-      <a href="#" class="mobile-nav-link" id="mob-profile" onclick="document.getElementById('btn-account')?.click();" style="display:flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:18px;">person_outline</span> My Profile</a>
-      <a href="#" class="mobile-nav-link" id="mob-wishlist" onclick="document.getElementById('btn-wishlist')?.click();" style="display:flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:18px;">favorite_border</span> My Wishlist</a>
+      <a href="#" class="mobile-nav-link" id="mob-wishlist" onclick="closeMobileMenu && closeMobileMenu(); setTimeout(function(){ document.getElementById('btn-wishlist')?.click(); }, 300);" style="display:flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:18px;">favorite_border</span> My Wishlist</a>
       <a href="track-order.html" class="mobile-nav-link" id="mob-track" style="display:flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:18px;">local_shipping</span> Track Order</a>
       <hr class="mobile-divider" />
       <a href="shop.html?cat=home" class="mobile-nav-link" id="mob-home"

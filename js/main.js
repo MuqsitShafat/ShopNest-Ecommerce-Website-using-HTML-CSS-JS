@@ -254,6 +254,8 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger?.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   }
+  // Expose globally so mobile wishlist inline onclick can call it
+  window.closeMobileMenu = closeMobileMenu;
 
   hamburger?.addEventListener("click", openMobileMenu);
   mobileClose?.addEventListener("click", closeMobileMenu);

@@ -236,19 +236,8 @@
       <a
         href="#"
         class="mobile-nav-link"
-        id="mob-profile"
-        onclick="document.getElementById('btn-account')?.click()"
-        style="display: flex; align-items: center; gap: 8px"
-        ><span class="material-icons" style="font-size: 18px"
-          >person_outline</span
-        >
-        My Profile</a
-      >
-      <a
-        href="#"
-        class="mobile-nav-link"
         id="mob-wishlist"
-        onclick="document.getElementById('btn-wishlist')?.click()"
+        onclick="closeMobileMenu && closeMobileMenu(); setTimeout(function(){ document.getElementById('btn-wishlist')?.click(); }, 300);"
         style="display: flex; align-items: center; gap: 8px"
         ><span class="material-icons" style="font-size: 18px"
           >favorite_border</span

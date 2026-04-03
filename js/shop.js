@@ -172,26 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Re-append in sorted order
     paginatedVisible.forEach((c) => productsGrid.appendChild(c));
 
-    // Wire up Buy Now buttons for visible cards (redirect to cart immediately)
-    paginatedVisible.forEach((card) => {
-      const buyNowBtn = card.querySelector(".btn-buy-now");
-      if (buyNowBtn && !buyNowBtn.dataset.wired) {
-        buyNowBtn.dataset.wired = "1";
-        buyNowBtn.addEventListener("click", () => {
-          const id = card.id;
-          const name = card.querySelector(".product-name")?.textContent || "";
-          const price = parseInt(card.dataset.price) || 0;
-          const img = card.querySelector(".product-img")?.src || "";
-          const cat = card.querySelector(".product-cat")?.textContent || "";
-          if (typeof ShopNestCart !== "undefined") {
-            ShopNestCart.add({ id, name, price, img, cat });
-          }
-          window.location.href = "cart.html";
-        });
-      }
-      // Wire up Add-to-Cart for shop page cards (silent — already handled by main.js
-      // via initProductCards, but shop cards use class "shop-add-cart" which is matched)
-    });
+    // Buy Now & Add-to-Cart are already wired by main.js initProductCards().
+    // No duplicate wiring needed here.
   }
 
   function sortCards(cards, sortVal) {

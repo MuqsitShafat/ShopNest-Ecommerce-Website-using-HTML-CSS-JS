@@ -204,6 +204,28 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // Phone must not contain letters — digits, +, -, spaces only
+      if (/[a-zA-Z]/.test(phone)) {
+        if (typeof showToast === "function") {
+          showToast("Phone number must contain only digits — no letters allowed!", "error");
+        } else {
+          alert("Phone number must contain only digits.");
+        }
+        document.getElementById("addr-phone")?.focus();
+        return;
+      }
+
+      // Email must contain @
+      if (!email.includes("@")) {
+        if (typeof showToast === "function") {
+          showToast("Please enter a valid email address (must include @)", "error");
+        } else {
+          alert("Please enter a valid email address with @.");
+        }
+        document.getElementById("addr-email")?.focus();
+        return;
+      }
+
       const orderId = generateOrderId();
       const subtotal = typeof ShopNestCart !== "undefined" ? ShopNestCart.total() : 0;
       const shipping = subtotal > FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
