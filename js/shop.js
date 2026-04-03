@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const img = card.querySelector(".product-img")?.src || "";
           const cat = card.querySelector(".product-cat")?.textContent || "";
           if (typeof ShopNestCart !== "undefined") {
-            ShopNestCart.save([{ id, name, price, img, cat, qty: 1 }]);
+            ShopNestCart.add({ id, name, price, img, cat });
           }
           window.location.href = "cart.html";
         });

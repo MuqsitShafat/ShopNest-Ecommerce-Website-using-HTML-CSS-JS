@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/contact.css" />
     <link rel="stylesheet" href="css/shopnest-extras.css" />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
   </head>
   <body>
     <!-- FREE SHIPPING RIBBON -->
@@ -205,6 +206,11 @@
         ><strong>Contact Us</strong></a
       >
       <hr class="mobile-divider" />
+      <!-- Mobile account / wishlist / track -->
+      <a href="#" class="mobile-nav-link" id="mob-profile" onclick="document.getElementById('btn-account')?.click();" style="display:flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:18px;">person_outline</span> My Profile</a>
+      <a href="#" class="mobile-nav-link" id="mob-wishlist" onclick="document.getElementById('btn-wishlist')?.click();" style="display:flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:18px;">favorite_border</span> My Wishlist</a>
+      <a href="track-order.html" class="mobile-nav-link" id="mob-track" style="display:flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:18px;">local_shipping</span> Track Order</a>
+      <hr class="mobile-divider" />
       <a href="shop.html?cat=home" class="mobile-nav-link" id="mob-home"
         >Home &amp; Garden</a
       >
@@ -297,23 +303,16 @@
               background: linear-gradient(to bottom, #ffffff, #fdfdfd);
             "
           >
-            <div
-              style="
-                background: rgba(37, 211, 102, 0.1);
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 1.5rem;
-              "
-            >
-              <span
-                class="material-icons"
-                style="font-size: 40px; color: #25d366"
-                >whatsapp</span
-              >
+            <!-- Animated support icon -->
+            <div style="margin-bottom: 0.75rem;">
+              <lottie-player
+                src="https://assets9.lottiefiles.com/packages/lf20_jcikwtux.json"
+                background="transparent"
+                speed="1"
+                style="width: 130px; height: 130px;"
+                loop
+                autoplay
+              ></lottie-player>
             </div>
             <h2
               style="
@@ -373,10 +372,10 @@
                 Chat on WhatsApp — 03284430589
               </a>
               <a
-                href="mailto:shopnest260@gmail.com"
+                href="tel:+923284430589"
                 class="btn btn-outline"
-                style="padding: 1rem 2rem; border-radius: 50px"
-                >Email Us Directly</a
+                style="padding: 1rem 2rem; border-radius: 50px; display:flex; align-items:center; gap:8px;"
+                ><span class="material-icons" style="font-size:18px;">phone</span> Call on 03284430589</a
               >
             </div>
           </div>
@@ -384,34 +383,27 @@
 
         <div class="contact-info-col">
           <div class="contact-channels">
+            <!-- Instagram card (top) -->
             <div class="channel-card">
-              <div class="channel-icon channel-icon--coral">
-                <span class="material-icons">email</span>
+              <div class="channel-icon" style="background: linear-gradient(135deg, rgba(225,48,108,0.15), rgba(193,53,132,0.1));">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#e1306c">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
               </div>
               <div class="channel-body">
-                <h3>Email Support</h3>
-                <p>shopnest260@gmail.com</p>
-                <span class="channel-note">Reply within 5 minutes</span>
+                <h3>Instagram</h3>
+                <p>@shop.nest260</p>
+                <span class="channel-note">Follow us for updates &amp; deals</span>
               </div>
               <a
-                href="mailto:shopnest260@gmail.com"
+                href="https://www.instagram.com/shop.nest260"
+                target="_blank"
                 class="btn btn-sm btn-outline"
-                >Email Us</a
+                style="border-color:#e1306c; color:#e1306c;"
+                >Follow Us</a
               >
             </div>
-            <div class="channel-card">
-              <div class="channel-icon channel-icon--success">
-                <span class="material-icons">phone</span>
-              </div>
-              <div class="channel-body">
-                <h3>Phone Support</h3>
-                <p>+92 328 4430589</p>
-                <span class="channel-note">Mon–Sun, 24/7</span>
-              </div>
-              <a href="tel:+923284430589" class="btn btn-sm btn-outline"
-                >Call Now</a
-              >
-            </div>
+            <!-- WhatsApp card -->
             <div class="channel-card">
               <div class="channel-icon channel-icon--whatsapp">
                 <span class="material-icons">phone_iphone</span>
@@ -426,6 +418,36 @@
                 target="_blank"
                 class="btn btn-sm btn-outline"
                 >Message Us</a
+              >
+            </div>
+            <!-- Phone/Call card -->
+            <div class="channel-card">
+              <div class="channel-icon channel-icon--success">
+                <span class="material-icons">phone</span>
+              </div>
+              <div class="channel-body">
+                <h3>Phone Support</h3>
+                <p>+92 328 4430589</p>
+                <span class="channel-note">Mon–Sun, 24/7</span>
+              </div>
+              <a href="tel:+923284430589" class="btn btn-sm btn-outline"
+                >Call Now</a
+              >
+            </div>
+            <!-- Email card (bottom) -->
+            <div class="channel-card">
+              <div class="channel-icon channel-icon--coral">
+                <span class="material-icons">email</span>
+              </div>
+              <div class="channel-body">
+                <h3>Email Support</h3>
+                <p>shopnest260@gmail.com</p>
+                <span class="channel-note">Reply within 5 minutes</span>
+              </div>
+              <a
+                href="mailto:shopnest260@gmail.com"
+                class="btn btn-sm btn-outline"
+                >Email Us</a
               >
             </div>
           </div>

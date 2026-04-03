@@ -334,7 +334,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* -------- CART BADGE (from localStorage) -------- */
   function refreshCartBadge() {
     const count = ShopNestCart.count();
-    document.querySelectorAll(".cart-badge").forEach((el) => {
+    // Only update cart badges that are NOT the wishlist badge
+    document.querySelectorAll(".cart-badge:not(.wishlist-badge)").forEach((el) => {
       el.textContent = count;
       el.style.display = count === 0 ? "none" : "";
     });
@@ -544,7 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      // ---- Buy Now button (clears cart, redirects) ----
+      // ---- Buy Now button (adds to cart & redirects) ----
       const buyNowBtn = card.querySelector(".btn-buy-now");
       if (buyNowBtn) {
         buyNowBtn.addEventListener("click", () => {
@@ -552,7 +553,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const price = parseInt(card.dataset.price) || 0;
           const img = card.querySelector(".product-img")?.src || "";
           const cat = card.querySelector(".product-cat")?.textContent || "";
-          ShopNestCart.save([{ id, name, price, img, cat, qty: 1 }]);
+          ShopNestCart.add({ id, name, price, img, cat });
           refreshCartBadge();
           window.location.href = "cart.html";
         });
@@ -644,16 +645,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     qvContent.querySelector(".qv-buy-now")?.addEventListener("click", (e) => {
       const btn = e.currentTarget;
-      ShopNestCart.save([
-        {
-          id: btn.dataset.id,
-          name: btn.dataset.name,
-          price: parseInt(btn.dataset.price),
-          img: btn.dataset.img,
-          cat: btn.dataset.cat,
-          qty: 1,
-        },
-      ]);
+      ShopNestCart.add({
+        id: btn.dataset.id,
+        name: btn.dataset.name,
+        price: parseInt(btn.dataset.price),
+        img: btn.dataset.img,
+        cat: btn.dataset.cat,
+      });
       refreshCartBadge();
       window.location.href = "cart.html";
     });

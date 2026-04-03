@@ -154,9 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
     paymentRadios.forEach((radio) => {
       radio.addEventListener("change", (e) => {
         selectedPaymentMethod = e.target.value;
+        const screenshotNote = document.getElementById("whatsapp-screenshot-note");
         if (e.target.value === "online") {
           if (onlineDetails) onlineDetails.style.display = "block";
-          // Place order button is ALWAYS enabled — no forced "confirm first"
+          if (screenshotNote) screenshotNote.style.display = "block";
           if (placeOrderBtn) {
             placeOrderBtn.disabled = false;
             placeOrderBtn.style.opacity = "";
@@ -166,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         } else {
           if (onlineDetails) onlineDetails.style.display = "none";
+          if (screenshotNote) screenshotNote.style.display = "none";
           if (placeOrderBtn) {
             placeOrderBtn.disabled = false;
             placeOrderBtn.style.opacity = "";
@@ -188,14 +190,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const name = document.getElementById("addr-name")?.value.trim() || "";
       const phone = document.getElementById("addr-phone")?.value.trim() || "";
       const street = document.getElementById("addr-street")?.value.trim() || "";
+      const email = document.getElementById("addr-email")?.value.trim() || "";
       const city = document.getElementById("addr-city")?.value.trim() || "";
       const province = document.getElementById("addr-province")?.value || "";
 
-      if (!name || !phone || !street || !city || !province) {
+      if (!name || !phone || !street || !email || !city || !province) {
         if (typeof showToast === "function") {
-          showToast("Please fill in your delivery address!", "error");
+          showToast("Please fill in all required delivery fields!", "error");
         } else {
-          alert("Please fill in your complete delivery address before placing the order.");
+          alert("Please fill in your complete delivery address (including email) before placing the order.");
         }
         document.getElementById("address-section")?.scrollIntoView({ behavior: "smooth" });
         return;
@@ -211,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createdAt: new Date().toISOString(),
         status: "Pending",
         paymentMethod: selectedPaymentMethod === "online" ? "Online Payment" : "Cash on Delivery",
-        customer: { name, phone, street, city, province },
+        customer: { name, phone, email, street, city, province },
         items: items.map((i) => ({
           id: i.id,
           name: i.name,
