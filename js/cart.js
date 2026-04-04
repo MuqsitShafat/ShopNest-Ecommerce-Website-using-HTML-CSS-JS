@@ -8,6 +8,30 @@ function generateOrderId() {
   return `SN-${num}`;
 }
 
+// ---- Firestore write helper (self-contained, no dynamic import) ----
+async function saveOrderToFirestore(orderData) {
+  const { initializeApp, getApps } = await import(
+    "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"
+  );
+  const { getFirestore, collection, addDoc } = await import(
+    "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"
+  );
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC5dKkXC0QzbtrzSsYoZY-V38Y3MS8WDIQ",
+    authDomain: "shopnest-e2d57.firebaseapp.com",
+    projectId: "shopnest-e2d57",
+    storageBucket: "shopnest-e2d57.firebasestorage.app",
+    messagingSenderId: "171603675621",
+    appId: "1:171603675621:web:94dacd14762cc7494b870c",
+  };
+
+  // Re-use the default app if already initialized, otherwise create it
+  const app = getApps().length > 0 ? getApps()[0] : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  await addDoc(collection(db, "orders"), orderData);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const cartItemsList = document.getElementById("cart-items-list");
   const cartEmpty = document.getElementById("cart-empty");
@@ -181,8 +205,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Place order logic — saves to Firestore if available
+  let isOrderPlacing = false; // debounce / guard against double-click
+
   if (placeOrderBtn) {
     placeOrderBtn.addEventListener("click", async () => {
+      // ---- Debounce: prevent duplicate submissions ----
+      if (isOrderPlacing) return;
+
       const items = typeof ShopNestCart !== "undefined" ? ShopNestCart.get() : [];
       if (items.length === 0) return;
 
@@ -250,18 +279,26 @@ document.addEventListener("DOMContentLoaded", () => {
         total,
       };
 
-      // Try to save to Firestore
+      // ---- Lock button immediately to prevent duplicate orders ----
+      isOrderPlacing = true;
+      placeOrderBtn.disabled = true;
+      placeOrderBtn.innerHTML = '<span class="material-icons" style="animation:spin 1s linear infinite;display:inline-block;">sync</span> Placing Order…';
+
+      // ---- Save to Firestore (self-contained, no relative import) ----
       try {
-        // Dynamically import Firestore functions & use exported db from firebase-auth.js
-        const { db } = await import("./firebase-auth.js");
-        const { collection, addDoc } = await import(
-          "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"
-        );
-        await addDoc(collection(db, "orders"), orderData);
-        console.log("Order saved to Firestore:", orderId);
+        await saveOrderToFirestore(orderData);
+        console.log("✅ Order saved to Firestore:", orderId);
       } catch (err) {
-        console.warn("Could not save order to Firestore:", err.message);
-        // Still allow order to go through even if Firestore fails
+        console.warn("⚠️ Could not save order to Firestore:", err.message);
+        // Still allow order to complete even if Firestore fails
+      }
+
+      // ---- Add spinner animation style if not already present ----
+      if (!document.getElementById("cart-spin-style")) {
+        const style = document.createElement("style");
+        style.id = "cart-spin-style";
+        style.textContent = "@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}";
+        document.head.appendChild(style);
       }
 
       // Clear cart

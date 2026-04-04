@@ -113,10 +113,20 @@
         border-radius: 20px;
         box-shadow: 0 4px 30px rgba(18, 28, 44, 0.1);
         max-width: 700px;
-        margin: 0 auto;
+        margin: 0 auto 1.5rem;
         overflow: hidden;
       }
       .track-result.visible { display: block; }
+      /* Multi-result list container */
+      #track-results-list { display: none; max-width: 700px; margin: 0 auto; }
+      #track-results-list.visible { display: block; }
+      .multi-order-label {
+        text-align: center;
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
       .track-result-header {
         background: linear-gradient(135deg, #121c2c, #1e3a8a);
         color: #fff;
@@ -353,7 +363,10 @@
         <p id="track-error-sub">Please double-check your Order ID or Phone Number.</p>
       </div>
 
-      <!-- Result -->
+      <!-- Multi-order results (shown when searching by phone with multiple orders) -->
+      <div id="track-results-list"></div>
+
+      <!-- Single Result (shown when searching by Order ID) -->
       <div class="track-result" id="track-result">
         <div class="track-result-header">
           <div>
@@ -454,6 +467,7 @@
         where,
         getDocs,
         limit,
+        orderBy,
       } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 
       /* ========== FIREBASE INIT (self-contained) ========== */
@@ -515,10 +529,11 @@
               limit(1)
             );
           } else {
+            // Phone search: try exact match
             q = query(
               collection(db, "orders"),
               where("customer.phone", "==", inputVal),
-              limit(5)
+              limit(20)
             );
           }
 
@@ -528,11 +543,26 @@
             errMsg.textContent = `No order found for "${inputVal}"`;
             errSub.textContent = "Please double-check your Order ID or Phone Number. Order IDs look like SN-75117.";
             errorEl.classList.add("visible");
-          } else {
+          } else if (trackMode === "id") {
+            // Single order result by ID
+            document.getElementById("track-results-list").classList.remove("visible");
             const orderDoc = snapshot.docs[0].data();
             renderResult(orderDoc);
             resultEl.classList.add("visible");
             resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else {
+            // Multiple orders by phone — show ALL of them
+            resultEl.classList.remove("visible");
+            const orders = snapshot.docs.map(d => d.data());
+            
+            // Sort by createdAt descending client-side to avoid Firestore index requirement
+            orders.sort((a, b) => {
+               const dateA = new Date(a.createdAt || 0).getTime();
+               const dateB = new Date(b.createdAt || 0).getTime();
+               return dateB - dateA;
+            });
+
+            renderMultipleResults(orders);
           }
         } catch (err) {
           console.error("Track order error:", err);
@@ -597,6 +627,58 @@
               </div>`
                 )
                 .join("");
+      }
+
+      /* ========== RENDER MULTIPLE RESULTS (phone search) ========== */
+      function renderMultipleResults(orders) {
+        const container = document.getElementById("track-results-list");
+        container.innerHTML = "";
+
+        const label = document.createElement("p");
+        label.className = "multi-order-label";
+        label.textContent = `📦 Found ${orders.length} order${orders.length > 1 ? "s" : ""} for this phone number:`;
+        container.appendChild(label);
+
+        orders.forEach((order) => {
+          const status = order.status || "Pending";
+          const statusClass = "status-" + status.toLowerCase().replace(/\s/g, "");
+          const date = order.createdAt
+            ? new Date(order.createdAt).toLocaleDateString("en-PK", {
+                day: "numeric", month: "long", year: "numeric",
+              })
+            : "—";
+          const cust = order.customer || {};
+          const items = (order.items || []).map(i => `${i.name} ×${i.qty}`).join(", ");
+          const total = order.total ? `PKR ${Number(order.total).toLocaleString()}` : "—";
+
+          const card = document.createElement("div");
+          card.className = "track-result";
+          card.style.display = "block";
+          card.style.marginBottom = "1.25rem";
+          card.innerHTML = `
+            <div class="track-result-header">
+              <div>
+                <div class="track-order-id">${order.orderId || "—"}</div>
+                <div class="track-order-meta">Placed on ${date}</div>
+              </div>
+              <div><span class="track-status-badge ${statusClass}">${status}</span></div>
+            </div>
+            <div class="track-order-info">
+              <div class="track-info-item"><label>Customer</label><span>${cust.name || "—"}</span></div>
+              <div class="track-info-item"><label>Phone</label><span>${cust.phone || "—"}</span></div>
+              <div class="track-info-item"><label>Delivery Address</label><span>${[cust.street, cust.city, cust.province].filter(Boolean).join(", ") || "—"}</span></div>
+              <div class="track-info-item"><label>Payment</label><span>${order.paymentMethod || "—"}</span></div>
+              <div class="track-info-item"><label>Total</label><span>${total}</span></div>
+            </div>
+            <div class="track-items-list">
+              <h3>Items Ordered</h3>
+              <p style="font-size:0.9rem;color:#374151;">${items || "No items"}</p>
+            </div>`;
+          container.appendChild(card);
+        });
+
+        container.classList.add("visible");
+        container.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
       /* ========== STEPPER ========== */
