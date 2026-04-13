@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleCount = document.getElementById("cart-title-count");
 
   let currentDiscount = 0;
-  const SHIPPING_FEE = 250;
+  const SHIPPING_FEE = 150;
   const FREE_SHIPPING_THRESHOLD = 1000;
 
   function renderCart() {
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let shipping = SHIPPING_FEE;
     if (subtotal === 0) shipping = 0;
-    else if (subtotal > FREE_SHIPPING_THRESHOLD) shipping = 0;
+    else if (subtotal >= FREE_SHIPPING_THRESHOLD) shipping = 0;
 
     const totalBeforeDiscount = subtotal + shipping;
     const finalDiscount = Math.min(currentDiscount, subtotal);
@@ -153,11 +153,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const shippingRow = document.getElementById("shipping-notice");
     if (shippingRow) {
-      if (subtotal > 0 && subtotal <= FREE_SHIPPING_THRESHOLD) {
+      if (subtotal > 0 && subtotal < FREE_SHIPPING_THRESHOLD) {
         const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
         shippingRow.style.display = "block";
         shippingRow.textContent = `Add PKR ${remaining.toLocaleString()} more for FREE delivery!`;
-      } else if (subtotal > FREE_SHIPPING_THRESHOLD) {
+      } else if (subtotal >= FREE_SHIPPING_THRESHOLD) {
         shippingRow.style.display = "block";
         shippingRow.textContent = "✅ You qualify for FREE delivery!";
         shippingRow.style.color = "#16a34a";
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const orderId = generateOrderId();
       const subtotal = typeof ShopNestCart !== "undefined" ? ShopNestCart.total() : 0;
-      const shipping = subtotal > FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
+      const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
       const total = subtotal + shipping - currentDiscount;
 
       const orderData = {
