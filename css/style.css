@@ -1140,13 +1140,13 @@ h1, h2, h3, h4, h5 {
 .countdown-unit {
   background: rgba(255,255,255,0.1);
   border-radius: var(--radius-lg);
-  padding: var(--space-4) var(--space-5);
-  min-width: 4.5rem;
+  padding: var(--space-4) var(--space-4);
+  min-width: 4rem;
   text-align: center;
 }
 .countdown-unit span {
   display: block;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #fff;
   line-height: 1;
@@ -1154,17 +1154,17 @@ h1, h2, h3, h4, h5 {
 }
 .countdown-unit label {
   display: block;
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: rgba(255,255,255,0.5);
   margin-top: var(--space-1);
 }
 .countdown-sep {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: rgba(255,255,255,0.4);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .flash-image-wrap {
@@ -1456,8 +1456,17 @@ h1, h2, h3, h4, h5 {
   .selected-item { flex-wrap: wrap; }
 
   /* Countdown */
-  .countdown-unit { min-width: 3.5rem; padding: var(--space-3) var(--space-4); }
-  .countdown-unit span { font-size: 1.5rem; }
+  .countdown { gap: var(--space-2); margin-bottom: var(--space-6); justify-content: center; }
+  .countdown-unit { min-width: 3.25rem; padding: var(--space-2) var(--space-3); }
+  .countdown-unit span { font-size: 1.25rem; }
+  .countdown-unit label { font-size: 0.55rem; }
+  .countdown-sep { font-size: 1rem; margin-bottom: 0.35rem; }
+
+  .flash-img {
+    max-height: 320px;
+    width: 90%;
+    margin: 0 auto;
+  }
 
   /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-8); }

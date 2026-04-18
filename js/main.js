@@ -155,11 +155,21 @@ const ShopNestCart = {
    ============================================================ */
 const productDescriptions = {
   default:
-    "A premium quality product from ShopNest's curated collection. Designed for modern lifestyles with attention to detail and lasting comfort.",
+    "Discover the perfect blend of quality and style with ShopNest's curated essentials. Elevate your daily routine with products built for premium comfort.",
+  "Digital Measuring Spoon":
+    "Precision in every pinch—measure ingredients with clinical accuracy for perfect recipes every time. A must-have for every modern kitchen!",
+  "Folding USB Charging Fan":
+    "Stay cool anywhere—your pocket-sized breeze with powerful airflow and long-lasting USB power. Silent, portable, and incredibly refreshing.",
+  "Trending Mini Air Conditioner Fan Premium 3 In 1 Desk Cooling Fan Spray Fan":
+    "Personal climate control—3-in-1 cooling, humidifying, and misting for your ultimate summer comfort. Experience the arctic breeze at your desk!",
+  "Dishwasher Scrubber Brush Liquid Soap Dispenser":
+    "Effortless cleaning at your fingertips—the smart soap dispenser brush that makes dishwashing a breeze. Save time and soap with every scrub!",
+  "2 in 1 Digital Measuring Spoon & Soap Brush Combo":
+    "The ultimate kitchen companion—why choose between precision and power when you can have both? Master your culinary craft with this elite toolkit.",
 };
 
 function buildQuickViewHTML(card) {
-  const name = card.querySelector(".product-name")?.textContent || "";
+  const name = card.querySelector(".product-name")?.textContent.trim() || "";
   const cat = card.querySelector(".product-cat")?.textContent || "";
   const stars = card.querySelector(".stars")?.textContent || "★★★★★";
   const ratingC = card.querySelector(".rating-count")?.textContent || "";
@@ -196,6 +206,9 @@ function buildQuickViewHTML(card) {
     imgHtml = `<img src="${imgSrc}" alt="${name}" style="${imgStyle}" loading="lazy" />`;
   }
 
+  // Get description: specific if exists, otherwise default
+  const description = productDescriptions[name] || productDescriptions.default;
+
   return `
     <div class="qv-img-wrap">
       ${imgHtml}
@@ -212,17 +225,17 @@ function buildQuickViewHTML(card) {
         ${old ? `<span class="qv-price-old">${old}</span>` : ""}
         ${save ? `<span class="qv-price-save">${save}</span>` : ""}
       </div>
-      <p class="qv-desc">${productDescriptions.default}</p>
+      <p class="qv-desc">${description}</p>
       <div class="qv-actions">
-        <button class="btn btn-primary btn-full qv-add-cart"
-                data-id="${id}" data-name="${name}" data-price="${priceNum}"
-                data-img="${imgSrc}" data-cat="${cat}">
-          <span class="material-icons">shopping_bag</span> Add to Cart
-        </button>
         <button class="btn btn-coral btn-full qv-buy-now"
                 data-id="${id}" data-name="${name}" data-price="${priceNum}"
                 data-img="${imgSrc}" data-cat="${cat}">
           <span class="material-icons">bolt</span> Buy Now
+        </button>
+        <button class="btn btn-primary btn-full qv-add-cart"
+                data-id="${id}" data-name="${name}" data-price="${priceNum}"
+                data-img="${imgSrc}" data-cat="${cat}">
+          <span class="material-icons">shopping_bag</span> Add to Cart
         </button>
         <button class="qv-add-wishlist" data-id="${id}" data-name="${name}"
                 data-price="${priceNum}" data-img="${imgSrc}">
@@ -804,10 +817,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnFlashSale && btnFlashSale.tagName === 'BUTTON') {
     btnFlashSale.addEventListener("click", () => {
       ShopNestCart.add({
-        id: "sp-sale-lamp",
-        name: "Digital measuring spoon and digital mini fan",
-        price: 1599,
-        img: "images/discount.png",
+        id: "sp-combo-brush",
+        name: "2 in 1 Digital Measuring Spoon & Soap Brush Combo",
+        price: 1100,
+        img: "images/spoon_brush.png",
         cat: "Home & Garden",
       });
       refreshCartBadge();

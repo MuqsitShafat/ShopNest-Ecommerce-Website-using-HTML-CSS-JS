@@ -123,8 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
       typeof ShopNestCart !== "undefined" ? ShopNestCart.total() : 0;
 
     let shipping = SHIPPING_FEE;
+    const items = typeof ShopNestCart !== "undefined" ? ShopNestCart.get() : [];
+    const hasFreeShipProduct = items.some(item => item.id === 'sp-spoon');
+
     if (subtotal === 0) shipping = 0;
-    else if (subtotal >= FREE_SHIPPING_THRESHOLD) shipping = 0;
+    else if (subtotal >= FREE_SHIPPING_THRESHOLD || hasFreeShipProduct) shipping = 0;
 
     const totalBeforeDiscount = subtotal + shipping;
     const finalDiscount = Math.min(currentDiscount, subtotal);
@@ -134,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
       summarySubtotal.textContent = `PKR ${subtotal.toLocaleString()}`;
     if (summaryShipping)
       summaryShipping.textContent =
-        shipping === 0 && subtotal > 0
+        shipping === 0 && (subtotal > 0 || hasFreeShipProduct)
           ? "Free 🎉"
           : shipping === 0
             ? "PKR 0"
@@ -151,18 +154,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (summaryTotal)
       summaryTotal.textContent = `PKR ${total.toLocaleString()}`;
 
-    const shippingRow = document.getElementById("shipping-notice");
-    if (shippingRow) {
-      if (subtotal > 0 && subtotal < FREE_SHIPPING_THRESHOLD) {
+    const shippingNotice = document.getElementById("shipping-notice");
+    if (shippingNotice) {
+      if (hasFreeShipProduct) {
+        shippingNotice.style.display = "block";
+        shippingNotice.textContent = "✅ Special Offer: FREE delivery on this order!";
+        shippingNotice.style.color = "#16a34a";
+      } else if (subtotal > 0 && subtotal < FREE_SHIPPING_THRESHOLD) {
         const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
-        shippingRow.style.display = "block";
-        shippingRow.textContent = `Add PKR ${remaining.toLocaleString()} more for FREE delivery!`;
+        shippingNotice.style.display = "block";
+        shippingNotice.textContent = `Add PKR ${remaining.toLocaleString()} more for FREE delivery!`;
+        shippingNotice.style.color = "";
       } else if (subtotal >= FREE_SHIPPING_THRESHOLD) {
-        shippingRow.style.display = "block";
-        shippingRow.textContent = "✅ You qualify for FREE delivery!";
-        shippingRow.style.color = "#16a34a";
+        shippingNotice.style.display = "block";
+        shippingNotice.textContent = "✅ You qualify for FREE delivery!";
+        shippingNotice.style.color = "#16a34a";
       } else {
-        shippingRow.style.display = "none";
+        shippingNotice.style.display = "none";
       }
     }
   }
@@ -257,7 +265,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const orderId = generateOrderId();
       const subtotal = typeof ShopNestCart !== "undefined" ? ShopNestCart.total() : 0;
-      const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
+      const hasFreeShipProduct = items.some(item => item.id === 'sp-spoon');
+      const shipping = (subtotal >= FREE_SHIPPING_THRESHOLD || hasFreeShipProduct) ? 0 : SHIPPING_FEE;
       const total = subtotal + shipping - currentDiscount;
 
       const orderData = {
