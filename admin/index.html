@@ -1747,7 +1747,7 @@
                 <div class="info-row"><div class="info-label">City/Province:</div> <div class="info-val">${cust.city || "—"} / ${cust.province || "—"}</div></div>
                 <div class="info-row amount-row">
                   <div class="info-label">Collect Amount:</div> 
-                  <div class="info-val amount-val">PKR ${(o.total || 0).toLocaleString()}</div>
+                  <div class="info-val amount-val">PKR ${o.paymentMethod === "Online Payment" ? "0" : (o.total || 0).toLocaleString()}</div>
                 </div>
                 <div class="info-row" style="margin-top:5px; font-size:14px;">
                   <div class="info-label">Payment Type:</div> 
