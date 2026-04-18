@@ -268,8 +268,32 @@
       >
       <hr class="mobile-divider" />
       <!-- Mobile account / wishlist / track -->
-      <a href="#" class="mobile-nav-link" id="mob-wishlist" onclick="closeMobileMenu && closeMobileMenu(); setTimeout(function(){ document.getElementById('btn-wishlist')?.click(); }, 300);" style="display:flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:18px;">favorite_border</span> My Wishlist</a>
-      <a href="track-order.html" class="mobile-nav-link" id="mob-track" style="display:flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:18px;">local_shipping</span> Track Order</a>
+      <a
+        href="#"
+        class="mobile-nav-link"
+        id="mob-wishlist"
+        onclick="
+          closeMobileMenu && closeMobileMenu();
+          setTimeout(function () {
+            document.getElementById('btn-wishlist')?.click();
+          }, 300);
+        "
+        style="display: flex; align-items: center; gap: 8px"
+        ><span class="material-icons" style="font-size: 18px"
+          >favorite_border</span
+        >
+        My Wishlist</a
+      >
+      <a
+        href="track-order.html"
+        class="mobile-nav-link"
+        id="mob-track"
+        style="display: flex; align-items: center; gap: 8px"
+        ><span class="material-icons" style="font-size: 18px"
+          >local_shipping</span
+        >
+        Track Order</a
+      >
       <hr class="mobile-divider" />
       <a href="shop.html?cat=home" class="mobile-nav-link" id="mob-home"
         >Home &amp; Garden</a
@@ -453,47 +477,56 @@
         <div class="products-grid shop-products-grid" id="shop-products-grid">
           <article
             class="product-card"
-            data-category="electronics"
-            data-price="12500"
+            id="sp-spoon"
+            data-category="home"
+            data-price="1000"
             data-rating="5"
             data-sale="true"
-            data-new="false"
-            id="sp-headphones"
+            data-new="true"
+            data-images='["images/spoon.webp", "images/spoon1.png", "images/spoon2.jpg"]'
           >
-            <div class="product-img-wrap">
+            <div class="product-img-wrap carousel-container">
               <img
-                src="images/product_headphones.png"
-                alt="Acoustic Pro Headphones"
+                src="images/spoon.webp"
+                alt="Digital Measuring Spoon"
                 class="product-img"
                 loading="lazy"
               />
               <div class="product-badges">
-                <span class="badge badge--sale">−35%</span>
+                <span class="badge badge--sale">−50%</span>
               </div>
               <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
+                <button
+                  class="product-action-btn"
+                  id="wish-spoon"
+                  aria-label="Add to wishlist"
+                >
                   <span class="material-icons">favorite_border</span>
                 </button>
               </div>
             </div>
             <div class="product-info">
-              <span class="product-cat">Electronics</span>
-              <h3 class="product-name">Acoustic Pro Headphones</h3>
+              <span class="product-cat">Kitchen</span>
+              <h3 class="product-name">Digital Measuring Spoon</h3>
               <div class="product-rating">
                 <span class="stars">★★★★★</span
-                ><span class="rating-count">(128)</span>
+                ><span class="rating-count">(84)</span>
               </div>
               <div class="product-pricing">
-                <span class="price-current">PKR 12,500</span
-                ><span class="price-old">PKR 19,200</span
-                ><span class="price-save">35% off</span>
+                <span class="price-current">PKR 1,000</span>
+                <span class="price-old">PKR 2,000</span>
+                <span class="price-save">50% off</span>
               </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
+              <button
+                class="btn btn-primary btn-full shop-add-cart"
+                id="add-spoon"
+              >
                 Add to Cart
               </button>
               <button
                 class="btn btn-coral btn-full btn-buy-now"
                 style="margin-top: 0.5rem"
+                id="buy-spoon"
               >
                 ⚡ Buy Now
               </button>
@@ -502,17 +535,137 @@
 
           <article
             class="product-card"
-            data-category="fashion"
-            data-price="8500"
-            data-rating="4"
+            id="sp-fan"
+            data-category="electronics"
+            data-price="850"
+            data-rating="5"
             data-sale="true"
-            data-new="false"
-            id="sp-watch"
+            data-new="true"
+            data-images='["images/mini_fan.webp", "images/mini_fan1.jpg", "images/mini_fan2.webp"]'
           >
-            <div class="product-img-wrap">
+            <div class="product-img-wrap carousel-container">
               <img
-                src="images/product_watch.png"
-                alt="Minimalist Quartz Watch"
+                src="images/mini_fan.webp"
+                alt="Folding USB Charging Fan"
+                class="product-img"
+                loading="lazy"
+              />
+              <div class="product-badges">
+                <span class="badge badge--sale">−70%</span>
+              </div>
+              <div class="product-actions">
+                <button
+                  class="product-action-btn"
+                  id="wish-fan"
+                  aria-label="Add to wishlist"
+                >
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Electronics</span>
+              <h3 class="product-name">Folding USB Charging Fan</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span
+                ><span class="rating-count">(112)</span>
+              </div>
+              <div class="product-pricing">
+                <span class="price-current">PKR 850</span>
+                <span class="price-old">PKR 2,833</span>
+                <span class="price-save">70% off</span>
+              </div>
+              <button
+                class="btn btn-primary btn-full shop-add-cart"
+                id="add-fan"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="btn btn-coral btn-full btn-buy-now"
+                style="margin-top: 0.5rem"
+                id="buy-fan"
+              >
+                ⚡ Buy Now
+              </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card"
+            id="sp-desktop-fan"
+            data-category="electronics"
+            data-price="3500"
+            data-rating="5"
+            data-sale="true"
+            data-new="true"
+            data-images='["images/laptop_fan.jpg", "images/laptop_fan1.jpg", "images/laptop_fan2.webp"]'
+          >
+            <div class="product-img-wrap carousel-container">
+              <img
+                src="images/laptop_fan.jpg"
+                alt="Trending Mini Air Conditioner Fan Premium 3 In 1 Desk Cooling Fan Spray Fan"
+                class="product-img"
+                loading="lazy"
+              />
+              <div class="product-badges">
+                <span class="badge badge--new">New</span>
+              </div>
+              <div class="product-actions">
+                <button
+                  class="product-action-btn"
+                  id="wish-desktop-fan"
+                  aria-label="Add to wishlist"
+                >
+                  <span class="material-icons">favorite_border</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="product-cat">Electronics</span>
+              <h3 class="product-name">
+                Trending Mini Air Conditioner Fan Premium 3 In 1 Desk Cooling
+                Fan Spray Fan
+              </h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span
+                ><span class="rating-count">(95)</span>
+              </div>
+              <div class="product-pricing">
+                <span class="price-current">PKR 3,500</span>
+                <span class="price-old">PKR 14,000</span>
+                <span class="price-save">75% off</span>
+              </div>
+              <button
+                class="btn btn-primary btn-full shop-add-cart"
+                id="add-desktop-fan"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="btn btn-coral btn-full btn-buy-now"
+                style="margin-top: 0.5rem"
+                id="buy-desktop-fan"
+              >
+                ⚡ Buy Now
+              </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card"
+            id="sp-soap-brush"
+            data-category="home"
+            data-price="270"
+            data-rating="5"
+            data-sale="true"
+            data-new="true"
+            data-images='["images/soap_brush.webp", "images/soap_brush1.webp", "images/soap_brush2.png", "images/soap_brush3.png"]'
+          >
+            <div class="product-img-wrap carousel-container">
+              <img
+                src="images/soap_brush.webp"
+                alt="Dishwasher scrubber brush kitchen tools liquid soap dispenser cleaning brush pot dish washing"
                 class="product-img"
                 loading="lazy"
               />
@@ -520,78 +673,37 @@
                 <span class="badge badge--sale">−40%</span>
               </div>
               <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
+                <button
+                  class="product-action-btn"
+                  id="wish-soap-brush"
+                  aria-label="Add to wishlist"
+                >
                   <span class="material-icons">favorite_border</span>
                 </button>
               </div>
             </div>
             <div class="product-info">
-              <span class="product-cat">Fashion</span>
-              <h3 class="product-name">Minimalist Quartz Watch</h3>
-              <div class="product-rating">
-                <span class="stars">★★★★☆</span
-                ><span class="rating-count">(94)</span>
-              </div>
-              <div class="product-pricing">
-                <span class="price-current">PKR 8,500</span
-                ><span class="price-old">PKR 14,200</span
-                ><span class="price-save">40% off</span>
-              </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
-                Add to Cart
-              </button>
-              <button
-                class="btn btn-coral btn-full btn-buy-now"
-                style="margin-top: 0.5rem"
-              >
-                ⚡ Buy Now
-              </button>
-            </div>
-          </article>
-
-          <article
-            class="product-card"
-            data-category="fashion"
-            data-price="4900"
-            data-rating="5"
-            data-sale="true"
-            data-new="true"
-            id="sp-shades"
-          >
-            <div class="product-img-wrap">
-              <img
-                src="images/product_shades.png"
-                alt="Polarized Retro Shades"
-                class="product-img"
-                loading="lazy"
-              />
-              <div class="product-badges">
-                <span class="badge badge--new">New</span>
-              </div>
-              <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
-                  <span class="material-icons">favorite_border</span>
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <span class="product-cat">Fashion</span>
-              <h3 class="product-name">Polarized Retro Shades</h3>
+              <span class="product-cat">Kitchen</span>
+              <h3 class="product-name">Dishwasher Scrubber Brush</h3>
               <div class="product-rating">
                 <span class="stars">★★★★★</span
-                ><span class="rating-count">(212)</span>
+                ><span class="rating-count">(156)</span>
               </div>
               <div class="product-pricing">
-                <span class="price-current">PKR 4,900</span
-                ><span class="price-old">PKR 8,200</span
-                ><span class="price-save">40% off</span>
+                <span class="price-current">PKR 270</span>
+                <span class="price-old">PKR 450</span>
+                <span class="price-save">40% off</span>
               </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
+              <button
+                class="btn btn-primary btn-full shop-add-cart"
+                id="add-soap-brush"
+              >
                 Add to Cart
               </button>
               <button
                 class="btn btn-coral btn-full btn-buy-now"
                 style="margin-top: 0.5rem"
+                id="buy-soap-brush"
               >
                 ⚡ Buy Now
               </button>
@@ -600,341 +712,58 @@
 
           <article
             class="product-card"
-            data-category="electronics"
-            data-price="89000"
+            id="sp-combo-brush"
+            data-category="home"
+            data-price="1100"
             data-rating="5"
             data-sale="true"
             data-new="false"
-            id="sp-laptop"
+            data-images='["images/spoon_brush.png", "images/spoon_brush1.png"]'
           >
-            <div class="product-img-wrap">
+            <div class="product-img-wrap carousel-container">
               <img
-                src="images/product_laptop.png"
-                alt="Zenith Book Pro"
+                src="images/spoon_brush.png"
+                alt="2 in 1 Digital Measuring Spoon &amp; Soap Brush Combo"
                 class="product-img"
                 loading="lazy"
               />
               <div class="product-badges">
-                <span class="badge badge--sale">−25%</span>
+                <span class="badge badge--sale" style="background: var(--coral)"
+                  >MEGA SALE</span
+                >
               </div>
               <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
-                  <span class="material-icons">favorite_border</span>
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <span class="product-cat">Electronics</span>
-              <h3 class="product-name">Zenith Book Pro</h3>
-              <div class="product-rating">
-                <span class="stars">★★★★★</span
-                ><span class="rating-count">(76)</span>
-              </div>
-              <div class="product-pricing">
-                <span class="price-current">PKR 89,000</span
-                ><span class="price-old">PKR 118,000</span
-                ><span class="price-save">25% off</span>
-              </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
-                Add to Cart
-              </button>
-              <button
-                class="btn btn-coral btn-full btn-buy-now"
-                style="margin-top: 0.5rem"
-              >
-                ⚡ Buy Now
-              </button>
-            </div>
-          </article>
-
-          <article
-            class="product-card"
-            data-category="home"
-            data-price="18500"
-            data-rating="5"
-            data-sale="false"
-            data-new="true"
-            id="sp-lamp"
-          >
-            <div class="product-img-wrap">
-              <img
-                src="images/product_lamp.png"
-                alt="Nordic Arc Lamp"
-                class="product-img"
-                loading="lazy"
-              />
-              <div class="product-badges">
-                <span class="badge badge--new">New</span>
-              </div>
-              <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
+                <button
+                  class="product-action-btn"
+                  id="wish-combo-brush"
+                  aria-label="Add to wishlist"
+                >
                   <span class="material-icons">favorite_border</span>
                 </button>
               </div>
             </div>
             <div class="product-info">
               <span class="product-cat">Home &amp; Garden</span>
-              <h3 class="product-name">Nordic Arc Lamp</h3>
+              <h3 class="product-name">2 in 1 Digital Measuring Spoon &amp; Soap Brush Combo</h3>
               <div class="product-rating">
                 <span class="stars">★★★★★</span
-                ><span class="rating-count">(53)</span>
+                ><span class="rating-count">(420)</span>
               </div>
               <div class="product-pricing">
-                <span class="price-current">PKR 18,500</span
-                ><span class="price-old">PKR 27,500</span
-                ><span class="price-save">33% off</span>
+                <span class="price-current">PKR 1,100</span>
+                <span class="price-old">PKR 1,270</span>
+                <span class="price-save">Flash Deal</span>
               </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
-                Add to Cart
-              </button>
               <button
-                class="btn btn-coral btn-full btn-buy-now"
-                style="margin-top: 0.5rem"
+                class="btn btn-primary btn-full shop-add-cart"
+                id="add-combo-brush"
               >
-                ⚡ Buy Now
-              </button>
-            </div>
-          </article>
-
-          <article
-            class="product-card"
-            data-category="home"
-            data-price="22000"
-            data-rating="4"
-            data-sale="true"
-            data-new="false"
-            id="sp-kitchen"
-          >
-            <div class="product-img-wrap">
-              <img
-                src="images/category_kitchen.png"
-                alt="Pro Kitchen Cookware Set"
-                class="product-img"
-                loading="lazy"
-              />
-              <div class="product-badges">
-                <span class="badge badge--sale">−30%</span>
-              </div>
-              <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
-                  <span class="material-icons">favorite_border</span>
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <span class="product-cat">Home &amp; Garden</span>
-              <h3 class="product-name">Pro Kitchen Cookware Set</h3>
-              <div class="product-rating">
-                <span class="stars">★★★★☆</span
-                ><span class="rating-count">(189)</span>
-              </div>
-              <div class="product-pricing">
-                <span class="price-current">PKR 22,000</span
-                ><span class="price-old">PKR 31,500</span
-                ><span class="price-save">30% off</span>
-              </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
                 Add to Cart
               </button>
               <button
                 class="btn btn-coral btn-full btn-buy-now"
                 style="margin-top: 0.5rem"
-              >
-                ⚡ Buy Now
-              </button>
-            </div>
-          </article>
-
-          <article
-            class="product-card"
-            data-category="electronics"
-            data-price="14500"
-            data-rating="5"
-            data-sale="false"
-            data-new="true"
-            id="sp-gadgets"
-          >
-            <div class="product-img-wrap">
-              <img
-                src="images/category_gadgets.png"
-                alt="Smart Home Hub Bundle"
-                class="product-img"
-                loading="lazy"
-              />
-              <div class="product-badges">
-                <span class="badge badge--new">New</span>
-              </div>
-              <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
-                  <span class="material-icons">favorite_border</span>
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <span class="product-cat">Electronics</span>
-              <h3 class="product-name">Smart Home Hub Bundle</h3>
-              <div class="product-rating">
-                <span class="stars">★★★★★</span
-                ><span class="rating-count">(34)</span>
-              </div>
-              <div class="product-pricing">
-                <span class="price-current">PKR 14,500</span
-                ><span class="price-old">PKR 19,200</span
-                ><span class="price-save">25% off</span>
-              </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
-                Add to Cart
-              </button>
-              <button
-                class="btn btn-coral btn-full btn-buy-now"
-                style="margin-top: 0.5rem"
-              >
-                ⚡ Buy Now
-              </button>
-            </div>
-          </article>
-
-          <article
-            class="product-card"
-            data-category="electronics"
-            data-price="17000"
-            data-rating="5"
-            data-sale="true"
-            data-new="false"
-            id="sp-sonic"
-          >
-            <div class="product-img-wrap">
-              <img
-                src="images/product_headphones.png"
-                alt="Sonic Luxe Headphones"
-                class="product-img"
-                loading="lazy"
-                style="filter: hue-rotate(200deg)"
-              />
-              <div class="product-badges">
-                <span class="badge badge--sale">−20%</span>
-              </div>
-              <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
-                  <span class="material-icons">favorite_border</span>
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <span class="product-cat">Electronics</span>
-              <h3 class="product-name">Sonic Luxe Headphones</h3>
-              <div class="product-rating">
-                <span class="stars">★★★★★</span
-                ><span class="rating-count">(301)</span>
-              </div>
-              <div class="product-pricing">
-                <span class="price-current">PKR 17,000</span
-                ><span class="price-old">PKR 21,200</span
-                ><span class="price-save">20% off</span>
-              </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
-                Add to Cart
-              </button>
-              <button
-                class="btn btn-coral btn-full btn-buy-now"
-                style="margin-top: 0.5rem"
-              >
-                ⚡ Buy Now
-              </button>
-            </div>
-          </article>
-
-          <!-- Extra products for pagination -->
-          <article
-            class="product-card"
-            data-category="fashion"
-            data-price="4500"
-            data-rating="4"
-            data-sale="false"
-            data-new="true"
-            id="sp-shirt"
-          >
-            <div class="product-img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=400"
-                alt="Casual Cotton Shirt"
-                class="product-img"
-                loading="lazy"
-              />
-              <div class="product-badges">
-                <span class="badge badge--new">New</span>
-              </div>
-              <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
-                  <span class="material-icons">favorite_border</span>
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <span class="product-cat">Fashion</span>
-              <h3 class="product-name">Casual Cotton Shirt</h3>
-              <div class="product-rating">
-                <span class="stars">★★★★☆</span
-                ><span class="rating-count">(45)</span>
-              </div>
-              <div class="product-pricing">
-                <span class="price-current">PKR 4,500</span>
-              </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
-                Add to Cart
-              </button>
-              <button
-                class="btn btn-coral btn-full btn-buy-now"
-                style="margin-top: 0.5rem"
-              >
-                ⚡ Buy Now
-              </button>
-            </div>
-          </article>
-
-          <article
-            class="product-card"
-            data-category="home"
-            data-price="3200"
-            data-rating="5"
-            data-sale="true"
-            data-new="false"
-            id="sp-mug"
-          >
-            <div class="product-img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&q=80&w=400"
-                alt="Ceramic Coffee Mug"
-                class="product-img"
-                loading="lazy"
-              />
-              <div class="product-badges">
-                <span class="badge badge--sale">−15%</span>
-              </div>
-              <div class="product-actions">
-                <button class="product-action-btn" aria-label="Add to wishlist">
-                  <span class="material-icons">favorite_border</span>
-                </button>
-              </div>
-            </div>
-            <div class="product-info">
-              <span class="product-cat">Home &amp; Garden</span>
-              <h3 class="product-name">Ceramic Coffee Mug</h3>
-              <div class="product-rating">
-                <span class="stars">★★★★★</span
-                ><span class="rating-count">(90)</span>
-              </div>
-              <div class="product-pricing">
-                <span class="price-current">PKR 3,200</span
-                ><span class="price-old">PKR 3,760</span
-                ><span class="price-save">15% off</span>
-              </div>
-              <button class="btn btn-primary btn-full shop-add-cart">
-                Add to Cart
-              </button>
-              <button
-                class="btn btn-coral btn-full btn-buy-now"
-                style="margin-top: 0.5rem"
+                id="buy-combo-brush"
               >
                 ⚡ Buy Now
               </button>
@@ -1100,9 +929,7 @@
       </div>
     </footer>
 
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-      <span class="material-icons">keyboard_arrow_up</span>
-    </button>
+
 
     <!-- Quick View Modal -->
     <div class="quick-view-overlay" id="quick-view-overlay">
@@ -1123,6 +950,13 @@
         <div class="quick-view-content" id="quick-view-content"></div>
       </div>
     </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923284430589" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+      <svg class="whatsapp-icon" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+      </svg>
+    </a>
 
     <script type="module" src="js/firebase-auth.js"></script>
     <script src="js/main.js"></script>

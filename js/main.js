@@ -176,9 +176,29 @@ function buildQuickViewHTML(card) {
   const heartIcon = isWishlisted ? "favorite" : "favorite_border";
   const heartColor = isWishlisted ? "color:var(--coral)" : "";
 
+  const dataImagesAttr = card.getAttribute("data-images");
+  let images = [imgSrc];
+  if (dataImagesAttr) {
+      try { images = JSON.parse(dataImagesAttr); } catch(e){}
+  }
+
+  let imgHtml = '';
+  if (images.length > 1) {
+    let slides = images.map(src => `<div class="carousel-slide"><img src="${src}" alt="${name}" style="${imgStyle}" loading="lazy" /></div>`).join('');
+    imgHtml = `
+      <div class="carousel-container qv-carousel" style="width:100%; height:100%;">
+        <div class="carousel-track">${slides}</div>
+        <button class="carousel-arrow prev"><span class="material-icons">chevron_left</span></button>
+        <button class="carousel-arrow next"><span class="material-icons">chevron_right</span></button>
+      </div>
+    `;
+  } else {
+    imgHtml = `<img src="${imgSrc}" alt="${name}" style="${imgStyle}" loading="lazy" />`;
+  }
+
   return `
     <div class="qv-img-wrap">
-      <img src="${imgSrc}" alt="${name}" style="${imgStyle}" loading="lazy" />
+      ${imgHtml}
     </div>
     <div class="qv-info">
       <span class="qv-cat">${cat}</span>
@@ -288,20 +308,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  /* -------- BACK TO TOP -------- */
-  const backToTop = document.getElementById("back-to-top");
-  if (backToTop) {
-    window.addEventListener(
-      "scroll",
-      () => {
-        backToTop.classList.toggle("visible", window.scrollY > 400);
-      },
-      { passive: true },
-    );
-    backToTop.addEventListener("click", () =>
-      window.scrollTo({ top: 0, behavior: "smooth" }),
-    );
-  }
 
   /* -------- SEARCH BAR -------- */
   const searchInput = document.getElementById("search-input");
@@ -514,7 +520,69 @@ document.addEventListener("DOMContentLoaded", () => {
       const imgWrap = card.querySelector(".product-img-wrap");
       if (imgWrap) {
         imgWrap.style.cursor = "pointer";
-        imgWrap.addEventListener("click", () => openQuickView(card));
+        imgWrap.addEventListener("click", (e) => {
+          if (e.target.closest('.carousel-arrow')) return;
+          openQuickView(card);
+        });
+      }
+
+      // ---- Add Auto Carousel if data-images exists ----
+      const dataImages = card.getAttribute("data-images");
+      if (dataImages) {
+        try {
+          const images = JSON.parse(dataImages);
+          if (images.length > 1) {
+            const oldImg = imgWrap.querySelector(".product-img");
+            if (oldImg) {
+              const track = document.createElement("div");
+              track.className = "carousel-track";
+              images.forEach((src) => {
+                const slide = document.createElement("div");
+                slide.className = "carousel-slide";
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = card.querySelector(".product-name")?.textContent || "";
+                img.className = "product-img"; // Keep it so Quick View picks up the first
+                slide.appendChild(img);
+                track.appendChild(slide);
+              });
+              
+              // Clone the first slide and append it to the end for a seamless loop
+              if (track.firstElementChild) {
+                const cloneSlide = track.firstElementChild.cloneNode(true);
+                track.appendChild(cloneSlide);
+              }
+
+              oldImg.replaceWith(track);
+              
+              let currentIdx = 0;
+              let isPaused = false;
+              imgWrap.addEventListener("mouseenter", () => {
+                isPaused = true;
+              });
+              imgWrap.addEventListener("mouseleave", () => {
+                isPaused = false;
+              });
+
+              setInterval(() => {
+                if (isPaused) return;
+                currentIdx++;
+                track.style.transition = 'transform 0.5s ease-in-out';
+                track.style.transform = `translateX(-${currentIdx * 100}%)`;
+
+                if (currentIdx === images.length) {
+                  // Once we transition to the clone, snap back to the start invisibly
+                  setTimeout(() => {
+                    if (isPaused) return; 
+                    track.style.transition = 'none';
+                    currentIdx = 0;
+                    track.style.transform = `translateX(0%)`;
+                  }, 500); // Wait for transition to finish
+                }
+              }, [2500, 3000, 3500][Math.floor(Math.random()*3)]); // random stagger
+            }
+          }
+        } catch(e) {}
       }
 
       // ---- Add to Cart button (silent — no redirect) ----
@@ -623,6 +691,47 @@ document.addEventListener("DOMContentLoaded", () => {
     qvOverlay.classList.add("open");
     document.body.style.overflow = "hidden";
 
+    // wire up carousel
+    const qvCarousel = qvContent.querySelector('.qv-carousel');
+    if (qvCarousel) {
+      const track = qvCarousel.querySelector('.carousel-track');
+      const prev = qvCarousel.querySelector('.prev');
+      const next = qvCarousel.querySelector('.next');
+      let currentIndex = 0;
+      const numSlides = track.children.length;
+
+      const updateSlide = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      };
+
+      prev.addEventListener('click', (e) => {
+        if (currentIndex > 0) currentIndex--;
+        else return; // Stop immediately, do not loop
+        updateSlide();
+      });
+      next.addEventListener('click', (e) => {
+        if (currentIndex < numSlides - 1) currentIndex++;
+        else return; // Stop immediately, do not loop
+        updateSlide();
+      });
+
+      let startX = 0;
+      let endX = 0;
+      qvCarousel.addEventListener('touchstart', e => {
+        startX = e.changedTouches[0].screenX;
+      }, {passive: true});
+      qvCarousel.addEventListener('touchend', e => {
+        endX = e.changedTouches[0].screenX;
+        if (startX - endX > 40 && currentIndex < numSlides - 1) {
+          currentIndex++;
+          updateSlide();
+        } else if (endX - startX > 40 && currentIndex > 0) {
+          currentIndex--;
+          updateSlide();
+        }
+      }, {passive: true});
+    }
+
     // Wire up QV buttons
     qvContent.querySelector(".qv-add-cart")?.addEventListener("click", (e) => {
       const btn = e.currentTarget;
@@ -690,29 +799,48 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === qvOverlay) closeQuickView();
   });
 
+  /* -------- FLASH SALE BUTTON SYNC -------- */
+  const btnFlashSale = document.getElementById("btn-flash-sale");
+  if (btnFlashSale && btnFlashSale.tagName === 'BUTTON') {
+    btnFlashSale.addEventListener("click", () => {
+      ShopNestCart.add({
+        id: "sp-sale-lamp",
+        name: "Digital measuring spoon and digital mini fan",
+        price: 1599,
+        img: "images/discount.png",
+        cat: "Home & Garden",
+      });
+      refreshCartBadge();
+      window.location.href = "cart.html";
+    });
+  }
+
   /* -------- FLASH SALE COUNTDOWN -------- */
-  let totalSeconds = 8 * 3600 + 34 * 60 + 59;
+  let totalSeconds = 3 * 86400 + 23 * 3600 + 59 * 60 + 59;
+  const cdD = document.getElementById("cd-days");
   const cdH = document.getElementById("cd-hours");
   const cdM = document.getElementById("cd-minutes");
   const cdS = document.getElementById("cd-seconds");
   const pad = (n) => String(n).padStart(2, "0");
 
-  if (cdH || cdM || cdS) {
+  if (cdD || cdH || cdM || cdS) {
     function tick() {
       if (totalSeconds <= 0) {
         clearInterval(tid);
         return;
       }
-      const h = Math.floor(totalSeconds / 3600);
+      const d = Math.floor(totalSeconds / 86400);
+      const h = Math.floor((totalSeconds % 86400) / 3600);
       const m = Math.floor((totalSeconds % 3600) / 60);
       const s = totalSeconds % 60;
+      if (cdD) cdD.textContent = pad(d);
       if (cdH) cdH.textContent = pad(h);
       if (cdM) cdM.textContent = pad(m);
       if (cdS) cdS.textContent = pad(s);
       totalSeconds--;
     }
     tick();
-    const tid = setInterval(tick, 1000);
+    var tid = setInterval(tick, 1000);
   }
 
   /* -------- NEWSLETTER -------- */

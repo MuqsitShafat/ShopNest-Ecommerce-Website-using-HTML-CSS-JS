@@ -1174,6 +1174,8 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
 }
 .flash-img {
+  max-width: 100%;
+  height: auto;
   border-radius: var(--radius-xl);
   box-shadow: 0 40px 80px rgba(0,0,0,0.4);
   max-height: 480px;
@@ -1348,32 +1350,6 @@ h1, h2, h3, h4, h5 {
   letter-spacing: 0.04em;
 }
 
-/* -------- BACK TO TOP -------- */
-.back-to-top {
-  position: fixed;
-  bottom: var(--space-8);
-  right: var(--space-8);
-  z-index: 99;
-  width: 3rem;
-  height: 3rem;
-  border-radius: var(--radius-full);
-  background: var(--secondary);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(183,29,63,0.4);
-  opacity: 0;
-  transform: translateY(16px);
-  pointer-events: none;
-  transition: opacity var(--transition-mid), transform var(--transition-mid);
-}
-.back-to-top.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-.back-to-top:hover { background: var(--secondary-light); transform: translateY(-2px); }
 
 /* ============================================================
    RESPONSIVE BREAKPOINTS
@@ -1417,7 +1393,7 @@ h1, h2, h3, h4, h5 {
 
   /* Flash */
   .flash-inner { grid-template-columns: 1fr; gap: var(--space-8); }
-  .flash-image-wrap { display: none; }
+  .flash-image-wrap { display: flex; justify-content: center; margin-top: var(--space-4); }
 
   /* Selected */
   .selected-item { gap: var(--space-4); padding: var(--space-4); flex-wrap: wrap; }
@@ -1614,3 +1590,87 @@ h1, h2, h3, h4, h5 {
 }
 
 .footer-non-link { cursor: default; transition: color var(--transition-fast); } .footer-non-link:hover { color: var(--secondary) !important; }
+
+/* -------- WHATSAPP FLOATING BUTTON -------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  animation: pulse-whatsapp 2s infinite;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #128c7e;
+  box-shadow: 0 6px 25px rgba(18, 140, 126, 0.5);
+}
+
+.whatsapp-icon {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
+@keyframes pulse-whatsapp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Tooltip for WhatsApp */
+.whatsapp-float::after {
+  content: 'Chat with us';
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #121c2c;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.whatsapp-float:hover::after {
+  opacity: 1;
+  visibility: visible;
+  right: 80px;
+}
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+  }
+  .whatsapp-float::after {
+    display: none; /* Hide tooltip on small mobile */
+  }
+}

@@ -66,20 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  /* -------- BACK TO TOP -------- */
-  const backToTop = document.getElementById('back-to-top');
-  if (backToTop) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
-    }, { passive: true });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
 
   /* -------- FLASH SALE COUNTDOWN -------- */
   // Set countdown to 8h 34m 59s from now
