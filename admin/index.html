@@ -1745,6 +1745,17 @@
                 <div class="info-row"><div class="info-label">Phone:</div> <div class="info-val">${cust.phone || "—"}</div></div>
                 <div class="info-row"><div class="info-label">Address:</div> <div class="info-val">${cust.street || "—"}</div></div>
                 <div class="info-row"><div class="info-label">City/Province:</div> <div class="info-val">${cust.city || "—"} / ${cust.province || "—"}</div></div>
+                <div class="info-row" style="margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;">
+                  <div class="info-label">Items:</div> 
+                  <div class="info-val">
+                    ${(o.items || [])
+                      .map(
+                        (item) =>
+                          `<div style="margin-bottom: 2px;">• ${item.name} <span style="color:#666;">(x${item.qty})</span></div>`,
+                      )
+                      .join("") || "—"}
+                  </div>
+                </div>
                 <div class="info-row amount-row">
                   <div class="info-label">Collect Amount:</div> 
                   <div class="info-val amount-val">PKR ${o.paymentMethod === "Online Payment" ? "0" : (o.total || 0).toLocaleString()}</div>
@@ -1754,7 +1765,7 @@
                   <div class="info-val"><strong>${o.paymentMethod || "—"}</strong></div>
                 </div>
                 <div style="margin-top:20px; font-size:14px; text-align:center; font-weight:bold;">
-                  follow on instagram for more interesting products : @shop.nest260
+                  Follow on Instagram for more interesting products : @shop.nest260
                 </div>
               </div>
               <div class="print-btn-container no-print">
