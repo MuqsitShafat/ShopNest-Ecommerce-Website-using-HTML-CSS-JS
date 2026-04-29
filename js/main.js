@@ -667,7 +667,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ? "images/product_lamp.png"
               : btn.id.includes("book")
                 ? "images/product_laptop.png"
-                : "images/category_gadgets.png"),
+                : "images/category_gadgets.jpg"),
         cat: "Electronics",
       };
       ShopNestCart.add(item);
