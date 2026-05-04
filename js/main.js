@@ -670,6 +670,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  window.initProductCards = initProductCards;
   initProductCards();
 
   // Also handle index.html selected-items "Add" buttons (silent — no redirect)

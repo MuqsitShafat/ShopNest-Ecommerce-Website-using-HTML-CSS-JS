@@ -10,9 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productsGrid = document.getElementById("shop-products-grid");
   const emptyState = document.getElementById("shop-empty");
   const pagination = document.getElementById("shop-pagination");
-  const allCards = Array.from(
-    document.querySelectorAll("#shop-products-grid .product-card"),
-  );
+  let allCards = []; // Will be populated dynamically
   const resultsNum = document.getElementById("results-num");
   const catBarBtns = document.querySelectorAll(".cat-filter-btn");
 
@@ -22,8 +20,51 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentPage = 1;
   const itemsPerPage = 8;
 
-  function applyFilters(resetPage = true) {
-    if (resetPage) currentPage = 1;
+  function applyFilters(resetPage = true, targetProductId = null) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get("product") || targetProductId;
+
+    if (productId) {
+      const targetCard = allCards.find(c => c.id === productId);
+      if (targetCard) {
+        allCards.forEach(c => c.style.display = "none");
+        targetCard.style.display = "";
+        
+        productsGrid.innerHTML = "";
+        
+        const centerWrapper = document.createElement("div");
+        centerWrapper.className = "solo-product-wrapper";
+        centerWrapper.appendChild(targetCard);
+        
+        const backBtnContainer = document.createElement("div");
+        backBtnContainer.className = "solo-back-btn-container";
+        backBtnContainer.innerHTML = `
+          <button class="btn btn-outline solo-back-btn" onclick="window.location.href='shop.html'">
+            <span class="material-icons">arrow_back</span> Back to Shop
+          </button>
+        `;
+        centerWrapper.appendChild(backBtnContainer);
+        
+        productsGrid.appendChild(centerWrapper);
+        
+        // Activate solo layout overrides
+        const shopLayout = document.querySelector('.shop-layout');
+        if (shopLayout) shopLayout.classList.add('solo-mode-active');
+        
+        if (pagination) pagination.style.display = "none";
+        if (emptyState) emptyState.style.display = "none";
+        if (resultsNum) resultsNum.textContent = "1";
+        
+        setTimeout(() => {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          targetCard.classList.add('pulse-highlight');
+        }, 100);
+        
+        return;
+      }
+    }
+
+    if (resetPage && !targetProductId) currentPage = 1;
     const category =
       document.querySelector('input[name="sb-category"]:checked')?.value ||
       "all";
@@ -35,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const onlyNew = document.getElementById("chk-new")?.checked;
     const sortVal = document.getElementById("sort-select")?.value || "featured";
 
-    const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get("search")
       ? urlParams.get("search").toLowerCase()
       : "";
@@ -171,9 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Re-append in sorted order
     paginatedVisible.forEach((c) => productsGrid.appendChild(c));
-
-    // Buy Now & Add-to-Cart are already wired by main.js initProductCards().
-    // No duplicate wiring needed here.
   }
 
   function sortCards(cards, sortVal) {
@@ -395,5 +432,135 @@ document.addEventListener("DOMContentLoaded", () => {
     applyFilters();
   };
 
-  applyFilters();
+  /* ============================================================
+     11. DYNAMIC DATA FETCHING & DEEP LINKING
+  ============================================================ */
+  function generateProductCard(p) {
+    let imagesHtml = `
+      <div class="product-img-wrap carousel-container">
+        <img src="${p.images[0]}" alt="${p.name}" class="product-img" loading="lazy" />
+        <div class="product-badges">
+          ${p.badges ? p.badges.map(b => `<span class="badge badge--${b.type}" ${b.style ? `style="${b.style}"` : ''}>${b.text}</span>`).join('') : ''}
+        </div>
+        <div class="product-actions">
+          <button class="product-action-btn" id="wish-${p.id.replace('sp-', '')}" aria-label="Add to wishlist">
+            <span class="material-icons">favorite_border</span>
+          </button>
+        </div>
+      </div>
+    `;
+
+    let colorOptionsHtml = '';
+    if (p.hasColorOptions) {
+      colorOptionsHtml = `
+        <div class="color-options" style="margin: 0.5rem 0; display: flex; gap: 1rem; align-items: center; font-size: 0.9rem;">
+          ${p.colorOptions.map(c => `
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 0.25rem;">
+              <input type="radio" name="${p.colorGroupName}" value="${c.name}" ${c.checked ? 'checked' : ''} style="accent-color: ${c.accent}; width: 16px; height: 16px;" onchange="
+                ${c.productNameUpdate ? `this.closest('.product-card').querySelector('.product-name').textContent = '${c.productNameUpdate}';` : ''}
+                this.closest('.product-card').dataset.color = '${c.name}';
+              "> 
+              ${c.name}
+            </label>
+          `).join('')}
+        </div>
+      `;
+    } else if (p.hasComboColorOptions) {
+      colorOptionsHtml = `
+        <div class="color-options" style="margin: 0.5rem 0; display: flex; gap: 1rem; align-items: center; font-size: 0.9rem;">
+          <span style="color: #666; font-weight: 500;">${p.comboColorLabel}</span>
+          ${p.colorOptions.map(c => `
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 0.25rem;">
+              <input type="radio" name="${p.colorGroupName}" value="${c.name}" ${c.checked ? 'checked' : ''} style="accent-color: ${c.accent}; width: 16px; height: 16px;" onchange="
+                this.closest('.product-card').dataset.color = '${c.name}';
+              "> 
+              ${c.name}
+            </label>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    let locationSelectHtml = '';
+    if (p.hasLocationPricing) {
+      locationSelectHtml = `
+        <select class="input-field" style="margin: 0.5rem 0; width: 100%; padding: 0.4rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit; font-size: 0.9rem;" onchange="
+          this.closest('.product-card').dataset.price = parseInt(this.value);
+          this.closest('.product-card').querySelector('.price-current').textContent = 'PKR ' + parseInt(this.value).toLocaleString();
+        ">
+          ${p.locationOptions.map(opt => `<option value="${opt.value}">${opt.text}</option>`).join('')}
+        </select>
+      `;
+    }
+
+    return `
+      <article
+        class="product-card"
+        id="${p.id}"
+        data-category="${p.category}"
+        data-price="${p.price}"
+        data-rating="${p.rating}"
+        data-sale="${p.sale}"
+        data-new="${p.new}"
+        data-images='${JSON.stringify(p.images)}'
+      >
+        ${imagesHtml}
+        <div class="product-info">
+          <span class="product-cat">${p.productCat}</span>
+          <h3 class="product-name">${p.name}</h3>
+          <div class="product-rating">
+            <span class="stars">${'★'.repeat(p.rating)}${'☆'.repeat(5-p.rating)}</span><span class="rating-count">(${p.ratingCount})</span>
+          </div>
+          <div class="product-pricing">
+            <span class="price-current">PKR ${p.price.toLocaleString()}</span>
+            ${p.oldPrice ? `<span class="price-old">PKR ${p.oldPrice.toLocaleString()}</span>` : ''}
+            ${p.priceSave ? `<span class="price-save">${p.priceSave}</span>` : ''}
+          </div>
+          ${locationSelectHtml}
+          ${colorOptionsHtml}
+          <button class="btn btn-coral btn-full btn-buy-now" id="buy-${p.id.replace('sp-', '')}">
+            ⚡ Buy Now
+          </button>
+          <button class="btn btn-primary btn-full shop-add-cart" style="margin-top: 0.5rem" id="add-${p.id.replace('sp-', '')}">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+    `;
+  }
+
+  fetch('products.json')
+    .then(res => res.json())
+    .then(products => {
+      productsGrid.innerHTML = products.map(generateProductCard).join('');
+      allCards = Array.from(document.querySelectorAll("#shop-products-grid .product-card"));
+      
+      if (typeof window.initProductCards === 'function') {
+        window.initProductCards();
+      }
+      
+      const productId = urlParams.get("product");
+      applyFilters(true, productId);
+      
+      // Re-observe for scroll reveal
+      if ("IntersectionObserver" in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.style.opacity = "1";
+              e.target.style.transform = "translateY(0)";
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        allCards.forEach((c, i) => {
+          c.style.opacity = "0";
+          c.style.transform = "translateY(20px)";
+          c.style.transition = `opacity 0.4s ease ${i * 0.07}s, transform 0.4s ease ${i * 0.07}s`;
+          obs.observe(c);
+        });
+      }
+    })
+    .catch(err => console.error("Error fetching products:", err));
+
 });

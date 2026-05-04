@@ -261,16 +261,91 @@
 .page-ellipsis { color: var(--on-surface-var); font-size: 0.875rem; }
 
 /* ============================================================
+   SOLO PRODUCT MODE
+   ============================================================ */
+.shop-layout.solo-mode-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+}
+.shop-layout.solo-mode-active .shop-sidebar,
+.shop-layout.solo-mode-active .shop-toolbar {
+  display: none !important;
+}
+.shop-layout.solo-mode-active .shop-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.shop-layout.solo-mode-active .shop-products-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.solo-product-wrapper {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.solo-product-wrapper .product-card {
+  width: 100%;
+  margin: 0;
+}
+
+.solo-product-wrapper .product-img-wrap {
+  height: 350px;
+}
+
+.solo-product-wrapper .product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.solo-back-btn-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.solo-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  width: 100%;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: transparent;
+}
+.solo-back-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ============================================================
    RESPONSIVE — Shop Page
    ============================================================ */
 @media (max-width: 1024px) {
-  .shop-layout { grid-template-columns: 220px 1fr; gap: var(--space-6); }
+  .shop-layout:not(.solo-mode-active) { grid-template-columns: 220px 1fr; gap: var(--space-6); }
   .shop-hero-stats { gap: var(--space-4); }
 }
 
 @media (max-width: 768px) {
   /* Sidebar becomes a fixed drawer on mobile */
-  .shop-layout { grid-template-columns: 1fr; }
+  .shop-layout:not(.solo-mode-active) { grid-template-columns: 1fr; }
   .shop-sidebar {
     position: fixed;
     top: 0; left: 0;
@@ -288,10 +363,27 @@
   .filter-toggle-btn { display: flex; }
   .shop-hero-inner { flex-direction: column; align-items: flex-start; }
   .shop-hero-stats { align-self: stretch; justify-content: space-between; }
+  
+  .solo-product-wrapper {
+    width: 85%;
+  }
 }
 
 @media (max-width: 640px) {
   .shop-hero-stats { gap: var(--space-2); }
   .shop-stat { padding: var(--space-3); min-width: auto; }
   .toolbar-left { flex-wrap: wrap; }
+}
+
+@keyframes pulse-highlight {
+  0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.8); transform: scale(1); border-color: var(--coral); }
+  10% { box-shadow: 0 0 0 20px rgba(255, 107, 107, 0); transform: scale(1.02); border-color: var(--coral); }
+  20% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); transform: scale(1); border-color: var(--coral); }
+  80% { border-color: var(--coral); opacity: 1; }
+  100% { border-color: transparent; opacity: 1; }
+}
+
+.pulse-highlight {
+  animation: pulse-highlight 10s ease-in-out forwards;
+  border: 2px solid transparent;
 }
