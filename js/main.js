@@ -166,6 +166,12 @@ const productDescriptions = {
     "Effortless cleaning at your fingertips—the smart soap dispenser brush that makes dishwashing a breeze. Save time and soap with every scrub!",
   "2 in 1 Digital Measuring Spoon & Soap Brush Combo":
     "The ultimate kitchen companion—why choose between precision and power when you can have both? Master your culinary craft with this elite toolkit.",
+  "Wearable Bladeless Neck Fan Portable Cooling":
+    "Stay hands-free and completely cool this summer. The ultimate wearable bladeless fan provides 360-degree cooling comfort without catching your hair.",
+  "Arctic Breeze Portable Mini White Cooling Fan":
+    "Your ultra-quiet, pocket-sized arctic breeze. Compact, rechargeable, and surprisingly powerful—perfect for your desk or on the go.",
+  "Summer Deal Combo":
+    "Our best-selling Summer Deal: Get both the Bladeless Neck Fan and the Arctic Mini Fan in one unbeatable combo! Stay cool everywhere you go.",
 };
 
 function buildQuickViewHTML(card) {
@@ -209,6 +215,24 @@ function buildQuickViewHTML(card) {
   // Get description: specific if exists, otherwise default
   const description = productDescriptions[name] || productDescriptions.default;
 
+  let colorSelectHtml = "";
+  if (id.startsWith('sp-neck-fan') || id.startsWith('sp-summer-deal')) {
+    const defaultColor = card.dataset.color || 'Black';
+    colorSelectHtml = `
+      <div class="color-options" style="margin: 1rem 0; display: flex; gap: 1rem; align-items: center; font-size: 0.9rem;">
+        <span style="color: #666; font-weight: 500;">Neck Fan Color:</span>
+        <label style="cursor: pointer; display: flex; align-items: center; gap: 0.25rem;">
+          <input type="radio" name="qv-color" class="cart-item-color-select" value="Black" ${defaultColor === 'Black' ? 'checked' : ''} style="accent-color: #000; width: 16px; height: 16px;" onchange="this.closest('.qv-info').querySelector('.cart-item-color-select[value=Black]').value = 'Black';"> 
+          Black
+        </label>
+        <label style="cursor: pointer; display: flex; align-items: center; gap: 0.25rem;">
+          <input type="radio" name="qv-color" class="cart-item-color-select" value="Light Green" ${defaultColor === 'Light Green' ? 'checked' : ''} style="accent-color: #90ee90; width: 16px; height: 16px;"> 
+          Light Green
+        </label>
+      </div>
+    `;
+  }
+
   return `
     <div class="qv-img-wrap">
       ${imgHtml}
@@ -226,6 +250,7 @@ function buildQuickViewHTML(card) {
         ${save ? `<span class="qv-price-save">${save}</span>` : ""}
       </div>
       <p class="qv-desc">${description}</p>
+      ${colorSelectHtml}
       <div class="qv-actions">
         <button class="btn btn-coral btn-full qv-buy-now"
                 data-id="${id}" data-name="${name}" data-price="${priceNum}"
@@ -612,7 +637,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const price = parseInt(card.dataset.price) || 0;
           const img = card.querySelector(".product-img")?.src || "";
           const cat = card.querySelector(".product-cat")?.textContent || "";
-          ShopNestCart.add({ id, name, price, img, cat });
+          const color = card.dataset.color || (id.startsWith('sp-neck-fan') || id.startsWith('sp-summer-deal') ? 'Black' : null);
+          ShopNestCart.add({ id, name, price, img, cat, color });
           // Brief visual feedback — NO redirect
           const orig = addBtn.innerHTML;
           addBtn.innerHTML = `<span class="material-icons" style="font-size:16px;">check</span> Added!`;
@@ -636,7 +662,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const price = parseInt(card.dataset.price) || 0;
           const img = card.querySelector(".product-img")?.src || "";
           const cat = card.querySelector(".product-cat")?.textContent || "";
-          ShopNestCart.add({ id, name, price, img, cat });
+          const color = card.dataset.color || (id.startsWith('sp-neck-fan') || id.startsWith('sp-summer-deal') ? 'Black' : null);
+          ShopNestCart.add({ id, name, price, img, cat, color });
           refreshCartBadge();
           window.location.href = "cart.html";
         });
@@ -754,6 +781,7 @@ document.addEventListener("DOMContentLoaded", () => {
         price: parseInt(btn.dataset.price),
         img: btn.dataset.img,
         cat: btn.dataset.cat,
+        color: btn.closest('.qv-info')?.querySelector('.cart-item-color-select:checked')?.value || (btn.dataset.id.startsWith('sp-neck-fan') || btn.dataset.id.startsWith('sp-summer-deal') ? 'Black' : null)
       });
       btn.innerHTML = `<span class="material-icons" style="font-size:16px;">check</span> Added to Cart!`;
       btn.style.background = "linear-gradient(135deg,#22c55e,#16a34a)";
@@ -775,6 +803,7 @@ document.addEventListener("DOMContentLoaded", () => {
         price: parseInt(btn.dataset.price),
         img: btn.dataset.img,
         cat: btn.dataset.cat,
+        color: btn.closest('.qv-info')?.querySelector('.cart-item-color-select:checked')?.value || (btn.dataset.id.startsWith('sp-neck-fan') || btn.dataset.id.startsWith('sp-summer-deal') ? 'Black' : null)
       });
       refreshCartBadge();
       window.location.href = "cart.html";
@@ -816,12 +845,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnFlashSale = document.getElementById("btn-flash-sale");
   if (btnFlashSale && btnFlashSale.tagName === 'BUTTON') {
     btnFlashSale.addEventListener("click", () => {
+      const citySelect = document.getElementById("flash-sale-city");
+      const price = citySelect ? parseInt(citySelect.value) : 1650;
+      
       ShopNestCart.add({
-        id: "sp-combo-brush",
-        name: "2 in 1 Digital Measuring Spoon & Soap Brush Combo",
-        price: 1100,
-        img: "images/spoon_brush.png",
-        cat: "Home & Garden",
+        id: "sp-summer-deal-" + price,
+        name: `Summer Deal Combo`,
+        price: price,
+        img: "images/Deal.jpeg",
+        cat: "Electronics",
+        color: "Black" // Default, can be changed in cart
       });
       refreshCartBadge();
       window.location.href = "cart.html";

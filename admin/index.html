@@ -1751,7 +1751,7 @@
                     ${(o.items || [])
                       .map(
                         (item) =>
-                          `<div style="margin-bottom: 2px;">• ${item.name} <span style="color:#666;">(x${item.qty})</span></div>`,
+                          `<div style="margin-bottom: 2px;">• ${item.name} <span style="color:#666;">(x${item.qty})</span>${item.color ? ` <strong style="color: #6366f1;">[Extra: ${item.color}]</strong>` : ""}</div>`,
                       )
                       .join("") || "—"}
                   </div>

@@ -71,12 +71,26 @@ document.addEventListener("DOMContentLoaded", () => {
         row.className = "cart-item";
         row.dataset.id = item.id;
 
+        let colorSelectorHtml = '';
+        if (item.id.startsWith("sp-neck-fan") || item.id.startsWith("sp-summer-deal")) {
+          colorSelectorHtml = `
+            <div style="margin-top: 0.5rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+              <label style="color: #666; font-weight: 500;">Neck Fan Color:</label>
+              <select class="cart-item-color-select" style="padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #ddd; background: #fff; font-family: inherit; font-size: 0.85rem; cursor: pointer; min-width: 100px;">
+                <option value="Black" ${item.color === 'Black' || !item.color ? 'selected' : ''}>Black</option>
+                <option value="Light Green" ${item.color === 'Light Green' ? 'selected' : ''}>Light Green</option>
+              </select>
+            </div>
+          `;
+        }
+
         row.innerHTML = `
           <div class="cart-item-info">
             <img src="${item.img}" class="cart-item-img" alt="${item.name}">
             <div>
               <h3 class="cart-item-name">${item.name}</h3>
               <div class="cart-item-cat">${item.cat || "Product"}</div>
+              ${colorSelectorHtml}
             </div>
           </div>
           <div class="cart-item-price">PKR ${item.price.toLocaleString()}</div>
@@ -110,6 +124,18 @@ document.addEventListener("DOMContentLoaded", () => {
           renderCart();
           if (typeof refreshCartBadge === "function") refreshCartBadge();
         });
+
+        const colorSelect = row.querySelector(".cart-item-color-select");
+        if (colorSelect) {
+          colorSelect.addEventListener("change", (e) => {
+            const items = ShopNestCart.get();
+            const targetItem = items.find(i => i.id === item.id);
+            if (targetItem) {
+              targetItem.color = e.target.value;
+              ShopNestCart.save(items);
+            }
+          });
+        }
 
         cartItemsList.appendChild(row);
       });
@@ -211,6 +237,32 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  // City change logic to automatically adjust Summer Deal Combo price
+  const cityInput = document.getElementById("addr-city");
+  if (cityInput) {
+    cityInput.addEventListener("input", (e) => {
+      const city = e.target.value.trim().toLowerCase();
+      const items = typeof ShopNestCart !== "undefined" ? ShopNestCart.get() : [];
+      let changed = false;
+      
+      items.forEach(item => {
+        if (item.id.startsWith("sp-summer-deal")) {
+          const newPrice = city === "lahore" ? 1650 : 1750;
+          if (item.price !== newPrice) {
+            item.price = newPrice;
+            item.id = "sp-summer-deal-" + newPrice; // This will update the ID consistently
+            changed = true;
+          }
+        }
+      });
+      
+      if (changed && typeof ShopNestCart !== "undefined") {
+        ShopNestCart.save(items);
+        renderCart();
+        if (typeof refreshCartBadge === "function") refreshCartBadge();
+      }
+    });
+  }
 
   // Place order logic — saves to Firestore if available
   let isOrderPlacing = false; // debounce / guard against double-click
@@ -281,6 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
           price: i.price,
           qty: i.qty,
           total: i.price * i.qty,
+          color: i.color || (i.id.startsWith('sp-neck-fan') || i.id.startsWith('sp-summer-deal') ? 'Black' : null)
         })),
         subtotal,
         shipping,

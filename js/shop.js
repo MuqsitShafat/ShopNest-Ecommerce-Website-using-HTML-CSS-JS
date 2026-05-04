@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
      2. CORE FILTER FUNCTION
   ============================================================ */
   let currentPage = 1;
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
 
   function applyFilters(resetPage = true) {
     if (resetPage) currentPage = 1;
