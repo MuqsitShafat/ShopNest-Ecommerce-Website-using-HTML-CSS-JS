@@ -444,6 +444,9 @@
       .stat-icon.orange {
         background: linear-gradient(135deg, #f59e0b, #d97706);
       }
+      .stat-icon.red {
+        background: linear-gradient(135deg, #f43f5e, #e11d48);
+      }
       .stat-info label {
         font-size: 0.8rem;
         color: var(--text-muted);
@@ -1077,6 +1080,16 @@
                 <div class="stat-sub">In transit</div>
               </div>
             </div>
+            <div class="stat-card">
+              <div class="stat-icon red">
+                <span class="material-icons">cancel</span>
+              </div>
+              <div class="stat-info">
+                <label>Cancelled Orders</label>
+                <div class="stat-value" id="stat-cancelled">0</div>
+                <div class="stat-sub">All time</div>
+              </div>
+            </div>
           </div>
 
           <div class="card">
@@ -1550,14 +1563,17 @@
       };
 
       function renderDashboard(orders) {
-        const totalSales = orders.reduce((s, o) => s + (o.total || 0), 0);
+        const validSales = orders.filter((o) => o.status !== "Cancelled" && o.status !== "cancelled");
+        const totalSales = validSales.reduce((s, o) => s + (o.total || 0), 0);
         const pending = orders.filter((o) => o.status === "Pending").length;
         const shipped = orders.filter((o) => o.status === "Shipped").length;
+        const cancelled = orders.filter((o) => o.status === "Cancelled" || o.status === "cancelled").length;
         document.getElementById("stat-sales").textContent =
           `PKR ${totalSales.toLocaleString()}`;
         document.getElementById("stat-orders").textContent = orders.length;
         document.getElementById("stat-pending").textContent = pending;
         document.getElementById("stat-shipped").textContent = shipped;
+        document.getElementById("stat-cancelled").textContent = cancelled;
 
         const recent = orders.slice(0, 8);
         const tbody = document.getElementById("dash-orders-body");
