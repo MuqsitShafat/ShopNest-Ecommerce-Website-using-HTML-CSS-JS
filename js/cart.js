@@ -214,7 +214,9 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedPaymentMethod = e.target.value;
         const screenshotNote = document.getElementById("whatsapp-screenshot-note");
         if (e.target.value === "online") {
+          currentDiscount = 100;
           if (onlineDetails) onlineDetails.style.display = "block";
+
           if (screenshotNote) screenshotNote.style.display = "block";
           if (placeOrderBtn) {
             placeOrderBtn.disabled = false;
@@ -224,6 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
               '<span class="material-icons">shopping_bag</span> Place Order';
           }
         } else {
+          currentDiscount = 0;
           if (onlineDetails) onlineDetails.style.display = "none";
           if (screenshotNote) screenshotNote.style.display = "none";
           if (placeOrderBtn) {
@@ -234,6 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
               '<span class="material-icons">shopping_bag</span> Place Order';
           }
         }
+        calculateTotals();
       });
     });
   }
@@ -247,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       items.forEach(item => {
         if (item.id.startsWith("sp-summer-deal")) {
-          const newPrice = city === "lahore" ? 1650 : 1750;
+          const newPrice = city === "lahore" ? 1700 : 1800;
           if (item.price !== newPrice) {
             item.price = newPrice;
             item.id = "sp-summer-deal-" + newPrice; // This will update the ID consistently
