@@ -853,7 +853,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id: "sp-summer-deal-" + price,
         name: `Summer Deal Combo`,
         price: price,
-        img: "images/Deal.jpeg",
+        img: "images/Deal.png",
         cat: "Electronics",
         color: "Black" // Default, can be changed in cart
       });
