@@ -383,7 +383,13 @@ document.addEventListener("DOMContentLoaded", () => {
           <p style="font-size:0.95rem;color:#6b7280;margin-bottom:0.5rem;">Your Order ID is:</p>
           <div style="background:#f3f4f6;border-radius:8px;padding:0.6rem 1.2rem;display:inline-block;font-weight:700;font-size:1.2rem;letter-spacing:1px;color:#121c2c;margin-bottom:1rem;">${orderId}</div>
           <p>Your order has been successfully placed. We'll contact you at <strong>${phone}</strong> to confirm delivery.</p>
-          ${selectedPaymentMethod === "online" ? `<p style="background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);border-radius:8px;padding:0.75rem;font-size:0.9rem;color:#16a34a;"><strong>📱 Don't forget!</strong> Send your payment screenshot to <strong>03284430589</strong> on WhatsApp for faster processing.</p>` : ""}
+          ${selectedPaymentMethod === "online" ? `<div style="background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);border-radius:12px;padding:1rem;margin-top:1rem;text-align:left;">
+            <div style="background:#16a34a;color:white;padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:700;margin-bottom:0.5rem;display:inline-flex;align-items:center;gap:4px;">
+              <span class="material-icons" style="font-size:12px;">card_giftcard</span>
+              PKR 100 DISCOUNT APPLIED
+            </div>
+            <p style="margin:0;font-size:0.9rem;color:#16a34a;line-height:1.4;"><strong>📱 Don't forget!</strong> Send your payment screenshot to <strong>03284430589</strong> on WhatsApp for faster processing.</p>
+          </div>` : ""}
           <button class="btn btn-primary btn-full" onclick="window.location.href='index.html'" style="margin-top:1rem;">Return to Shop</button>
         </div>
       `;

@@ -471,3 +471,38 @@
   .form-row { grid-template-columns: 1fr; }
   .cart-title { font-size: 1.5rem; }
 }
+
+/* ---- ANIMATIONS ---- */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.discount-badge-glimmer {
+  position: relative;
+  overflow: hidden;
+}
+.discount-badge-glimmer::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(45deg);
+  animation: glimmer 3s infinite;
+}
+
+@keyframes glimmer {
+  0% { transform: translateX(-150%) rotate(45deg); }
+  100% { transform: translateX(150%) rotate(45deg); }
+}

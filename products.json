@@ -9,7 +9,7 @@
     "ratingCount": 420,
     "sale": true,
     "new": false,
-    "images": ["images/spoon_brush.png", "images/spoon_brush1.png"],
+    "images": ["images/spoon_brush.jpeg", "images/spoon_brush1.jpeg"],
     "name": "2 in 1 Digital Measuring Spoon & Soap Brush Combo",
     "badges": [
       {
@@ -31,8 +31,8 @@
     "sale": true,
     "new": true,
     "images": [
-      "images/Red Fan 1.png",
-      "images/Red Fan 2.png",
+      "images/Red Fan 1.jpeg",
+      "images/Red Fan 2.jpeg",
       "images/Red Fan 6.jpg",
       "images/Red Fan 7.jpg"
     ],
@@ -50,7 +50,7 @@
     "ratingCount": 84,
     "sale": true,
     "new": true,
-    "images": ["images/spoon.png", "images/spoon1.png", "images/spoon2.jpg"],
+    "images": ["images/spoon.jpeg", "images/spoon1.jpeg", "images/spoon2.jpg"],
     "name": "Digital Measuring Spoon",
     "badges": [{ "type": "sale", "text": "−50%" }],
     "priceSave": "50% off"
@@ -66,10 +66,10 @@
     "sale": true,
     "new": true,
     "images": [
-      "images/soap_brush.png",
-      "images/soap_brush1.png",
-      "images/soap_brush2.png",
-      "images/soap_brush3.png"
+      "images/soap_brush.jpeg",
+      "images/soap_brush1.jpeg",
+      "images/soap_brush2.jpeg",
+      "images/soap_brush3.jpeg"
     ],
     "name": "Dishwasher Scrubber Brush Liquid Soap Dispenser",
     "badges": [{ "type": "sale", "text": "−40%" }],
@@ -88,7 +88,7 @@
     "images": [
       "images/mini_fan.png",
       "images/mini_fan1.jpg",
-      "images/mini_fan2.png"
+      "images/mini_fan2.jpeg"
     ],
     "name": "Folding USB Charging Fan",
     "badges": [{ "type": "sale", "text": "−70%" }],
@@ -104,7 +104,7 @@
     "ratingCount": 120,
     "sale": true,
     "new": true,
-    "images": ["images/Deal.png", "images/Deal1.png", "images/Deal2.png"],
+    "images": ["images/Deal.jpeg", "images/Deal1.jpeg", "images/Deal2.jpeg"],
     "name": "Summer Deal Combo",
     "badges": [
       {
@@ -139,7 +139,7 @@
     "images": [
       "images/laptop_fan.jpg",
       "images/laptop_fan1.jpg",
-      "images/laptop_fan2.png"
+      "images/laptop_fan2.jpeg"
     ],
     "name": "Trending Mini Air Conditioner Fan Premium 3 In 1 Desk Cooling Fan Spray Fan",
     "badges": [{ "type": "new", "text": "New" }],
@@ -156,11 +156,11 @@
     "sale": true,
     "new": true,
     "images": [
-      "images/Neck .png",
-      "images/Neck 1.png",
-      "images/Neck 2.png",
-      "images/Neck 3.png",
-      "images/Neck lightgreen.png"
+      "images/Neck.jpeg",
+      "images/Neck 1.jpeg",
+      "images/Neck 2.jpeg",
+      "images/Neck 3.jpeg",
+      "images/Neck lightgreen.jpeg"
     ],
     "name": "Wearable Bladeless Neck Fan (Black)",
     "badges": [{ "type": "sale", "text": "−50%" }],
