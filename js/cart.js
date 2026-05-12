@@ -32,6 +32,57 @@ async function saveOrderToFirestore(orderData) {
   await addDoc(collection(db, "orders"), orderData);
 }
 
+// ---- EmailJS Initialization (Put your keys here) ----
+const EMAILJS_PUBLIC_KEY = "Wyup2APERv9Bi74sF"; // Get from EmailJS Account
+const EMAILJS_SERVICE_ID = "service_o2czoas"; // Get from EmailJS Email Services
+const EMAILJS_TEMPLATE_ID = "template_gzwqgho"; // Get from EmailJS Email Templates
+
+if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+}
+
+// ---- Admin Notification Helper (WhatsApp / Email) ----
+async function notifyAdmin(orderData) {
+  const itemSummary = orderData.items.map(i => `• ${i.qty}x ${i.name} (${i.color || 'Standard'})`).join('\n');
+  const message = `*SHOPNEST — NEW ORDER: ${orderData.orderId}*\n\n` +
+                  `*Customer Details:*\n` +
+                  `--------------------------\n` +
+                  `*Name:* ${orderData.customer.name}\n` +
+                  `*Phone:* ${orderData.customer.phone}\n` +
+                  `*City:* ${orderData.customer.city}\n` +
+                  `*Address:* ${orderData.customer.street}\n` +
+                  `*Payment:* ${orderData.paymentMethod}\n\n` +
+                  `*Items Ordered:*\n` +
+                  `${itemSummary}\n\n` +
+                  `*Total Amount:* PKR ${orderData.total.toLocaleString()}\n` +
+                  `--------------------------\n\n` +
+                  `*Please check my order, I just placed it now! Can you confirm if it will be delivered soon?*`;
+  
+  console.log("Admin Alert Prepared:", message);
+
+  // 1. Automatic Email Notification (requires keys)
+  if (typeof emailjs !== "undefined" && EMAILJS_SERVICE_ID !== "YOUR_SERVICE_ID") {
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        order_id: orderData.orderId,
+        customer_name: orderData.customer.name,
+        customer_phone: orderData.customer.phone,
+        customer_address: `${orderData.customer.street}, ${orderData.customer.city}`,
+        payment_method: orderData.paymentMethod,
+        total_amount: `PKR ${orderData.total.toLocaleString()}`,
+        order_items: itemSummary,
+        admin_email: "shopnest260@gmail.com"
+      });
+      console.log("✅ Automatic Email Sent to Admin");
+    } catch (err) {
+      console.error("❌ EmailJS Failed:", err);
+    }
+  }
+
+  return encodeURIComponent(message);
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const cartItemsList = document.getElementById("cart-items-list");
   const cartEmpty = document.getElementById("cart-empty");
@@ -283,15 +334,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const name = document.getElementById("addr-name")?.value.trim() || "";
       const phone = document.getElementById("addr-phone")?.value.trim() || "";
       const street = document.getElementById("addr-street")?.value.trim() || "";
-      const email = document.getElementById("addr-email")?.value.trim() || "";
       const city = document.getElementById("addr-city")?.value.trim() || "";
       const province = document.getElementById("addr-province")?.value || "";
 
-      if (!name || !phone || !street || !email || !city || !province) {
+      if (!name || !phone || !street || !city || !province) {
         if (typeof showToast === "function") {
           showToast("Please fill in all required delivery fields!", "error");
         } else {
-          alert("Please fill in your complete delivery address (including email) before placing the order.");
+          alert("Please fill in your complete delivery address before placing the order.");
         }
         document.getElementById("address-section")?.scrollIntoView({ behavior: "smooth" });
         return;
@@ -308,16 +358,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Email must contain @
-      if (!email.includes("@")) {
-        if (typeof showToast === "function") {
-          showToast("Please enter a valid email address (must include @)", "error");
-        } else {
-          alert("Please enter a valid email address with @.");
-        }
-        document.getElementById("addr-email")?.focus();
-        return;
-      }
+
 
       const orderId = generateOrderId();
       const subtotal = typeof ShopNestCart !== "undefined" ? ShopNestCart.total() : 0;
@@ -330,7 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createdAt: new Date().toISOString(),
         status: "Pending",
         paymentMethod: selectedPaymentMethod === "online" ? "Online Payment" : "Cash on Delivery",
-        customer: { name, phone, email, street, city, province },
+        customer: { name, phone, street, city, province },
         items: items.map((i) => ({
           id: i.id,
           name: i.name,
@@ -367,6 +408,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.head.appendChild(style);
       }
 
+      const encodedMessage = await notifyAdmin(orderData);
+      const adminWhatsappUrl = `https://wa.me/923284430589?text=${encodedMessage}`;
+
       // Clear cart
       if (typeof ShopNestCart !== "undefined") ShopNestCart.save([]);
       renderCart();
@@ -383,14 +427,19 @@ document.addEventListener("DOMContentLoaded", () => {
           <p style="font-size:0.95rem;color:#6b7280;margin-bottom:0.5rem;">Your Order ID is:</p>
           <div style="background:#f3f4f6;border-radius:8px;padding:0.6rem 1.2rem;display:inline-block;font-weight:700;font-size:1.2rem;letter-spacing:1px;color:#121c2c;margin-bottom:1rem;">${orderId}</div>
           <p>Your order has been successfully placed. We'll contact you at <strong>${phone}</strong> to confirm delivery.</p>
-          ${selectedPaymentMethod === "online" ? `<div style="background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);border-radius:12px;padding:1rem;margin-top:1rem;text-align:left;">
-            <div style="background:#16a34a;color:white;padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:700;margin-bottom:0.5rem;display:inline-flex;align-items:center;gap:4px;">
-              <span class="material-icons" style="font-size:12px;">card_giftcard</span>
-              PKR 100 DISCOUNT APPLIED
-            </div>
-            <p style="margin:0;font-size:0.9rem;color:#16a34a;line-height:1.4;"><strong>📱 Don't forget!</strong> Send your payment screenshot to <strong>03284430589</strong> on WhatsApp for faster processing.</p>
-          </div>` : ""}
-          <button class="btn btn-primary btn-full" onclick="window.location.href='index.html'" style="margin-top:1rem;">Return to Shop</button>
+          
+          <div style="background:linear-gradient(135deg, rgba(37,211,102,0.08) 0%, rgba(37,211,102,0.04) 100%); border-radius:16px; padding:1.5rem; margin-top:1.5rem; border: 1px solid rgba(37,211,102,0.2); box-shadow: 0 4px 15px rgba(37,211,102,0.1);">
+            <p style="margin:0 0 1rem; font-size:0.95rem; color:#374151; line-height:1.5;">
+              <span style="display:inline-block; background:#25d366; color:white; padding:2px 8px; border-radius:6px; font-size:0.75rem; font-weight:700; margin-bottom:0.5rem;">⚡ PRIORITY PROCESSING</span><br>
+              To ensure <strong>smoother and quicker delivery</strong>, you can share your order summary with our team on WhatsApp:
+            </p>
+            <a href="${adminWhatsappUrl}" target="_blank" class="btn btn-primary btn-full" style="background:#25d366; border-color:#25d366; display:flex; align-items:center; justify-content:center; gap:10px; font-weight:700; height:50px; box-shadow: 0 4px 12px rgba(37,211,102,0.3);">
+              <svg style="width:22px; height:22px; fill:white;" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 414.7c-33.1 0-65.5-8.9-94-25.8l-6.7-4-69.8 18.3L72 334.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 185.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+              Confirm on WhatsApp
+            </a>
+          </div>
+
+          <button class="btn btn-outline btn-full" onclick="window.location.href='index.html'" style="margin-top:1rem;">Return to Shop</button>
         </div>
       `;
       document.body.appendChild(overlay);
