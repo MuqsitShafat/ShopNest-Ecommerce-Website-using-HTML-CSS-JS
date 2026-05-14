@@ -21,6 +21,38 @@
     "priceSave": "Flash Deal"
   },
   {
+    "id": "sp-summer-deal",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 1700,
+    "oldPrice": 1950,
+    "rating": 5,
+    "ratingCount": 120,
+    "sale": true,
+    "new": true,
+    "images": ["images/Deal.jpeg", "images/Deal1.jpeg", "images/Deal2.jpeg"],
+    "name": "Summer Deal Combo",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "MEGA SALE",
+        "style": "background: var(--coral)"
+      }
+    ],
+    "hasLocationPricing": true,
+    "locationOptions": [
+      { "value": 1700, "text": "Lahore - PKR 1,700" },
+      { "value": 1800, "text": "Outside Lahore - PKR 1,800" }
+    ],
+    "hasComboColorOptions": true,
+    "comboColorLabel": "Neck Fan Color:",
+    "colorOptions": [
+      { "name": "Black", "accent": "#000", "checked": true },
+      { "name": "Light Green", "accent": "#90ee90", "checked": false }
+    ],
+    "colorGroupName": "combo-color-shop"
+  },
+  {
     "id": "sp-mini-white-fan",
     "category": "electronics",
     "productCat": "Electronics",
@@ -37,6 +69,27 @@
       "images/Red Fan 7.jpg"
     ],
     "name": "Arctic Breeze Portable Mini White Cooling Fan",
+    "badges": [{ "type": "sale", "text": "−50%" }],
+    "priceSave": "50% off"
+  },
+  {
+    "id": "sp-handheld-fan",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 850,
+    "oldPrice": 1700,
+    "rating": 5,
+    "ratingCount": 145,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Digital_Display_Handheld_Fan.jpeg",
+      "images/Digital_Display_Handheld_Fan_1.jpeg",
+      "images/Digital_Display_Handheld_Fan_3.jpeg",
+      "images/Digital_Display_Handheld_Fan_4.jpeg",
+      "images/Digital_Display_Handheld_Fan_5.jpeg"
+    ],
+    "name": "Digital Display Handheld Fan with lanyard",
     "badges": [{ "type": "sale", "text": "−50%" }],
     "priceSave": "50% off"
   },
@@ -74,57 +127,6 @@
     "name": "Dishwasher Scrubber Brush Liquid Soap Dispenser",
     "badges": [{ "type": "sale", "text": "−40%" }],
     "priceSave": "40% off"
-  },
-  {
-    "id": "sp-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 1250,
-    "oldPrice": 2833,
-    "rating": 5,
-    "ratingCount": 112,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/mini_fan.png",
-      "images/mini_fan1.jpg",
-      "images/mini_fan2.jpeg"
-    ],
-    "name": "Folding USB Charging Fan",
-    "badges": [{ "type": "sale", "text": "−70%" }],
-    "priceSave": "70% off"
-  },
-  {
-    "id": "sp-summer-deal",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 1700,
-    "oldPrice": 1950,
-    "rating": 5,
-    "ratingCount": 120,
-    "sale": true,
-    "new": true,
-    "images": ["images/Deal.jpeg", "images/Deal1.jpeg", "images/Deal2.jpeg"],
-    "name": "Summer Deal Combo",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "MEGA SALE",
-        "style": "background: var(--coral)"
-      }
-    ],
-    "hasLocationPricing": true,
-    "locationOptions": [
-      { "value": 1700, "text": "Lahore - PKR 1,700" },
-      { "value": 1800, "text": "Outside Lahore - PKR 1,800" }
-    ],
-    "hasComboColorOptions": true,
-    "comboColorLabel": "Neck Fan Color:",
-    "colorOptions": [
-      { "name": "Black", "accent": "#000", "checked": true },
-      { "name": "Light Green", "accent": "#90ee90", "checked": false }
-    ],
-    "colorGroupName": "combo-color-shop"
   },
   {
     "id": "sp-desktop-fan",
@@ -181,5 +183,24 @@
       }
     ],
     "colorGroupName": "neck-fan-color-shop"
+  },
+  {
+    "id": "sp-fan",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 1250,
+    "oldPrice": 2833,
+    "rating": 5,
+    "ratingCount": 112,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/mini_fan.png",
+      "images/mini_fan1.jpg",
+      "images/mini_fan2.jpeg"
+    ],
+    "name": "Big Folding USB Charging Fan",
+    "badges": [{ "type": "sale", "text": "−70%" }],
+    "priceSave": "70% off"
   }
 ]
