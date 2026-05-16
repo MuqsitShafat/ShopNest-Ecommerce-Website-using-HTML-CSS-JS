@@ -204,7 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const hasFreeShipProduct = items.some(item => item.id === 'sp-spoon');
 
     if (subtotal === 0) shipping = 0;
-    else if (subtotal >= FREE_SHIPPING_THRESHOLD || hasFreeShipProduct) shipping = 0;
+    else if (subtotal + SHIPPING_FEE >= FREE_SHIPPING_THRESHOLD || hasFreeShipProduct) shipping = 0;
+    else shipping = SHIPPING_FEE;
 
     const totalBeforeDiscount = subtotal + shipping;
     const finalDiscount = Math.min(currentDiscount, subtotal);
@@ -237,12 +238,12 @@ document.addEventListener("DOMContentLoaded", () => {
         shippingNotice.style.display = "block";
         shippingNotice.textContent = "✅ Special Offer: FREE delivery on this order!";
         shippingNotice.style.color = "#16a34a";
-      } else if (subtotal > 0 && subtotal < FREE_SHIPPING_THRESHOLD) {
-        const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
+      } else if (subtotal > 0 && (subtotal + SHIPPING_FEE) < FREE_SHIPPING_THRESHOLD) {
+        const remaining = FREE_SHIPPING_THRESHOLD - (subtotal + SHIPPING_FEE);
         shippingNotice.style.display = "block";
         shippingNotice.textContent = `Add PKR ${remaining.toLocaleString()} more for FREE delivery!`;
         shippingNotice.style.color = "";
-      } else if (subtotal >= FREE_SHIPPING_THRESHOLD) {
+      } else if (subtotal > 0 && (subtotal + SHIPPING_FEE) >= FREE_SHIPPING_THRESHOLD) {
         shippingNotice.style.display = "block";
         shippingNotice.textContent = "✅ You qualify for FREE delivery!";
         shippingNotice.style.color = "#16a34a";
@@ -363,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const orderId = generateOrderId();
       const subtotal = typeof ShopNestCart !== "undefined" ? ShopNestCart.total() : 0;
       const hasFreeShipProduct = items.some(item => item.id === 'sp-spoon');
-      const shipping = (subtotal >= FREE_SHIPPING_THRESHOLD || hasFreeShipProduct) ? 0 : SHIPPING_FEE;
+      const shipping = (subtotal + SHIPPING_FEE >= FREE_SHIPPING_THRESHOLD || hasFreeShipProduct) ? 0 : SHIPPING_FEE;
       const total = subtotal + shipping - currentDiscount;
 
       const orderData = {
