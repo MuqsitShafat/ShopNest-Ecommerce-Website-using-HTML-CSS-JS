@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const titleCount = document.getElementById("cart-title-count");
 
   let currentDiscount = 0;
-  const SHIPPING_FEE = 150;
+  const SHIPPING_FEE = 100;
   const FREE_SHIPPING_THRESHOLD = 1000;
 
   function renderCart() {
