@@ -123,13 +123,29 @@ document.addEventListener("DOMContentLoaded", () => {
         row.dataset.id = item.id;
 
         let colorSelectorHtml = '';
+        let colorOptions = null;
+        let colorLabel = 'Color:';
         if (item.id.startsWith("sp-neck-fan") || item.id.startsWith("sp-summer-deal")) {
+          colorOptions = ["Black", "Light Green"];
+          colorLabel = "Neck Fan Color:";
+        } else if (item.id.startsWith("sp-aesthetic-mini-fan")) {
+          colorOptions = ["Crimson", "Pink", "Purple"];
+        } else if (item.id.startsWith("sp-big-display-fan")) {
+          colorOptions = ["Darkgreen", "Black", "White", "Pink"];
+        }
+
+        if (colorOptions) {
+          const optionsHtml = colorOptions.map(opt => {
+            const isSelected = item.color === opt || (!item.color && opt === colorOptions[0]);
+            const displayOpt = opt === 'Darkgreen' ? 'Dark Green' : opt;
+            return `<option value="${opt}" ${isSelected ? 'selected' : ''}>${displayOpt}</option>`;
+          }).join("");
+          
           colorSelectorHtml = `
             <div style="margin-top: 0.5rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
-              <label style="color: #666; font-weight: 500;">Neck Fan Color:</label>
+              <label style="color: #666; font-weight: 500;">${colorLabel}</label>
               <select class="cart-item-color-select" style="padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #ddd; background: #fff; font-family: inherit; font-size: 0.85rem; cursor: pointer; min-width: 100px;">
-                <option value="Black" ${item.color === 'Black' || !item.color ? 'selected' : ''}>Black</option>
-                <option value="Light Green" ${item.color === 'Light Green' ? 'selected' : ''}>Light Green</option>
+                ${optionsHtml}
               </select>
             </div>
           `;
@@ -379,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
           price: i.price,
           qty: i.qty,
           total: i.price * i.qty,
-          color: i.color || (i.id.startsWith('sp-neck-fan') || i.id.startsWith('sp-summer-deal') ? 'Black' : null)
+          color: i.color || (i.id.startsWith('sp-neck-fan') || i.id.startsWith('sp-summer-deal') ? 'Black' : (i.id.startsWith('sp-aesthetic-mini-fan') ? 'Pink' : (i.id.startsWith('sp-big-display-fan') ? 'Black' : null)))
         })),
         subtotal,
         shipping,

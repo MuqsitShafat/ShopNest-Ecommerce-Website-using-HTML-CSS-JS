@@ -9,7 +9,10 @@
     "ratingCount": 420,
     "sale": true,
     "new": false,
-    "images": ["images/spoon_brush.jpeg", "images/spoon_brush1.jpeg"],
+    "images": [
+      "images/spoon_brush.jpeg",
+      "images/spoon_brush1.jpeg"
+    ],
     "name": "2 in 1 Digital Measuring Spoon & Soap Brush Combo",
     "badges": [
       {
@@ -30,7 +33,11 @@
     "ratingCount": 120,
     "sale": true,
     "new": true,
-    "images": ["images/Deal.jpeg", "images/Deal1.jpeg", "images/Deal2.jpeg"],
+    "images": [
+      "images/Deal.jpeg",
+      "images/Deal1.jpeg",
+      "images/Deal2.jpeg"
+    ],
     "name": "Summer Deal Combo",
     "badges": [
       {
@@ -41,57 +48,117 @@
     ],
     "hasLocationPricing": true,
     "locationOptions": [
-      { "value": 1700, "text": "Lahore - PKR 1,700" },
-      { "value": 1800, "text": "Outside Lahore - PKR 1,800" }
+      {
+        "value": 1700,
+        "text": "Lahore - PKR 1,700"
+      },
+      {
+        "value": 1800,
+        "text": "Outside Lahore - PKR 1,800"
+      }
     ],
     "hasComboColorOptions": true,
     "comboColorLabel": "Neck Fan Color:",
     "colorOptions": [
-      { "name": "Black", "accent": "#000", "checked": true },
-      { "name": "Light Green", "accent": "#90ee90", "checked": false }
+      {
+        "name": "Black",
+        "accent": "#000",
+        "checked": true
+      },
+      {
+        "name": "Light Green",
+        "accent": "#90ee90",
+        "checked": false
+      }
     ],
     "colorGroupName": "combo-color-shop"
   },
   {
-    "id": "sp-mini-white-fan",
+    "id": "sp-aesthetic-mini-fan",
     "category": "electronics",
     "productCat": "Electronics",
-    "price": 800,
-    "oldPrice": 1400,
+    "price": 750,
+    "oldPrice": 1500,
     "rating": 5,
-    "ratingCount": 64,
+    "ratingCount": 128,
     "sale": true,
     "new": true,
     "images": [
-      "images/Red Fan 1.jpeg",
-      "images/Red Fan 2.jpeg",
-      "images/Red Fan 6.jpg",
-      "images/Red Fan 7.jpg"
+      "images/Aesthetic_mini_fan_start.jpeg",
+      "images/Aesthetic_mini_fan_pink.jpeg",
+      "images/Aesthetic_mini_fan_purple.jpeg",
+      "images/Aesthetic_mini_fan_orangewhite.jpeg",
+      "images/Aesthetic_mini_fan_end.jpeg"
     ],
-    "name": "Arctic Breeze Portable Mini White Cooling Fan",
-    "badges": [{ "type": "sale", "text": "−50%" }],
-    "priceSave": "50% off"
+    "name": "Aesthetic Pastel Mini Cooling Fan (Crimson)",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
+    "priceSave": "50% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {
+        "name": "Crimson",
+        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Crimson)"
+      },
+      {
+        "name": "Purple",
+        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Purple)"
+      },
+      {
+        "name": "Pink",
+        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Pink)"
+      }
+    ]
   },
   {
-    "id": "sp-handheld-fan",
+    "id": "sp-big-display-fan",
     "category": "electronics",
     "productCat": "Electronics",
-    "price": 850,
-    "oldPrice": 1700,
+    "price": 1050,
+    "oldPrice": 2100,
     "rating": 5,
-    "ratingCount": 145,
+    "ratingCount": 112,
     "sale": true,
     "new": true,
     "images": [
-      "images/Digital_Display_Handheld_Fan.jpeg",
-      "images/Digital_Display_Handheld_Fan_1.jpeg",
-      "images/Digital_Display_Handheld_Fan_3.jpeg",
-      "images/Digital_Display_Handheld_Fan_4.jpeg",
-      "images/Digital_Display_Handheld_Fan_5.jpeg"
+      "images/Big_Display_handheld_fan_with_lanyard_start.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_Black.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_Darkgreen.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_Pink.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_white.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_end.jpeg"
     ],
-    "name": "Digital Display Handheld Fan with lanyard",
-    "badges": [{ "type": "sale", "text": "−50%" }],
-    "priceSave": "50% off"
+    "name": "Big Display Handheld Fan with Lanyard (Dark Green)",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
+    "priceSave": "50% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {
+        "name": "Darkgreen",
+        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Dark Green)"
+      },
+      {
+        "name": "Black",
+        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Black)"
+      },
+      {
+        "name": "White",
+        "productNameUpdate": "Big Display Handheld Fan with Lanyard (White)"
+      },
+      {
+        "name": "Pink",
+        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Pink)"
+      }
+    ]
   },
   {
     "id": "sp-spoon",
@@ -103,16 +170,25 @@
     "ratingCount": 84,
     "sale": true,
     "new": true,
-    "images": ["images/spoon.jpeg", "images/spoon1.jpeg", "images/spoon2.jpg"],
+    "images": [
+      "images/spoon.jpeg",
+      "images/spoon1.jpeg",
+      "images/spoon2.jpg"
+    ],
     "name": "Digital Measuring Spoon",
-    "badges": [{ "type": "sale", "text": "−50%" }],
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
     "priceSave": "50% off"
   },
   {
     "id": "sp-soap-brush",
     "category": "home",
     "productCat": "Kitchen",
-    "price": 350,
+    "price": 300,
     "oldPrice": 450,
     "rating": 5,
     "ratingCount": 156,
@@ -125,7 +201,12 @@
       "images/soap_brush3.jpeg"
     ],
     "name": "Dishwasher Scrubber Brush Liquid Soap Dispenser",
-    "badges": [{ "type": "sale", "text": "−40%" }],
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−40%"
+      }
+    ],
     "priceSave": "40% off"
   },
   {
@@ -144,7 +225,12 @@
       "images/laptop_fan2.jpeg"
     ],
     "name": "Trending Mini Air Conditioner Fan Premium 3 In 1 Desk Cooling Fan Spray Fan",
-    "badges": [{ "type": "new", "text": "New" }],
+    "badges": [
+      {
+        "type": "new",
+        "text": "New"
+      }
+    ],
     "priceSave": "75% off"
   },
   {
@@ -165,7 +251,12 @@
       "images/Neck lightgreen.jpeg"
     ],
     "name": "Wearable Bladeless Neck Fan (Black)",
-    "badges": [{ "type": "sale", "text": "−50%" }],
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
     "priceSave": "50% off",
     "hasColorOptions": true,
     "colorOptions": [
@@ -185,22 +276,30 @@
     "colorGroupName": "neck-fan-color-shop"
   },
   {
-    "id": "sp-fan",
+    "id": "sp-handheld-fan",
     "category": "electronics",
     "productCat": "Electronics",
-    "price": 1250,
-    "oldPrice": 2833,
+    "price": 850,
+    "oldPrice": 1700,
     "rating": 5,
-    "ratingCount": 112,
+    "ratingCount": 145,
     "sale": true,
     "new": true,
     "images": [
-      "images/mini_fan.png",
-      "images/mini_fan1.jpg",
-      "images/mini_fan2.jpeg"
+      "images/Digital_Display_Handheld_Fan.jpeg",
+      "images/Digital_Display_Handheld_Fan_1.jpeg",
+      "images/Digital_Display_Handheld_Fan_3.jpeg",
+      "images/Digital_Display_Handheld_Fan_4.jpeg",
+      "images/Digital_Display_Handheld_Fan_5.jpeg"
     ],
-    "name": "Big Folding USB Charging Fan",
-    "badges": [{ "type": "sale", "text": "−70%" }],
-    "priceSave": "70% off"
+    "name": "Mini Digital Display Handheld Fan with lanyard",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
+    "priceSave": "50% off",
+    "isSoldOut": true
   }
 ]

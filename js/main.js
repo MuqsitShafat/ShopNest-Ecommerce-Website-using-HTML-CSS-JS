@@ -231,6 +231,29 @@ function buildQuickViewHTML(card) {
         </label>
       </div>
     `;
+  } else if (id.startsWith('sp-aesthetic-mini-fan')) {
+    const defaultColor = card.dataset.color || 'Crimson';
+    colorSelectHtml = `
+      <div style="margin-bottom: 1rem;">
+        <select class="input-field qv-color-select" style="width: auto; padding: 0.5rem; border-radius: 4px; border: 1px solid #ccc; font-weight: 500; font-family: inherit;">
+          <option value="Crimson" ${defaultColor === 'Crimson' ? 'selected' : ''}>Crimson</option>
+          <option value="Pink" ${defaultColor === 'Pink' ? 'selected' : ''}>Pink</option>
+          <option value="Purple" ${defaultColor === 'Purple' ? 'selected' : ''}>Purple</option>
+        </select>
+      </div>
+    `;
+  } else if (id.startsWith('sp-big-display-fan')) {
+    const defaultColor = card.dataset.color || 'Darkgreen';
+    colorSelectHtml = `
+      <div style="margin-bottom: 1rem;">
+        <select class="input-field qv-color-select" style="width: auto; padding: 0.5rem; border-radius: 4px; border: 1px solid #ccc; font-weight: 500; font-family: inherit;">
+          <option value="Darkgreen" ${defaultColor === 'Darkgreen' ? 'selected' : ''}>Dark Green</option>
+          <option value="Black" ${defaultColor === 'Black' ? 'selected' : ''}>Black</option>
+          <option value="White" ${defaultColor === 'White' ? 'selected' : ''}>White</option>
+          <option value="Pink" ${defaultColor === 'Pink' ? 'selected' : ''}>Pink</option>
+        </select>
+      </div>
+    `;
   }
 
   return `
@@ -637,7 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const price = parseInt(card.dataset.price) || 0;
           const img = card.querySelector(".product-img")?.src || "";
           const cat = card.querySelector(".product-cat")?.textContent || "";
-          const color = card.dataset.color || (id.startsWith('sp-neck-fan') || id.startsWith('sp-summer-deal') ? 'Black' : null);
+          const color = card.dataset.color || (id.startsWith('sp-neck-fan') || id.startsWith('sp-summer-deal') ? 'Black' : (id.startsWith('sp-aesthetic-mini-fan') ? 'Crimson' : (id.startsWith('sp-big-display-fan') ? 'Darkgreen' : null)));
           ShopNestCart.add({ id, name, price, img, cat, color });
           // Brief visual feedback — NO redirect
           const orig = addBtn.innerHTML;
@@ -662,7 +685,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const price = parseInt(card.dataset.price) || 0;
           const img = card.querySelector(".product-img")?.src || "";
           const cat = card.querySelector(".product-cat")?.textContent || "";
-          const color = card.dataset.color || (id.startsWith('sp-neck-fan') || id.startsWith('sp-summer-deal') ? 'Black' : null);
+          const color = card.dataset.color || (id.startsWith('sp-neck-fan') || id.startsWith('sp-summer-deal') ? 'Black' : (id.startsWith('sp-aesthetic-mini-fan') ? 'Crimson' : (id.startsWith('sp-big-display-fan') ? 'Darkgreen' : null)));
           ShopNestCart.add({ id, name, price, img, cat, color });
           refreshCartBadge();
           window.location.href = "cart.html";
@@ -782,7 +805,7 @@ document.addEventListener("DOMContentLoaded", () => {
         price: parseInt(btn.dataset.price),
         img: btn.dataset.img,
         cat: btn.dataset.cat,
-        color: btn.closest('.qv-info')?.querySelector('.cart-item-color-select:checked')?.value || (btn.dataset.id.startsWith('sp-neck-fan') || btn.dataset.id.startsWith('sp-summer-deal') ? 'Black' : null)
+        color: btn.closest('.qv-info')?.querySelector('.qv-color-select')?.value || btn.closest('.qv-info')?.querySelector('.cart-item-color-select:checked')?.value || (btn.dataset.id.startsWith('sp-neck-fan') || btn.dataset.id.startsWith('sp-summer-deal') ? 'Black' : (btn.dataset.id.startsWith('sp-aesthetic-mini-fan') ? 'Crimson' : (btn.dataset.id.startsWith('sp-big-display-fan') ? 'Darkgreen' : null)))
       });
       btn.innerHTML = `<span class="material-icons" style="font-size:16px;">check</span> Added to Cart!`;
       btn.style.background = "linear-gradient(135deg,#22c55e,#16a34a)";
@@ -804,7 +827,7 @@ document.addEventListener("DOMContentLoaded", () => {
         price: parseInt(btn.dataset.price),
         img: btn.dataset.img,
         cat: btn.dataset.cat,
-        color: btn.closest('.qv-info')?.querySelector('.cart-item-color-select:checked')?.value || (btn.dataset.id.startsWith('sp-neck-fan') || btn.dataset.id.startsWith('sp-summer-deal') ? 'Black' : null)
+        color: btn.closest('.qv-info')?.querySelector('.qv-color-select')?.value || btn.closest('.qv-info')?.querySelector('.cart-item-color-select:checked')?.value || (btn.dataset.id.startsWith('sp-neck-fan') || btn.dataset.id.startsWith('sp-summer-deal') ? 'Black' : (btn.dataset.id.startsWith('sp-aesthetic-mini-fan') ? 'Crimson' : (btn.dataset.id.startsWith('sp-big-display-fan') ? 'Darkgreen' : null)))
       });
       refreshCartBadge();
       window.location.href = "cart.html";

@@ -453,16 +453,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let colorOptionsHtml = '';
     if (p.hasColorOptions) {
       colorOptionsHtml = `
-        <div class="color-options" style="margin: 0.5rem 0; display: flex; gap: 1rem; align-items: center; font-size: 0.9rem;">
-          ${p.colorOptions.map(c => `
-            <label style="cursor: pointer; display: flex; align-items: center; gap: 0.25rem;">
-              <input type="radio" name="${p.colorGroupName}" value="${c.name}" ${c.checked ? 'checked' : ''} style="accent-color: ${c.accent}; width: 16px; height: 16px;" onchange="
-                ${c.productNameUpdate ? `this.closest('.product-card').querySelector('.product-name').textContent = '${c.productNameUpdate}';` : ''}
-                this.closest('.product-card').dataset.color = '${c.name}';
-              "> 
-              ${c.name}
-            </label>
-          `).join('')}
+        <div style="margin: 0.5rem 0;">
+          <select class="input-field" style="width: auto; padding: 0.4rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit; font-size: 0.9rem; font-weight: 500;" onchange="
+            this.closest('.product-card').dataset.color = this.value;
+            ${p.colorOptions[0].productNameUpdate ? `
+              const optIndex = this.selectedIndex;
+              const nameUpdates = ${JSON.stringify(p.colorOptions.map(c => c.productNameUpdate)).replace(/"/g, "'")};
+              if(nameUpdates[optIndex]) this.closest('.product-card').querySelector('.product-name').textContent = nameUpdates[optIndex];
+            ` : ''}
+          ">
+            ${p.colorOptions.map(c => `<option value="${c.name}">${c.name === 'Darkgreen' ? 'Dark Green' : c.name}</option>`).join('')}
+          </select>
         </div>
       `;
     } else if (p.hasComboColorOptions) {
@@ -518,12 +519,21 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           ${locationSelectHtml}
           ${colorOptionsHtml}
-          <button class="btn btn-coral btn-full btn-buy-now" id="buy-${p.id.replace('sp-', '')}">
-            ⚡ Buy Now
-          </button>
-          <button class="btn btn-primary btn-full shop-add-cart" style="margin-top: 0.5rem" id="add-${p.id.replace('sp-', '')}">
-            Add to Cart
-          </button>
+          ${p.isSoldOut ? `
+            <button class="btn btn-coral btn-full btn-buy-now" id="buy-${p.id.replace('sp-', '')}" disabled style="background-color: #999; border-color: #999; cursor: not-allowed; color: #fff;">
+              SOLD OUT
+            </button>
+            <button class="btn btn-primary btn-full shop-add-cart" style="margin-top: 0.5rem; background-color: #999; border-color: #999; cursor: not-allowed; color: #fff;" id="add-${p.id.replace('sp-', '')}" disabled>
+              SOLD OUT
+            </button>
+          ` : `
+            <button class="btn btn-coral btn-full btn-buy-now" id="buy-${p.id.replace('sp-', '')}">
+              ⚡ Buy Now
+            </button>
+            <button class="btn btn-primary btn-full shop-add-cart" style="margin-top: 0.5rem" id="add-${p.id.replace('sp-', '')}">
+              Add to Cart
+            </button>
+          `}
         </div>
       </article>
     `;
