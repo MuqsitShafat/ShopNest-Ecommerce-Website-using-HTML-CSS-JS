@@ -52,6 +52,7 @@ async function notifyAdmin(orderData) {
                   `*City:* ${orderData.customer.city}\n` +
                   `*Address:* ${orderData.customer.street}\n` +
                   `*Payment:* ${orderData.paymentMethod}\n\n` +
+                  (orderData.codFee ? `*COD Fee:* PKR ${orderData.codFee}\n` : '') +
                   `*Items Ordered:*\n` +
                   `${itemSummary}\n\n` +
                   `*Total Amount:* PKR ${orderData.total.toLocaleString()}\n` +
@@ -96,7 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentDiscount = 0;
   const SHIPPING_FEE = 100;
-  const FREE_SHIPPING_THRESHOLD = 1000;
+  const COD_FEE = 99;
+  const FREE_SHIPPING_THRESHOLD = 1999;
 
   function renderCart() {
     const items = typeof ShopNestCart !== "undefined" ? ShopNestCart.get() : [];
@@ -223,7 +225,9 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (subtotal + SHIPPING_FEE >= FREE_SHIPPING_THRESHOLD || hasFreeShipProduct) shipping = 0;
     else shipping = SHIPPING_FEE;
 
-    const totalBeforeDiscount = subtotal + shipping;
+    const codFee = (subtotal > 0 && selectedPaymentMethod === "cod") ? COD_FEE : 0;
+
+    const totalBeforeDiscount = subtotal + shipping + codFee;
     const finalDiscount = Math.min(currentDiscount, subtotal);
     const total = totalBeforeDiscount - finalDiscount;
 
@@ -244,6 +248,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       if (discountRow) discountRow.style.display = "none";
     }
+
+    const codRow = document.getElementById("cod-fee-row");
+    const summaryCod = document.getElementById("summary-cod");
+    if (codRow) codRow.style.display = codFee > 0 ? "flex" : "none";
+    if (summaryCod) summaryCod.textContent = `PKR ${codFee.toLocaleString()}`;
 
     if (summaryTotal)
       summaryTotal.textContent = `PKR ${total.toLocaleString()}`;
@@ -381,7 +390,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const subtotal = typeof ShopNestCart !== "undefined" ? ShopNestCart.total() : 0;
       const hasFreeShipProduct = items.some(item => item.id === 'sp-spoon');
       const shipping = (subtotal + SHIPPING_FEE >= FREE_SHIPPING_THRESHOLD || hasFreeShipProduct) ? 0 : SHIPPING_FEE;
-      const total = subtotal + shipping - currentDiscount;
+      const codFee = selectedPaymentMethod === "cod" ? COD_FEE : 0;
+      const total = subtotal + shipping + codFee - currentDiscount;
 
       const orderData = {
         orderId,
@@ -399,6 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })),
         subtotal,
         shipping,
+        codFee,
         discount: currentDiscount,
         total,
       };

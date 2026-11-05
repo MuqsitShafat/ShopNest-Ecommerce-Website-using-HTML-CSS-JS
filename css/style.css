@@ -1484,7 +1484,7 @@ h1, h2, h3, h4, h5 {
 
 /* -------- TINY MOBILE (≤ 400px) -------- */
 @media (max-width: 400px) {
-  .products-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
   .hero-stats { gap: var(--space-3); }
   .stat strong { font-size: 1.1rem; }
   .cat-card { min-height: 240px; }
@@ -1682,4 +1682,25 @@ h1, h2, h3, h4, h5 {
   .whatsapp-float::after {
     display: none; /* Hide tooltip on small mobile */
   }
+}
+
+/* ---- Compact 2-column product cards on small phones ---- */
+@media (max-width: 640px) {
+  .products-grid .product-info { padding: 0.75rem; gap: 0.35rem; }
+  .products-grid .product-cat { font-size: 0.625rem; }
+  .products-grid .product-name {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .products-grid .product-rating { font-size: 0.7rem; }
+  .products-grid .stars { font-size: 0.7rem; }
+  .products-grid .product-pricing { flex-wrap: wrap; gap: 0.25rem 0.4rem; }
+  .products-grid .price-current { font-size: 0.95rem; }
+  .products-grid .price-old { font-size: 0.75rem; }
+  .products-grid .btn { font-size: 0.8rem; padding: 0.55rem 0.5rem; }
+  .products-grid .badge { font-size: 0.6rem; padding: 0.15rem 0.4rem; }
 }

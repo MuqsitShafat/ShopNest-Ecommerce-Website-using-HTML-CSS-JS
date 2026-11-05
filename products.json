@@ -6,7 +6,7 @@
     "price": 1200,
     "oldPrice": 1270,
     "rating": 5,
-    "ratingCount": 420,
+    "ratingCount": 132,
     "sale": true,
     "new": false,
     "images": [
@@ -191,7 +191,7 @@
     "price": 300,
     "oldPrice": 450,
     "rating": 5,
-    "ratingCount": 156,
+    "ratingCount": 118,
     "sale": true,
     "new": true,
     "images": [
@@ -300,5 +300,31 @@
       }
     ],
     "priceSave": "50% off"
+  },
+  {
+    "id": "sp-glue-gun",
+    "category": "home",
+    "productCat": "DIY Tools",
+    "price": 799,
+    "oldPrice": 1400,
+    "rating": 5,
+    "ratingCount": 87,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Glue Gun/Glue_Gun_2.jpg",
+      "images/Glue Gun/Glue_Gun_1.jpg",
+      "images/Glue Gun/Glue_Gun_3.jpg",
+      "images/Glue Gun/Glue_Gun_4.jpg",
+      "images/Glue Gun/Glue_Gun_5.jpg"
+    ],
+    "name": "1one Hot Melt Glue Gun 100W",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−43%"
+      }
+    ],
+    "priceSave": "43% off"
   }
 ]
