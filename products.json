@@ -326,5 +326,791 @@
       }
     ],
     "priceSave": "43% off"
+  },
+  {
+    "id": "sp-airpro-nobox",
+    "category": "electronics",
+    "productCat": "Audio",
+    "price": 1099,
+    "oldPrice": 1799,
+    "rating": 5,
+    "ratingCount": 118,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _1.jpg",
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _2.jpg",
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _3.jpg",
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _4.jpg",
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _5.jpg"
+    ],
+    "name": "Air Pro 2nd Gen Earbuds (Without Box)",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−39%"
+      }
+    ],
+    "priceSave": "39% off"
+  },
+  {
+    "id": "sp-airpro-box",
+    "category": "electronics",
+    "productCat": "Audio",
+    "price": 1799,
+    "oldPrice": 2499,
+    "rating": 5,
+    "ratingCount": 134,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_1.jpg",
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_2.jpg",
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_3.jpg"
+    ],
+    "name": "Air Pro 2nd Gen Earbuds (With Box)",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−28%"
+      }
+    ],
+    "priceSave": "28% off"
+  },
+  {
+    "id": "sp-gp07-powerbank",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 6999,
+    "oldPrice": 9999,
+    "rating": 5,
+    "ratingCount": 76,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/G-Golden GP-07 Power Bank 30000mAh/G-Golden GP-07 Power Bank 30000mAh.jpg",
+      "images/G-Golden GP-07 Power Bank 30000mAh/G-Golden GP-07 Power Bank 30000mAh (1).jpg",
+      "images/G-Golden GP-07 Power Bank 30000mAh/G-Golden GP-07 Power Bank 30000mAh (2).jpg",
+      "images/G-Golden GP-07 Power Bank 30000mAh/G-Golden GP-07 Power Bank 30000mAh (3).jpg",
+      "images/G-Golden GP-07 Power Bank 30000mAh/G-Golden GP-07 Power Bank 30000mAh (4).jpg"
+    ],
+    "name": "G-Golden GP-07 Power Bank 30000mAh 22.5W",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−30%"
+      }
+    ],
+    "priceSave": "30% off"
+  },
+  {
+    "id": "sp-bbq-lighter",
+    "category": "home",
+    "productCat": "Kitchen",
+    "price": 449,
+    "oldPrice": 699,
+    "rating": 5,
+    "ratingCount": 92,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Electric Arc BBQ Lighter/Electric Arc BBQ Lighter.jpg",
+      "images/Electric Arc BBQ Lighter/Electric Arc BBQ Lighter (1).jpg",
+      "images/Electric Arc BBQ Lighter/Electric Arc BBQ Lighter (2).jpg"
+    ],
+    "name": "Electric Arc BBQ Lighter USB Type-C",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−36%"
+      }
+    ],
+    "priceSave": "36% off"
+  },
+  {
+    "id": "sp-tasbih-compass",
+    "category": "home",
+    "productCat": "Islamic Essentials",
+    "price": 699,
+    "oldPrice": 999,
+    "rating": 5,
+    "ratingCount": 141,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Digital Tasbih Counter with Compass (SXH5136)/Digital Tasbih Counter with Compass (SXH5136).jpeg",
+      "images/Digital Tasbih Counter with Compass (SXH5136)/Digital Tasbih Counter with Compass (SXH5136) (1).jpeg",
+      "images/Digital Tasbih Counter with Compass (SXH5136)/Digital Tasbih Counter with Compass (SXH5136) (2).jpeg"
+    ],
+    "name": "Digital Tasbih Counter with Compass",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−30%"
+      }
+    ],
+    "priceSave": "30% off"
+  },
+  {
+    "id": "sp-ulex-ux1",
+    "category": "electronics",
+    "productCat": "Audio",
+    "price": 2099,
+    "oldPrice": 2999,
+    "rating": 5,
+    "ratingCount": 67,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Ulex UX-1 Wireless Earbuds/Ulex UX-1 Wireless Earbuds.jpg",
+      "images/Ulex UX-1 Wireless Earbuds/Ulex UX-1 Wireless Earbuds (1).jpg",
+      "images/Ulex UX-1 Wireless Earbuds/Ulex UX-1 Wireless Earbuds (2).jpg",
+      "images/Ulex UX-1 Wireless Earbuds/Ulex UX-1 Wireless Earbuds (3).jpg",
+      "images/Ulex UX-1 Wireless Earbuds/Ulex UX-1 Wireless Earbuds (4).jpg"
+    ],
+    "name": "Ulex UX-1 Wireless Gaming Earbuds",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−30%"
+      }
+    ],
+    "priceSave": "30% off"
+  },
+  {
+    "id": "sp-jy760-massager",
+    "category": "beauty",
+    "productCat": "Health & Wellness",
+    "price": 2499,
+    "oldPrice": 3499,
+    "rating": 5,
+    "ratingCount": 58,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager.jpg",
+      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager.jpeg",
+      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager (1).jpg",
+      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager (2).jpg"
+    ],
+    "name": "JY-760 Smart Fascia Massager",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−29%"
+      }
+    ],
+    "priceSave": "29% off"
+  },
+  {
+    "id": "sp-vented-brush",
+    "category": "beauty",
+    "productCat": "Hair Care",
+    "price": 329,
+    "oldPrice": 499,
+    "rating": 5,
+    "ratingCount": 127,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush.jpg",
+      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (1).jpg",
+      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (2).jpg",
+      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (3).jpg"
+    ],
+    "name": "Vented Detangling Hair Brush",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−34%"
+      }
+    ],
+    "priceSave": "34% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {"name": "Mint Green"},
+      {"name": "Pink"},
+      {"name": "Cream"},
+      {"name": "Light Brown"},
+      {"name": "Red"},
+      {"name": "Grey"}
+    ]
+  },
+  {
+    "id": "sp-round-brush",
+    "category": "beauty",
+    "productCat": "Hair Care",
+    "price": 310,
+    "oldPrice": 489,
+    "rating": 5,
+    "ratingCount": 109,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Round Styling Hair Brush/Round Styling Hair Brush.jpg",
+      "images/Round Styling Hair Brush/Round Styling Hair Brush (1).jpg",
+      "images/Round Styling Hair Brush/Round Styling Hair Brush (2).jpg",
+      "images/Round Styling Hair Brush/Round Styling Hair Brush (3).jpg"
+    ],
+    "name": "Round Styling Hair Brush",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−37%"
+      }
+    ],
+    "priceSave": "37% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {"name": "Purple"},
+      {"name": "White"},
+      {"name": "Red"}
+    ]
+  },
+  {
+    "id": "sp-w161-earbuds",
+    "category": "electronics",
+    "productCat": "Audio",
+    "price": 2000,
+    "oldPrice": 3499,
+    "rating": 5,
+    "ratingCount": 83,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/W161 TWS Earbuds (ANC+ENC)/W161 TWS Earbuds (ANC+ENC).jpg",
+      "images/W161 TWS Earbuds (ANC+ENC)/W161 TWS Earbuds (ANC+ENC) (1).jpg",
+      "images/W161 TWS Earbuds (ANC+ENC)/W161 TWS Earbuds (ANC+ENC) (2).jpg"
+    ],
+    "name": "W161 TWS Earbuds ANC+ENC",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−43%"
+      }
+    ],
+    "priceSave": "43% off"
+  },
+  {
+    "id": "sp-xc901-comb",
+    "category": "beauty",
+    "productCat": "Hair Care",
+    "price": 3499,
+    "oldPrice": 4999,
+    "rating": 5,
+    "ratingCount": 64,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb.jpg",
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (1).jpg",
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (2).jpg",
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (3).jpg",
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (4).jpg"
+    ],
+    "name": "XC-901 Magnetic Oil Dispensing Massage Comb",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−30%"
+      }
+    ],
+    "priceSave": "30% off"
+  },
+  {
+    "id": "sp-toy-cars",
+    "category": "toys",
+    "productCat": "Toys",
+    "price": 799,
+    "oldPrice": 1399,
+    "rating": 5,
+    "ratingCount": 97,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs).jpg",
+      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs).jpeg",
+      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs) (1).jpg",
+      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs) (2).jpg"
+    ],
+    "name": "Racing Toy Cars Set (Pack of 12)",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−43%"
+      }
+    ],
+    "priceSave": "43% off"
+  },
+  {
+    "id": "sp-oknew-bulb",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 1099,
+    "oldPrice": 1999,
+    "rating": 5,
+    "ratingCount": 113,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W.jpg",
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (1).jpg",
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (2).jpg",
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (3).jpg",
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (4).jpg"
+    ],
+    "name": "OKNEW Emergency LED Bulb 5W",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−45%"
+      }
+    ],
+    "priceSave": "45% off"
+  },
+  {
+    "id": "sp-cushion-brush",
+    "category": "beauty",
+    "productCat": "Hair Care",
+    "price": 449,
+    "oldPrice": 699,
+    "rating": 5,
+    "ratingCount": 102,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush.jpg",
+      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (1).jpg",
+      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (2).jpg",
+      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (3).jpg"
+    ],
+    "name": "Cushion Paddle Hair Brush",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−36%"
+      }
+    ],
+    "priceSave": "36% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {"name": "Cream"},
+      {"name": "Red"},
+      {"name": "Brown"}
+    ]
+  },
+  {
+    "id": "sp-paper-soap",
+    "category": "beauty",
+    "productCat": "Personal Care",
+    "price": 99,
+    "oldPrice": 150,
+    "rating": 5,
+    "ratingCount": 138,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap.jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (1).jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (2).jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (3).jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (4).jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (5).jpg"
+    ],
+    "name": "New Season Paper Hand Soap",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−34%"
+      }
+    ],
+    "priceSave": "34% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {"name": "Pink"},
+      {"name": "Green"},
+      {"name": "White"},
+      {"name": "Blue"},
+      {"name": "Purple"}
+    ]
+  },
+  {
+    "id": "sp-azan-counter",
+    "category": "home",
+    "productCat": "Islamic Essentials",
+    "price": 1850,
+    "oldPrice": 2499,
+    "rating": 5,
+    "ratingCount": 71,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter.jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (1).jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (2).jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (3).jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (4).jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (5).jpg"
+    ],
+    "name": "AL-Fatiha Azan & Tasbih Counter",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−26%"
+      }
+    ],
+    "priceSave": "26% off"
+  },
+  {
+    "id": "sp-v380-wifi",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 3999,
+    "oldPrice": 5999,
+    "rating": 5,
+    "ratingCount": 88,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP).jpg",
+      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP) (1).jpg",
+      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP) (2).jpg",
+      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP) (3).jpg"
+    ],
+    "name": "V380 WiFi Camera HD Wireless IP",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−33%"
+      }
+    ],
+    "priceSave": "33% off"
+  },
+  {
+    "id": "sp-heart-keychain",
+    "category": "fashion",
+    "productCat": "Accessories",
+    "price": 299,
+    "oldPrice": 499,
+    "rating": 5,
+    "ratingCount": 124,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain.jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (1).jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (2).jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (3).jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (4).jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (5).jpg"
+    ],
+    "name": "Gold Heart Crystal Keychain",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−40%"
+      }
+    ],
+    "priceSave": "40% off"
+  },
+  {
+    "id": "sp-fd1-earbuds",
+    "category": "electronics",
+    "productCat": "Audio",
+    "price": 2499,
+    "oldPrice": 3699,
+    "rating": 5,
+    "ratingCount": 79,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/FDl FD1-TWS 66 Earbuds/FDl FD1-TWS 66 Earbuds.jpg",
+      "images/FDl FD1-TWS 66 Earbuds/FDl FD1-TWS 66 Earbuds (1).jpg",
+      "images/FDl FD1-TWS 66 Earbuds/FDl FD1-TWS 66 Earbuds (2).jpg",
+      "images/FDl FD1-TWS 66 Earbuds/FDl FD1-TWS 66 Earbuds (3).jpg"
+    ],
+    "name": "FDl FD1-TWS 66 Earbuds",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−32%"
+      }
+    ],
+    "priceSave": "32% off"
+  },
+  {
+    "id": "sp-orange-cable",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 299,
+    "oldPrice": 499,
+    "rating": 5,
+    "ratingCount": 115,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable.jpg",
+      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable (1).jpg",
+      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable (2).jpg",
+      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable (3).jpg"
+    ],
+    "name": "Orange Braided USB-C Cable with SIM Pin",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−40%"
+      }
+    ],
+    "priceSave": "40% off"
+  },
+  {
+    "id": "sp-flower-keychain",
+    "category": "fashion",
+    "productCat": "Accessories",
+    "price": 349,
+    "oldPrice": 699,
+    "rating": 5,
+    "ratingCount": 106,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain.jpg",
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (1).jpg",
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (2).jpg",
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (3).jpg",
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (4).jpg"
+    ],
+    "name": "Gold Flower Crystal Keychain",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
+    "priceSave": "50% off"
+  },
+  {
+    "id": "sp-teardrop-brush",
+    "category": "beauty",
+    "productCat": "Hair Care",
+    "price": 279,
+    "oldPrice": 449,
+    "rating": 5,
+    "ratingCount": 131,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush.jpg",
+      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush (1).jpg",
+      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush (2).jpg"
+    ],
+    "name": "Teardrop Detangling Hair Brush",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−38%"
+      }
+    ],
+    "priceSave": "38% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {"name": "Red"},
+      {"name": "Pink"},
+      {"name": "Peach"},
+      {"name": "Light Brown"},
+      {"name": "Yellow"},
+      {"name": "Light Blue"}
+    ]
+  },
+  {
+    "id": "sp-bk530-camera",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 4300,
+    "oldPrice": 6200,
+    "rating": 5,
+    "ratingCount": 62,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/V380 BK-530 Mini Battery WiFi Camera/V380 BK-530 Mini Battery WiFi Camera.jpg",
+      "images/V380 BK-530 Mini Battery WiFi Camera/V380 BK-530 Mini Battery WiFi Camera (1).jpg",
+      "images/V380 BK-530 Mini Battery WiFi Camera/V380 BK-530 Mini Battery WiFi Camera (2).jpg",
+      "images/V380 BK-530 Mini Battery WiFi Camera/V380 BK-530 Mini Battery WiFi Camera (3).jpg",
+      "images/V380 BK-530 Mini Battery WiFi Camera/V380 BK-530 Mini Battery WiFi Camera (4).jpg"
+    ],
+    "name": "V380 BK-530 Mini Battery WiFi Camera",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−31%"
+      }
+    ],
+    "priceSave": "31% off"
+  },
+  {
+    "id": "sp-white-cable",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 349,
+    "oldPrice": 499,
+    "rating": 5,
+    "ratingCount": 121,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable.jpg",
+      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable (1).jpg",
+      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable (2).jpg",
+      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable (3).jpg"
+    ],
+    "name": "White USB-C to USB-C Cable",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−30%"
+      }
+    ],
+    "priceSave": "30% off"
+  },
+  {
+    "id": "sp-lm130-gun",
+    "category": "beauty",
+    "productCat": "Health & Wellness",
+    "price": 3450,
+    "oldPrice": 5500,
+    "rating": 5,
+    "ratingCount": 69,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun.jpg",
+      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun (1).jpg",
+      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun (2).jpg",
+      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun (3).jpg"
+    ],
+    "name": "LM-130 Three-Head Fascia Massage Gun",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−37%"
+      }
+    ],
+    "priceSave": "37% off"
+  },
+  {
+    "id": "sp-pearl-tasbih",
+    "category": "home",
+    "productCat": "Islamic Essentials",
+    "price": 349,
+    "oldPrice": 499,
+    "rating": 5,
+    "ratingCount": 136,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box.jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (1).jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (2).jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (3).jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (4).jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (5).jpg"
+    ],
+    "name": "Pearl Tasbih & Digital Counter Gift Box",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−30%"
+      }
+    ],
+    "priceSave": "30% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {"name": "Brown"},
+      {"name": "Mint Green"},
+      {"name": "Green"},
+      {"name": "Dark Blue"},
+      {"name": "Sky Blue"},
+      {"name": "White"},
+      {"name": "Red"},
+      {"name": "Black"},
+      {"name": "Hot Pink"},
+      {"name": "Grey"},
+      {"name": "Light Pink"},
+      {"name": "Purple"}
+    ]
+  },
+  {
+    "id": "sp-gb03-earphones",
+    "category": "electronics",
+    "productCat": "Audio",
+    "price": 2999,
+    "oldPrice": 4499,
+    "rating": 5,
+    "ratingCount": 74,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones.jpg",
+      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones (1).jpg",
+      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones (2).jpg",
+      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones (3).jpg"
+    ],
+    "name": "G-Golden GB-03 TWS Wireless Earphones",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−33%"
+      }
+    ],
+    "priceSave": "33% off"
+  },
+  {
+    "id": "sp-fidget-spinner",
+    "category": "toys",
+    "productCat": "Toys",
+    "price": 199,
+    "oldPrice": 299,
+    "rating": 5,
+    "ratingCount": 98,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Mini Metal Fidget Spinner/Mini Metal Fidget Spinner.jpg",
+      "images/Mini Metal Fidget Spinner/Mini Metal Fidget Spinner (1).jpg"
+    ],
+    "name": "Mini Metal Fidget Spinner (Pair)",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−33%"
+      }
+    ],
+    "priceSave": "33% off"
+  },
+  {
+    "id": "sp-wego-bulb",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 1199,
+    "oldPrice": 2099,
+    "rating": 5,
+    "ratingCount": 87,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/WEGO WG-611 Rechargeable LED Bulb/WEGO WG-611 Rechargeable LED Bulb.jpg",
+      "images/WEGO WG-611 Rechargeable LED Bulb/WEGO WG-611 Rechargeable LED Bulb (1).jpg",
+      "images/WEGO WG-611 Rechargeable LED Bulb/WEGO WG-611 Rechargeable LED Bulb (2).jpg",
+      "images/WEGO WG-611 Rechargeable LED Bulb/WEGO WG-611 Rechargeable LED Bulb (3).jpg"
+    ],
+    "name": "WEGO WG-611 Rechargeable LED Bulb",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−43%"
+      }
+    ],
+    "priceSave": "43% off"
   }
 ]

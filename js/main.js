@@ -34,7 +34,7 @@ function showToast(message, type = "success") {
   const toast = document.createElement("div");
   const bgColor = type === "success" ? "linear-gradient(135deg,#22c55e,#16a34a)"
     : type === "error" ? "linear-gradient(135deg,#ef4444,#b91c1c)"
-    : "linear-gradient(135deg,#3b82f6,#1d4ed8)";
+      : "linear-gradient(135deg,#3b82f6,#1d4ed8)";
   toast.style.cssText = `
     background: ${bgColor};
     color: #fff;
@@ -52,9 +52,8 @@ function showToast(message, type = "success") {
     align-items: center;
     gap: 0.5rem;
   `;
-  toast.innerHTML = `<span class="material-icons" style="font-size:18px;">${
-    type === "success" ? "check_circle" : type === "error" ? "error" : "info"
-  }</span> ${message}`;
+  toast.innerHTML = `<span class="material-icons" style="font-size:18px;">${type === "success" ? "check_circle" : type === "error" ? "error" : "info"
+    }</span> ${message}`;
   toastContainer.appendChild(toast);
 
   requestAnimationFrame(() => {
@@ -172,6 +171,66 @@ const productDescriptions = {
     "Your ultra-quiet, pocket-sized arctic breeze. Compact, rechargeable, and surprisingly powerful—perfect for your desk or on the go.",
   "Summer Deal Combo":
     "Our best-selling Summer Deal: Get both the Bladeless Neck Fan and the Arctic Mini Fan in one unbeatable combo! Stay cool everywhere you go.",
+  "1one Hot Melt Glue Gun 100W":
+    "Powerful 100W glue gun that heats up fast for quick, strong bonding. Perfect for crafts, school projects, decorations and home repairs, with an on/off switch, built-in stand and 100–240V support.",
+  "Air Pro 2nd Gen Earbuds (Without Box)":
+    "Lightweight in-ear wireless earbuds with soft silicone tips and a compact magnetic charging case. Clear sound and a comfortable all-day fit for music, calls and workouts.",
+  "Air Pro 2nd Gen Earbuds (With Box)":
+    "Wireless in-ear earbuds with soft silicone tips and a compact charging case, delivered complete in their retail box. Clear sound and a secure, comfortable fit for music and calls.",
+  "G-Golden GP-07 Power Bank 30000mAh 22.5W":
+    "Huge 30000mAh capacity with 22.5W fast charging (PD 20W). Built-in Type-C, Lightning and USB cables, a digital battery display and a carry strap — charge multiple phones on the go without extra wires.",
+  "Electric Arc BBQ Lighter USB Type-C":
+    "Flameless, windproof electric arc lighter with a flexible 360° neck. Rechargeable via USB Type-C — ideal for stoves, candles, BBQ and camping. No gas, no refills.",
+  "Digital Tasbih Counter with Compass":
+    "Finger tasbih counter with a clear LCD display, reset button, LED light and a built-in compass to help find the Qibla direction. Includes a decorative tassel — perfect for daily dhikr.",
+  "Ulex UX-1 Wireless Gaming Earbuds":
+    "Gaming-style wireless earbuds with smart active noise cancellation and a striking hexagon charging case with glowing accents. Strong, clear sound for games, music and calls.",
+  "JY-760 Smart Fascia Massager":
+    "Compact massage gun with 4 interchangeable heads and 6 speed levels. One-button control, lightweight 452g design and USB charging — relieves muscle stiffness after work or workouts.",
+  "Vented Detangling Hair Brush":
+    "Flexible vented brush with an open, curved design that glides through wet or dry hair without pulling. Air channels help hair dry faster during blow-drying.",
+  "Round Styling Hair Brush":
+    "Round brush with heat-friendly nylon bristles and a comfortable grip handle. Perfect for blow-drying, adding volume and creating smooth, bouncy curls.",
+  "W161 TWS Earbuds ANC+ENC":
+    "True wireless earbuds with ANC + ENC noise cancellation, Bluetooth 5.4 and dual mics for perfect calls. Smart ambient mode, secure comfort fit and sweatproof design.",
+  "XC-901 Magnetic Oil Dispensing Massage Comb":
+    "Electric scalp massage comb that applies hair oil directly to the roots while massaging. Red light therapy, 72 bristles, splashproof design and Type-C charging for healthier-looking hair.",
+  "Racing Toy Cars Set (Pack of 12)":
+    "A set of 12 colourful racing toy cars with bold sporty designs. Perfect for kids' play, gifts and collections. Suitable for ages 3+.",
+  "OKNEW Emergency LED Bulb 5W":
+    "5W rechargeable LED emergency bulb that keeps working during load shedding. Fits a standard E27 holder, charges automatically from mains power, with replaceable batteries and overcharge protection.",
+  "Cushion Paddle Hair Brush":
+    "Wide paddle brush with a soft cushion base and smooth metal pins. Detangles gently and gives a relaxing scalp massage, leaving hair smooth and shiny.",
+  "New Season Paper Hand Soap":
+    "Portable paper soap sheets in a travel tube — just take one sheet, add water and wash. Lightly scented and hygienic, perfect for handbags, travel and school bags.",
+  "AL-Fatiha Azan & Tasbih Counter":
+    "Digital tasbih counter with Azan prayer-time alerts, Hijri & Gregorian calendar and Athan times for 6000+ cities. Ergonomic finger-ring design — the perfect Islamic gift.",
+  "V380 WiFi Camera HD Wireless IP":
+    "HD wireless home security camera with live view on your phone through the V380 app. Night vision, motion alerts, two-way audio and wide-angle viewing. Includes charger, cable and wall mount kit.",
+  "Gold Heart Crystal Keychain":
+    "Elegant gold heart-shaped keychain with a sparkling faceted crystal ball inside. A stylish accessory for keys or handbags and a lovely gift for her.",
+  "FDl FD1-TWS 66 Earbuds":
+    "Wireless earbuds with up to 45 hours of total playtime, a sleek charging case and Bluetooth 5.4 for a fast, stable connection. Touch controls and clear, balanced sound.",
+  "Orange Braided USB-C Cable with SIM Pin":
+    "Durable braided USB-C to USB-C fast-charging cable in vibrant orange, tangle-resistant and long-lasting. Comes with a free SIM ejector pin.",
+  "Gold Flower Crystal Keychain":
+    "Beautiful gold four-petal flower keychain set with sparkling crystal stones. Adds a touch of elegance to keys and handbags — a perfect gift.",
+  "Teardrop Detangling Hair Brush":
+    "Handle-free teardrop brush that fits perfectly in your palm. Flexible two-length teeth detangle wet or dry hair gently without pulling — great for kids and travel.",
+  "V380 BK-530 Mini Battery WiFi Camera":
+    "Compact rechargeable WiFi camera with live HD view on your phone through the V380 app. Includes an adjustable stand and adhesive mount — ideal for watching your home, baby, pets or shop.",
+  "White USB-C to USB-C Cable":
+    "Fast-charging USB-C to USB-C cable for phones, tablets and laptops. Clean white design with durable connectors.",
+  "LM-130 Three-Head Fascia Massage Gun":
+    "Powerful three-head massage gun with 6 speed levels and multiple interchangeable heads. Deep muscle relief for shoulders, back and legs, with USB charging and a premium storage box.",
+  "Pearl Tasbih & Digital Counter Gift Box":
+    "Elegant pearl tasbih with gold accents and tassel, paired with a matching digital finger counter, presented in a gift display box. A thoughtful gift for Eid and Ramadan.",
+  "G-Golden GB-03 TWS Wireless Earphones":
+    "Open-ear clip-on wireless earphones that stay secure and comfortable all day. Hi-Res Audio, Bluetooth 5.3, about 8 hours of playtime and a charging case with digital display.",
+  "Mini Metal Fidget Spinner (Pair)":
+    "A pair of mini metal fidget spinners — a blue swirl and a gold heart design — each in its own clear case. Smooth, long spins for fun and stress relief.",
+  "WEGO WG-611 Rechargeable LED Bulb":
+    "Rechargeable LED emergency bulb with Type-C charging and 3 brightness levels, lasting up to 9.5 hours. Includes two 18650 batteries — your reliable light during load shedding.",
 };
 
 function buildQuickViewHTML(card) {
@@ -195,7 +254,7 @@ function buildQuickViewHTML(card) {
   const dataImagesAttr = card.getAttribute("data-images");
   let images = [imgSrc];
   if (dataImagesAttr) {
-      try { images = JSON.parse(dataImagesAttr); } catch(e){}
+    try { images = JSON.parse(dataImagesAttr); } catch (e) { }
   }
 
   let imgHtml = '';
@@ -251,6 +310,16 @@ function buildQuickViewHTML(card) {
           <option value="Black" ${defaultColor === 'Black' ? 'selected' : ''}>Black</option>
           <option value="White" ${defaultColor === 'White' ? 'selected' : ''}>White</option>
           <option value="Pink" ${defaultColor === 'Pink' ? 'selected' : ''}>Pink</option>
+        </select>
+      </div>
+    `;
+  } else if (card.querySelector('.product-info select.input-field option')) {
+    const opts = Array.from(card.querySelectorAll('.product-info select.input-field option')).map(o => o.value);
+    const defaultColor = card.dataset.color || opts[0];
+    colorSelectHtml = `
+      <div style="margin-bottom: 1rem;">
+        <select class="input-field qv-color-select" style="width: auto; padding: 0.5rem; border-radius: 4px; border: 1px solid #ccc; font-weight: 500; font-family: inherit;">
+          ${opts.map(o => `<option value="${o}" ${o === defaultColor ? 'selected' : ''}>${o}</option>`).join('')}
         </select>
       </div>
     `;
@@ -551,6 +620,9 @@ document.addEventListener("DOMContentLoaded", () => {
   /* -------- INIT ALL PRODUCT CARDS -------- */
   function initProductCards() {
     document.querySelectorAll(".product-card").forEach((card) => {
+      // Skip cards that were already set up (prevents double "Add to Cart")
+      if (card.dataset.snInit === "1") return;
+      card.dataset.snInit = "1";
       const id = card.id;
 
       // ---- Wishlist button ----
@@ -607,7 +679,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 slide.appendChild(img);
                 track.appendChild(slide);
               });
-              
+
               // Clone the first slide and append it to the end for a seamless loop
               if (track.firstElementChild) {
                 const cloneSlide = track.firstElementChild.cloneNode(true);
@@ -615,7 +687,7 @@ document.addEventListener("DOMContentLoaded", () => {
               }
 
               oldImg.replaceWith(track);
-              
+
               let currentIdx = 0;
               let isPaused = false;
               imgWrap.addEventListener("mouseenter", () => {
@@ -634,16 +706,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (currentIdx === images.length) {
                   // Once we transition to the clone, snap back to the start invisibly
                   setTimeout(() => {
-                    if (isPaused) return; 
+                    if (isPaused) return;
                     track.style.transition = 'none';
                     currentIdx = 0;
                     track.style.transform = `translateX(0%)`;
                   }, 500); // Wait for transition to finish
                 }
-              }, [2500, 3000, 3500][Math.floor(Math.random()*3)]); // random stagger
+              }, [2500, 3000, 3500][Math.floor(Math.random() * 3)]); // random stagger
             }
           }
-        } catch(e) {}
+        } catch (e) { }
       }
 
       // ---- Add to Cart button (silent — no redirect) ----
@@ -783,7 +855,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let endX = 0;
       qvCarousel.addEventListener('touchstart', e => {
         startX = e.changedTouches[0].screenX;
-      }, {passive: true});
+      }, { passive: true });
       qvCarousel.addEventListener('touchend', e => {
         endX = e.changedTouches[0].screenX;
         if (startX - endX > 40 && currentIndex < numSlides - 1) {
@@ -793,7 +865,7 @@ document.addEventListener("DOMContentLoaded", () => {
           currentIndex--;
           updateSlide();
         }
-      }, {passive: true});
+      }, { passive: true });
     }
 
     // Wire up QV buttons
@@ -871,7 +943,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnFlashSale.addEventListener("click", () => {
       const citySelect = document.getElementById("flash-sale-city");
       const price = citySelect ? parseInt(citySelect.value) : 1650;
-      
+
       ShopNestCart.add({
         id: "sp-summer-deal-" + price,
         name: `Summer Deal Combo`,

@@ -43,7 +43,7 @@ if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") 
 
 // ---- Admin Notification Helper (WhatsApp / Email) ----
 async function notifyAdmin(orderData) {
-  const itemSummary = orderData.items.map(i => `• ${i.qty}x ${i.name} (${i.color || 'Standard'})`).join('\n');
+  const itemSummary = orderData.items.map(i => `• ${i.qty}x ${i.name} (${(i.colors && i.colors.length) ? i.colors.join(', ') : (i.color || 'Standard')})`).join('\n');
   const message = `*SHOPNEST — NEW ORDER: ${orderData.orderId}*\n\n` +
                   `*Customer Details:*\n` +
                   `--------------------------\n` +
@@ -99,6 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const SHIPPING_FEE = 100;
   const COD_FEE = 99;
   const FREE_SHIPPING_THRESHOLD = 1999;
+  let PRODUCT_COLORS = {};
+  fetch('products.json').then(r => r.json()).then(list => {
+    list.forEach(p => { if (p.hasColorOptions && p.colorOptions) PRODUCT_COLORS[p.id] = p.colorOptions.map(c => c.name); });
+    renderCart();
+  }).catch(() => {});
 
   function renderCart() {
     const items = typeof ShopNestCart !== "undefined" ? ShopNestCart.get() : [];
@@ -153,6 +158,26 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
         }
 
+        const unitColors = (!colorOptions && PRODUCT_COLORS[item.id]) ? PRODUCT_COLORS[item.id] : null;
+        if (unitColors) {
+          if (!Array.isArray(item.colors)) item.colors = [];
+          const fallback = unitColors.includes(item.color) ? item.color : unitColors[0];
+          while (item.colors.length < item.qty) item.colors.push(fallback);
+          item.colors.length = item.qty;
+          item.colors = item.colors.map(c => unitColors.includes(c) ? c : unitColors[0]);
+          item.color = item.colors[0];
+          const allItems = ShopNestCart.get();
+          const stored = allItems.find(i => i.id === item.id);
+          if (stored) { stored.colors = item.colors; stored.color = item.color; ShopNestCart.save(allItems); }
+          colorSelectorHtml = item.colors.map((sel, idx) => `
+            <div style="margin-top: 0.5rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+              <label style="color: #666; font-weight: 500;">${item.qty > 1 ? 'Item ' + (idx + 1) + ':' : 'Colour:'}</label>
+              <select class="cart-unit-color-select" data-index="${idx}" style="padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #ddd; background: #fff; font-family: inherit; font-size: 0.85rem; cursor: pointer; min-width: 100px;">
+                ${unitColors.map(opt => `<option value="${opt}" ${opt === sel ? 'selected' : ''}>${opt}</option>`).join('')}
+              </select>
+            </div>`).join('');
+        }
+
         row.innerHTML = `
           <div class="cart-item-info">
             <img src="${item.img}" class="cart-item-img" alt="${item.name}">
@@ -205,6 +230,19 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
         }
+
+        row.querySelectorAll(".cart-unit-color-select").forEach(sel => {
+          sel.addEventListener("change", (e) => {
+            const allItems = ShopNestCart.get();
+            const target = allItems.find(i => i.id === item.id);
+            if (target) {
+              if (!Array.isArray(target.colors)) target.colors = [];
+              target.colors[parseInt(e.target.dataset.index)] = e.target.value;
+              target.color = target.colors[0];
+              ShopNestCart.save(allItems);
+            }
+          });
+        });
 
         cartItemsList.appendChild(row);
       });
@@ -405,7 +443,8 @@ document.addEventListener("DOMContentLoaded", () => {
           price: i.price,
           qty: i.qty,
           total: i.price * i.qty,
-          color: i.color || (i.id.startsWith('sp-neck-fan') || i.id.startsWith('sp-summer-deal') ? 'Black' : (i.id.startsWith('sp-aesthetic-mini-fan') ? 'Pink' : (i.id.startsWith('sp-big-display-fan') ? 'Black' : null)))
+          color: i.color || (i.id.startsWith('sp-neck-fan') || i.id.startsWith('sp-summer-deal') ? 'Black' : (i.id.startsWith('sp-aesthetic-mini-fan') ? 'Pink' : (i.id.startsWith('sp-big-display-fan') ? 'Black' : null))),
+          colors: Array.isArray(i.colors) ? i.colors : null,
         })),
         subtotal,
         shipping,
