@@ -38,8 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("products.json").then((r) => r.json()).then((products) => {
     let extra = products.filter((p) => !document.getElementById(p.id));
     if (HOME_LIMIT) extra = extra.slice(0, HOME_LIMIT);
-    if (!extra.length) return;
-    grid.insertAdjacentHTML("beforeend", extra.map(card).join(""));
+    if (extra.length) grid.insertAdjacentHTML("beforeend", extra.map(card).join(""));
+    const MOVE_TO_END = ["sp-summer-deal","sp-aesthetic-mini-fan","sp-big-display-fan","sp-desktop-fan","sp-neck-fan","sp-handheld-fan","sp-combo-brush","sp-glue-gun"];
+    MOVE_TO_END.forEach((id) => { const el = document.getElementById(id); if (el) grid.appendChild(el); });
     if (typeof window.initProductCards === "function") window.initProductCards();
   }).catch((err) => console.error("Could not load products for home page:", err));
 });

@@ -1,166 +1,5 @@
 [
   {
-    "id": "sp-combo-brush",
-    "category": "home",
-    "productCat": "Home & Garden",
-    "price": 1200,
-    "oldPrice": 1270,
-    "rating": 5,
-    "ratingCount": 132,
-    "sale": true,
-    "new": false,
-    "images": [
-      "images/spoon_brush.jpeg",
-      "images/spoon_brush1.jpeg"
-    ],
-    "name": "2 in 1 Digital Measuring Spoon & Soap Brush Combo",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "MEGA SALE",
-        "style": "background: var(--coral)"
-      }
-    ],
-    "priceSave": "Flash Deal"
-  },
-  {
-    "id": "sp-summer-deal",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 1700,
-    "oldPrice": 1950,
-    "rating": 5,
-    "ratingCount": 120,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Deal.jpeg",
-      "images/Deal1.jpeg",
-      "images/Deal2.jpeg"
-    ],
-    "name": "Summer Deal Combo",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "MEGA SALE",
-        "style": "background: var(--coral)"
-      }
-    ],
-    "hasLocationPricing": true,
-    "locationOptions": [
-      {
-        "value": 1700,
-        "text": "Lahore - PKR 1,700"
-      },
-      {
-        "value": 1800,
-        "text": "Outside Lahore - PKR 1,800"
-      }
-    ],
-    "hasComboColorOptions": true,
-    "comboColorLabel": "Neck Fan Color:",
-    "colorOptions": [
-      {
-        "name": "Black",
-        "accent": "#000",
-        "checked": true
-      },
-      {
-        "name": "Light Green",
-        "accent": "#90ee90",
-        "checked": false
-      }
-    ],
-    "colorGroupName": "combo-color-shop"
-  },
-  {
-    "id": "sp-aesthetic-mini-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 750,
-    "oldPrice": 1500,
-    "rating": 5,
-    "ratingCount": 128,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Aesthetic_mini_fan_start.jpeg",
-      "images/Aesthetic_mini_fan_pink.jpeg",
-      "images/Aesthetic_mini_fan_purple.jpeg",
-      "images/Aesthetic_mini_fan_orangewhite.jpeg",
-      "images/Aesthetic_mini_fan_end.jpeg"
-    ],
-    "name": "Aesthetic Pastel Mini Cooling Fan (Crimson)",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "−50%"
-      }
-    ],
-    "priceSave": "50% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {
-        "name": "Crimson",
-        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Crimson)"
-      },
-      {
-        "name": "Purple",
-        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Purple)"
-      },
-      {
-        "name": "Pink",
-        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Pink)"
-      }
-    ]
-  },
-  {
-    "id": "sp-big-display-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 1050,
-    "oldPrice": 2100,
-    "rating": 5,
-    "ratingCount": 112,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Big_Display_handheld_fan_with_lanyard_start.jpeg",
-      "images/Big_Display_handheld_fan_with_lanyard_Black.jpeg",
-      "images/Big_Display_handheld_fan_with_lanyard_Darkgreen.jpeg",
-      "images/Big_Display_handheld_fan_with_lanyard_Pink.jpeg",
-      "images/Big_Display_handheld_fan_with_lanyard_white.jpeg",
-      "images/Big_Display_handheld_fan_with_lanyard_end.jpeg"
-    ],
-    "name": "Big Display Handheld Fan with Lanyard (Dark Green)",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "−50%"
-      }
-    ],
-    "priceSave": "50% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {
-        "name": "Darkgreen",
-        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Dark Green)"
-      },
-      {
-        "name": "Black",
-        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Black)"
-      },
-      {
-        "name": "White",
-        "productNameUpdate": "Big Display Handheld Fan with Lanyard (White)"
-      },
-      {
-        "name": "Pink",
-        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Pink)"
-      }
-    ]
-  },
-  {
     "id": "sp-spoon",
     "category": "home",
     "productCat": "Kitchen",
@@ -208,124 +47,6 @@
       }
     ],
     "priceSave": "40% off"
-  },
-  {
-    "id": "sp-desktop-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 2850,
-    "oldPrice": 5500,
-    "rating": 5,
-    "ratingCount": 95,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/laptop_fan.jpg",
-      "images/laptop_fan1.jpg",
-      "images/laptop_fan2.jpeg"
-    ],
-    "name": "Trending Mini Air Conditioner Fan Premium 3 In 1 Desk Cooling Fan Spray Fan",
-    "badges": [
-      {
-        "type": "new",
-        "text": "New"
-      }
-    ],
-    "priceSave": "75% off"
-  },
-  {
-    "id": "sp-neck-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 1250,
-    "oldPrice": 2500,
-    "rating": 5,
-    "ratingCount": 89,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Neck.jpeg",
-      "images/Neck 1.jpeg",
-      "images/Neck 2.jpeg",
-      "images/Neck 3.jpeg",
-      "images/Neck lightgreen.jpeg"
-    ],
-    "name": "Wearable Bladeless Neck Fan (Black)",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "−50%"
-      }
-    ],
-    "priceSave": "50% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {
-        "name": "Black",
-        "accent": "#000",
-        "checked": true,
-        "productNameUpdate": "Wearable Bladeless Neck Fan (Black)"
-      },
-      {
-        "name": "Light Green",
-        "accent": "#90ee90",
-        "checked": false,
-        "productNameUpdate": "Wearable Bladeless Neck Fan (Light Green)"
-      }
-    ],
-    "colorGroupName": "neck-fan-color-shop"
-  },
-  {
-    "id": "sp-handheld-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 850,
-    "oldPrice": 1700,
-    "rating": 5,
-    "ratingCount": 145,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Digital_Display_Handheld_Fan.jpeg",
-      "images/Digital_Display_Handheld_Fan_1.jpeg",
-      "images/Digital_Display_Handheld_Fan_3.jpeg",
-      "images/Digital_Display_Handheld_Fan_4.jpeg",
-      "images/Digital_Display_Handheld_Fan_5.jpeg"
-    ],
-    "name": "Mini Digital Display Handheld Fan with lanyard",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "−50%"
-      }
-    ],
-    "priceSave": "50% off"
-  },
-  {
-    "id": "sp-glue-gun",
-    "category": "home",
-    "productCat": "DIY Tools",
-    "price": 799,
-    "oldPrice": 1400,
-    "rating": 5,
-    "ratingCount": 87,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Glue Gun/Glue_Gun_2.jpg",
-      "images/Glue Gun/Glue_Gun_1.jpg",
-      "images/Glue Gun/Glue_Gun_3.jpg",
-      "images/Glue Gun/Glue_Gun_4.jpg",
-      "images/Glue Gun/Glue_Gun_5.jpg"
-    ],
-    "name": "1one Hot Melt Glue Gun 100W",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "−43%"
-      }
-    ],
-    "priceSave": "43% off"
   },
   {
     "id": "sp-airpro-nobox",
@@ -1105,6 +826,285 @@
       "images/WEGO WG-611 Rechargeable LED Bulb/WEGO WG-611 Rechargeable LED Bulb (3).jpg"
     ],
     "name": "WEGO WG-611 Rechargeable LED Bulb",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−43%"
+      }
+    ],
+    "priceSave": "43% off"
+  },
+  {
+    "id": "sp-summer-deal",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 1700,
+    "oldPrice": 1950,
+    "rating": 5,
+    "ratingCount": 120,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Deal.jpeg",
+      "images/Deal1.jpeg",
+      "images/Deal2.jpeg"
+    ],
+    "name": "Summer Deal Combo",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "MEGA SALE",
+        "style": "background: var(--coral)"
+      }
+    ],
+    "hasLocationPricing": true,
+    "locationOptions": [
+      {
+        "value": 1700,
+        "text": "Lahore - PKR 1,700"
+      },
+      {
+        "value": 1800,
+        "text": "Outside Lahore - PKR 1,800"
+      }
+    ],
+    "hasComboColorOptions": true,
+    "comboColorLabel": "Neck Fan Color:",
+    "colorOptions": [
+      {
+        "name": "Black",
+        "accent": "#000",
+        "checked": true
+      },
+      {
+        "name": "Light Green",
+        "accent": "#90ee90",
+        "checked": false
+      }
+    ],
+    "colorGroupName": "combo-color-shop"
+  },
+  {
+    "id": "sp-aesthetic-mini-fan",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 750,
+    "oldPrice": 1500,
+    "rating": 5,
+    "ratingCount": 128,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Aesthetic_mini_fan_start.jpeg",
+      "images/Aesthetic_mini_fan_pink.jpeg",
+      "images/Aesthetic_mini_fan_purple.jpeg",
+      "images/Aesthetic_mini_fan_orangewhite.jpeg",
+      "images/Aesthetic_mini_fan_end.jpeg"
+    ],
+    "name": "Aesthetic Pastel Mini Cooling Fan (Crimson)",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
+    "priceSave": "50% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {
+        "name": "Crimson",
+        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Crimson)"
+      },
+      {
+        "name": "Purple",
+        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Purple)"
+      },
+      {
+        "name": "Pink",
+        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Pink)"
+      }
+    ]
+  },
+  {
+    "id": "sp-big-display-fan",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 1050,
+    "oldPrice": 2100,
+    "rating": 5,
+    "ratingCount": 112,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Big_Display_handheld_fan_with_lanyard_start.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_Black.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_Darkgreen.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_Pink.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_white.jpeg",
+      "images/Big_Display_handheld_fan_with_lanyard_end.jpeg"
+    ],
+    "name": "Big Display Handheld Fan with Lanyard (Dark Green)",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
+    "priceSave": "50% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {
+        "name": "Darkgreen",
+        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Dark Green)"
+      },
+      {
+        "name": "Black",
+        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Black)"
+      },
+      {
+        "name": "White",
+        "productNameUpdate": "Big Display Handheld Fan with Lanyard (White)"
+      },
+      {
+        "name": "Pink",
+        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Pink)"
+      }
+    ]
+  },
+  {
+    "id": "sp-desktop-fan",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 2850,
+    "oldPrice": 5500,
+    "rating": 5,
+    "ratingCount": 95,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/laptop_fan.jpg",
+      "images/laptop_fan1.jpg",
+      "images/laptop_fan2.jpeg"
+    ],
+    "name": "Trending Mini Air Conditioner Fan Premium 3 In 1 Desk Cooling Fan Spray Fan",
+    "badges": [
+      {
+        "type": "new",
+        "text": "New"
+      }
+    ],
+    "priceSave": "75% off"
+  },
+  {
+    "id": "sp-neck-fan",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 1250,
+    "oldPrice": 2500,
+    "rating": 5,
+    "ratingCount": 89,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Neck.jpeg",
+      "images/Neck 1.jpeg",
+      "images/Neck 2.jpeg",
+      "images/Neck 3.jpeg",
+      "images/Neck lightgreen.jpeg"
+    ],
+    "name": "Wearable Bladeless Neck Fan (Black)",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
+    "priceSave": "50% off",
+    "hasColorOptions": true,
+    "colorOptions": [
+      {
+        "name": "Black",
+        "accent": "#000",
+        "checked": true,
+        "productNameUpdate": "Wearable Bladeless Neck Fan (Black)"
+      },
+      {
+        "name": "Light Green",
+        "accent": "#90ee90",
+        "checked": false,
+        "productNameUpdate": "Wearable Bladeless Neck Fan (Light Green)"
+      }
+    ],
+    "colorGroupName": "neck-fan-color-shop"
+  },
+  {
+    "id": "sp-handheld-fan",
+    "category": "electronics",
+    "productCat": "Electronics",
+    "price": 850,
+    "oldPrice": 1700,
+    "rating": 5,
+    "ratingCount": 145,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Digital_Display_Handheld_Fan.jpeg",
+      "images/Digital_Display_Handheld_Fan_1.jpeg",
+      "images/Digital_Display_Handheld_Fan_3.jpeg",
+      "images/Digital_Display_Handheld_Fan_4.jpeg",
+      "images/Digital_Display_Handheld_Fan_5.jpeg"
+    ],
+    "name": "Mini Digital Display Handheld Fan with lanyard",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "−50%"
+      }
+    ],
+    "priceSave": "50% off"
+  },
+  {
+    "id": "sp-combo-brush",
+    "category": "home",
+    "productCat": "Home & Garden",
+    "price": 1200,
+    "oldPrice": 1270,
+    "rating": 5,
+    "ratingCount": 132,
+    "sale": true,
+    "new": false,
+    "images": [
+      "images/spoon_brush.jpeg",
+      "images/spoon_brush1.jpeg"
+    ],
+    "name": "2 in 1 Digital Measuring Spoon & Soap Brush Combo",
+    "badges": [
+      {
+        "type": "sale",
+        "text": "MEGA SALE",
+        "style": "background: var(--coral)"
+      }
+    ],
+    "priceSave": "Flash Deal"
+  },
+  {
+    "id": "sp-glue-gun",
+    "category": "home",
+    "productCat": "DIY Tools",
+    "price": 799,
+    "oldPrice": 1400,
+    "rating": 5,
+    "ratingCount": 87,
+    "sale": true,
+    "new": true,
+    "images": [
+      "images/Glue Gun/Glue_Gun_2.jpg",
+      "images/Glue Gun/Glue_Gun_1.jpg",
+      "images/Glue Gun/Glue_Gun_3.jpg",
+      "images/Glue Gun/Glue_Gun_4.jpg",
+      "images/Glue Gun/Glue_Gun_5.jpg"
+    ],
+    "name": "1one Hot Melt Glue Gun 100W",
     "badges": [
       {
         "type": "sale",
