@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = typeof ShopNestCart !== "undefined" ? ShopNestCart.get() : [];
 
     if (subtotal === 0) shipping = 0;
-    else if (selectedPaymentMethod === "online" || subtotal >= FREE_SHIPPING_THRESHOLD) shipping = 0;
+    else if (subtotal >= FREE_SHIPPING_THRESHOLD) shipping = 0;
     else shipping = SHIPPING_FEE;
 
     const codFee = (subtotal > 0 && selectedPaymentMethod === "cod") ? COD_FEE : 0;
@@ -272,13 +272,11 @@ document.addEventListener("DOMContentLoaded", () => {
       summarySubtotal.textContent = `PKR ${subtotal.toLocaleString()}`;
     if (summaryShipping)
       summaryShipping.textContent =
-        shipping === 0 && subtotal > 0 && selectedPaymentMethod === "online"
-          ? "Free 🎉 (Paid Online)"
-          : shipping === 0 && subtotal > 0
-            ? "Free 🎉"
-            : shipping === 0
-              ? "PKR 0"
-              : `PKR ${shipping.toLocaleString()}`;
+        shipping === 0 && subtotal > 0
+          ? "Free 🎉"
+          : shipping === 0
+            ? "PKR 0"
+            : `PKR ${shipping.toLocaleString()}`;
 
     if (finalDiscount > 0) {
       if (discountRow) discountRow.style.display = "flex";
@@ -298,21 +296,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const shippingNotice = document.getElementById("shipping-notice");
     if (shippingNotice) {
-      if (subtotal > 0 && selectedPaymentMethod === "online") {
-        shippingNotice.style.display = "block";
-        shippingNotice.textContent = "✅ You're paying online — your delivery is FREE!";
-        shippingNotice.style.color = "#16a34a";
-      } else if (subtotal > 0 && subtotal < FREE_SHIPPING_THRESHOLD) {
-        const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
-        shippingNotice.style.display = "block";
-        shippingNotice.textContent = `Add PKR ${remaining.toLocaleString()} more for FREE delivery — or pay online and get FREE delivery now!`;
-        shippingNotice.style.color = "";
-      } else if (subtotal >= FREE_SHIPPING_THRESHOLD) {
-        shippingNotice.style.display = "block";
-        shippingNotice.textContent = "✅ You qualify for FREE delivery!";
-        shippingNotice.style.color = "#16a34a";
-      } else {
+      if (subtotal <= 0) {
         shippingNotice.style.display = "none";
+      } else {
+        const lines = [];
+        if (subtotal < FREE_SHIPPING_THRESHOLD) {
+          const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
+          lines.push(`<span style="color: var(--secondary);">🚚 Add PKR ${remaining.toLocaleString()} more for FREE delivery!</span>`);
+        } else {
+          lines.push(`<span style="color: #16a34a;">✅ You qualify for FREE delivery!</span>`);
+        }
+        if (selectedPaymentMethod === "cod") {
+          lines.push(`<span style="color: #b45309;">💡 Pay online to remove the PKR 99 COD fee, get PKR 100 OFF &amp; enjoy smoother delivery!</span>`);
+        } else if (selectedPaymentMethod === "online") {
+          lines.push(`<span style="color: #16a34a;">✅ PKR 100 discount applied — no COD fee!</span>`);
+        }
+        shippingNotice.style.display = "block";
+        shippingNotice.style.color = "";
+        shippingNotice.innerHTML = lines.join("<br>");
       }
     }
   }
@@ -330,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedPaymentMethod = e.target.value;
         const screenshotNote = document.getElementById("whatsapp-screenshot-note");
         if (e.target.value === "online") {
-          currentDiscount = 0;
+          currentDiscount = 100;
           if (onlineDetails) onlineDetails.style.display = "block";
 
           if (screenshotNote) screenshotNote.style.display = "block";
@@ -427,7 +428,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const orderId = generateOrderId();
       const subtotal = typeof ShopNestCart !== "undefined" ? ShopNestCart.total() : 0;
-      const shipping = (selectedPaymentMethod === "online" || subtotal >= FREE_SHIPPING_THRESHOLD) ? 0 : SHIPPING_FEE;
+      const shipping = (subtotal >= FREE_SHIPPING_THRESHOLD) ? 0 : SHIPPING_FEE;
       const codFee = selectedPaymentMethod === "cod" ? COD_FEE : 0;
       const total = subtotal + shipping + codFee - currentDiscount;
 
