@@ -1,0 +1,33 @@
+# robots.txt — ShopNest (https://theshopnest.xyz)
+# Shop pages, collections, products and buying guides are open to all crawlers.
+# Checkout and internal search result pages are kept out of the index.
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /*?q=
+
+# AI search engines and assistants are welcome.
+# A plain-text summary of the store for AI tools: https://theshopnest.xyz/llms.txt
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: DuckAssistBot
+User-agent: meta-externalagent
+User-agent: MistralAI-User
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /*?q=
+
+Sitemap: https://theshopnest.xyz/sitemap.xml

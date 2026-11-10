@@ -1,11 +1,9 @@
 .git
 .gitignore
 Dockerfile
-fix_sort.py
-scratch_0.js
-scratch_1.js
-extract.js
+src
+tools
+package.json
 *.py
-*.js
 *.md
 LICENSE

@@ -1,0 +1,9 @@
+{
+  "name": "shopnest",
+  "private": true,
+  "description": "ShopNest static storefront — HTML pages are generated from products.json",
+  "scripts": {
+    "build": "node src/build.js",
+    "serve": "python -m http.server 8080"
+  }
+}

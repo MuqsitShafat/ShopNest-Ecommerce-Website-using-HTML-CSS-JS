@@ -1,63 +1,15 @@
 [
   {
-    "id": "sp-spoon",
-    "category": "home",
-    "productCat": "Kitchen",
-    "price": 1000,
-    "oldPrice": 2000,
-    "rating": 5,
-    "ratingCount": 84,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/spoon.jpeg",
-      "images/spoon1.jpeg",
-      "images/spoon2.jpg"
-    ],
-    "name": "Digital Measuring Spoon",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "50% OFF"
-      }
-    ],
-    "priceSave": "50% off"
-  },
-  {
-    "id": "sp-soap-brush",
-    "category": "home",
-    "productCat": "Kitchen",
-    "price": 300,
-    "oldPrice": 450,
-    "rating": 5,
-    "ratingCount": 118,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/soap_brush.jpeg",
-      "images/soap_brush1.jpeg",
-      "images/soap_brush2.jpeg",
-      "images/soap_brush3.jpeg"
-    ],
-    "name": "Dishwasher Scrubber Brush Liquid Soap Dispenser",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "40% OFF"
-      }
-    ],
-    "priceSave": "40% off"
-  },
-  {
     "id": "sp-airpro-nobox",
-    "category": "electronics",
-    "productCat": "Audio",
+    "slug": "air-pro-2nd-gen-earbuds-without-box",
+    "name": "Air Pro 2nd Gen Wireless Earbuds (Without Box)",
+    "seoTitle": "Air Pro 2nd Gen Earbuds Without Box Price in Pakistan",
+    "category": "earbuds-audio",
     "price": 1650,
     "oldPrice": 2499,
-    "rating": 5,
+    "rating": 5.0,
     "ratingCount": 118,
-    "sale": true,
-    "new": true,
+    "bestseller": true,
     "images": [
       "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _1.jpg",
       "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _2.jpg",
@@ -65,49 +17,133 @@
       "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _4.jpg",
       "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _5.jpg"
     ],
-    "name": "Air Pro 2nd Gen Earbuds (Without Box)",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "34% OFF"
-      }
+    "tagline": "The sleek white earbuds everyone wants — without paying for the box.",
+    "description": [
+      "Same earbuds. Same magnetic case. Same clean sound. The only thing missing is the cardboard — and that's exactly why you save.",
+      "Pop the lid, and they connect to your phone in seconds. Soft silicone tips seal out street noise and stay put through gym sessions, rickshaw rides and back-to-back calls. The pocket-sized case keeps them charged and safe all day.",
+      "Perfect if you want premium-feel earbuds for daily use and would rather keep the extra rupees in your pocket."
     ],
-    "priceSave": "34% off"
+    "highlights": [
+      "Connects in seconds with Android & iPhone",
+      "Soft silicone tips — comfortable for hours, secure on the move",
+      "Clear calls & punchy music for classes, work and the gym",
+      "Pocket-size magnetic charging case",
+      "Our lowest price on Air Pro earbuds"
+    ],
+    "specs": [
+      [
+        "Type",
+        "True wireless in-ear earbuds"
+      ],
+      [
+        "Connectivity",
+        "Bluetooth"
+      ],
+      [
+        "Compatibility",
+        "Android & iOS"
+      ],
+      [
+        "Case",
+        "Magnetic charging case"
+      ],
+      [
+        "Packaging",
+        "Without retail box"
+      ]
+    ],
+    "inBox": [
+      "2 × wireless earbuds",
+      "1 × charging case"
+    ],
+    "faqs": [
+      [
+        "Is this the same as the boxed version?",
+        "Yes — identical earbuds and charging case. Only the retail box is not included, which is why it costs less."
+      ],
+      [
+        "Will it work with my Android phone?",
+        "Yes. They pair over Bluetooth with any Android phone or iPhone."
+      ]
+    ]
   },
   {
     "id": "sp-airpro-box",
-    "category": "electronics",
-    "productCat": "Audio",
+    "slug": "air-pro-2nd-gen-earbuds-with-box",
+    "name": "Air Pro 2nd Gen Wireless Earbuds (With Box)",
+    "seoTitle": "Air Pro 2nd Gen Earbuds With Box Price in Pakistan",
+    "category": "earbuds-audio",
     "price": 1799,
     "oldPrice": 2499,
-    "rating": 5,
+    "rating": 5.0,
     "ratingCount": 134,
-    "sale": true,
-    "new": true,
+    "bestseller": true,
     "images": [
-      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_1.jpg",
       "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_2.jpg",
-      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_3.jpg"
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_3.jpg",
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_1.jpg"
     ],
-    "name": "Air Pro 2nd Gen Earbuds (With Box)",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "28% OFF"
-      }
+    "tagline": "Gift-ready earbuds in a full retail box — clean sound, comfortable fit.",
+    "description": [
+      "Looking for a gift that actually gets used every day? These are it. The Air Pro 2nd Gen arrive sealed in their retail box — ready to hand over for a birthday, Eid or graduation.",
+      "Inside: lightweight in-ear earbuds with soft silicone tips and a compact magnetic case. They pair in seconds, stay comfortable for hours and deliver clear sound for music, calls and online classes.",
+      "Buying for yourself? You still get the full unboxing experience."
     ],
-    "priceSave": "28% off"
+    "highlights": [
+      "Comes in the full retail box — perfect for gifting",
+      "Pairs in seconds with Android & iPhone",
+      "Soft silicone tips for an all-day comfortable fit",
+      "Clear sound for music, calls and classes",
+      "Compact magnetic charging case"
+    ],
+    "specs": [
+      [
+        "Type",
+        "True wireless in-ear earbuds"
+      ],
+      [
+        "Connectivity",
+        "Bluetooth"
+      ],
+      [
+        "Compatibility",
+        "Android & iOS"
+      ],
+      [
+        "Case",
+        "Magnetic charging case"
+      ],
+      [
+        "Packaging",
+        "Retail box"
+      ]
+    ],
+    "inBox": [
+      "2 × wireless earbuds",
+      "1 × charging case",
+      "Retail box"
+    ],
+    "faqs": [
+      [
+        "What's the difference from the 'Without Box' version?",
+        "Only the packaging. Choose this one if you're gifting or want the retail box."
+      ],
+      [
+        "Can I use them for calls?",
+        "Yes — both earbuds have built-in mics for clear phone and video calls."
+      ]
+    ]
   },
   {
     "id": "sp-gp07-powerbank",
-    "category": "electronics",
-    "productCat": "Electronics",
+    "slug": "g-golden-gp-07-power-bank-30000mah",
+    "name": "G-Golden GP-07 Power Bank 30000mAh 22.5W",
+    "category": "mobile-accessories",
     "price": 6999,
     "oldPrice": 9999,
-    "rating": 5,
+    "rating": 5.0,
     "ratingCount": 76,
-    "sale": true,
-    "new": true,
+    "bestseller": true,
     "images": [
       "images/G-Golden GP-07 Power Bank 30000mAh/G-Golden GP-07 Power Bank 30000mAh.jpg",
       "images/G-Golden GP-07 Power Bank 30000mAh/G-Golden GP-07 Power Bank 30000mAh (1).jpg",
@@ -115,73 +151,161 @@
       "images/G-Golden GP-07 Power Bank 30000mAh/G-Golden GP-07 Power Bank 30000mAh (3).jpg",
       "images/G-Golden GP-07 Power Bank 30000mAh/G-Golden GP-07 Power Bank 30000mAh (4).jpg"
     ],
-    "name": "G-Golden GP-07 Power Bank 30000mAh 22.5W",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "30% OFF"
-      }
+    "tagline": "30,000mAh with cables built in — your phone won't die on you again.",
+    "description": [
+      "Load shedding at home. A long road trip. A full day out with 5% battery. This is the power bank that ends that panic.",
+      "30,000mAh is enough to charge most phones several times over, and 22.5W fast charging (PD 20W) gets you back to full quickly. The Type-C, Lightning and USB cables are built right into the body — so you'll never be stuck because you forgot a wire.",
+      "A clear digital display shows exactly how much power is left, and a sturdy strap makes it easy to grab on your way out. Charge two devices at once and share with family."
     ],
-    "priceSave": "30% off"
+    "highlights": [
+      "30,000mAh — several full phone charges on one fill",
+      "22.5W fast charging (PD 20W / SCP 22.5W)",
+      "Built-in Type-C, Lightning & USB cables — no wires to forget",
+      "Digital display shows exact battery %",
+      "Protected against overcharge, overheating & short circuit"
+    ],
+    "specs": [
+      [
+        "Brand",
+        "G-Golden"
+      ],
+      [
+        "Model",
+        "GP-07"
+      ],
+      [
+        "Capacity",
+        "30000mAh"
+      ],
+      [
+        "Max output",
+        "22.5W (PD 20W)"
+      ],
+      [
+        "Built-in cables",
+        "Type-C, Lightning, USB"
+      ],
+      [
+        "Display",
+        "Digital battery %"
+      ],
+      [
+        "Input",
+        "Type-C"
+      ]
+    ],
+    "inBox": [
+      "1 × GP-07 power bank with built-in cables"
+    ],
+    "faqs": [
+      [
+        "Will it charge my iPhone?",
+        "Yes — it has a built-in Lightning cable for older iPhones and Type-C for iPhone 15 and newer, plus Android phones."
+      ],
+      [
+        "How long does it take to fully charge the power bank?",
+        "With a fast charger, expect several hours for a full 30,000mAh charge — best done overnight."
+      ],
+      [
+        "Can I take it on a plane?",
+        "The box is marked airplane-friendly, but always check your airline's power bank rules before flying."
+      ]
+    ]
   },
   {
-    "id": "sp-bbq-lighter",
-    "category": "home",
-    "productCat": "Kitchen",
-    "price": 449,
-    "oldPrice": 699,
-    "rating": 5,
-    "ratingCount": 92,
-    "sale": true,
-    "new": true,
+    "id": "sp-w161-earbuds",
+    "slug": "w161-tws-earbuds-anc-enc",
+    "name": "W161 TWS Earbuds ANC + ENC",
+    "category": "earbuds-audio",
+    "price": 2000,
+    "oldPrice": 3499,
+    "rating": 4.9,
+    "ratingCount": 83,
     "images": [
-      "images/Electric Arc BBQ Lighter/Electric Arc BBQ Lighter.jpg",
-      "images/Electric Arc BBQ Lighter/Electric Arc BBQ Lighter (1).jpg",
-      "images/Electric Arc BBQ Lighter/Electric Arc BBQ Lighter (2).jpg"
+      "images/W161 TWS Earbuds (ANC+ENC)/W161 TWS Earbuds (ANC+ENC).jpg",
+      "images/W161 TWS Earbuds (ANC+ENC)/W161 TWS Earbuds (ANC+ENC) (1).jpg",
+      "images/W161 TWS Earbuds (ANC+ENC)/W161 TWS Earbuds (ANC+ENC) (2).jpg"
     ],
-    "name": "Electric Arc BBQ Lighter USB Type-C",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "36% OFF"
-      }
+    "tagline": "Shut out the traffic, keep your calls crystal clear — ANC + ENC for Rs 2,000.",
+    "description": [
+      "Noisy roads, busy offices, loud homes — the W161 is built for real Pakistani life. Active Noise Cancellation (ANC) turns down the background so you can actually hear your music.",
+      "On calls, dual ENC microphones filter out the wind and the horns so the other person hears you, not the street. Bluetooth 5.4 keeps the connection rock-steady up to 10 metres.",
+      "IPX4 sweatproof, light in the ear, and finished in a glossy case with gold accents that looks far more expensive than it is."
     ],
-    "priceSave": "36% off"
-  },
-  {
-    "id": "sp-tasbih-compass",
-    "category": "home",
-    "productCat": "Islamic Essentials",
-    "price": 699,
-    "oldPrice": 999,
-    "rating": 5,
-    "ratingCount": 141,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Digital Tasbih Counter with Compass (SXH5136)/Digital Tasbih Counter with Compass (SXH5136).jpeg",
-      "images/Digital Tasbih Counter with Compass (SXH5136)/Digital Tasbih Counter with Compass (SXH5136) (1).jpeg",
-      "images/Digital Tasbih Counter with Compass (SXH5136)/Digital Tasbih Counter with Compass (SXH5136) (2).jpeg"
+    "highlights": [
+      "ANC reduces background noise while you listen",
+      "Dual-mic ENC for clear calls — even outdoors",
+      "Bluetooth 5.4 — fast pairing, stable connection",
+      "IPX4 sweatproof for workouts & hot days",
+      "Up to 5 hrs music per charge + charging case"
     ],
-    "name": "Digital Tasbih Counter with Compass",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "30% OFF"
-      }
+    "specs": [
+      [
+        "Model",
+        "W161"
+      ],
+      [
+        "Bluetooth",
+        "5.4"
+      ],
+      [
+        "Control",
+        "Touch"
+      ],
+      [
+        "Driver",
+        "13mm"
+      ],
+      [
+        "Music time",
+        "Up to 5 hours"
+      ],
+      [
+        "Talk time",
+        "Up to 4.5 hours"
+      ],
+      [
+        "Range",
+        "10m"
+      ],
+      [
+        "Water resistance",
+        "IPX4"
+      ],
+      [
+        "Earbud battery",
+        "30mAh"
+      ],
+      [
+        "Case battery",
+        "300mAh"
+      ]
     ],
-    "priceSave": "30% off"
+    "inBox": [
+      "2 × earbuds",
+      "1 × charging case",
+      "1 × charging cable"
+    ],
+    "faqs": [
+      [
+        "What's the difference between ANC and ENC?",
+        "ANC reduces noise you hear while listening. ENC reduces noise the other person hears during calls. The W161 has both."
+      ],
+      [
+        "Are they good for the gym?",
+        "Yes — they're IPX4 sweat-resistant and sit securely in the ear."
+      ]
+    ]
   },
   {
     "id": "sp-ulex-ux1",
-    "category": "electronics",
-    "productCat": "Audio",
+    "slug": "ulex-ux-1-wireless-gaming-earbuds",
+    "name": "Ulex UX-1 Wireless Gaming Earbuds",
+    "category": "earbuds-audio",
     "price": 2099,
     "oldPrice": 2999,
-    "rating": 5,
+    "rating": 4.7,
     "ratingCount": 67,
-    "sale": true,
-    "new": true,
     "images": [
       "images/Ulex UX-1 Wireless Earbuds/Ulex UX-1 Wireless Earbuds.jpg",
       "images/Ulex UX-1 Wireless Earbuds/Ulex UX-1 Wireless Earbuds (1).jpg",
@@ -189,470 +313,295 @@
       "images/Ulex UX-1 Wireless Earbuds/Ulex UX-1 Wireless Earbuds (3).jpg",
       "images/Ulex UX-1 Wireless Earbuds/Ulex UX-1 Wireless Earbuds (4).jpg"
     ],
-    "name": "Ulex UX-1 Wireless Gaming Earbuds",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "30% OFF"
-      }
+    "tagline": "Gamer-style earbuds with a glowing hexagon case. Built to be noticed.",
+    "description": [
+      "Most earbuds look the same. The Ulex UX-1 doesn't. The hexagon case glows, shows your battery on a digital display, and turns heads every time you open it.",
+      "Smart active noise cancellation helps you lock in — whether it's a PUBG match, a playlist or an online lecture. Sound is strong and clear with solid bass.",
+      "Lightweight and comfortable for long sessions. A great gift for any gamer or student."
     ],
-    "priceSave": "30% off"
-  },
-  {
-    "id": "sp-jy760-massager",
-    "category": "beauty",
-    "productCat": "Health & Wellness",
-    "price": 2499,
-    "oldPrice": 3499,
-    "rating": 5,
-    "ratingCount": 58,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager.jpg",
-      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager.jpeg",
-      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager (1).jpg",
-      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager (2).jpg"
+    "highlights": [
+      "Eye-catching hexagon case with glowing lights",
+      "Digital battery display on the case",
+      "Smart noise cancellation to stay focused",
+      "Strong, clear sound with solid bass",
+      "Light & comfortable for long gaming sessions"
     ],
-    "name": "JY-760 Smart Fascia Massager",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "29% OFF"
-      }
+    "specs": [
+      [
+        "Brand",
+        "Ulex"
+      ],
+      [
+        "Model",
+        "UX-1"
+      ],
+      [
+        "Type",
+        "True wireless earbuds"
+      ],
+      [
+        "Connectivity",
+        "Bluetooth"
+      ],
+      [
+        "Case",
+        "Hexagon case with LED display"
+      ]
     ],
-    "priceSave": "29% off"
-  },
-  {
-    "id": "sp-vented-brush",
-    "category": "beauty",
-    "productCat": "Hair Care",
-    "price": 329,
-    "oldPrice": 499,
-    "rating": 5,
-    "ratingCount": 127,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush.jpg",
-      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (1).jpg",
-      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (2).jpg",
-      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (3).jpg"
+    "inBox": [
+      "2 × earbuds",
+      "1 × charging case",
+      "1 × charging cable"
     ],
-    "name": "Vented Detangling Hair Brush",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "34% OFF"
-      }
-    ],
-    "priceSave": "34% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {"name": "Mint Green"},
-      {"name": "Pink"},
-      {"name": "Cream"},
-      {"name": "Light Brown"},
-      {"name": "Red"},
-      {"name": "Grey"}
+    "faqs": [
+      [
+        "Do they work for mobile gaming?",
+        "Yes — they're designed in gaming style and connect to any Bluetooth phone."
+      ],
+      [
+        "Do the lights stay on all the time?",
+        "The case lights up when opened or charging, so it won't drain your earbuds."
+      ]
     ]
-  },
-  {
-    "id": "sp-round-brush",
-    "category": "beauty",
-    "productCat": "Hair Care",
-    "price": 310,
-    "oldPrice": 489,
-    "rating": 5,
-    "ratingCount": 109,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Round Styling Hair Brush/Round Styling Hair Brush.jpg",
-      "images/Round Styling Hair Brush/Round Styling Hair Brush (1).jpg",
-      "images/Round Styling Hair Brush/Round Styling Hair Brush (2).jpg",
-      "images/Round Styling Hair Brush/Round Styling Hair Brush (3).jpg"
-    ],
-    "name": "Round Styling Hair Brush",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "37% OFF"
-      }
-    ],
-    "priceSave": "37% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {"name": "Purple"},
-      {"name": "White"},
-      {"name": "Red"}
-    ]
-  },
-  {
-    "id": "sp-w161-earbuds",
-    "category": "electronics",
-    "productCat": "Audio",
-    "price": 2000,
-    "oldPrice": 3499,
-    "rating": 5,
-    "ratingCount": 83,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/W161 TWS Earbuds (ANC+ENC)/W161 TWS Earbuds (ANC+ENC).jpg",
-      "images/W161 TWS Earbuds (ANC+ENC)/W161 TWS Earbuds (ANC+ENC) (1).jpg",
-      "images/W161 TWS Earbuds (ANC+ENC)/W161 TWS Earbuds (ANC+ENC) (2).jpg"
-    ],
-    "name": "W161 TWS Earbuds ANC+ENC",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "43% OFF"
-      }
-    ],
-    "priceSave": "43% off"
-  },
-  {
-    "id": "sp-xc901-comb",
-    "category": "beauty",
-    "productCat": "Hair Care",
-    "price": 3499,
-    "oldPrice": 4999,
-    "rating": 5,
-    "ratingCount": 64,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb.jpg",
-      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (1).jpg",
-      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (2).jpg",
-      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (3).jpg",
-      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (4).jpg"
-    ],
-    "name": "XC-901 Magnetic Oil Dispensing Massage Comb",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "30% OFF"
-      }
-    ],
-    "priceSave": "30% off"
-  },
-  {
-    "id": "sp-toy-cars",
-    "category": "toys",
-    "productCat": "Toys",
-    "price": 799,
-    "oldPrice": 1399,
-    "rating": 5,
-    "ratingCount": 97,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs).jpg",
-      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs).jpeg",
-      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs) (1).jpg",
-      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs) (2).jpg"
-    ],
-    "name": "Racing Toy Cars Set (Pack of 12)",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "43% OFF"
-      }
-    ],
-    "priceSave": "43% off"
-  },
-  {
-    "id": "sp-oknew-bulb",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 1099,
-    "oldPrice": 1999,
-    "rating": 5,
-    "ratingCount": 113,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W.jpg",
-      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (1).jpg",
-      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (2).jpg",
-      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (3).jpg",
-      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (4).jpg"
-    ],
-    "name": "OKNEW Emergency LED Bulb 5W",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "45% OFF"
-      }
-    ],
-    "priceSave": "45% off"
-  },
-  {
-    "id": "sp-cushion-brush",
-    "category": "beauty",
-    "productCat": "Hair Care",
-    "price": 449,
-    "oldPrice": 699,
-    "rating": 5,
-    "ratingCount": 102,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush.jpg",
-      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (1).jpg",
-      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (2).jpg",
-      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (3).jpg"
-    ],
-    "name": "Cushion Paddle Hair Brush",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "36% OFF"
-      }
-    ],
-    "priceSave": "36% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {"name": "Cream"},
-      {"name": "Red"},
-      {"name": "Brown"}
-    ]
-  },
-  {
-    "id": "sp-paper-soap",
-    "category": "beauty",
-    "productCat": "Personal Care",
-    "price": 99,
-    "oldPrice": 150,
-    "rating": 5,
-    "ratingCount": 138,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/New Season Paper Hand Soap/New Season Paper Hand Soap.jpg",
-      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (1).jpg",
-      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (2).jpg",
-      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (3).jpg",
-      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (4).jpg",
-      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (5).jpg"
-    ],
-    "name": "New Season Paper Hand Soap",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "34% OFF"
-      }
-    ],
-    "priceSave": "34% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {"name": "Pink"},
-      {"name": "Green"},
-      {"name": "White"},
-      {"name": "Blue"},
-      {"name": "Purple"}
-    ]
-  },
-  {
-    "id": "sp-azan-counter",
-    "category": "home",
-    "productCat": "Islamic Essentials",
-    "price": 1850,
-    "oldPrice": 2499,
-    "rating": 5,
-    "ratingCount": 71,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter.jpg",
-      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (1).jpg",
-      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (2).jpg",
-      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (3).jpg",
-      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (4).jpg",
-      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (5).jpg"
-    ],
-    "name": "AL-Fatiha Azan & Tasbih Counter",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "26% OFF"
-      }
-    ],
-    "priceSave": "26% off"
-  },
-  {
-    "id": "sp-v380-wifi",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 3999,
-    "oldPrice": 5999,
-    "rating": 5,
-    "ratingCount": 88,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP).jpg",
-      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP) (1).jpg",
-      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP) (2).jpg",
-      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP) (3).jpg"
-    ],
-    "name": "V380 WiFi Camera HD Wireless IP",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "33% OFF"
-      }
-    ],
-    "priceSave": "33% off"
-  },
-  {
-    "id": "sp-heart-keychain",
-    "category": "fashion",
-    "productCat": "Accessories",
-    "price": 299,
-    "oldPrice": 499,
-    "rating": 5,
-    "ratingCount": 124,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain.jpg",
-      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (1).jpg",
-      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (2).jpg",
-      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (3).jpg",
-      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (4).jpg",
-      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (5).jpg"
-    ],
-    "name": "Gold Heart Crystal Keychain",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "40% OFF"
-      }
-    ],
-    "priceSave": "40% off"
   },
   {
     "id": "sp-fd1-earbuds",
-    "category": "electronics",
-    "productCat": "Audio",
+    "slug": "fdl-fd1-tws-66-earbuds",
+    "name": "FDl FD1-TWS 66 Wireless Earbuds",
+    "category": "earbuds-audio",
     "price": 2499,
     "oldPrice": 3699,
-    "rating": 5,
+    "rating": 4.8,
     "ratingCount": 79,
-    "sale": true,
-    "new": true,
     "images": [
       "images/FDl FD1-TWS 66 Earbuds/FDl FD1-TWS 66 Earbuds.jpg",
       "images/FDl FD1-TWS 66 Earbuds/FDl FD1-TWS 66 Earbuds (1).jpg",
       "images/FDl FD1-TWS 66 Earbuds/FDl FD1-TWS 66 Earbuds (2).jpg",
       "images/FDl FD1-TWS 66 Earbuds/FDl FD1-TWS 66 Earbuds (3).jpg"
     ],
-    "name": "FDl FD1-TWS 66 Earbuds",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "32% OFF"
-      }
+    "tagline": "Up to 45 hours of playtime. Charge once, forget about it for days.",
+    "description": [
+      "Tired of earbuds dying halfway through the day? The FDl FD1 gives you up to 45 hours of total playtime with the charging case — that's days of commuting, studying and calls between charges.",
+      "Open the case and they connect automatically over Bluetooth 5.4. Tap to play, pause and answer calls. The composite diaphragm delivers balanced, clear sound that's easy on the ears.",
+      "A sleek black ribbed case that slips into any pocket."
     ],
-    "priceSave": "32% off"
+    "highlights": [
+      "Up to 45 hours total playtime with case",
+      "Auto-connects the moment you open the case",
+      "Bluetooth 5.4 — fast & stable",
+      "Touch controls for music & calls",
+      "Clear, balanced sound for all-day listening"
+    ],
+    "specs": [
+      [
+        "Brand",
+        "FDl (Fun Audio 1)"
+      ],
+      [
+        "Model",
+        "FD1-TWS 66"
+      ],
+      [
+        "Bluetooth",
+        "5.4"
+      ],
+      [
+        "Total playtime",
+        "Up to 45 hours"
+      ],
+      [
+        "Control",
+        "Touch"
+      ]
+    ],
+    "inBox": [
+      "2 × earbuds",
+      "1 × charging case",
+      "1 × charging cable"
+    ],
+    "faqs": [
+      [
+        "How often do I need to charge them?",
+        "With the case, up to 45 hours of total playtime — most people charge just once or twice a week."
+      ]
+    ]
   },
   {
-    "id": "sp-orange-cable",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 299,
-    "oldPrice": 499,
-    "rating": 5,
-    "ratingCount": 115,
-    "sale": true,
-    "new": true,
+    "id": "sp-gb03-earphones",
+    "slug": "g-golden-gb-03-open-ear-wireless-earphones",
+    "name": "G-Golden GB-03 Open-Ear Wireless Earphones",
+    "category": "earbuds-audio",
+    "price": 2999,
+    "oldPrice": 4499,
+    "rating": 4.8,
+    "ratingCount": 74,
     "images": [
-      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable.jpg",
-      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable (1).jpg",
-      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable (2).jpg",
-      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable (3).jpg"
+      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones.jpg",
+      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones (1).jpg",
+      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones (2).jpg",
+      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones (3).jpg"
     ],
-    "name": "Orange Braided USB-C Cable with SIM Pin",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "40% OFF"
-      }
+    "tagline": "Open-ear clip-ons that never fall out — and never hurt your ears.",
+    "description": [
+      "If regular earbuds feel uncomfortable or keep slipping out, you'll love these. The GB-03 clips gently over your ear instead of pushing inside it — so they stay comfortable for hours.",
+      "Because your ear stays open, you can still hear traffic, announcements and the people around you. Ideal for walking, riding, cooking or working out.",
+      "Hi-Res Audio, Bluetooth 5.3, about 8 hours per charge and a charging case with a digital percentage display. A silicone case cover is included."
     ],
-    "priceSave": "40% off"
+    "highlights": [
+      "Clip-on open-ear design — secure and pain-free",
+      "Stay aware of traffic and people around you",
+      "Hi-Res Audio sound",
+      "About 8 hours playtime per charge",
+      "Charging case with digital battery display"
+    ],
+    "specs": [
+      [
+        "Brand",
+        "G-Golden"
+      ],
+      [
+        "Model",
+        "GB-03"
+      ],
+      [
+        "Bluetooth",
+        "5.3"
+      ],
+      [
+        "Range",
+        "10m"
+      ],
+      [
+        "Frequency response",
+        "20Hz – 20kHz"
+      ],
+      [
+        "Playtime",
+        "About 8 hours"
+      ],
+      [
+        "Charging time",
+        "About 1.5 hours"
+      ],
+      [
+        "Earbud battery",
+        "30mAh"
+      ],
+      [
+        "Case battery",
+        "300mAh"
+      ],
+      [
+        "Control",
+        "Touch"
+      ]
+    ],
+    "inBox": [
+      "2 × earphones",
+      "1 × charging case",
+      "1 × charging cable",
+      "1 × silicone case cover"
+    ],
+    "faqs": [
+      [
+        "Will people around me hear my music?",
+        "At normal volume, very little sound escapes. At high volume, people very close may hear some."
+      ],
+      [
+        "Are they good for running?",
+        "Yes — the clip-on design stays secure while moving."
+      ]
+    ]
   },
   {
-    "id": "sp-flower-keychain",
-    "category": "fashion",
-    "productCat": "Accessories",
-    "price": 349,
-    "oldPrice": 699,
-    "rating": 5,
-    "ratingCount": 106,
-    "sale": true,
-    "new": true,
+    "id": "sp-v380-wifi",
+    "slug": "v380-wifi-camera-hd-wireless-ip",
+    "name": "V380 WiFi Camera HD Wireless IP",
+    "category": "security-lighting",
+    "price": 3999,
+    "oldPrice": 5999,
+    "rating": 5.0,
+    "ratingCount": 88,
+    "bestseller": true,
     "images": [
-      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain.jpg",
-      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (1).jpg",
-      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (2).jpg",
-      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (3).jpg",
-      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (4).jpg"
+      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP) (1).jpg",
+      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP) (3).jpg",
+      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP) (2).jpg",
+      "images/V380 WiFi Camera (HD Wireless IP)/V380 WiFi Camera (HD Wireless IP).jpg"
     ],
-    "name": "Gold Flower Crystal Keychain",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "50% OFF"
-      }
+    "tagline": "See your home, shop or baby live on your phone — from anywhere.",
+    "description": [
+      "At work and wondering if the kids got home? At home and worried about the shop? Open the free V380 app and see everything live, in HD, in seconds.",
+      "Get an alert on your phone the moment motion is detected. Speak through the camera with two-way audio. And when the lights go out, infrared night vision keeps watching in the dark.",
+      "Save recordings to a memory card (up to 64GB). Charger, cable and wall-mount kit are included — set it up yourself in minutes."
     ],
-    "priceSave": "50% off"
-  },
-  {
-    "id": "sp-teardrop-brush",
-    "category": "beauty",
-    "productCat": "Hair Care",
-    "price": 279,
-    "oldPrice": 449,
-    "rating": 5,
-    "ratingCount": 131,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush.jpg",
-      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush (1).jpg",
-      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush (2).jpg"
+    "highlights": [
+      "Watch live HD video on your phone, anywhere",
+      "Motion alerts sent straight to your phone",
+      "Night vision — sees clearly in the dark",
+      "Two-way audio: listen and talk through the camera",
+      "Records to memory card (up to 64GB)"
     ],
-    "name": "Teardrop Detangling Hair Brush",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "38% OFF"
-      }
+    "specs": [
+      [
+        "App",
+        "V380 (Android & iOS)"
+      ],
+      [
+        "WiFi",
+        "2.4GHz (802.11 b/g/n)"
+      ],
+      [
+        "Night vision",
+        "Infrared, up to ~10m"
+      ],
+      [
+        "Audio",
+        "Two-way (mic + speaker)"
+      ],
+      [
+        "Storage",
+        "TF card up to 64GB (not included)"
+      ],
+      [
+        "Alerts",
+        "Motion detection push alerts"
+      ],
+      [
+        "Power",
+        "USB adapter"
+      ]
     ],
-    "priceSave": "38% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {"name": "Red"},
-      {"name": "Pink"},
-      {"name": "Peach"},
-      {"name": "Light Brown"},
-      {"name": "Yellow"},
-      {"name": "Light Blue"}
+    "inBox": [
+      "1 × V380 WiFi camera",
+      "1 × power adapter",
+      "1 × USB cable",
+      "1 × wall-mount screw kit"
+    ],
+    "faqs": [
+      [
+        "Does it need internet?",
+        "Yes — it connects to your home 2.4GHz WiFi so you can view it on your phone from anywhere."
+      ],
+      [
+        "Is a memory card included?",
+        "No. Live view works without one; add any TF/microSD card up to 64GB to save recordings."
+      ],
+      [
+        "Is it hard to install?",
+        "Not at all — power it on, scan the QR code with the V380 app and follow the steps. Mount it with the included screws or simply place it on a shelf."
+      ]
     ]
   },
   {
     "id": "sp-bk530-camera",
-    "category": "electronics",
-    "productCat": "Electronics",
+    "slug": "v380-bk-530-mini-battery-wifi-camera",
+    "name": "V380 BK-530 Mini Battery WiFi Camera",
+    "category": "security-lighting",
     "price": 4300,
     "oldPrice": 6200,
-    "rating": 5,
+    "rating": 4.7,
     "ratingCount": 62,
-    "sale": true,
-    "new": true,
     "images": [
       "images/V380 BK-530 Mini Battery WiFi Camera/V380 BK-530 Mini Battery WiFi Camera.jpg",
       "images/V380 BK-530 Mini Battery WiFi Camera/V380 BK-530 Mini Battery WiFi Camera (1).jpg",
@@ -660,281 +609,529 @@
       "images/V380 BK-530 Mini Battery WiFi Camera/V380 BK-530 Mini Battery WiFi Camera (3).jpg",
       "images/V380 BK-530 Mini Battery WiFi Camera/V380 BK-530 Mini Battery WiFi Camera (4).jpg"
     ],
-    "name": "V380 BK-530 Mini Battery WiFi Camera",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "31% OFF"
-      }
+    "tagline": "A tiny wire-free camera you can place anywhere in 30 seconds.",
+    "description": [
+      "No drilling. No wires across the room. The BK-530 runs on its own rechargeable battery, so you can put it wherever you need eyes — a shelf, a cot, a shop counter.",
+      "Watch live HD video on your phone through the V380 app. Stick it up with the adhesive mount or stand it on the adjustable base and angle it exactly where you want.",
+      "Small and discreet — perfect for keeping an eye on babies, pets, elderly parents or your cash counter."
     ],
-    "priceSave": "31% off"
-  },
-  {
-    "id": "sp-white-cable",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 349,
-    "oldPrice": 499,
-    "rating": 5,
-    "ratingCount": 121,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable.jpg",
-      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable (1).jpg",
-      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable (2).jpg",
-      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable (3).jpg"
+    "highlights": [
+      "Built-in battery — place it anywhere, no wires",
+      "Live HD view on your phone via V380 app",
+      "Adhesive mount + adjustable stand included",
+      "Small and discreet design",
+      "Great for babies, pets, elderly parents & shops"
     ],
-    "name": "White USB-C to USB-C Cable",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "30% OFF"
-      }
+    "specs": [
+      [
+        "Model",
+        "BK-530"
+      ],
+      [
+        "App",
+        "V380 (Android & iOS)"
+      ],
+      [
+        "Power",
+        "Rechargeable battery / USB"
+      ],
+      [
+        "Mounting",
+        "Stand + adhesive pad"
+      ]
     ],
-    "priceSave": "30% off"
-  },
-  {
-    "id": "sp-lm130-gun",
-    "category": "beauty",
-    "productCat": "Health & Wellness",
-    "price": 3450,
-    "oldPrice": 5500,
-    "rating": 5,
-    "ratingCount": 69,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun.jpg",
-      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun (1).jpg",
-      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun (2).jpg",
-      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun (3).jpg"
+    "inBox": [
+      "1 × BK-530 camera",
+      "1 × adjustable stand",
+      "1 × adhesive mount",
+      "1 × USB charging cable"
     ],
-    "name": "LM-130 Three-Head Fascia Massage Gun",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "37% OFF"
-      }
-    ],
-    "priceSave": "37% off"
-  },
-  {
-    "id": "sp-pearl-tasbih",
-    "category": "home",
-    "productCat": "Islamic Essentials",
-    "price": 349,
-    "oldPrice": 499,
-    "rating": 5,
-    "ratingCount": 136,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box.jpg",
-      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (1).jpg",
-      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (2).jpg",
-      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (3).jpg",
-      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (4).jpg",
-      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (5).jpg"
-    ],
-    "name": "Pearl Tasbih & Digital Counter Gift Box",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "30% OFF"
-      }
-    ],
-    "priceSave": "30% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {"name": "Brown"},
-      {"name": "Mint Green"},
-      {"name": "Green"},
-      {"name": "Dark Blue"},
-      {"name": "Sky Blue"},
-      {"name": "White"},
-      {"name": "Red"},
-      {"name": "Black"},
-      {"name": "Hot Pink"},
-      {"name": "Grey"},
-      {"name": "Light Pink"},
-      {"name": "Purple"}
+    "faqs": [
+      [
+        "Can I keep it plugged in?",
+        "Yes — you can run it on USB power for 24/7 use, or on battery when you need to move it."
+      ],
+      [
+        "Does it need WiFi?",
+        "Yes, it connects to your 2.4GHz WiFi to stream to your phone."
+      ]
     ]
   },
   {
-    "id": "sp-gb03-earphones",
-    "category": "electronics",
-    "productCat": "Audio",
-    "price": 2999,
-    "oldPrice": 4499,
-    "rating": 5,
-    "ratingCount": 74,
-    "sale": true,
-    "new": true,
+    "id": "sp-oknew-bulb",
+    "slug": "oknew-emergency-led-bulb-5w",
+    "name": "OKNEW Emergency LED Bulb 5W",
+    "category": "security-lighting",
+    "price": 1099,
+    "oldPrice": 1999,
+    "rating": 5.0,
+    "ratingCount": 113,
+    "bestseller": true,
     "images": [
-      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones.jpg",
-      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones (1).jpg",
-      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones (2).jpg",
-      "images/G-Golden TWS Wireless Earphones/G-Golden TWS Wireless Earphones (3).jpg"
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W.jpg",
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (1).jpg",
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (2).jpg",
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (3).jpg",
+      "images/OKNEW Emergency LED Bulb 5W/OKNEW Emergency LED Bulb 5W (4).jpg"
     ],
-    "name": "G-Golden GB-03 TWS Wireless Earphones",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "33% OFF"
-      }
+    "tagline": "When the light goes, this bulb stays on — 3 to 4 hours of backup.",
+    "description": [
+      "Load shedding hits and the house goes dark — except the room with this bulb. It charges itself while the electricity is on and switches to battery the moment it goes off.",
+      "Screw it into any normal E27 holder. No wiring, no UPS, no inverter. Bright cool-white light keeps you cooking, studying and moving safely for 3–4 hours.",
+      "The batteries are replaceable, so one bulb keeps working for years."
     ],
-    "priceSave": "33% off"
-  },
-  {
-    "id": "sp-fidget-spinner",
-    "category": "toys",
-    "productCat": "Toys",
-    "price": 199,
-    "oldPrice": 299,
-    "rating": 5,
-    "ratingCount": 98,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Mini Metal Fidget Spinner/Mini Metal Fidget Spinner.jpg",
-      "images/Mini Metal Fidget Spinner/Mini Metal Fidget Spinner (1).jpg"
+    "highlights": [
+      "Stays lit automatically during load shedding",
+      "3–4 hours of backup light",
+      "Fits any normal E27 bulb holder — no wiring",
+      "Replaceable batteries for long life",
+      "Bright cool-white light, overcharge protection"
     ],
-    "name": "Mini Metal Fidget Spinner (Pair)",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "33% OFF"
-      }
+    "specs": [
+      [
+        "Brand",
+        "OKNEW"
+      ],
+      [
+        "Model",
+        "FAE-3920"
+      ],
+      [
+        "Power",
+        "5W"
+      ],
+      [
+        "Input voltage",
+        "AC 90–265V"
+      ],
+      [
+        "Backup time",
+        "3–4 hours"
+      ],
+      [
+        "Charging time",
+        "About 4 hours"
+      ],
+      [
+        "Colour temperature",
+        "6800–7300K (cool white)"
+      ],
+      [
+        "Beam angle",
+        "180°"
+      ],
+      [
+        "Fitting",
+        "E27 screw"
+      ]
     ],
-    "priceSave": "33% off"
+    "inBox": [
+      "1 × emergency LED bulb with batteries"
+    ],
+    "faqs": [
+      [
+        "Do I need to switch anything when the power goes?",
+        "Keep your wall switch ON. The bulb charges while electricity is on and lights up automatically from its battery during a power cut."
+      ],
+      [
+        "How many hours of backup does it give?",
+        "About 3–4 hours on a full charge."
+      ]
+    ]
   },
   {
     "id": "sp-wego-bulb",
-    "category": "electronics",
-    "productCat": "Electronics",
+    "slug": "wego-wg-611-rechargeable-led-bulb",
+    "name": "WEGO WG-611 Rechargeable LED Bulb",
+    "category": "security-lighting",
     "price": 1199,
     "oldPrice": 2099,
-    "rating": 5,
+    "rating": 4.8,
     "ratingCount": 87,
-    "sale": true,
-    "new": true,
     "images": [
       "images/WEGO WG-611 Rechargeable LED Bulb/WEGO WG-611 Rechargeable LED Bulb.jpg",
       "images/WEGO WG-611 Rechargeable LED Bulb/WEGO WG-611 Rechargeable LED Bulb (1).jpg",
       "images/WEGO WG-611 Rechargeable LED Bulb/WEGO WG-611 Rechargeable LED Bulb (2).jpg",
       "images/WEGO WG-611 Rechargeable LED Bulb/WEGO WG-611 Rechargeable LED Bulb (3).jpg"
     ],
-    "name": "WEGO WG-611 Rechargeable LED Bulb",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "43% OFF"
-      }
+    "tagline": "Up to 9.5 hours of light — longer than most load-shedding schedules.",
+    "description": [
+      "Long outages? The WEGO WG-611 is built for them. Choose 100% brightness for up to 2.5 hours, 50% for 4.5 hours, or stretch it to 9.5 hours at 25% — just by flicking your normal wall switch.",
+      "It charges automatically from mains power, and can also charge via Type-C — so you can top it up from a power bank or phone charger.",
+      "Two 18650 rechargeable batteries are included, and the LED is rated for up to 50,000 hours."
     ],
-    "priceSave": "43% off"
+    "highlights": [
+      "Up to 9.5 hours of backup light",
+      "3 brightness levels — controlled from your wall switch",
+      "Charges from mains OR Type-C",
+      "2 × 18650 rechargeable batteries included",
+      "Energy-saving LED, up to 50,000h lifespan"
+    ],
+    "specs": [
+      [
+        "Brand",
+        "WEGO"
+      ],
+      [
+        "Model",
+        "WG-611"
+      ],
+      [
+        "Backup",
+        "2.5h (100%) / 4.5h (50%) / 9.5h (25%)"
+      ],
+      [
+        "Charging",
+        "Mains + Type-C DC 5V"
+      ],
+      [
+        "Batteries",
+        "2 × 18650 Li-ion"
+      ],
+      [
+        "Fitting",
+        "E27 screw"
+      ]
+    ],
+    "inBox": [
+      "1 × WG-611 LED bulb",
+      "2 × 18650 rechargeable batteries"
+    ],
+    "faqs": [
+      [
+        "How do I change brightness?",
+        "Switch off and on again: first switch-on is 100%, second is 50%, third is 25%."
+      ],
+      [
+        "Can I charge it from a power bank?",
+        "Yes — it has a Type-C port for charging from any USB charger or power bank."
+      ]
+    ]
+  },
+  {
+    "id": "sp-orange-cable",
+    "slug": "orange-braided-usb-c-cable-with-sim-pin",
+    "name": "Orange Braided USB-C Cable with SIM Pin",
+    "category": "mobile-accessories",
+    "price": 299,
+    "oldPrice": 499,
+    "rating": 4.8,
+    "ratingCount": 115,
+    "images": [
+      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable.jpg",
+      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable (1).jpg",
+      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable (2).jpg",
+      "images/Orange Braided USB-C Cable/Orange Braided USB-C Cable (3).jpg"
+    ],
+    "tagline": "The tough braided cable that outlasts the ones that came with your phone.",
+    "description": [
+      "Cheap cables fray, bend and stop working within weeks. This one is wrapped in strong braided nylon that resists tangles and daily wear.",
+      "USB-C on both ends for fast charging and data transfer — works with modern Android phones, iPhone 15 and newer, tablets and laptops. The bright orange colour means you'll always spot it in your bag.",
+      "Bonus: a free SIM ejector pin is included."
+    ],
+    "highlights": [
+      "Braided nylon — resists fraying & tangles",
+      "USB-C to USB-C fast charging",
+      "Transfers data too",
+      "Bright orange — easy to find",
+      "Free SIM ejector pin"
+    ],
+    "specs": [
+      [
+        "Connector",
+        "USB-C to USB-C"
+      ],
+      [
+        "Material",
+        "Braided nylon"
+      ],
+      [
+        "Use",
+        "Charging & data"
+      ]
+    ],
+    "inBox": [
+      "1 × USB-C cable",
+      "1 × SIM ejector pin"
+    ],
+    "faqs": [
+      [
+        "Will it work with iPhone?",
+        "Yes, with iPhone 15 and newer (USB-C). Older iPhones use Lightning."
+      ]
+    ]
+  },
+  {
+    "id": "sp-white-cable",
+    "slug": "white-usb-c-to-usb-c-cable",
+    "name": "White USB-C to USB-C Cable",
+    "category": "mobile-accessories",
+    "price": 349,
+    "oldPrice": 499,
+    "rating": 4.9,
+    "ratingCount": 121,
+    "images": [
+      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable.jpg",
+      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable (1).jpg",
+      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable (2).jpg",
+      "images/White USB-C to USB-C Cable/White USB-C to USB-C Cable (3).jpg"
+    ],
+    "tagline": "A spare USB-C cable for the office, the car or the bag — for just Rs 349.",
+    "description": [
+      "You can never have too many charging cables. Keep this one at work, in the car or in your bag so you're never hunting for a charger again.",
+      "USB-C on both ends for fast charging and data transfer with modern Android phones, iPhone 15+, tablets and USB-C laptops."
+    ],
+    "highlights": [
+      "USB-C to USB-C fast charging",
+      "Transfers data too",
+      "Durable connectors",
+      "Works with phones, tablets & laptops"
+    ],
+    "specs": [
+      [
+        "Connector",
+        "USB-C to USB-C"
+      ],
+      [
+        "Colour",
+        "White"
+      ],
+      [
+        "Use",
+        "Charging & data"
+      ]
+    ],
+    "inBox": [
+      "1 × USB-C cable"
+    ],
+    "faqs": [
+      [
+        "Does it support fast charging?",
+        "Yes, when used with a fast-charging USB-C adapter and a compatible phone."
+      ]
+    ]
+  },
+  {
+    "id": "sp-desktop-fan",
+    "slug": "mini-air-cooler-3-in-1-desk-fan",
+    "name": "Mini Air Cooler 3-in-1 Desk Fan with Mist Spray",
+    "category": "fans-cooling",
+    "price": 2850,
+    "oldPrice": 5500,
+    "rating": 4.8,
+    "ratingCount": 95,
+    "images": [
+      "images/laptop_fan.jpg",
+      "images/laptop_fan1.jpg",
+      "images/laptop_fan2.jpeg"
+    ],
+    "tagline": "A mini air cooler for your desk — ice-cold mist where you need it.",
+    "description": [
+      "Your room AC can't follow you to your desk. This can. Fill the 600ml tank with water — add ice for extra chill — and enjoy a cool, misty breeze that feels far colder than a regular fan.",
+      "Three fan speeds, adjustable mist, a 1/2/3-hour timer so it turns off after you fall asleep, and 60° tilt to aim the air at you. Seven mood lights make it a lovely night light too.",
+      "Add a few drops of perfume to the tank for a fresh-smelling room."
+    ],
+    "highlights": [
+      "Fan + mist cooler + humidifier in one",
+      "600ml tank — add ice for colder air",
+      "3 speeds & adjustable mist spray",
+      "1/2/3-hour sleep timer & 60° tilt",
+      "7 colour mood lights"
+    ],
+    "specs": [
+      [
+        "Water tank",
+        "600ml"
+      ],
+      [
+        "Wind speeds",
+        "3"
+      ],
+      [
+        "Lights",
+        "7 colour modes"
+      ],
+      [
+        "Timer",
+        "1 / 2 / 3 hours"
+      ],
+      [
+        "Tilt",
+        "60°"
+      ],
+      [
+        "Power",
+        "USB"
+      ]
+    ],
+    "inBox": [
+      "1 × mini air cooler fan",
+      "1 × USB cable"
+    ],
+    "faqs": [
+      [
+        "Does it really cool?",
+        "It cools the air directly in front of you — perfect for a desk or bedside. It's not a replacement for a room AC."
+      ],
+      [
+        "How long does a tank of water last?",
+        "It depends on the mist setting — usually several hours."
+      ]
+    ]
   },
   {
     "id": "sp-summer-deal",
-    "category": "electronics",
-    "productCat": "Electronics",
+    "slug": "summer-deal-neck-fan-mini-fan-combo",
+    "name": "Summer Deal Combo — Neck Fan + Mini Carrot Fan",
+    "category": "fans-cooling",
     "price": 1700,
     "oldPrice": 1950,
-    "rating": 5,
+    "rating": 4.9,
     "ratingCount": 120,
-    "sale": true,
-    "new": true,
     "images": [
       "images/Deal.jpeg",
       "images/Deal1.jpeg",
       "images/Deal2.jpeg"
     ],
-    "name": "Summer Deal Combo",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "MEGA SALE",
-        "style": "background: var(--coral)"
-      }
-    ],
-    "hasLocationPricing": true,
-    "locationOptions": [
-      {
-        "value": 1700,
-        "text": "Lahore - PKR 1,700"
-      },
-      {
-        "value": 1800,
-        "text": "Outside Lahore - PKR 1,800"
-      }
-    ],
-    "hasComboColorOptions": true,
-    "comboColorLabel": "Neck Fan Color:",
-    "colorOptions": [
+    "locationPricing": {
+      "lahore": 1700,
+      "other": 1800
+    },
+    "colorLabel": "Neck Fan Colour",
+    "colors": [
       {
         "name": "Black",
-        "accent": "#000",
-        "checked": true
+        "img": 2
       },
       {
         "name": "Light Green",
-        "accent": "#90ee90",
-        "checked": false
+        "img": 1
       }
     ],
-    "colorGroupName": "combo-color-shop"
+    "tagline": "Two fans, one low price — a hands-free neck fan + a cute mini fan.",
+    "description": [
+      "Why choose? Get our wearable neck fan for your commute, kitchen and chores — plus the adorable Mini Carrot Fan for your desk, bag or bedside. Both in one package, for less than buying them separately.",
+      "Both are USB rechargeable, light and easy to carry. Pick your neck fan colour: Black or Light Green.",
+      "Package price: Rs 1,700 for Lahore · Rs 1,800 outside Lahore (set automatically by your city at checkout)."
+    ],
+    "highlights": [
+      "2 fans in one package — better value",
+      "Hands-free neck fan with 360° adjustable heads",
+      "Cute, portable Mini Carrot Fan",
+      "Both USB rechargeable",
+      "Lahore Rs 1,700 · Outside Lahore Rs 1,800"
+    ],
+    "specs": [
+      [
+        "Includes",
+        "1 × neck fan + 1 × mini carrot fan"
+      ],
+      [
+        "Neck fan colours",
+        "Black, Light Green"
+      ],
+      [
+        "Charging",
+        "USB"
+      ]
+    ],
+    "inBox": [
+      "1 × wearable neck fan",
+      "1 × mini carrot fan",
+      "USB charging cable(s)"
+    ],
+    "faqs": [
+      [
+        "Why is the price different for Lahore?",
+        "This bundle has a special delivery-inclusive package price: Rs 1,700 in Lahore and Rs 1,800 for other cities."
+      ],
+      [
+        "Can I choose the mini fan colour?",
+        "The Mini Carrot Fan comes in the colour shown. You can choose the neck fan colour."
+      ]
+    ]
   },
   {
-    "id": "sp-aesthetic-mini-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 750,
-    "oldPrice": 1500,
-    "rating": 5,
-    "ratingCount": 128,
-    "sale": true,
-    "new": true,
+    "id": "sp-neck-fan",
+    "slug": "hands-free-wearable-neck-fan",
+    "name": "Hands-Free Wearable Neck Fan",
+    "category": "fans-cooling",
+    "price": 1250,
+    "oldPrice": 2500,
+    "rating": 4.8,
+    "ratingCount": 89,
     "images": [
-      "images/Aesthetic_mini_fan_start.jpeg",
-      "images/Aesthetic_mini_fan_pink.jpeg",
-      "images/Aesthetic_mini_fan_purple.jpeg",
-      "images/Aesthetic_mini_fan_orangewhite.jpeg",
-      "images/Aesthetic_mini_fan_end.jpeg"
+      "images/Neck.jpeg",
+      "images/Neck 1.jpeg",
+      "images/Neck 2.jpeg",
+      "images/Neck 3.jpeg",
+      "images/Neck lightgreen.jpeg"
     ],
-    "name": "Aesthetic Pastel Mini Cooling Fan (Crimson)",
-    "badges": [
+    "colors": [
       {
-        "type": "sale",
-        "text": "50% OFF"
-      }
-    ],
-    "priceSave": "50% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {
-        "name": "Crimson",
-        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Crimson)"
+        "name": "Black",
+        "img": 0
       },
       {
-        "name": "Purple",
-        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Purple)"
-      },
-      {
-        "name": "Pink",
-        "productNameUpdate": "Aesthetic Pastel Mini Cooling Fan (Pink)"
+        "name": "Light Green",
+        "img": 4
       }
+    ],
+    "tagline": "Cool air on your face, both hands free — wherever you are.",
+    "description": [
+      "Cooking in a hot kitchen. Walking to college. Waiting at the bus stop. The neck fan rests on your shoulders and blows cool air right at your face — no hands needed.",
+      "Both fan heads bend 360° so you can aim the breeze exactly where you want it. It's light enough to forget you're wearing it and recharges with any USB cable.",
+      "Choose Black or Light Green."
+    ],
+    "highlights": [
+      "Hands-free — rests on your neck",
+      "Two fan heads that bend 360°",
+      "Light enough to wear all day",
+      "USB rechargeable",
+      "Black or Light Green"
+    ],
+    "specs": [
+      [
+        "Type",
+        "Wearable dual-head neck fan"
+      ],
+      [
+        "Adjustment",
+        "360° flexible arms"
+      ],
+      [
+        "Charging",
+        "USB"
+      ],
+      [
+        "Colours",
+        "Black, Light Green"
+      ]
+    ],
+    "inBox": [
+      "1 × neck fan",
+      "1 × USB charging cable"
+    ],
+    "faqs": [
+      [
+        "Will it catch my hair?",
+        "The fan heads have protective grills — keep long hair tied back for best comfort."
+      ],
+      [
+        "How do I charge it?",
+        "With the included USB cable from any phone charger, laptop or power bank."
+      ]
     ]
   },
   {
     "id": "sp-big-display-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
+    "slug": "big-display-handheld-fan-with-lanyard",
+    "name": "Big Display Handheld Fan with Lanyard",
+    "category": "fans-cooling",
     "price": 1050,
     "oldPrice": 2100,
-    "rating": 5,
+    "rating": 4.8,
     "ratingCount": 112,
-    "sale": true,
-    "new": true,
     "images": [
       "images/Big_Display_handheld_fan_with_lanyard_start.jpeg",
       "images/Big_Display_handheld_fan_with_lanyard_Black.jpeg",
@@ -943,110 +1140,77 @@
       "images/Big_Display_handheld_fan_with_lanyard_white.jpeg",
       "images/Big_Display_handheld_fan_with_lanyard_end.jpeg"
     ],
-    "name": "Big Display Handheld Fan with Lanyard (Dark Green)",
-    "badges": [
+    "colors": [
       {
-        "type": "sale",
-        "text": "50% OFF"
-      }
-    ],
-    "priceSave": "50% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {
-        "name": "Darkgreen",
-        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Dark Green)"
+        "name": "Dark Green",
+        "img": 2
       },
       {
         "name": "Black",
-        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Black)"
+        "img": 1
       },
       {
         "name": "White",
-        "productNameUpdate": "Big Display Handheld Fan with Lanyard (White)"
+        "img": 4
       },
       {
         "name": "Pink",
-        "productNameUpdate": "Big Display Handheld Fan with Lanyard (Pink)"
+        "img": 3
       }
+    ],
+    "tagline": "A powerful pocket fan with a big battery screen — hold it, hang it or stand it.",
+    "description": [
+      "Small fan, serious airflow. The big digital display tells you exactly how much battery is left, so it never dies on you mid-commute.",
+      "Hold it in your hand, hang it around your neck with the lanyard, or set it on the stand and use it hands-free on your desk. Multiple speeds let you choose a gentle breeze or a strong blast.",
+      "Comes in four colours — pick your favourite or get one for every family member."
+    ],
+    "highlights": [
+      "Big digital battery display",
+      "3 ways to use: handheld, desk stand or lanyard",
+      "Strong airflow with multiple speeds",
+      "USB rechargeable",
+      "4 colours: Dark Green, Black, White, Pink"
+    ],
+    "specs": [
+      [
+        "Display",
+        "Digital battery %"
+      ],
+      [
+        "Use",
+        "Handheld / desk stand / lanyard"
+      ],
+      [
+        "Charging",
+        "USB"
+      ],
+      [
+        "Colours",
+        "Dark Green, Black, White, Pink"
+      ]
+    ],
+    "inBox": [
+      "1 × handheld fan",
+      "1 × desk stand",
+      "1 × lanyard",
+      "1 × USB cable"
+    ],
+    "faqs": [
+      [
+        "How long does the battery last?",
+        "It depends on the speed — lower speeds last much longer. The display shows exactly how much is left."
+      ]
     ]
   },
   {
-    "id": "sp-desktop-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 2850,
-    "oldPrice": 5500,
-    "rating": 5,
-    "ratingCount": 95,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/laptop_fan.jpg",
-      "images/laptop_fan1.jpg",
-      "images/laptop_fan2.jpeg"
-    ],
-    "name": "Trending Mini Air Conditioner Fan Premium 3 In 1 Desk Cooling Fan Spray Fan",
-    "badges": [
-      {
-        "type": "new",
-        "text": "New"
-      }
-    ],
-    "priceSave": "75% off"
-  },
-  {
-    "id": "sp-neck-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
-    "price": 1250,
-    "oldPrice": 2500,
-    "rating": 5,
-    "ratingCount": 89,
-    "sale": true,
-    "new": true,
-    "images": [
-      "images/Neck.jpeg",
-      "images/Neck 1.jpeg",
-      "images/Neck 2.jpeg",
-      "images/Neck 3.jpeg",
-      "images/Neck lightgreen.jpeg"
-    ],
-    "name": "Wearable Bladeless Neck Fan (Black)",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "50% OFF"
-      }
-    ],
-    "priceSave": "50% off",
-    "hasColorOptions": true,
-    "colorOptions": [
-      {
-        "name": "Black",
-        "accent": "#000",
-        "checked": true,
-        "productNameUpdate": "Wearable Bladeless Neck Fan (Black)"
-      },
-      {
-        "name": "Light Green",
-        "accent": "#90ee90",
-        "checked": false,
-        "productNameUpdate": "Wearable Bladeless Neck Fan (Light Green)"
-      }
-    ],
-    "colorGroupName": "neck-fan-color-shop"
-  },
-  {
     "id": "sp-handheld-fan",
-    "category": "electronics",
-    "productCat": "Electronics",
+    "slug": "mini-digital-display-handheld-fan",
+    "name": "Mini Digital Display Handheld Fan with Lanyard",
+    "category": "fans-cooling",
     "price": 850,
     "oldPrice": 1700,
-    "rating": 5,
+    "rating": 5.0,
     "ratingCount": 145,
-    "sale": true,
-    "new": true,
     "images": [
       "images/Digital_Display_Handheld_Fan.jpeg",
       "images/Digital_Display_Handheld_Fan_1.jpeg",
@@ -1054,49 +1218,317 @@
       "images/Digital_Display_Handheld_Fan_4.jpeg",
       "images/Digital_Display_Handheld_Fan_5.jpeg"
     ],
-    "name": "Mini Digital Display Handheld Fan with lanyard",
-    "badges": [
+    "tagline": "A compact pastel fan with a battery display — cute, quiet and always ready.",
+    "description": [
+      "Slip it into your bag and stay fresh wherever the day takes you. The digital display shows remaining battery, and one button controls everything.",
+      "Use it handheld, stand it on your desk, or wear it with the lanyard. Quiet enough for the office, strong enough for a hot afternoon."
+    ],
+    "highlights": [
+      "Digital battery % display",
+      "Handheld, desk stand or lanyard",
+      "One-button control, multiple speeds",
+      "Quiet, compact & USB rechargeable",
+      "Soft pastel design"
+    ],
+    "specs": [
+      [
+        "Display",
+        "Digital battery %"
+      ],
+      [
+        "Use",
+        "Handheld / desk / lanyard"
+      ],
+      [
+        "Charging",
+        "USB"
+      ]
+    ],
+    "inBox": [
+      "1 × mini fan",
+      "1 × stand",
+      "1 × lanyard",
+      "1 × USB cable"
+    ],
+    "faqs": [
+      [
+        "Is it noisy?",
+        "No — it's designed to be quiet enough for offices and classrooms."
+      ]
+    ]
+  },
+  {
+    "id": "sp-aesthetic-mini-fan",
+    "slug": "aesthetic-pastel-mini-cooling-fan",
+    "name": "Aesthetic Pastel Mini Cooling Fan",
+    "category": "fans-cooling",
+    "price": 750,
+    "oldPrice": 1500,
+    "rating": 4.9,
+    "ratingCount": 128,
+    "images": [
+      "images/Aesthetic_mini_fan_start.jpeg",
+      "images/Aesthetic_mini_fan_pink.jpeg",
+      "images/Aesthetic_mini_fan_purple.jpeg",
+      "images/Aesthetic_mini_fan_orangewhite.jpeg",
+      "images/Aesthetic_mini_fan_end.jpeg"
+    ],
+    "colors": [
       {
-        "type": "sale",
-        "text": "50% OFF"
+        "name": "Crimson",
+        "img": 3
+      },
+      {
+        "name": "Pink",
+        "img": 1
+      },
+      {
+        "name": "Purple",
+        "img": 2
       }
     ],
-    "priceSave": "50% off"
+    "tagline": "The cutest little fan you'll ever own — strawberry & flower designs.",
+    "description": [
+      "Part fan, part desk décor. These pastel mini fans with strawberry and flower centres look adorable on a desk, bedside table or vanity — and keep you cool too.",
+      "Hold it or stand it on its base. USB rechargeable and light enough for any handbag. A sweet gift for sisters, friends and students."
+    ],
+    "highlights": [
+      "Adorable aesthetic design",
+      "Handheld or desk-stand use",
+      "USB rechargeable",
+      "Light enough for any handbag",
+      "Crimson, Pink or Purple"
+    ],
+    "specs": [
+      [
+        "Use",
+        "Handheld / desk stand"
+      ],
+      [
+        "Charging",
+        "USB"
+      ],
+      [
+        "Colours",
+        "Crimson, Pink, Purple"
+      ]
+    ],
+    "inBox": [
+      "1 × mini fan with stand",
+      "1 × USB cable"
+    ],
+    "faqs": [
+      [
+        "Is it a good gift?",
+        "It's one of our most-gifted items — especially for students and teenagers."
+      ]
+    ]
+  },
+  {
+    "id": "sp-spoon",
+    "slug": "digital-measuring-spoon",
+    "name": "Digital Measuring Spoon Scale",
+    "category": "kitchen-home",
+    "price": 1000,
+    "oldPrice": 2000,
+    "rating": 5.0,
+    "ratingCount": 84,
+    "bestseller": true,
+    "images": [
+      "images/spoon.jpeg",
+      "images/spoon1.jpeg",
+      "images/spoon2.jpg"
+    ],
+    "tagline": "Weigh as you scoop — perfect recipes, perfect chai, perfect baby formula.",
+    "description": [
+      "Baking that flops. Chai that's too strong. Formula you're never sure about. This spoon fixes all of it — it has a digital scale built right into the handle.",
+      "Scoop, read the exact grams on the LCD screen, and you're done. No separate scale, no extra bowls to wash. Tare and hold buttons make measuring multiple ingredients easy.",
+      "The spoon head detaches for easy cleaning. A brilliant gift for anyone who loves to cook or bake."
+    ],
+    "highlights": [
+      "Digital scale built into the spoon",
+      "Exact grams on a clear LCD display",
+      "Tare & hold functions",
+      "Detachable head — easy to clean",
+      "Great for baking, spices, coffee & formula"
+    ],
+    "specs": [
+      [
+        "Display",
+        "LCD"
+      ],
+      [
+        "Functions",
+        "Weigh, tare, hold, unit"
+      ],
+      [
+        "Spoon",
+        "Detachable"
+      ]
+    ],
+    "inBox": [
+      "1 × digital measuring spoon"
+    ],
+    "faqs": [
+      [
+        "How accurate is it?",
+        "It is designed for small kitchen quantities like spices, coffee, protein powder and baby formula, and shows the weight in grams on the screen."
+      ]
+    ]
+  },
+  {
+    "id": "sp-soap-brush",
+    "slug": "dish-scrubber-brush-soap-dispenser",
+    "name": "Dish Scrubber Brush with Liquid Soap Dispenser",
+    "category": "kitchen-home",
+    "price": 300,
+    "oldPrice": 450,
+    "rating": 4.8,
+    "ratingCount": 118,
+    "images": [
+      "images/soap_brush.jpeg",
+      "images/soap_brush1.jpeg",
+      "images/soap_brush2.jpeg",
+      "images/soap_brush3.jpeg"
+    ],
+    "tagline": "Soap in the handle, scrub in the head — dishes done faster, no slimy sponge.",
+    "description": [
+      "Fill the handle with your dishwashing liquid, and every press releases just the right amount of soap as you scrub. No more pouring, no more soggy sponges lying by the sink.",
+      "Powers through pots, pans, plates and sinks while using less soap. A small kitchen upgrade you'll use every single day."
+    ],
+    "highlights": [
+      "Built-in soap dispenser in the handle",
+      "Press to release soap while you scrub",
+      "Uses less soap, saves time",
+      "Tackles pots, pans, plates & sinks",
+      "Easy to refill and rinse clean"
+    ],
+    "specs": [
+      [
+        "Type",
+        "Soap-dispensing scrub brush"
+      ],
+      [
+        "Use",
+        "Dishes, pots, pans, sinks"
+      ]
+    ],
+    "inBox": [
+      "1 × soap dispenser scrub brush"
+    ],
+    "faqs": [
+      [
+        "What soap can I use?",
+        "Any liquid dishwashing soap works."
+      ]
+    ]
   },
   {
     "id": "sp-combo-brush",
-    "category": "home",
-    "productCat": "Home & Garden",
+    "slug": "digital-spoon-soap-brush-combo",
+    "name": "Kitchen Combo — Digital Measuring Spoon + Soap Brush",
+    "category": "kitchen-home",
     "price": 1200,
     "oldPrice": 1270,
-    "rating": 5,
+    "rating": 4.9,
     "ratingCount": 132,
-    "sale": true,
-    "new": false,
     "images": [
       "images/spoon_brush.jpeg",
       "images/spoon_brush1.jpeg"
     ],
-    "name": "2 in 1 Digital Measuring Spoon & Soap Brush Combo",
-    "badges": [
-      {
-        "type": "sale",
-        "text": "MEGA SALE",
-        "style": "background: var(--coral)"
-      }
+    "tagline": "Our 2 favourite kitchen helpers together — at a combo price.",
+    "description": [
+      "Get the Digital Measuring Spoon for precise cooking and the Soap Dispensing Scrub Brush for faster washing up — together, in one order.",
+      "One makes cooking easier, the other makes cleaning up easier. A smart housewarming or wedding gift too."
     ],
-    "priceSave": "Flash Deal"
+    "highlights": [
+      "2 bestsellers in one combo",
+      "Digital spoon scale with LCD display",
+      "Soap-dispensing scrub brush",
+      "A practical gift for any home"
+    ],
+    "specs": [
+      [
+        "Includes",
+        "1 × digital measuring spoon + 1 × soap dispenser brush"
+      ]
+    ],
+    "inBox": [
+      "1 × digital measuring spoon",
+      "1 × soap dispenser scrub brush"
+    ],
+    "faqs": [
+      [
+        "Do I save by buying the combo?",
+        "Yes — the combo costs less than buying both items separately."
+      ]
+    ]
+  },
+  {
+    "id": "sp-bbq-lighter",
+    "slug": "electric-arc-bbq-lighter-usb-c",
+    "name": "Electric Arc Lighter USB Type-C (Rechargeable)",
+    "category": "kitchen-home",
+    "price": 449,
+    "oldPrice": 699,
+    "rating": 4.7,
+    "ratingCount": 92,
+    "images": [
+      "images/Electric Arc BBQ Lighter/Electric Arc BBQ Lighter.jpg",
+      "images/Electric Arc BBQ Lighter/Electric Arc BBQ Lighter (1).jpg",
+      "images/Electric Arc BBQ Lighter/Electric Arc BBQ Lighter (2).jpg"
+    ],
+    "tagline": "Light your stove, candles and BBQ in the wind — no gas, no refills, ever.",
+    "description": [
+      "Matchboxes get damp. Gas lighters run out. This electric arc lighter just works — even in the wind, because there's no flame to blow out.",
+      "Recharge it with a Type-C cable and keep lighting — no refills to buy. The long, flexible 360° neck reaches deep candles and awkward stove burners while keeping your fingers safely away.",
+      "Ideal for kitchens, candles, BBQ nights and camping trips."
+    ],
+    "highlights": [
+      "Windproof electric arc — no flame to blow out",
+      "Rechargeable via USB Type-C",
+      "No gas, no refills",
+      "Flexible 360° neck keeps fingers safe",
+      "For stoves, candles, BBQ & camping"
+    ],
+    "specs": [
+      [
+        "Ignition",
+        "Electric arc"
+      ],
+      [
+        "Charging",
+        "USB Type-C"
+      ],
+      [
+        "Neck",
+        "360° flexible"
+      ]
+    ],
+    "inBox": [
+      "1 × electric arc lighter",
+      "1 × USB charging cable"
+    ],
+    "faqs": [
+      [
+        "Does it work on gas stoves?",
+        "Yes — the arc ignites gas burners easily."
+      ],
+      [
+        "Is it safe?",
+        "It has a safety switch and the long neck keeps your hand away from the burner."
+      ]
+    ]
   },
   {
     "id": "sp-glue-gun",
-    "category": "home",
-    "productCat": "DIY Tools",
+    "slug": "1one-hot-melt-glue-gun-100w",
+    "name": "1one Hot Melt Glue Gun 100W",
+    "category": "kitchen-home",
     "price": 799,
     "oldPrice": 1400,
-    "rating": 5,
+    "rating": 4.7,
     "ratingCount": 87,
-    "sale": true,
-    "new": true,
     "images": [
       "images/Glue Gun/Glue_Gun_2.jpg",
       "images/Glue Gun/Glue_Gun_1.jpg",
@@ -1104,13 +1536,959 @@
       "images/Glue Gun/Glue_Gun_4.jpg",
       "images/Glue Gun/Glue_Gun_5.jpg"
     ],
-    "name": "1one Hot Melt Glue Gun 100W",
-    "badges": [
+    "tagline": "Heats up fast, sticks strong — for crafts, school projects and quick fixes.",
+    "description": [
+      "School project due tomorrow? Broken item you keep meaning to fix? This 100W glue gun heats up quickly and bonds wood, fabric, plastic, cardboard and more.",
+      "An on/off switch saves power, and the built-in metal stand keeps it upright and safe between uses. Works on 100–240V."
+    ],
+    "highlights": [
+      "100W — heats up fast",
+      "Bonds wood, fabric, plastic, card & more",
+      "On/off switch with indicator light",
+      "Built-in safety stand",
+      "Uses standard 11mm glue sticks"
+    ],
+    "specs": [
+      [
+        "Brand",
+        "1one"
+      ],
+      [
+        "Model",
+        "1100"
+      ],
+      [
+        "Power",
+        "100W"
+      ],
+      [
+        "Voltage",
+        "100–240V, 50–60Hz"
+      ],
+      [
+        "Glue sticks",
+        "Standard 11mm"
+      ]
+    ],
+    "inBox": [
+      "1 × glue gun"
+    ],
+    "faqs": [
+      [
+        "Which glue sticks does it use?",
+        "Standard 11mm hot-melt glue sticks, easily available at stationery and hardware shops."
+      ]
+    ]
+  },
+  {
+    "id": "sp-xc901-comb",
+    "slug": "xc-901-magnetic-oil-dispensing-massage-comb",
+    "name": "XC-901 Magnetic Oil Dispensing Massage Comb",
+    "category": "hair-care",
+    "price": 3499,
+    "oldPrice": 4999,
+    "rating": 4.7,
+    "ratingCount": 64,
+    "images": [
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb.jpg",
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (1).jpg",
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (2).jpg",
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (3).jpg",
+      "images/XC-901 Magnetic Oil Dispensing Massage Comb/XC-901 Magnetic Oil Dispensing Massage Comb (4).jpg"
+    ],
+    "tagline": "Oil your roots, massage your scalp — in one mess-free step.",
+    "description": [
+      "Hair oiling the old way is messy, slow and wastes oil. The XC-901 delivers oil straight to your roots while 72 soft bristles massage your scalp — so the oil goes where it actually matters.",
+      "Gentle red-light and infrared features add to a relaxing routine you'll look forward to. It's splashproof, rechargeable via Type-C and feels luxurious in the hand.",
+      "A thoughtful gift for anyone who cares about their hair."
+    ],
+    "highlights": [
+      "Applies oil directly to the roots — no mess",
+      "72 massaging bristles relax the scalp",
+      "Red-light & infrared features",
+      "Splashproof design",
+      "Type-C rechargeable (900mAh)"
+    ],
+    "specs": [
+      [
+        "Model",
+        "XC-901"
+      ],
+      [
+        "Rated power",
+        "5W"
+      ],
+      [
+        "Battery",
+        "900mAh"
+      ],
+      [
+        "Charging",
+        "Type-C"
+      ],
+      [
+        "Bristles",
+        "72"
+      ]
+    ],
+    "inBox": [
+      "1 × XC-901 massage comb",
+      "1 × Type-C charging cable"
+    ],
+    "faqs": [
+      [
+        "Which oils can I use?",
+        "Any light hair oil — coconut, almond, argan or your favourite blend."
+      ],
+      [
+        "Is it easy to clean?",
+        "Yes — empty the oil and wipe the bristles. It's splashproof."
+      ]
+    ]
+  },
+  {
+    "id": "sp-vented-brush",
+    "slug": "vented-detangling-hair-brush",
+    "name": "Vented Detangling Hair Brush",
+    "category": "hair-care",
+    "price": 329,
+    "oldPrice": 499,
+    "rating": 5.0,
+    "ratingCount": 127,
+    "bestseller": true,
+    "images": [
+      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush.jpg",
+      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (1).jpg",
+      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (2).jpg",
+      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (3).jpg"
+    ],
+    "colors": [
       {
-        "type": "sale",
-        "text": "43% OFF"
+        "name": "Mint Green"
+      },
+      {
+        "name": "Pink"
+      },
+      {
+        "name": "Cream"
+      },
+      {
+        "name": "Light Brown"
+      },
+      {
+        "name": "Red"
+      },
+      {
+        "name": "Grey"
       }
     ],
-    "priceSave": "43% off"
+    "tagline": "Tangles out, no tears — and your hair dries faster too.",
+    "description": [
+      "If brushing your hair hurts, it's the brush — not your hair. The flexible vented design bends with every knot and glides through instead of pulling.",
+      "Works on wet and dry hair, and the open air channels let your blow-dryer's air through, so hair dries faster with less heat damage.",
+      "Pick from 6 soft colours — one for you, one for your daughter."
+    ],
+    "highlights": [
+      "Glides through tangles without pulling",
+      "Vented design dries hair faster",
+      "Safe on wet & dry hair",
+      "Flexible bristles kind to the scalp",
+      "6 colours to choose from"
+    ],
+    "specs": [
+      [
+        "Type",
+        "Vented detangling brush"
+      ],
+      [
+        "Hair types",
+        "All"
+      ],
+      [
+        "Colours",
+        "6"
+      ]
+    ],
+    "inBox": [
+      "1 × hair brush"
+    ],
+    "faqs": [
+      [
+        "Is it good for curly or thick hair?",
+        "Yes — the flexible bristles work through thick and curly hair gently."
+      ]
+    ]
+  },
+  {
+    "id": "sp-cushion-brush",
+    "slug": "cushion-paddle-hair-brush",
+    "name": "Cushion Paddle Hair Brush",
+    "category": "hair-care",
+    "price": 449,
+    "oldPrice": 699,
+    "rating": 4.8,
+    "ratingCount": 102,
+    "images": [
+      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush.jpg",
+      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (1).jpg",
+      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (2).jpg",
+      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (3).jpg"
+    ],
+    "colors": [
+      {
+        "name": "Cream"
+      },
+      {
+        "name": "Red"
+      },
+      {
+        "name": "Brown"
+      }
+    ],
+    "tagline": "Smooth, shiny hair and a relaxing scalp massage — every time you brush.",
+    "description": [
+      "A wide paddle with a soft cushion base and smooth pins that detangle long and thick hair in fewer strokes.",
+      "The cushion flexes as you brush, giving your scalp a gentle massage that boosts shine and leaves hair silky."
+    ],
+    "highlights": [
+      "Wide paddle — fewer strokes",
+      "Soft cushion with smooth pins",
+      "Relaxing scalp massage",
+      "Best for long & thick hair",
+      "Cream, Red or Brown"
+    ],
+    "specs": [
+      [
+        "Type",
+        "Cushion paddle brush"
+      ],
+      [
+        "Colours",
+        "Cream, Red, Brown"
+      ]
+    ],
+    "inBox": [
+      "1 × hair brush"
+    ],
+    "faqs": [
+      [
+        "Can I use it on wet hair?",
+        "For wet hair we recommend the Vented or Teardrop brush; the paddle is best on dry hair."
+      ]
+    ]
+  },
+  {
+    "id": "sp-round-brush",
+    "slug": "round-styling-hair-brush",
+    "name": "Round Styling Hair Brush",
+    "category": "hair-care",
+    "price": 310,
+    "oldPrice": 489,
+    "rating": 4.8,
+    "ratingCount": 109,
+    "images": [
+      "images/Round Styling Hair Brush/Round Styling Hair Brush.jpg",
+      "images/Round Styling Hair Brush/Round Styling Hair Brush (1).jpg",
+      "images/Round Styling Hair Brush/Round Styling Hair Brush (2).jpg",
+      "images/Round Styling Hair Brush/Round Styling Hair Brush (3).jpg"
+    ],
+    "colors": [
+      {
+        "name": "Purple"
+      },
+      {
+        "name": "White"
+      },
+      {
+        "name": "Red"
+      }
+    ],
+    "tagline": "Salon-style blow-dry volume and bouncy curls — at home.",
+    "description": [
+      "Want that fresh-from-the-salon bounce? Wrap your hair around this round brush while blow-drying and lift it from the roots for volume and soft curls.",
+      "Heat-friendly bristles grip and smooth, and the comfortable non-slip handle keeps you in control."
+    ],
+    "highlights": [
+      "Creates volume & soft curls while blow-drying",
+      "Heat-friendly bristles",
+      "Comfortable non-slip handle",
+      "Purple, White or Red"
+    ],
+    "specs": [
+      [
+        "Type",
+        "Round styling brush"
+      ],
+      [
+        "Colours",
+        "Purple, White, Red"
+      ]
+    ],
+    "inBox": [
+      "1 × hair brush"
+    ],
+    "faqs": [
+      [
+        "Can I use it with a straightener?",
+        "It's designed for use with a blow-dryer."
+      ]
+    ]
+  },
+  {
+    "id": "sp-teardrop-brush",
+    "slug": "teardrop-detangling-hair-brush",
+    "name": "Teardrop Detangling Hair Brush",
+    "category": "hair-care",
+    "price": 279,
+    "oldPrice": 449,
+    "rating": 4.9,
+    "ratingCount": 131,
+    "images": [
+      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush.jpg",
+      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush (1).jpg",
+      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush (2).jpg"
+    ],
+    "colors": [
+      {
+        "name": "Red"
+      },
+      {
+        "name": "Pink"
+      },
+      {
+        "name": "Peach"
+      },
+      {
+        "name": "Light Brown"
+      },
+      {
+        "name": "Yellow"
+      },
+      {
+        "name": "Light Blue"
+      }
+    ],
+    "tagline": "Palm-sized, handle-free and gentle — the no-tears brush for kids and travel.",
+    "description": [
+      "Fits perfectly in your palm and glides through wet or dry hair. Two lengths of flexible teeth tease out knots without tugging — so brushing time stops being crying time.",
+      "Small enough for any handbag or school bag. Choose from 6 bright colours."
+    ],
+    "highlights": [
+      "Fits in your palm — no handle",
+      "Two-length flexible teeth",
+      "Gentle on kids & sensitive scalps",
+      "Works on wet or dry hair",
+      "6 bright colours"
+    ],
+    "specs": [
+      [
+        "Type",
+        "Teardrop detangling brush"
+      ],
+      [
+        "Colours",
+        "6"
+      ]
+    ],
+    "inBox": [
+      "1 × hair brush"
+    ],
+    "faqs": [
+      [
+        "Is it good for children?",
+        "Yes — it's one of the gentlest brushes for kids' hair."
+      ]
+    ]
+  },
+  {
+    "id": "sp-lm130-gun",
+    "slug": "lm-130-three-head-fascia-massage-gun",
+    "name": "LM-130 Three-Head Fascia Massage Gun",
+    "category": "health-personal-care",
+    "price": 3450,
+    "oldPrice": 5500,
+    "rating": 4.7,
+    "ratingCount": 69,
+    "images": [
+      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun.jpg",
+      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun (1).jpg",
+      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun (2).jpg",
+      "images/LM-130 Fascia Massage Gun/LM-130 Fascia Massage Gun (3).jpg"
+    ],
+    "tagline": "Three massage heads working at once — deep relief for back, shoulders and legs.",
+    "description": [
+      "Long hours at a desk, behind the wheel or at the gym leave your muscles tight. The LM-130's three-head design covers a wider area at once for deeper, faster relief.",
+      "Six speed levels take you from a gentle relaxing massage to deep tissue. Swap between multiple heads for shoulders, back, legs and feet.",
+      "Charges by USB and comes in a premium storage box — a gift your father, husband or gym buddy will actually use."
+    ],
+    "highlights": [
+      "Three-head design for wider coverage",
+      "6 speed levels — gentle to deep",
+      "Multiple interchangeable heads",
+      "USB rechargeable",
+      "Light 364g body + premium box"
+    ],
+    "specs": [
+      [
+        "Model",
+        "LM-130"
+      ],
+      [
+        "Rated power",
+        "24W"
+      ],
+      [
+        "Speeds",
+        "6"
+      ],
+      [
+        "Rated voltage",
+        "5V 1A"
+      ],
+      [
+        "Material",
+        "ABS"
+      ],
+      [
+        "Weight",
+        "364g"
+      ]
+    ],
+    "inBox": [
+      "1 × massage gun",
+      "Interchangeable massage heads",
+      "1 × USB charging cable",
+      "Storage box"
+    ],
+    "faqs": [
+      [
+        "Is it suitable for older people?",
+        "Yes — start on the lowest speed for a gentle massage. Avoid bones, joints and any injuries."
+      ]
+    ]
+  },
+  {
+    "id": "sp-jy760-massager",
+    "slug": "jy-760-smart-fascia-massager",
+    "name": "JY-760 Smart Fascia Massage Gun",
+    "category": "health-personal-care",
+    "price": 2499,
+    "oldPrice": 3499,
+    "rating": 4.7,
+    "ratingCount": 58,
+    "images": [
+      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager.jpg",
+      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager.jpeg",
+      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager (1).jpg",
+      "images/JY-760 Smart Fascia Massager/JY-760 Smart Fascia Massager (2).jpg"
+    ],
+    "tagline": "Pocket-size massage gun that melts away stiffness in minutes.",
+    "description": [
+      "Stiff neck from your phone? Sore legs from the gym? This compact massage gun targets knots with four interchangeable heads and six speeds.",
+      "One button, light 452g body and USB charging — use it at home, in the office or after a workout."
+    ],
+    "highlights": [
+      "4 interchangeable heads for different muscles",
+      "6 speed levels",
+      "Simple one-button control",
+      "Light 452g — easy to hold",
+      "USB charging"
+    ],
+    "specs": [
+      [
+        "Model",
+        "JY-760"
+      ],
+      [
+        "Heads",
+        "4"
+      ],
+      [
+        "Speeds",
+        "6"
+      ],
+      [
+        "Weight",
+        "452g"
+      ],
+      [
+        "Charging",
+        "USB"
+      ]
+    ],
+    "inBox": [
+      "1 × massage gun",
+      "4 × massage heads",
+      "1 × USB charging cable"
+    ],
+    "faqs": [
+      [
+        "How long should I use it?",
+        "1–2 minutes per muscle area is usually enough. Avoid bones and joints."
+      ]
+    ]
+  },
+  {
+    "id": "sp-paper-soap",
+    "slug": "new-season-paper-hand-soap",
+    "name": "New Season Paper Hand Soap (Travel Tube)",
+    "category": "health-personal-care",
+    "price": 99,
+    "oldPrice": 150,
+    "rating": 4.8,
+    "ratingCount": 138,
+    "images": [
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap.jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (1).jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (2).jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (3).jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (4).jpg",
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (5).jpg"
+    ],
+    "colors": [
+      {
+        "name": "Pink"
+      },
+      {
+        "name": "Green"
+      },
+      {
+        "name": "White"
+      },
+      {
+        "name": "Blue"
+      },
+      {
+        "name": "Purple"
+      }
+    ],
+    "tagline": "Clean hands anywhere — just add water. Fits in your pocket.",
+    "description": [
+      "Public washrooms with no soap. School trips. Travel. Pull out one sheet, add water, and it lathers instantly into fresh, lightly scented soap.",
+      "Each sheet is single-use and hygienic — no shared soap bars. Toss a tube into every bag."
+    ],
+    "highlights": [
+      "Dissolves into soap with a splash of water",
+      "Pocket-size travel tube",
+      "Hygienic single-use sheets",
+      "Lightly scented",
+      "5 colours"
+    ],
+    "specs": [
+      [
+        "Type",
+        "Paper soap sheets"
+      ],
+      [
+        "Packaging",
+        "Travel tube"
+      ]
+    ],
+    "inBox": [
+      "1 × tube of paper soap sheets"
+    ],
+    "faqs": [
+      [
+        "Is it safe for kids?",
+        "Yes — it's gentle soap in sheet form, great for school bags."
+      ]
+    ]
+  },
+  {
+    "id": "sp-azan-counter",
+    "slug": "al-fatiha-azan-tasbih-counter",
+    "name": "AL-Fatiha Azan & Digital Tasbih Counter",
+    "category": "islamic-essentials",
+    "price": 1850,
+    "oldPrice": 2499,
+    "rating": 5.0,
+    "ratingCount": 71,
+    "bestseller": true,
+    "images": [
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter.jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (1).jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (2).jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (3).jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (4).jpg",
+      "images/AL-Fatiha Azan & Tasbih Counter/AL-Fatiha Azan & Tasbih Counter (5).jpg"
+    ],
+    "tagline": "A digital tasbih that also reminds you of every Azan — anywhere in the world.",
+    "description": [
+      "Keep count of your dhikr and never miss a prayer. This beautiful wood-finish tasbih plays the Azan at prayer times and shows Athan timings for over 6,000 cities.",
+      "It also shows Hijri and Gregorian dates on a clear screen. The ergonomic finger-ring design makes long dhikr comfortable.",
+      "Arrives in a gift box — a meaningful present for parents, grandparents and anyone returning from Umrah or Hajj."
+    ],
+    "highlights": [
+      "Digital tasbih counter",
+      "Plays Azan & alerts you at prayer times",
+      "Athan timings for 6,000+ cities",
+      "Hijri & Gregorian calendar",
+      "Arrives in a gift box"
+    ],
+    "specs": [
+      [
+        "Brand",
+        "AL-Fatiha"
+      ],
+      [
+        "Model",
+        "9335"
+      ],
+      [
+        "Functions",
+        "Tasbih, Azan, prayer alarm, calendar"
+      ],
+      [
+        "Calendars",
+        "Hijri & Gregorian"
+      ],
+      [
+        "Cities",
+        "6000+"
+      ]
+    ],
+    "inBox": [
+      "1 × Azan tasbih counter",
+      "Gift box"
+    ],
+    "faqs": [
+      [
+        "Can I set it for my city?",
+        "Yes — choose from over 6,000 cities worldwide, including all major Pakistani cities."
+      ]
+    ]
+  },
+  {
+    "id": "sp-tasbih-compass",
+    "slug": "digital-tasbih-counter-with-compass",
+    "name": "Digital Tasbih Counter with Qibla Compass",
+    "category": "islamic-essentials",
+    "price": 699,
+    "oldPrice": 999,
+    "rating": 4.9,
+    "ratingCount": 141,
+    "images": [
+      "images/Digital Tasbih Counter with Compass (SXH5136)/Digital Tasbih Counter with Compass (SXH5136).jpeg",
+      "images/Digital Tasbih Counter with Compass (SXH5136)/Digital Tasbih Counter with Compass (SXH5136) (1).jpeg",
+      "images/Digital Tasbih Counter with Compass (SXH5136)/Digital Tasbih Counter with Compass (SXH5136) (2).jpeg"
+    ],
+    "tagline": "Count your dhikr, find the Qibla — one small device on your finger.",
+    "description": [
+      "A finger tasbih with a clear LCD counter, a reset button and an LED light for night-time dhikr.",
+      "The built-in compass helps you find the Qibla direction while travelling. Light, simple and comes with a decorative tassel."
+    ],
+    "highlights": [
+      "Clear LCD counter with reset",
+      "Built-in compass for Qibla direction",
+      "LED backlight for night use",
+      "Comfortable finger-ring design",
+      "Decorative tassel"
+    ],
+    "specs": [
+      [
+        "Model",
+        "SXH5136"
+      ],
+      [
+        "Display",
+        "LCD"
+      ],
+      [
+        "Extras",
+        "Compass, LED light"
+      ]
+    ],
+    "inBox": [
+      "1 × digital tasbih counter"
+    ],
+    "faqs": [
+      [
+        "Can I use it while travelling?",
+        "Yes — it is small and light, and the compass helps you find the Qibla anywhere."
+      ]
+    ]
+  },
+  {
+    "id": "sp-pearl-tasbih",
+    "slug": "pearl-tasbih-digital-counter-gift-box",
+    "name": "Pearl Tasbih & Digital Counter Gift Box",
+    "category": "islamic-essentials",
+    "price": 349,
+    "oldPrice": 499,
+    "rating": 4.9,
+    "ratingCount": 136,
+    "images": [
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box.jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (1).jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (2).jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (3).jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (4).jpg",
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (5).jpg"
+    ],
+    "colors": [
+      {
+        "name": "Brown"
+      },
+      {
+        "name": "Mint Green"
+      },
+      {
+        "name": "Green"
+      },
+      {
+        "name": "Dark Blue"
+      },
+      {
+        "name": "Sky Blue"
+      },
+      {
+        "name": "White"
+      },
+      {
+        "name": "Red"
+      },
+      {
+        "name": "Black"
+      },
+      {
+        "name": "Hot Pink"
+      },
+      {
+        "name": "Grey"
+      },
+      {
+        "name": "Light Pink"
+      },
+      {
+        "name": "Purple"
+      }
+    ],
+    "tagline": "An elegant pearl tasbih + digital counter in a gift box — from just Rs 349.",
+    "description": [
+      "A beautiful gift that feels far more expensive than it is. A pearl tasbih with gold accents and tassel, paired with a matching digital finger counter, presented in a display box.",
+      "Choose from 12 colours — perfect for Eid gifts, Ramadan, Umrah returns, weddings and Aqeeqah giveaways."
+    ],
+    "highlights": [
+      "Pearl tasbih with gold accents & tassel",
+      "Matching digital finger counter",
+      "Ready-to-gift display box",
+      "12 colours to choose from",
+      "Great for Eid, Ramadan & weddings"
+    ],
+    "specs": [
+      [
+        "Includes",
+        "Pearl tasbih + digital counter"
+      ],
+      [
+        "Packaging",
+        "Gift box"
+      ],
+      [
+        "Colours",
+        "12"
+      ]
+    ],
+    "inBox": [
+      "1 × pearl tasbih",
+      "1 × digital counter",
+      "Gift box"
+    ],
+    "faqs": [
+      [
+        "Can I order different colours?",
+        "Yes — add each colour to your cart separately."
+      ],
+      [
+        "Do you do bulk orders?",
+        "Message us on WhatsApp with the quantity and colours you need for Eid, weddings or events."
+      ]
+    ]
+  },
+  {
+    "id": "sp-heart-keychain",
+    "slug": "gold-heart-crystal-keychain",
+    "name": "Gold Heart Crystal Keychain",
+    "category": "gifts-toys",
+    "price": 299,
+    "oldPrice": 499,
+    "rating": 4.9,
+    "ratingCount": 124,
+    "images": [
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain.jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (1).jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (2).jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (3).jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (4).jpg",
+      "images/Gold Heart Crystal Keychain/Gold Heart Crystal Keychain (5).jpg"
+    ],
+    "tagline": "A sparkling crystal heart — the sweetest little gift under Rs 300.",
+    "description": [
+      "A gold-tone heart with a faceted crystal ball that catches the light every time it moves.",
+      "Clip it on keys or a handbag. An easy, lovely gift for birthdays, best friends and sisters."
+    ],
+    "highlights": [
+      "Gold-tone heart with crystal ball",
+      "Catches the light beautifully",
+      "For keys, bags & handbags",
+      "Perfect small gift"
+    ],
+    "specs": [
+      [
+        "Finish",
+        "Gold tone"
+      ],
+      [
+        "Detail",
+        "Faceted crystal"
+      ]
+    ],
+    "inBox": [
+      "1 × keychain"
+    ],
+    "faqs": [
+      [
+        "Does it come gift-wrapped?",
+        "It arrives safely packed. Message us on WhatsApp if you'd like it as a gift."
+      ]
+    ]
+  },
+  {
+    "id": "sp-flower-keychain",
+    "slug": "gold-flower-crystal-keychain",
+    "name": "Gold Flower Crystal Keychain",
+    "category": "gifts-toys",
+    "price": 349,
+    "oldPrice": 699,
+    "rating": 4.8,
+    "ratingCount": 106,
+    "images": [
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain.jpg",
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (1).jpg",
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (2).jpg",
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (3).jpg",
+      "images/Gold Flower Crystal Keychain/Gold Flower Crystal Keychain (4).jpg"
+    ],
+    "tagline": "A gold four-petal flower set with sparkling stones — small, chic, gift-ready.",
+    "description": [
+      "A chic gold-tone flower with sparkling crystal stones on every petal. Adds a touch of glam to keys and handbags.",
+      "A thoughtful little gift for friends, teachers and sisters."
+    ],
+    "highlights": [
+      "Gold-tone four-petal flower",
+      "Sparkling crystal stones",
+      "For keys & handbags",
+      "Lovely small gift"
+    ],
+    "specs": [
+      [
+        "Finish",
+        "Gold tone"
+      ],
+      [
+        "Detail",
+        "Crystal stones"
+      ]
+    ],
+    "inBox": [
+      "1 × keychain"
+    ],
+    "faqs": [
+      [
+        "Will the colour fade?",
+        "With normal use and keeping it dry, it keeps its shine."
+      ]
+    ]
+  },
+  {
+    "id": "sp-toy-cars",
+    "slug": "racing-toy-cars-set-pack-of-12",
+    "name": "Racing Toy Cars Set (Pack of 12)",
+    "category": "gifts-toys",
+    "price": 799,
+    "oldPrice": 1399,
+    "rating": 4.8,
+    "ratingCount": 97,
+    "images": [
+      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs).jpg",
+      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs).jpeg",
+      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs) (1).jpg",
+      "images/Toy Race Cars Set (12 pcs)/Toy Race Cars Set (12 pcs) (2).jpg"
+    ],
+    "tagline": "12 racing cars in one box — hours of play, endless races.",
+    "description": [
+      "Twelve colourful racing cars with bold sporty designs — enough for epic races, sharing with siblings and starting a collection.",
+      "A birthday gift that kids actually get excited about. Suitable for ages 3+."
+    ],
+    "highlights": [
+      "12 cars in one pack",
+      "Bold, colourful racing designs",
+      "Great for sharing & collecting",
+      "Perfect birthday gift",
+      "Ages 3+"
+    ],
+    "specs": [
+      [
+        "Pieces",
+        "12 cars"
+      ],
+      [
+        "Age",
+        "3+"
+      ]
+    ],
+    "inBox": [
+      "12 × toy cars"
+    ],
+    "faqs": [
+      [
+        "What age is it for?",
+        "Recommended for ages 3 and up."
+      ]
+    ]
+  },
+  {
+    "id": "sp-fidget-spinner",
+    "slug": "mini-metal-fidget-spinner-pair",
+    "name": "Mini Metal Fidget Spinner (Pair)",
+    "category": "gifts-toys",
+    "price": 199,
+    "oldPrice": 299,
+    "rating": 4.7,
+    "ratingCount": 98,
+    "images": [
+      "images/Mini Metal Fidget Spinner/Mini Metal Fidget Spinner.jpg",
+      "images/Mini Metal Fidget Spinner/Mini Metal Fidget Spinner (1).jpg"
+    ],
+    "tagline": "Two smooth metal spinners — fun for kids, calming for adults.",
+    "description": [
+      "A pair of mini metal fidget spinners — a blue swirl and a gold heart — each in its own clear case.",
+      "Smooth, long spins help with focus and stress, at the desk or on the go."
+    ],
+    "highlights": [
+      "2 metal spinners per pack",
+      "Smooth, long spin",
+      "Each in its own clear case",
+      "Fun for kids, calming for adults"
+    ],
+    "specs": [
+      [
+        "Pieces",
+        "2"
+      ],
+      [
+        "Material",
+        "Metal"
+      ]
+    ],
+    "inBox": [
+      "2 × fidget spinners with cases"
+    ],
+    "faqs": [
+      [
+        "Is it safe for small children?",
+        "They contain small parts, so they are best for older children with adult supervision."
+      ]
+    ]
   }
 ]
