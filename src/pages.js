@@ -7,15 +7,26 @@ const { C, ver, thumb, PARENTS, parentBySlug, collectionUrl, esc, rs, discountPc
 
 const byId = (products, id) => products.find((p) => p.id === id);
 const inParent = (products, parent) => products.filter((p) => catBySlug(p.category).parent.slug === parent.slug);
+// Variants of one product (Air Pro with box / without box) should never sit side by side in a list
+const family = (p) => (p.id.startsWith("sp-airpro") ? "airpro" : p.id);
+function spread(list) {
+  const out = [...list];
+  for (let i = 1; i < out.length; i++) {
+    if (family(out[i]) !== family(out[i - 1])) continue;
+    const j = out.findIndex((x, k) => k > i && family(x) !== family(out[i - 1]));
+    if (j > 0) out.splice(i, 0, out.splice(j, 1)[0]);
+  }
+  return out;
+}
 const bestsellers = (products) =>
-  [...products].filter((p) => !p.soldOut).sort((a, b) => (b.bestseller ? 1 : 0) - (a.bestseller ? 1 : 0) || b.ratingCount - a.ratingCount);
+  spread([...products].filter((p) => !p.soldOut).sort((a, b) => (b.bestseller ? 1 : 0) - (a.bestseller ? 1 : 0) || b.ratingCount - a.ratingCount));
 
 function rail(products, base, { title, sub, href, linkText = "View all" }) {
   return `<section class="section"><div class="container">
   <div class="section-head"><div><h2>${title}</h2>${sub ? `<p>${sub}</p>` : ""}</div>${href ? `<a class="link-more" href="${base}${href}">${linkText} ${icon("arrow")}</a>` : ""}</div>
   <div class="rail-wrap">
     <button class="rail-btn prev" aria-label="Scroll left" disabled>${icon("left")}</button>
-    <div class="rail">${products.map((p) => productCard(p, base)).join("")}</div>
+    <div class="rail">${spread(products).map((p) => productCard(p, base)).join("")}</div>
     <button class="rail-btn next" aria-label="Scroll right">${icon("right")}</button>
   </div>
 </div></section>`;
@@ -129,7 +140,7 @@ function listing(products, { category } = {}) {
   const sub = category ? catBySlug(category) : null;            // subcategory page
   const parent = sub ? sub.parent : category ? parentBySlug(category) : null;
   const cat = sub || parent;
-  const list = sub ? products.filter((p) => p.category === sub.slug) : parent ? inParent(products, parent) : products;
+  const list = spread(sub ? products.filter((p) => p.category === sub.slug) : parent ? inParent(products, parent) : products);
   const chips = `<div class="chips chips-scroll">
     <a href="${base}shop/" class="chip ${!parent ? "is-active" : ""}">All products</a>
     ${PARENTS.map((c) => `<a href="${base}${collectionUrl(c)}" class="chip ${parent && parent.slug === c.slug ? "is-active" : ""}">${esc(c.name)}</a>`).join("")}
@@ -246,7 +257,7 @@ function productPage(p, products) {
   const colorPicker = hasChoice
     ? `<fieldset class="opt"><legend>${esc(p.colorLabel || "Colour")}: <b id="color-name">${esc(firstColor.name)}</b></legend>
       <div class="swatches">${colors
-        .map((c, i) => `<label class="swatch" title="${esc(c.name)}"><input type="radio" name="color" value="${esc(c.name)}" ${i ? "" : "checked"} ${c.img !== undefined ? `data-img="${c.img}"` : ""}><span style="--sw:${COLOR_HEX[c.name] || "#ccc"}"></span><em>${esc(c.name)}</em></label>`)
+        .map((c, i) => `<label class="swatch" title="${esc(c.name)}"><input type="radio" name="color" value="${esc(c.name)}" ${i ? "" : "checked"} ${c.img !== undefined ? `data-img="${c.img}" data-cart-img="${esc(p.images[c.img])}"` : ""}><span style="--sw:${COLOR_HEX[c.name] || "#ccc"}"></span><em>${esc(c.name)}</em></label>`)
         .join("")}</div></fieldset>`
     : "";
   const locPicker = p.locationPricing
@@ -259,7 +270,7 @@ function productPage(p, products) {
   const info = `<div class="pdp-info">
     <a class="pdp-cat" href="${base}${collectionUrl(cat)}">${icon(cat.icon)} ${esc(cat.name)}</a>
     <h1>${esc(p.name)}</h1>
-    <div class="pdp-rating">${stars(p, false)}<a href="#details">${p.ratingCount} ratings</a>${p.bestseller ? `<span class="badge badge-hot">Bestseller</span>` : ""}</div>
+    <div class="pdp-rating">${stars(p, false)}${p.ratingCount ? `<a href="#details">${p.ratingCount} ratings</a>` : ""}${p.bestseller ? `<span class="badge badge-hot">Bestseller</span>` : p.badge ? `<span class="badge badge-hot">${esc(p.badge)}</span>` : ""}</div>
     <div id="pdp-price">${priceBlock(p, true)}</div>
     <p class="pdp-pk">${esc(p.name)} price in Pakistan: <b>${rs(p.price)}</b>${p.oldPrice > p.price ? ` (was ${rs(p.oldPrice)})` : ""} · Cash on Delivery</p>
     <p class="pdp-tagline">${esc(p.tagline)}</p>

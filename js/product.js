@@ -15,7 +15,9 @@
   let current = 0;
   function goTo(i, smooth = true) {
     if (!main || !slides.length) return;
-    current = (i + slides.length) % slides.length;
+    const next = (i + slides.length) % slides.length;
+    if (Math.abs(next - current) > 1) smooth = false; // jump straight to a colour photo instead of sliding past others
+    current = next;
     main.scrollTo({ left: current * main.clientWidth, behavior: smooth ? "smooth" : "auto" });
     mark();
   }
@@ -78,6 +80,8 @@
     updateWa();
   });
   form.addEventListener("click", (e) => {
+    // tapping a swatch always shows its photo, even the one that is already selected
+    if (e.target.name === "color" && e.target.dataset.img !== undefined) goTo(+e.target.dataset.img);
     const b = e.target.closest("[data-qty]");
     if (!b) return;
     qtyInput.value = Math.max(1, Math.min(20, qty() + +b.dataset.qty));
@@ -89,6 +93,8 @@
     const color = selectedColor();
     const item = { ...product, price };
     if (color) item.color = color;
+    const sw = form.querySelector('input[name="color"]:checked');
+    if (sw && sw.dataset.cartImg) item.img = sw.dataset.cartImg; // cart shows the chosen colour
     Cart.add(item, qty());
     bump();
   }

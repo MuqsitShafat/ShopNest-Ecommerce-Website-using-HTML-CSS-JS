@@ -27,7 +27,7 @@ const absUrl = (path) => (C.siteUrl ? C.siteUrl : "") + "/" + path;
 const COLOR_HEX = {
   "Black": "#1f1f24", "White": "#ffffff", "Grey": "#a3a7b0", "Red": "#d43c3c", "Crimson": "#e2483a",
   "Pink": "#f5a9c0", "Hot Pink": "#ec4899", "Light Pink": "#fbcfe0", "Peach": "#f8c4a2", "Yellow": "#f5d34f",
-  "Cream": "#efe4cc", "Light Brown": "#c9a27a", "Brown": "#7b4a2b", "Mint Green": "#9fe0c9",
+  "Cream": "#efe4cc", "Light Brown": "#c9a27a", "Brown": "#7b4a2b", "Gold": "#d4a63c", "Mint Green": "#9fe0c9",
   "Green": "#2f8f5b", "Dark Green": "#1f5a3d", "Light Green": "#a8ecc8", "Sky Blue": "#7cc4f0",
   "Light Blue": "#a9d7f3", "Blue": "#5b9cf2", "Dark Blue": "#1f3a8a", "Purple": "#a283db",
 };
@@ -93,6 +93,7 @@ function icon(name, cls = "") {
 
 /* ---------- small components ---------- */
 function stars(p, withCount = true) {
+  if (!p.ratingCount) return `<span class="stars stars-new">New</span>`;
   return `<span class="stars" aria-label="Rated ${p.rating} out of 5">${icon("star")}<b>${Number(p.rating).toFixed(1)}</b>${withCount ? `<span>(${p.ratingCount})</span>` : ""}</span>`;
 }
 function priceBlock(p, big = false) {
@@ -136,7 +137,7 @@ function productCard(p, base) {
   <a class="pcard-media" href="${url}" aria-label="${esc(p.name)}">
     <img src="${base}${encPath(thumb(p.images[0]))}" alt="${esc(p.name)}" loading="lazy" width="480" height="640">
     ${img2 ? `<img class="pcard-alt" src="${base}${encPath(thumb(img2))}" alt="" loading="lazy" width="480" height="640">` : ""}
-    ${p.bestseller ? `<span class="pcard-badges"><span class="badge badge-hot">Bestseller</span></span>` : ""}
+    ${p.bestseller || p.badge ? `<span class="pcard-badges"><span class="badge badge-hot">${p.bestseller ? "Bestseller" : esc(p.badge)}</span></span>` : ""}
     ${pct ? `<span class="pcard-off"><b>${pct}%</b> OFF</span>` : ""}
   </a>
   <div class="pcard-body">

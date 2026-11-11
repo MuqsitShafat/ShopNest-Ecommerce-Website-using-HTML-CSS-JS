@@ -90,7 +90,12 @@
       const newKey = lineKey(it.id, color);
       const dup = list.find((i) => i.key === newKey && i !== it);
       if (dup) { dup.qty += it.qty; list = list.filter((i) => i !== it); dup.colors = Array(dup.qty).fill(color); }
-      else { it.color = color; it.key = newKey; it.colors = Array(it.qty).fill(color); }
+      else {
+        it.color = color; it.key = newKey; it.colors = Array(it.qty).fill(color);
+        const p = catalog && catalog.find((x) => x.id === it.id);
+        const c = p && (p.colors || []).find((x) => x.name === color);
+        if (c && c.img !== undefined && p.images[c.img]) it.img = p.images[c.img];
+      }
       this.save(list);
     },
     remove(key) { this.save(this.get().filter((i) => i.key !== key)); },
@@ -146,6 +151,7 @@
       window.location.href = BASE + "cart/"; return;
     }
     renderDrawer();
+    if (!catalog) loadCatalog().then(renderDrawer); // suggestions need the product list
     openDrawer(cartDrawer);
   }
   $("#cart-open")?.addEventListener("click", openCart);
@@ -243,7 +249,7 @@
   }, true);
 
   /* Same palette as src/lib.js COLOR_HEX (used for swatches rendered in the browser) */
-  const COLOR_HEX = { "Black": "#1f1f24", "White": "#ffffff", "Grey": "#a3a7b0", "Red": "#d43c3c", "Crimson": "#e2483a", "Pink": "#f5a9c0", "Hot Pink": "#ec4899", "Light Pink": "#fbcfe0", "Peach": "#f8c4a2", "Yellow": "#f5d34f", "Cream": "#efe4cc", "Light Brown": "#c9a27a", "Brown": "#7b4a2b", "Mint Green": "#9fe0c9", "Green": "#2f8f5b", "Dark Green": "#1f5a3d", "Light Green": "#a8ecc8", "Sky Blue": "#7cc4f0", "Light Blue": "#a9d7f3", "Blue": "#5b9cf2", "Dark Blue": "#1f3a8a", "Purple": "#a283db" };
+  const COLOR_HEX = { "Black": "#1f1f24", "White": "#ffffff", "Grey": "#a3a7b0", "Red": "#d43c3c", "Crimson": "#e2483a", "Pink": "#f5a9c0", "Hot Pink": "#ec4899", "Light Pink": "#fbcfe0", "Peach": "#f8c4a2", "Yellow": "#f5d34f", "Cream": "#efe4cc", "Light Brown": "#c9a27a", "Brown": "#7b4a2b", "Gold": "#d4a63c", "Mint Green": "#9fe0c9", "Green": "#2f8f5b", "Dark Green": "#1f5a3d", "Light Green": "#a8ecc8", "Sky Blue": "#7cc4f0", "Light Blue": "#a9d7f3", "Blue": "#5b9cf2", "Dark Blue": "#1f3a8a", "Purple": "#a283db" };
 
   /* ---------- quick options popup (choose colour without leaving the page) ---------- */
   let qv = null, qvLastFocus = null;
@@ -294,6 +300,8 @@
       const item = { id: data.id, name: data.name, price: data.price, img: data.img, cat: data.cat, slug: data.slug };
       if (data.lp) item.lp = data.lp;
       if (color) item.color = color;
+      const sw = wrap.querySelector('input[name="qv-color"]:checked');
+      if (sw && sw.dataset.img !== undefined && images[+sw.dataset.img]) item.img = images[+sw.dataset.img];
       Cart.add(item, qty);
       bump();
       if (act.dataset.act === "buy") { location.href = BASE + "cart/"; return; }
@@ -337,36 +345,112 @@
   });
 
   /* ---------- free-delivery upsell (drawer + checkout) ---------- */
-  function upsellHTML(limit = 3) {
+  // Products that go well together (shown first when one of them is in the cart)
+  const PAIRS = {
+    "sp-airpro-nobox": ["sp-white-cable", "sp-orange-cable", "sp-heart-keychain"],
+    "sp-airpro-box": ["sp-white-cable", "sp-orange-cable", "sp-heart-keychain"],
+    "sp-w161-earbuds": ["sp-white-cable", "sp-orange-cable"],
+    "sp-ulex-ux1": ["sp-white-cable", "sp-orange-cable"],
+    "sp-fd1-earbuds": ["sp-white-cable", "sp-orange-cable"],
+    "sp-gb03-earphones": ["sp-white-cable", "sp-orange-cable"],
+    "sp-gp07-powerbank": ["sp-white-cable", "sp-orange-cable", "sp-oknew-bulb"],
+    "sp-orange-cable": ["sp-white-cable", "sp-airpro-nobox"],
+    "sp-white-cable": ["sp-orange-cable", "sp-airpro-nobox"],
+    "sp-v380-wifi": ["sp-oknew-bulb", "sp-white-cable"],
+    "sp-bk530-camera": ["sp-white-cable", "sp-oknew-bulb"],
+    "sp-oknew-bulb": ["sp-wego-bulb", "sp-orange-cable"],
+    "sp-wego-bulb": ["sp-oknew-bulb", "sp-orange-cable"],
+    "sp-xc901-comb": ["sp-vented-brush", "sp-cushion-brush", "sp-teardrop-brush", "sp-velvet-potato-soap"],
+    "sp-vented-brush": ["sp-teardrop-brush", "sp-round-brush", "sp-cushion-brush"],
+    "sp-cushion-brush": ["sp-vented-brush", "sp-round-brush", "sp-teardrop-brush"],
+    "sp-round-brush": ["sp-vented-brush", "sp-cushion-brush", "sp-teardrop-brush"],
+    "sp-teardrop-brush": ["sp-vented-brush", "sp-round-brush", "sp-cushion-brush"],
+    "sp-lm130-gun": ["sp-paper-soap", "sp-teardrop-brush"],
+    "sp-jy760-massager": ["sp-paper-soap", "sp-teardrop-brush"],
+    "sp-paper-soap": ["sp-velvet-potato-soap", "sp-teardrop-brush", "sp-vented-brush"],
+    "sp-velvet-potato-soap": ["sp-paper-soap", "sp-vented-brush", "sp-teardrop-brush"],
+    "sp-spoon": ["sp-soap-brush", "sp-bbq-lighter"],
+    "sp-soap-brush": ["sp-spoon", "sp-bbq-lighter"],
+    "sp-combo-brush": ["sp-bbq-lighter"],
+    "sp-bbq-lighter": ["sp-soap-brush", "sp-glue-gun"],
+    "sp-glue-gun": ["sp-bbq-lighter", "sp-soap-brush"],
+    "sp-azan-counter": ["sp-pearl-tasbih", "sp-tasbih-compass", "sp-flower-keychain"],
+    "sp-tasbih-compass": ["sp-pearl-tasbih", "sp-azan-counter"],
+    "sp-pearl-tasbih": ["sp-tasbih-compass", "sp-flower-keychain", "sp-heart-keychain"],
+    "sp-heart-keychain": ["sp-flower-keychain", "sp-pearl-tasbih"],
+    "sp-flower-keychain": ["sp-heart-keychain", "sp-pearl-tasbih"],
+    "sp-toy-cars": ["sp-fidget-spinner"],
+    "sp-fidget-spinner": ["sp-toy-cars", "sp-heart-keychain"],
+  };
+  // Categories that make sense together
+  const RELATED_CAT = {
+    "earbuds-audio": ["mobile-accessories", "gifts-toys"],
+    "mobile-accessories": ["earbuds-audio", "security-lighting"],
+    "security-lighting": ["mobile-accessories"],
+    "fans-cooling": ["mobile-accessories"],
+    "kitchen-home": ["health-personal-care"],
+    "hair-care": ["health-personal-care"],
+    "health-personal-care": ["hair-care"],
+    "islamic-essentials": ["gifts-toys"],
+    "gifts-toys": ["islamic-essentials"],
+  };
+
+  function upsellHTML(visible = 3) {
     const sub = Cart.subtotal();
     if (!catalog || sub <= 0 || sub >= RULES.free) return "";
     const gap = RULES.free - sub;
-    const inCart = new Set(Cart.get().map((i) => i.id));
+    const items = Cart.get();
+    const inCart = new Set(items.map((i) => i.id));
     const month = new Date().getMonth();
     const inSeason = (p) => p.category !== "fans-cooling" || (month >= 2 && month <= 8);
-    const base = catalog.filter((p) => !p.soldOut && !inCart.has(p.id) && inSeason(p));
-    const close = gap <= 900;
-    let picks;
-    if (close) {
-      // one item that crosses the free-delivery line without overspending
-      picks = base.filter((p) => p.price >= gap && p.price <= gap + 700).sort((x, y) => x.price - y.price || y.ratingCount - x.ratingCount);
-    } else {
-      // cheap, popular add-ons
-      picks = base.filter((p) => p.price <= 600).sort((x, y) => y.ratingCount - x.ratingCount);
-    }
-    picks = picks.slice(0, limit);
+    const byId = (id) => catalog.find((p) => p.id === id);
+    const cartProducts = items.map((i) => byId(i.id)).filter(Boolean);
+    const paired = new Set(cartProducts.flatMap((p) => PAIRS[p.id] || []));
+    const sameCat = new Set(cartProducts.map((p) => p.category));
+    const relCat = new Set(cartProducts.flatMap((p) => RELATED_CAT[p.category] || []));
+    // keep suggestions sensible for the cart size: nothing far above what's needed for free delivery
+    const maxPrice = Math.max(gap + 700, 700);
+    const pool = catalog.filter((p) => !p.soldOut && !inCart.has(p.id) && inSeason(p) && p.price <= maxPrice);
+    const relevance = (p) => (paired.has(p.id) ? 3 : sameCat.has(p.category) ? 2 : relCat.has(p.category) ? 1 : 0);
+    const pairRank = (p) => { // position in the pairing list (first = best match)
+      let best = 99;
+      cartProducts.forEach((c) => { const i = (PAIRS[c.id] || []).indexOf(p.id); if (i >= 0 && i < best) best = i; });
+      return best;
+    };
+    const crosses = (p) => p.price >= gap;
+    const sorted = pool
+      .map((p) => ({ p, r: relevance(p), x: crosses(p) }))
+      .sort((a, b) =>
+        b.r - a.r ||                                 // closest match to what's in the cart first
+        b.x - a.x ||                                 // then: unlocks free delivery on its own
+        pairRank(a.p) - pairRank(b.p) ||             // best pairing first
+        (a.x ? a.p.price - b.p.price : 0) ||         // cheapest item that crosses the line
+        b.p.ratingCount - a.p.ratingCount);          // then popular
+    const picks = sorted.slice(0, 8);
     if (!picks.length) return "";
-    const title = close ? `Add one of these and get <b>FREE delivery</b>` : `Popular add-ons · <b>${money(gap)}</b> to go for FREE delivery`;
-    return `<div class="upsell"><p class="upsell-title">${title}</p>${picks.map((p) => {
+    const title = gap <= 900 ? `Add one of these and get <b>FREE delivery</b>` : `Add <b>${money(gap)}</b> more for <b>FREE delivery</b>`;
+    const more = picks.length - visible;
+    return `<div class="upsell"><p class="upsell-title">${title}</p>${picks.map(({ p, r, x }, idx) => {
       const choose = p.colors && p.colors.length > 1;
       const payload = { id: p.id, name: p.name, price: p.price, img: p.images[0], cat: p.category, slug: p.slug };
       if (p.locationPricing) payload.lp = p.locationPricing;
       if (choose) Object.assign(payload, { oldPrice: p.oldPrice || 0, images: p.images, colors: p.colors, colorLabel: p.colorLabel || "Colour" });
-      return `<div class="upsell-item"><a href="${BASE}products/${esc(p.slug)}/"><img src="${esc(thumbSrc(p.images[0]))}" data-full="${esc(imgSrc(p.images[0]))}" alt="" loading="lazy"></a>
-        <div><a class="upsell-name" href="${BASE}products/${esc(p.slug)}/">${esc(p.name)}</a><b>${money(p.price)}</b></div>
+      const tags = (r >= 2 ? `<i class="upsell-tag is-match">Goes with your order</i>` : "") + (x ? `<i class="upsell-tag is-free">Unlocks FREE delivery</i>` : "");
+      return `<div class="upsell-item${idx >= visible ? " is-extra" : ""}"><a href="${BASE}products/${esc(p.slug)}/"><img src="${esc(thumbSrc(p.images[0]))}" data-full="${esc(imgSrc(p.images[0]))}" alt="" loading="lazy"></a>
+        <div><a class="upsell-name" href="${BASE}products/${esc(p.slug)}/">${esc(p.name)}</a><span class="upsell-meta"><b>${money(p.price)}</b>${tags}</span></div>
         <button class="btn btn-outline js-add" data-product="${esc(JSON.stringify(payload))}"${choose ? " data-choose" : ""}>+ Add</button></div>`;
-    }).join("")}</div>`;
+    }).join("")}${more > 0 ? `<button type="button" class="upsell-more" aria-expanded="false">See ${more} more option${more > 1 ? "s" : ""}</button>` : ""}</div>`;
   }
+  // "See more" in the suggestions (drawer + checkout re-render, so delegate)
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest(".upsell-more");
+    if (!b) return;
+    const box = b.closest(".upsell");
+    const open = box.classList.toggle("is-open");
+    b.setAttribute("aria-expanded", open ? "true" : "false");
+    if (!b.dataset.label) b.dataset.label = b.textContent;
+    b.textContent = open ? "Show fewer" : b.dataset.label;
+  });
 
   /* ---------- product rails (desktop arrows) ---------- */
   $$(".rail-wrap").forEach((wrap) => {
@@ -399,12 +483,24 @@
   const sInput = $("#search-input");
   const sBox = $("#search-results");
   let focusIdx = -1;
+  // Items added before a price change keep the old price in localStorage: refresh them from products.json
+  function syncCartPrices(list) {
+    const items = Cart.get();
+    let changed = false;
+    items.forEach((i) => {
+      const p = list.find((x) => x.id === i.id);
+      if (!p || i.lp || p.locationPricing) return; // city-priced deals are set at checkout
+      if (i.price !== p.price) { i.price = p.price; changed = true; }
+    });
+    if (changed) Cart.save(items);
+  }
   function loadCatalog() {
     if (catalog) return Promise.resolve(catalog);
     if (!catalogPromise) {
       catalogPromise = fetch(BASE + "products.json")
         .then((r) => r.json())
         .then((list) => (catalog = list.map((p) => ({ ...p, _s: [p.name, p.tagline, p.category, ...(p.colors || []).map((c) => c.name)].join(" ").toLowerCase() }))))
+        .then((list) => { syncCartPrices(list); return list; })
         .catch(() => (catalog = []));
     }
     return catalogPromise;

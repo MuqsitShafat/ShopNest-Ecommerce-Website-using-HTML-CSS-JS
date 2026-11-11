@@ -125,7 +125,7 @@
     elCheckout.hidden = false;
     sticky.hidden = false;
     $("#item-count").textContent = `(${Cart.count()})`;
-    elLines.innerHTML = items.map((i) => lineHTML(i, { colorOptions: colorMap[i.id.replace(/-\d+$/, "")] || colorMap[i.id] })).join("") + (window.SN.upsellHTML ? window.SN.upsellHTML(2) : "");
+    elLines.innerHTML = items.map((i) => lineHTML(i, { colorOptions: colorMap[i.id.replace(/-\d+$/, "")] || colorMap[i.id] })).join("") + (window.SN.upsellHTML ? window.SN.upsellHTML(3) : "");
     const t = totals();
     paintShip($("#checkout-ship"), t.subtotal);
     $("#summary-subtotal").textContent = money(t.subtotal);

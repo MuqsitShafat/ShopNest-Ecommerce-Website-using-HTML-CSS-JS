@@ -5,9 +5,9 @@
     "name": "Air Pro 2nd Gen Wireless Earbuds (Without Box)",
     "seoTitle": "Air Pro 2nd Gen Earbuds Without Box Price in Pakistan",
     "category": "earbuds-audio",
-    "price": 1650,
-    "oldPrice": 2499,
-    "rating": 5.0,
+    "price": 1750,
+    "oldPrice": 2799,
+    "rating": 5,
     "ratingCount": 118,
     "bestseller": true,
     "images": [
@@ -68,80 +68,13 @@
     ]
   },
   {
-    "id": "sp-airpro-box",
-    "slug": "air-pro-2nd-gen-earbuds-with-box",
-    "name": "Air Pro 2nd Gen Wireless Earbuds (With Box)",
-    "seoTitle": "Air Pro 2nd Gen Earbuds With Box Price in Pakistan",
-    "category": "earbuds-audio",
-    "price": 1799,
-    "oldPrice": 2499,
-    "rating": 5.0,
-    "ratingCount": 134,
-    "bestseller": true,
-    "images": [
-      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_2.jpg",
-      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_3.jpg",
-      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_1.jpg"
-    ],
-    "tagline": "Gift-ready earbuds in a full retail box — clean sound, comfortable fit.",
-    "description": [
-      "Looking for a gift that actually gets used every day? These are it. The Air Pro 2nd Gen arrive sealed in their retail box — ready to hand over for a birthday, Eid or graduation.",
-      "Inside: lightweight in-ear earbuds with soft silicone tips and a compact magnetic case. They pair in seconds, stay comfortable for hours and deliver clear sound for music, calls and online classes.",
-      "Buying for yourself? You still get the full unboxing experience."
-    ],
-    "highlights": [
-      "Comes in the full retail box — perfect for gifting",
-      "Pairs in seconds with Android & iPhone",
-      "Soft silicone tips for an all-day comfortable fit",
-      "Clear sound for music, calls and classes",
-      "Compact magnetic charging case"
-    ],
-    "specs": [
-      [
-        "Type",
-        "True wireless in-ear earbuds"
-      ],
-      [
-        "Connectivity",
-        "Bluetooth"
-      ],
-      [
-        "Compatibility",
-        "Android & iOS"
-      ],
-      [
-        "Case",
-        "Magnetic charging case"
-      ],
-      [
-        "Packaging",
-        "Retail box"
-      ]
-    ],
-    "inBox": [
-      "2 × wireless earbuds",
-      "1 × charging case",
-      "Retail box"
-    ],
-    "faqs": [
-      [
-        "What's the difference from the 'Without Box' version?",
-        "Only the packaging. Choose this one if you're gifting or want the retail box."
-      ],
-      [
-        "Can I use them for calls?",
-        "Yes — both earbuds have built-in mics for clear phone and video calls."
-      ]
-    ]
-  },
-  {
     "id": "sp-gp07-powerbank",
     "slug": "g-golden-gp-07-power-bank-30000mah",
     "name": "G-Golden GP-07 Power Bank 30000mAh 22.5W",
     "category": "mobile-accessories",
     "price": 6999,
     "oldPrice": 9999,
-    "rating": 5.0,
+    "rating": 5,
     "ratingCount": 76,
     "bestseller": true,
     "images": [
@@ -514,13 +447,80 @@
     ]
   },
   {
+    "id": "sp-airpro-box",
+    "slug": "air-pro-2nd-gen-earbuds-with-box",
+    "name": "Air Pro 2nd Gen Wireless Earbuds (With Box)",
+    "seoTitle": "Air Pro 2nd Gen Earbuds With Box Price in Pakistan",
+    "category": "earbuds-audio",
+    "price": 1999,
+    "oldPrice": 2799,
+    "rating": 5,
+    "ratingCount": 134,
+    "bestseller": true,
+    "images": [
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_2.jpg",
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_3.jpg",
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_1.jpg"
+    ],
+    "tagline": "Gift-ready earbuds in a full retail box — clean sound, comfortable fit.",
+    "description": [
+      "Looking for a gift that actually gets used every day? These are it. The Air Pro 2nd Gen arrive sealed in their retail box — ready to hand over for a birthday, Eid or graduation.",
+      "Inside: lightweight in-ear earbuds with soft silicone tips and a compact magnetic case. They pair in seconds, stay comfortable for hours and deliver clear sound for music, calls and online classes.",
+      "Buying for yourself? You still get the full unboxing experience."
+    ],
+    "highlights": [
+      "Comes in the full retail box — perfect for gifting",
+      "Pairs in seconds with Android & iPhone",
+      "Soft silicone tips for an all-day comfortable fit",
+      "Clear sound for music, calls and classes",
+      "Compact magnetic charging case"
+    ],
+    "specs": [
+      [
+        "Type",
+        "True wireless in-ear earbuds"
+      ],
+      [
+        "Connectivity",
+        "Bluetooth"
+      ],
+      [
+        "Compatibility",
+        "Android & iOS"
+      ],
+      [
+        "Case",
+        "Magnetic charging case"
+      ],
+      [
+        "Packaging",
+        "Retail box"
+      ]
+    ],
+    "inBox": [
+      "2 × wireless earbuds",
+      "1 × charging case",
+      "Retail box"
+    ],
+    "faqs": [
+      [
+        "What's the difference from the 'Without Box' version?",
+        "Only the packaging. Choose this one if you're gifting or want the retail box."
+      ],
+      [
+        "Can I use them for calls?",
+        "Yes — both earbuds have built-in mics for clear phone and video calls."
+      ]
+    ]
+  },
+  {
     "id": "sp-v380-wifi",
     "slug": "v380-wifi-camera-hd-wireless-ip",
     "name": "V380 WiFi Camera HD Wireless IP",
     "category": "security-lighting",
     "price": 3999,
     "oldPrice": 5999,
-    "rating": 5.0,
+    "rating": 5,
     "ratingCount": 88,
     "bestseller": true,
     "images": [
@@ -664,7 +664,7 @@
     "category": "security-lighting",
     "price": 1099,
     "oldPrice": 1999,
-    "rating": 5.0,
+    "rating": 5,
     "ratingCount": 113,
     "bestseller": true,
     "images": [
@@ -1209,7 +1209,7 @@
     "category": "fans-cooling",
     "price": 850,
     "oldPrice": 1700,
-    "rating": 5.0,
+    "rating": 5,
     "ratingCount": 145,
     "images": [
       "images/Digital_Display_Handheld_Fan.jpeg",
@@ -1331,7 +1331,7 @@
     "category": "kitchen-home",
     "price": 1000,
     "oldPrice": 2000,
-    "rating": 5.0,
+    "rating": 5,
     "ratingCount": 84,
     "bestseller": true,
     "images": [
@@ -1653,33 +1653,44 @@
     "category": "hair-care",
     "price": 329,
     "oldPrice": 499,
-    "rating": 5.0,
+    "rating": 5,
     "ratingCount": 127,
     "bestseller": true,
     "images": [
       "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush.jpg",
       "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (1).jpg",
       "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (2).jpg",
-      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (3).jpg"
+      "images/Vented Detangling Hair Brush/Vented Detangling Hair Brush (3).jpg",
+      "images/colors/vented-detangling-hair-brush/pink.jpg",
+      "images/colors/vented-detangling-hair-brush/cream.jpg",
+      "images/colors/vented-detangling-hair-brush/light-brown.jpg",
+      "images/colors/vented-detangling-hair-brush/red.jpg",
+      "images/colors/vented-detangling-hair-brush/grey.jpg"
     ],
     "colors": [
       {
-        "name": "Mint Green"
+        "name": "Mint Green",
+        "img": 0
       },
       {
-        "name": "Pink"
+        "name": "Pink",
+        "img": 4
       },
       {
-        "name": "Cream"
+        "name": "Cream",
+        "img": 5
       },
       {
-        "name": "Light Brown"
+        "name": "Light Brown",
+        "img": 6
       },
       {
-        "name": "Red"
+        "name": "Red",
+        "img": 7
       },
       {
-        "name": "Grey"
+        "name": "Grey",
+        "img": 8
       }
     ],
     "tagline": "Tangles out, no tears — and your hair dries faster too.",
@@ -1732,17 +1743,22 @@
       "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush.jpg",
       "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (1).jpg",
       "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (2).jpg",
-      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (3).jpg"
+      "images/Cushion Paddle Hair Brush/Cushion Paddle Hair Brush (3).jpg",
+      "images/colors/cushion-paddle-hair-brush/red.jpg",
+      "images/colors/cushion-paddle-hair-brush/brown.jpg"
     ],
     "colors": [
       {
-        "name": "Cream"
+        "name": "Cream",
+        "img": 1
       },
       {
-        "name": "Red"
+        "name": "Red",
+        "img": 4
       },
       {
-        "name": "Brown"
+        "name": "Brown",
+        "img": 5
       }
     ],
     "tagline": "Smooth, shiny hair and a relaxing scalp massage — every time you brush.",
@@ -1790,17 +1806,23 @@
       "images/Round Styling Hair Brush/Round Styling Hair Brush.jpg",
       "images/Round Styling Hair Brush/Round Styling Hair Brush (1).jpg",
       "images/Round Styling Hair Brush/Round Styling Hair Brush (2).jpg",
-      "images/Round Styling Hair Brush/Round Styling Hair Brush (3).jpg"
+      "images/Round Styling Hair Brush/Round Styling Hair Brush (3).jpg",
+      "images/colors/round-styling-hair-brush/purple.jpg",
+      "images/colors/round-styling-hair-brush/white.jpg",
+      "images/colors/round-styling-hair-brush/red.jpg"
     ],
     "colors": [
       {
-        "name": "Purple"
+        "name": "Purple",
+        "img": 4
       },
       {
-        "name": "White"
+        "name": "White",
+        "img": 5
       },
       {
-        "name": "Red"
+        "name": "Red",
+        "img": 6
       }
     ],
     "tagline": "Salon-style blow-dry volume and bouncy curls — at home.",
@@ -1846,26 +1868,33 @@
     "images": [
       "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush.jpg",
       "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush (1).jpg",
-      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush (2).jpg"
+      "images/Teardrop Detangling Hair Brush/Teardrop Detangling Hair Brush (2).jpg",
+      "images/colors/teardrop-detangling-hair-brush/pink.jpg",
+      "images/colors/teardrop-detangling-hair-brush/peach.jpg",
+      "images/colors/teardrop-detangling-hair-brush/yellow.jpg",
+      "images/colors/teardrop-detangling-hair-brush/light-blue.jpg",
+      "images/colors/teardrop-detangling-hair-brush/red.jpg"
     ],
     "colors": [
       {
-        "name": "Red"
+        "name": "Red",
+        "img": 7
       },
       {
-        "name": "Pink"
+        "name": "Pink",
+        "img": 3
       },
       {
-        "name": "Peach"
+        "name": "Peach",
+        "img": 4
       },
       {
-        "name": "Light Brown"
+        "name": "Yellow",
+        "img": 5
       },
       {
-        "name": "Yellow"
-      },
-      {
-        "name": "Light Blue"
+        "name": "Light Blue",
+        "img": 6
       }
     ],
     "tagline": "Palm-sized, handle-free and gentle — the no-tears brush for kids and travel.",
@@ -1887,7 +1916,7 @@
       ],
       [
         "Colours",
-        "6"
+        "5"
       ]
     ],
     "inBox": [
@@ -2029,6 +2058,86 @@
     ]
   },
   {
+    "id": "sp-velvet-potato-soap",
+    "slug": "velvet-potato-handmade-soap",
+    "name": "Velvet Potato Handmade Soap",
+    "category": "health-personal-care",
+    "price": 799,
+    "oldPrice": 1500,
+    "rating": 0,
+    "ratingCount": 0,
+    "badge": "Handmade",
+    "images": [
+      "images/Velvet Potato Handmade Soap/Velvet Potato Handmade Soap 1.jpg",
+      "images/Velvet Potato Handmade Soap/Velvet Potato Handmade Soap 2.jpg",
+      "images/Velvet Potato Handmade Soap/Velvet Potato Handmade Soap 3.jpg"
+    ],
+    "tagline": "Handmade potato soap that helps fade tan and dark spots — gently, without harsh bleach.",
+    "description": [
+      "Sun, dust and pollution leave skin looking dull, tanned and patchy. Velvet Potato is a handmade soap made with raw potato juice — the desi remedy for tan and dark spots — blended with olive oil, glycerin and calming lavender.",
+      "Potato's natural enzyme (catecholase), vitamin C and gentle lactic acid help shed dead skin cells and clear impurities from your pores. With regular use it helps fade sun tan, dark spots, acne marks and uneven patches, and brings back your natural glow — without harsh bleaching agents.",
+      "Potato starch soaks up excess oil, so it's a great match for oily and combination skin, while olive oil and glycerin keep skin soft and balanced instead of tight and dry. Each bar is handmade in a pretty flower shape — lovely to use, lovely to gift."
+    ],
+    "highlights": [
+      "Handmade with raw potato juice, olive oil & glycerin",
+      "Helps fade sun tan, dark spots & acne marks with regular use",
+      "Gentle exfoliation for smoother, brighter-looking skin",
+      "Controls excess oil & cleans pores — great for oily or combination skin",
+      "No harsh bleaching agents · soothing lavender scent"
+    ],
+    "specs": [
+      [
+        "Type",
+        "Handmade soap bar"
+      ],
+      [
+        "Key ingredients",
+        "Raw potato juice, olive oil, catecholase (potato enzyme), vitamin C, lactic acid, glycerin, lavender essential oil"
+      ],
+      [
+        "Best for",
+        "Oily, combination & dull skin — face and body"
+      ],
+      [
+        "Benefits",
+        "Tan & dark-spot fading, gentle exfoliation, oil control, soothing, hydration balance"
+      ],
+      [
+        "Scent",
+        "Lavender"
+      ],
+      [
+        "Shape",
+        "Flower"
+      ]
+    ],
+    "inBox": [
+      "1 × Velvet Potato handmade soap bar"
+    ],
+    "faqs": [
+      [
+        "Is it really handmade?",
+        "Yes. Every bar is handmade, so the shape and natural speckles vary slightly from bar to bar."
+      ],
+      [
+        "How soon will I see results?",
+        "Skin feels fresh and less oily from the first wash. Tan, dark spots and acne marks fade gradually with daily use over a few weeks — results vary from person to person."
+      ],
+      [
+        "Can I use it on my face?",
+        "Yes, it's made for face and body. Lather it up, massage gently for 30–60 seconds, rinse, and follow with a moisturiser."
+      ],
+      [
+        "Is it suitable for sensitive skin?",
+        "It has no harsh bleaching agents, but it does contain mild lactic acid and lavender oil. If your skin is sensitive, do a small patch test first and avoid broken or irritated skin."
+      ],
+      [
+        "How should I store it?",
+        "Keep it on a dry, draining soap dish between uses so the bar stays firm and lasts longer."
+      ]
+    ]
+  },
+  {
     "id": "sp-paper-soap",
     "slug": "new-season-paper-hand-soap",
     "name": "New Season Paper Hand Soap (Travel Tube)",
@@ -2043,23 +2152,33 @@
       "images/New Season Paper Hand Soap/New Season Paper Hand Soap (2).jpg",
       "images/New Season Paper Hand Soap/New Season Paper Hand Soap (3).jpg",
       "images/New Season Paper Hand Soap/New Season Paper Hand Soap (4).jpg",
-      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (5).jpg"
+      "images/New Season Paper Hand Soap/New Season Paper Hand Soap (5).jpg",
+      "images/colors/new-season-paper-hand-soap/pink.jpg",
+      "images/colors/new-season-paper-hand-soap/green.jpg",
+      "images/colors/new-season-paper-hand-soap/white.jpg",
+      "images/colors/new-season-paper-hand-soap/blue.jpg",
+      "images/colors/new-season-paper-hand-soap/purple.jpg"
     ],
     "colors": [
       {
-        "name": "Pink"
+        "name": "Pink",
+        "img": 6
       },
       {
-        "name": "Green"
+        "name": "Green",
+        "img": 7
       },
       {
-        "name": "White"
+        "name": "White",
+        "img": 8
       },
       {
-        "name": "Blue"
+        "name": "Blue",
+        "img": 9
       },
       {
-        "name": "Purple"
+        "name": "Purple",
+        "img": 10
       }
     ],
     "tagline": "Clean hands anywhere — just add water. Fits in your pocket.",
@@ -2101,7 +2220,7 @@
     "category": "islamic-essentials",
     "price": 1850,
     "oldPrice": 2499,
-    "rating": 5.0,
+    "rating": 5,
     "ratingCount": 71,
     "bestseller": true,
     "images": [
@@ -2163,7 +2282,7 @@
     "slug": "digital-tasbih-counter-with-compass",
     "name": "Digital Tasbih Counter with Qibla Compass",
     "category": "islamic-essentials",
-    "price": 699,
+    "price": 799,
     "oldPrice": 999,
     "rating": 4.9,
     "ratingCount": 141,
@@ -2223,44 +2342,68 @@
       "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (2).jpg",
       "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (3).jpg",
       "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (4).jpg",
-      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (5).jpg"
+      "images/Pearl Tasbih & Counter Gift Box/Pearl Tasbih & Counter Gift Box (5).jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/mint-green.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/green.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/dark-blue.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/sky-blue.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/white.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/red.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/black.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/hot-pink.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/grey.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/light-pink.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/purple.jpg",
+      "images/colors/pearl-tasbih-digital-counter-gift-box/gold.jpg"
     ],
     "colors": [
       {
-        "name": "Brown"
+        "name": "Gold",
+        "img": 17
       },
       {
-        "name": "Mint Green"
+        "name": "Mint Green",
+        "img": 6
       },
       {
-        "name": "Green"
+        "name": "Green",
+        "img": 7
       },
       {
-        "name": "Dark Blue"
+        "name": "Dark Blue",
+        "img": 8
       },
       {
-        "name": "Sky Blue"
+        "name": "Sky Blue",
+        "img": 9
       },
       {
-        "name": "White"
+        "name": "White",
+        "img": 10
       },
       {
-        "name": "Red"
+        "name": "Red",
+        "img": 11
       },
       {
-        "name": "Black"
+        "name": "Black",
+        "img": 12
       },
       {
-        "name": "Hot Pink"
+        "name": "Hot Pink",
+        "img": 13
       },
       {
-        "name": "Grey"
+        "name": "Grey",
+        "img": 14
       },
       {
-        "name": "Light Pink"
+        "name": "Light Pink",
+        "img": 15
       },
       {
-        "name": "Purple"
+        "name": "Purple",
+        "img": 16
       }
     ],
     "tagline": "An elegant pearl tasbih + digital counter in a gift box — from just Rs 349.",

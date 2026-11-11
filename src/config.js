@@ -54,10 +54,10 @@ module.exports = {
         { slug: "security-lighting", name: "Cameras & Emergency Lights", blurb: "WiFi cameras to watch your home from your phone, and bulbs that stay on during load shedding." },
       ] },
     { slug: "beauty-care", name: "Beauty & Personal Care", short: "Beauty & Care", icon: "comb",
-      blurb: "Hair brushes, scalp care, massage guns and travel-friendly personal care.",
+      blurb: "Hair brushes, scalp care, handmade skincare soap, massage guns and travel-friendly personal care.",
       subs: [
         { slug: "hair-care", name: "Hair Care", blurb: "Detangling brushes, styling brushes and scalp care for healthy, smooth hair." },
-        { slug: "health-personal-care", name: "Massagers & Personal Care", blurb: "Massage guns for muscle relief and travel-friendly personal care." },
+        { slug: "health-personal-care", name: "Massagers & Personal Care", blurb: "Handmade skincare soap, massage guns for muscle relief and travel-friendly personal care." },
       ] },
     { slug: "islamic-gifts", name: "Islamic & Gifts", short: "Islamic & Gifts", icon: "moon-star",
       blurb: "Digital tasbih counters, Azan clocks, gift boxes, keychains and toys.",
