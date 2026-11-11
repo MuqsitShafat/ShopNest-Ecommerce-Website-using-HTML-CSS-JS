@@ -51,8 +51,24 @@
   const colorName = $("#color-name");
   const waBtn = $("#wa-order");
   let price = product.price;
+  window.SN.track && window.SN.track("ViewContent", { content_ids: [product.id], content_name: product.name, content_type: "product", value: price, currency: "PKR" });
 
-  const selectedColor = () => form.querySelector('input[name="color"]:checked')?.value || null;
+  const partsBox = form.querySelector("[data-parts]");
+  const selectedColor = () => {
+    if (partsBox) {
+      // e.g. "Vented Detangling Brush: Mint Green, Teardrop Detangling Brush: Pink, ..."
+      return [...partsBox.querySelectorAll(".part-opt")].map((f) => `${f.dataset.partLabel}: ${f.querySelector("input:checked")?.value || ""}`).join(", ");
+    }
+    return form.querySelector('input[name="color"]:checked')?.value || null;
+  };
+  if (partsBox) partsBox.addEventListener("change", (e) => {
+    const f = e.target.closest(".part-opt");
+    if (!f) return;
+    f.querySelector(".part-chosen").textContent = e.target.value;
+    const idx = e.target.name.replace("part-", "");
+    const prev = partsBox.querySelector(`[data-preview="${idx}"]`);
+    if (prev && e.target.dataset.img) prev.src = e.target.dataset.img;
+  });
   const qty = () => Math.max(1, Math.min(20, parseInt(qtyInput.value, 10) || 1));
 
   function updateWa() {

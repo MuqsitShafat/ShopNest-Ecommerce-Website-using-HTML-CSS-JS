@@ -33,6 +33,10 @@
     info: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>',
   };
 
+  // Meta Pixel events (no-op if the Pixel is blocked or not installed)
+  const track = (event, data = {}, opts = {}) => {
+    try { if (typeof window.fbq === "function") window.fbq("track", event, data, opts); } catch (e) { /* ignore */ }
+  };
   let catalog = null, catalogPromise = null; // products.json, loaded lazily
 
   /* ---------- storage-safe helpers ---------- */
@@ -73,6 +77,7 @@
       else list.push({ ...item, key, qty });
       list.forEach((i) => { if (i.color) i.colors = Array(i.qty).fill(i.color); });
       this.save(list);
+      track("AddToCart", { content_ids: [item.id], content_name: item.name, content_type: "product", contents: [{ id: item.id, quantity: qty }], value: item.price * qty, currency: "PKR" });
     },
     setQty(key, qty) {
       let list = this.get();
@@ -173,7 +178,7 @@
   function lineHTML(i, { colorOptions } = {}) {
     const opts = colorOptions && colorOptions.length > 1
       ? `<select data-color aria-label="Colour">${colorOptions.map((c) => `<option ${c === i.color ? "selected" : ""}>${esc(c)}</option>`).join("")}</select>`
-      : i.color ? `<span class="line-meta">Colour: ${esc(i.color)}</span>` : "";
+      : i.color ? (i.color.includes(": ") ? `<span class="line-meta line-meta-set">${i.color.split(", ").map((c) => esc(c)).join("<br>")}</span>` : `<span class="line-meta">Colour: ${esc(i.color)}</span>`) : "";
     const href = i.slug ? `${BASE}products/${i.slug}/` : null;
     return `<div class="line" data-key="${esc(i.key)}">
       ${href ? `<a href="${href}">` : ""}<img class="line-img" src="${esc(thumbSrc(i.img))}" data-full="${esc(imgSrc(i.img))}" alt="" loading="lazy">${href ? "</a>" : ""}
@@ -369,6 +374,7 @@
     "sp-jy760-massager": ["sp-paper-soap", "sp-teardrop-brush"],
     "sp-paper-soap": ["sp-velvet-potato-soap", "sp-teardrop-brush", "sp-vented-brush"],
     "sp-velvet-potato-soap": ["sp-paper-soap", "sp-vented-brush", "sp-teardrop-brush"],
+    "sp-brush-family-set": ["sp-velvet-potato-soap", "sp-paper-soap"],
     "sp-spoon": ["sp-soap-brush", "sp-bbq-lighter"],
     "sp-soap-brush": ["sp-spoon", "sp-bbq-lighter"],
     "sp-combo-brush": ["sp-bbq-lighter"],
@@ -410,7 +416,7 @@
     const relCat = new Set(cartProducts.flatMap((p) => RELATED_CAT[p.category] || []));
     // keep suggestions sensible for the cart size: nothing far above what's needed for free delivery
     const maxPrice = Math.max(gap + 700, 700);
-    const pool = catalog.filter((p) => !p.soldOut && !inCart.has(p.id) && inSeason(p) && p.price <= maxPrice);
+    const pool = catalog.filter((p) => !p.soldOut && !p.parts && !inCart.has(p.id) && inSeason(p) && p.price <= maxPrice);
     const relevance = (p) => (paired.has(p.id) ? 3 : sameCat.has(p.category) ? 2 : relCat.has(p.category) ? 1 : 0);
     const pairRank = (p) => { // position in the pairing list (first = best match)
       let best = 99;
@@ -538,7 +544,7 @@
       } else if (e.key === "Escape") sBox.hidden = true;
     });
     document.addEventListener("click", (e) => { if (!e.target.closest(".search")) sBox.hidden = true; });
-    sInput.closest("form").addEventListener("submit", (e) => { if (!sInput.value.trim()) e.preventDefault(); });
+    sInput.closest("form").addEventListener("submit", (e) => { if (!sInput.value.trim()) e.preventDefault(); else track("Search", { search_string: sInput.value.trim() }); });
   }
 
   /* ---------- compact header on scroll (mobile) ---------- */
@@ -562,5 +568,8 @@
   else setTimeout(loadCatalog, 2500);
 
   /* ---------- expose ---------- */
-  window.SN = { BASE, RULES, Cart, money, esc, imgSrc, thumbSrc, toast, openCart, bump, lineHTML, bindLines, paintShip, loadCatalog, upsellHTML, openOptions };
+  // WhatsApp taps (product page, floating button, header, help links)
+  document.addEventListener("click", (e) => { if (e.target.closest('a[href*="wa.me/"]')) track("Contact", { content_name: "WhatsApp" }); });
+
+  window.SN = { BASE, RULES, Cart, track, money, esc, imgSrc, thumbSrc, toast, openCart, bump, lineHTML, bindLines, paintShip, loadCatalog, upsellHTML, openOptions };
 })();

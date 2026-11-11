@@ -242,7 +242,7 @@ function productPage(p, products) {
   const hasChoice = colors.length > 1;
   const firstColor = colors[0];
   const freeShip = p.price >= C.freeShippingOver;
-  const waText = `Hi ShopNest! I want to order:\n${p.name}${firstColor ? " ({colour})" : ""}\nPrice: ${rs(p.price)}\nLink: ${absUrl(productUrl(p))}`;
+  const waText = `Hi ShopNest! I want to order:\n${p.name}${firstColor || (p.parts || []).length ? " ({colour})" : ""}\nPrice: ${rs(p.price)}\nLink: ${absUrl(productUrl(p))}`;
 
   const gallery = `<div class="gallery" id="gallery">
     <div class="gallery-main" id="gallery-main" tabindex="0" aria-label="Product images">
@@ -254,6 +254,29 @@ function productPage(p, products) {
     <div class="gallery-dots">${imgs.map((_, i) => `<i class="${i ? "" : "is-active"}"></i>`).join("")}</div>` : ""}
   </div>`;
 
+  // Sets (e.g. Brush Family Set): customer chooses the colour of every item, using each item's own colour photos
+  const partsPicker = (p.parts || []).length
+    ? `<div class="parts-picker" data-parts>
+      ${p.parts.map((part, pi) => {
+        const item = products.find((x) => x.id === part.id);
+        const opts = (item.colors || []).map((c) => ({ name: c.name, img: item.images[c.img !== undefined ? c.img : 0] }));
+        const def = opts.some((o) => o.name === part.default) ? part.default : opts[0].name;
+        return `<fieldset class="part-opt" data-part-label="${esc(part.label)}">
+          <legend><span class="part-num">${pi + 1}</span>${esc(part.label)}: <b class="part-chosen">${esc(def)}</b></legend>
+          <div class="part-tiles">${opts.map((o) => `<label class="part-tile" title="${esc(o.name)}">
+            <input type="radio" name="part-${pi}" value="${esc(o.name)}" data-img="${esc(base + encPath(thumb(o.img)))}" ${o.name === def ? "checked" : ""}>
+            <span class="part-img"><img src="${base}${encPath(thumb(o.img))}" alt="${esc(part.label)} in ${esc(o.name)}" loading="lazy" width="96" height="128"></span>
+            <span class="part-name"><i style="background:${COLOR_HEX[o.name] || "#ccc"}"></i>${esc(o.name)}</span>
+          </label>`).join("")}</div>
+        </fieldset>`;
+      }).join("")}
+      <div class="set-preview" aria-live="polite"><span class="set-preview-label">Your set</span><div class="set-preview-row">${p.parts.map((part, pi) => {
+        const item = products.find((x) => x.id === part.id);
+        const c = (item.colors || []).find((x) => x.name === part.default) || item.colors[0];
+        return `<img data-preview="${pi}" src="${base}${encPath(thumb(item.images[c.img !== undefined ? c.img : 0]))}" alt="" width="96" height="128">`;
+      }).join("")}</div></div>
+    </div>`
+    : "";
   const colorPicker = hasChoice
     ? `<fieldset class="opt"><legend>${esc(p.colorLabel || "Colour")}: <b id="color-name">${esc(firstColor.name)}</b></legend>
       <div class="swatches">${colors
@@ -278,12 +301,13 @@ function productPage(p, products) {
     <form class="pdp-form" id="pdp-form" data-product="${cartPayload(p)}">
       ${locPicker}
       ${colorPicker}
+      ${partsPicker}
       <div class="pdp-actions">
         <div class="qty" aria-label="Quantity"><button type="button" data-qty="-1" aria-label="Decrease">${icon("minus")}</button><input type="number" name="qty" value="1" min="1" max="20" inputmode="numeric" aria-label="Quantity"><button type="button" data-qty="1" aria-label="Increase">${icon("plus")}</button></div>
         <button type="submit" class="btn btn-outline btn-lg" name="action" value="add" ${p.soldOut ? "disabled" : ""}>${icon("bag")} Add to Cart</button>
       </div>
       <button type="submit" class="btn btn-cta btn-lg btn-block" name="action" value="buy" id="buy-now" ${p.soldOut ? "disabled" : ""}>${p.soldOut ? "Sold out" : `${icon("zap")} Buy Now`}</button>
-      <a class="btn btn-wa-outline btn-block" id="wa-order" href="${waLink(waText.replace(" ({colour})", firstColor ? ` (${firstColor.name})` : ""))}" data-template="${esc(waText)}" target="_blank" rel="noopener">${icon("whatsapp")} Order on WhatsApp</a>
+      <a class="btn btn-wa-outline btn-block" id="wa-order" href="${waLink(waText.replace(" ({colour})", firstColor ? ` (${firstColor.name})` : (p.parts || []).length ? ` (${p.parts.map((x) => `${x.label}: ${x.default}`).join(", ")})` : ""))}" data-template="${esc(waText)}" target="_blank" rel="noopener">${icon("whatsapp")} Order on WhatsApp</a>
     </form>
     <div class="pdp-perks">
       <div>${icon("truck")}<p><b id="delivery-eta">Arrives in ${C.deliveryTime}</b><span>${freeShip ? "FREE delivery on this item" : `FREE delivery on orders over ${rs(C.freeShippingOver)}`}</span></p></div>

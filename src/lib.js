@@ -129,6 +129,8 @@ function productCard(p, base) {
   const data = cartPayload(p, { full: needsChoice });
   const actions = p.soldOut
     ? `<button class="btn btn-block btn-muted" disabled>Sold out</button>`
+    : p.parts
+    ? `<a class="btn btn-cta btn-block pcard-choose" href="${url}">Choose colours</a>`
     : `<div class="pcard-actions">
         <button class="btn btn-cta js-buy" data-product="${data}"${needsChoice ? " data-choose" : ""}>Buy Now</button>
         <button class="btn btn-outline pcard-cart js-add" data-product="${data}"${needsChoice ? " data-choose" : ""} aria-label="${needsChoice ? "Choose colour and add to cart" : "Add to cart"}">${icon("bag")}<span class="pcard-cart-label">${needsChoice ? "Options" : "Add"}</span></button>
@@ -160,6 +162,22 @@ const clip = (str, n) => {
   if (end >= n * 0.6) return cut.slice(0, end + 1);
   return cut.slice(0, n - 1).replace(/[\s,;:–—-]+\S*$/, "") + "…";
 };
+/* Meta Pixel: PageView on every page; other events are sent from js/app.js, product.js and checkout.js */
+function pixelHead() {
+  if (!C.metaPixelId) return "";
+  return `<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '${C.metaPixelId}');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->`;
+}
+function pixelNoscript() {
+  return C.metaPixelId ? `<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=${C.metaPixelId}&amp;ev=PageView&amp;noscript=1"></noscript>` : "";
+}
 function head({ title, description, base, canonical, image, extraHead = "", noindex = false, ogType = "website", product = null }) {
   // Keep titles ≤ ~60 chars: add the brand suffix only when it fits
   const fullTitle = title.includes(C.name) || title.length + C.name.length + 3 > 62 ? title : `${title} | ${C.name}`;
@@ -200,6 +218,7 @@ ${product ? `<meta property="product:price:amount" content="${product.price}"><m
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${base}css/app.css${ver("css/app.css")}">
 <script type="application/ld+json">${JSON.stringify(orgLd())}</script>
+${pixelHead()}
 ${extraHead}
 </head>`;
 }
@@ -358,6 +377,7 @@ function page(opts) {
   const { base = "", body, active = "", scripts = [], bodyClass = "", noDrawer = false } = opts;
   return `${head(opts)}
 <body class="${bodyClass}" ${commerceData()}>
+${pixelNoscript()}
 <a class="skip-link" href="#main">Skip to content</a>
 ${header(base, active)}
 <main id="main">

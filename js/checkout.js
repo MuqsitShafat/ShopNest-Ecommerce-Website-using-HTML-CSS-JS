@@ -147,6 +147,10 @@
   }
   bindLines(elLines);
   document.addEventListener("cart:change", render);
+  (() => { // InitiateCheckout once when the checkout page opens with items
+    const items = Cart.get();
+    if (items.length && window.SN.track) window.SN.track("InitiateCheckout", { content_ids: items.map((i) => i.id), contents: items.map((i) => ({ id: i.id, quantity: i.qty })), content_type: "product", num_items: Cart.count(), value: Cart.subtotal(), currency: "PKR" });
+  })();
 
   /* ---------- payment method ---------- */
   $$('input[name="payment"]').forEach((r) =>
@@ -261,7 +265,7 @@
     try {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: "purchase", ecommerce: { transaction_id: orderData.orderId, value: orderData.total, currency: "PKR", items: orderData.items.map((i) => ({ item_id: i.id, item_name: i.name, price: i.price, quantity: i.qty })) } });
-      if (typeof window.fbq === "function") window.fbq("track", "Purchase", { value: orderData.total, currency: "PKR" });
+      if (window.SN.track) window.SN.track("Purchase", { value: orderData.total, currency: "PKR", content_type: "product", content_ids: orderData.items.map((i) => i.id), contents: orderData.items.map((i) => ({ id: i.id, quantity: i.qty, item_price: i.price })), num_items: orderData.items.reduce((n, i) => n + i.qty, 0), order_id: orderData.orderId }, { eventID: orderData.orderId });
     } catch (e) { /* ignore */ }
 
     Cart.clear();
