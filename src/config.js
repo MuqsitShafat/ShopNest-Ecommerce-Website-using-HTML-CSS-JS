@@ -7,7 +7,8 @@ module.exports = {
   // Public URL of the live site, no trailing slash (e.g. "https://shopnest.pk").
   // Used for canonical links, sitemap and WhatsApp/Facebook link previews.
   siteUrl: "https://theshopnest.xyz",
-  metaPixelId: "1384881198048721", // Meta Pixel (Events Manager); empty string turns tracking off
+  metaPixelId: "1384881198048721",
+  metaDomainVerification: "6ellnozrxdtwd1zyn09xvklq9kheg4", // Business Settings → Brand safety → Domains // Meta Pixel (Events Manager); empty string turns tracking off
 
   name: "ShopNest",
   tagline: "Useful gadgets & everyday essentials, delivered to your door anywhere in Pakistan",

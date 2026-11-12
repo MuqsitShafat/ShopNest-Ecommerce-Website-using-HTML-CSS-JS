@@ -164,8 +164,10 @@ const clip = (str, n) => {
 };
 /* Meta Pixel: PageView on every page; other events are sent from js/app.js, product.js and checkout.js */
 function pixelHead() {
-  if (!C.metaPixelId) return "";
-  return `<!-- Meta Pixel Code -->
+  const verify = C.metaDomainVerification ? `<meta name="facebook-domain-verification" content="${C.metaDomainVerification}">
+` : "";
+  if (!C.metaPixelId) return verify;
+  return `${verify}<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
