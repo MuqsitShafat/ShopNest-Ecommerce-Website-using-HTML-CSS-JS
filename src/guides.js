@@ -17,7 +17,7 @@ module.exports = [
   cover: "sp-w161-earbuds",
   readTime: 6,
   collections: ["electronics", "earbuds-audio"],
-  quickAnswer: "For most people, the <b>Air Pro 2nd Gen (Without Box)</b> at Rs 1,750 is the best value. If you take lots of calls on noisy roads, get the <b>W161 ANC + ENC</b>. If battery life matters most, the <b>FDl FD1</b> gives up to 45 hours with its case. Can't stand in-ear buds? The clip-on <b>G-Golden GB-03</b> is the most comfortable.",
+  quickAnswer: "For most people, the <b>Pro 2nd Gen (Without Box)</b> at Rs 1,750 is the best value. If you take lots of calls on noisy roads, get the <b>W161 ANC + ENC</b>. If battery life matters most, the <b>FDl FD1</b> gives up to 45 hours with its case. Can't stand in-ear buds? The clip-on <b>G-Golden GB-03</b> is the most comfortable.",
   picks: [
     ["sp-airpro-nobox", "Best value overall"],
     ["sp-w161-earbuds", "Best for calls & noisy roads"],

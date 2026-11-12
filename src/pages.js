@@ -9,6 +9,12 @@ const byId = (products, id) => products.find((p) => p.id === id);
 const inParent = (products, parent) => products.filter((p) => catBySlug(p.category).parent.slug === parent.slug);
 // Variants of one product (Air Pro with box / without box) should never sit side by side in a list
 const family = (p) => (p.id.startsWith("sp-airpro") ? "airpro" : p.id);
+// When both variants show in a short list, the Without Box one goes last so it sits far from the With Box one
+function apart(list) {
+  const i = list.findIndex((p) => p.id === "sp-airpro-nobox");
+  if (i < 0 || !list.some((p) => p.id === "sp-airpro-box")) return list;
+  const out = [...list]; out.push(out.splice(i, 1)[0]); return out;
+}
 function spread(list) {
   const out = [...list];
   for (let i = 1; i < out.length; i++) {
@@ -26,7 +32,7 @@ function rail(products, base, { title, sub, href, linkText = "View all" }) {
   <div class="section-head"><div><h2>${title}</h2>${sub ? `<p>${sub}</p>` : ""}</div>${href ? `<a class="link-more" href="${base}${href}">${linkText} ${icon("arrow")}</a>` : ""}</div>
   <div class="rail-wrap">
     <button class="rail-btn prev" aria-label="Scroll left" disabled>${icon("left")}</button>
-    <div class="rail">${spread(products).map((p) => productCard(p, base)).join("")}</div>
+    <div class="rail">${apart(spread(products)).map((p) => productCard(p, base)).join("")}</div>
     <button class="rail-btn next" aria-label="Scroll right">${icon("right")}</button>
   </div>
 </div></section>`;
@@ -35,8 +41,8 @@ function rail(products, base, { title, sub, href, linkText = "View all" }) {
 /* ---------------- HOME ---------------- */
 function home(products) {
   const base = "";
-  const best = bestsellers(products).slice(0, 8);
-  const heroPicks = ["sp-gp07-powerbank", "sp-airpro-nobox", "sp-azan-counter"].map((id) => byId(products, id)).filter(Boolean);
+  const best = apart(bestsellers(products).slice(0, 8));
+  const heroPicks = ["sp-gp07-powerbank", "sp-airpro-box", "sp-azan-counter"].map((id) => byId(products, id)).filter(Boolean);
   const heroImgIdx = { "sp-gp07-powerbank": 3 };
   const inSeason = (p) => p.category !== "fans-cooling" || [3, 4, 5, 6, 7, 8].includes(new Date().getMonth());
   const deals = [...products].filter((p) => !p.soldOut && inSeason(p)).sort((a, b) => discountPct(b) - discountPct(a)).slice(0, 8);
@@ -45,7 +51,7 @@ function home(products) {
     .map((c) => {
       const items = bestsellers(inParent(products, c));
       return `<div class="cat-card">
-        <a class="cat-card-imgs" href="${collectionUrl(c)}" aria-label="${esc(c.name)}">${items.slice(0, 3).map((p) => `<img src="${encPath(thumb(p.images[0]))}" alt="" loading="lazy" width="300" height="400">`).join("")}</a>
+        <a class="cat-card-imgs" href="${collectionUrl(c)}" aria-label="${esc(c.name)}">${apart(items.slice(0, 3)).map((p) => `<img src="${encPath(thumb(p.images[0]))}" alt="" loading="lazy" width="300" height="400">`).join("")}</a>
         <div class="cat-card-body">
           <a href="${collectionUrl(c)}" class="cat-card-title">${icon(c.icon)}<span>${esc(c.name)}</span>${icon("arrow")}</a>
           <span class="cat-card-count">${items.length} products</span>
@@ -152,7 +158,7 @@ function listing(products, { category } = {}) {
   const cards = list
     .map((p, i) => {
       const c = catBySlug(p.category);
-      const search = [p.name, p.tagline, c.name, c.parent.name, ...(p.colors || []).map((x) => x.name)].join(" ").toLowerCase();
+      const search = [p.name, p.keywords || "", p.tagline, c.name, c.parent.name, ...(p.colors || []).map((x) => x.name)].join(" ").toLowerCase();
       return `<div class="grid-item" data-order="${i}" data-price="${p.price}" data-count="${p.ratingCount}" data-pct="${discountPct(p)}" data-search="${esc(search)}">${productCard(p, base)}</div>`;
     })
     .join("");

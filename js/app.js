@@ -521,6 +521,7 @@
       const p = list.find((x) => x.id === i.id);
       if (!p || i.lp || p.locationPricing) return; // city-priced deals are set at checkout
       if (i.price !== p.price) { i.price = p.price; changed = true; }
+      if (i.name && i.name !== p.name) { i.name = p.name; changed = true; }
     });
     if (changed) Cart.save(items);
   }
@@ -529,7 +530,7 @@
     if (!catalogPromise) {
       catalogPromise = fetch(BASE + "products.json")
         .then((r) => r.json())
-        .then((list) => (catalog = list.map((p) => ({ ...p, _s: [p.name, p.tagline, p.category, ...(p.colors || []).map((c) => c.name)].join(" ").toLowerCase() }))))
+        .then((list) => (catalog = list.map((p) => ({ ...p, _s: [p.name, p.keywords || "", p.tagline, p.category, ...(p.colors || []).map((c) => c.name)].join(" ").toLowerCase() }))))
         .then((list) => { syncCartPrices(list); return list; })
         .catch(() => (catalog = []));
     }

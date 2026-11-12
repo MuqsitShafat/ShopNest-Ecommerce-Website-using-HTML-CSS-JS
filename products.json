@@ -1,34 +1,32 @@
 [
   {
-    "id": "sp-airpro-nobox",
-    "slug": "air-pro-2nd-gen-earbuds-without-box",
-    "name": "Air Pro 2nd Gen Wireless Earbuds (Without Box)",
-    "seoTitle": "Air Pro 2nd Gen Earbuds Without Box Price in Pakistan",
+    "id": "sp-airpro-box",
+    "slug": "pro-2nd-gen-earbuds-with-box",
+    "name": "Pro 2nd Gen (With Box) Wireless Earbuds",
+    "seoTitle": "Pro 2nd Gen Earbuds With Box Price in Pakistan",
     "category": "earbuds-audio",
-    "price": 1750,
+    "price": 1999,
     "oldPrice": 2799,
     "rating": 5,
-    "ratingCount": 118,
+    "ratingCount": 134,
     "bestseller": true,
     "images": [
-      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _1.jpg",
-      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _2.jpg",
-      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _3.jpg",
-      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _4.jpg",
-      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _5.jpg"
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_2.jpg",
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_3.jpg",
+      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_1.jpg"
     ],
-    "tagline": "The sleek white earbuds everyone wants — without paying for the box.",
+    "tagline": "Gift-ready earbuds in a full retail box — clean sound, comfortable fit.",
     "description": [
-      "Same earbuds. Same magnetic case. Same clean sound. The only thing missing is the cardboard — and that's exactly why you save.",
-      "Pop the lid, and they connect to your phone in seconds. Soft silicone tips seal out street noise and stay put through gym sessions, rickshaw rides and back-to-back calls. The pocket-sized case keeps them charged and safe all day.",
-      "Perfect if you want premium-feel earbuds for daily use and would rather keep the extra rupees in your pocket."
+      "Looking for a gift that actually gets used every day? These are it. The Pro 2nd Gen earbuds arrive sealed in their retail box — ready to hand over for a birthday, Eid or graduation.",
+      "Inside: lightweight in-ear earbuds with soft silicone tips and a compact magnetic case. They pair in seconds, stay comfortable for hours and deliver clear sound for music, calls and online classes.",
+      "Buying for yourself? You still get the full unboxing experience."
     ],
     "highlights": [
-      "Connects in seconds with Android & iPhone",
-      "Soft silicone tips — comfortable for hours, secure on the move",
-      "Clear calls & punchy music for classes, work and the gym",
-      "Pocket-size magnetic charging case",
-      "Our lowest price on Air Pro earbuds"
+      "Comes in the full retail box — perfect for gifting",
+      "Pairs in seconds with Android & iPhone",
+      "Soft silicone tips for an all-day comfortable fit",
+      "Clear sound for music, calls and classes",
+      "Compact magnetic charging case"
     ],
     "specs": [
       [
@@ -49,23 +47,25 @@
       ],
       [
         "Packaging",
-        "Without retail box"
+        "Retail box"
       ]
     ],
     "inBox": [
       "2 × wireless earbuds",
-      "1 × charging case"
+      "1 × charging case",
+      "Retail box"
     ],
     "faqs": [
       [
-        "Is this the same as the boxed version?",
-        "Yes — identical earbuds and charging case. Only the retail box is not included, which is why it costs less."
+        "What's the difference from the 'Without Box' version?",
+        "Only the packaging. Choose this one if you're gifting or want the retail box."
       ],
       [
-        "Will it work with my Android phone?",
-        "Yes. They pair over Bluetooth with any Android phone or iPhone."
+        "Can I use them for calls?",
+        "Yes — both earbuds have built-in mics for clear phone and video calls."
       ]
-    ]
+    ],
+    "keywords": "air pro airpods pro 2"
   },
   {
     "id": "sp-gp07-powerbank",
@@ -447,33 +447,35 @@
     ]
   },
   {
-    "id": "sp-airpro-box",
-    "slug": "air-pro-2nd-gen-earbuds-with-box",
-    "name": "Air Pro 2nd Gen Wireless Earbuds (With Box)",
-    "seoTitle": "Air Pro 2nd Gen Earbuds With Box Price in Pakistan",
+    "id": "sp-airpro-nobox",
+    "slug": "pro-2nd-gen-earbuds-without-box",
+    "name": "Pro 2nd Gen (Without Box) Wireless Earbuds",
+    "seoTitle": "Pro 2nd Gen Earbuds Without Box Price in Pakistan",
     "category": "earbuds-audio",
-    "price": 1999,
+    "price": 1750,
     "oldPrice": 2799,
     "rating": 5,
-    "ratingCount": 134,
+    "ratingCount": 118,
     "bestseller": true,
     "images": [
-      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_2.jpg",
-      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_3.jpg",
-      "images/AirPods Pro 2 style earbuds (box + case)/AirPods Pro 2 style earbuds (box + case)_1.jpg"
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _1.jpg",
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _2.jpg",
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _3.jpg",
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _4.jpg",
+      "images/AirPods Pro 2 without box/AirPods Pro 2 _ without box _5.jpg"
     ],
-    "tagline": "Gift-ready earbuds in a full retail box — clean sound, comfortable fit.",
+    "tagline": "The sleek white earbuds everyone wants — without paying for the box.",
     "description": [
-      "Looking for a gift that actually gets used every day? These are it. The Air Pro 2nd Gen arrive sealed in their retail box — ready to hand over for a birthday, Eid or graduation.",
-      "Inside: lightweight in-ear earbuds with soft silicone tips and a compact magnetic case. They pair in seconds, stay comfortable for hours and deliver clear sound for music, calls and online classes.",
-      "Buying for yourself? You still get the full unboxing experience."
+      "Same earbuds. Same magnetic case. Same clean sound. The only thing missing is the cardboard — and that's exactly why you save.",
+      "Pop the lid, and they connect to your phone in seconds. Soft silicone tips seal out street noise and stay put through gym sessions, rickshaw rides and back-to-back calls. The pocket-sized case keeps them charged and safe all day.",
+      "Perfect if you want premium-feel earbuds for daily use and would rather keep the extra rupees in your pocket."
     ],
     "highlights": [
-      "Comes in the full retail box — perfect for gifting",
-      "Pairs in seconds with Android & iPhone",
-      "Soft silicone tips for an all-day comfortable fit",
-      "Clear sound for music, calls and classes",
-      "Compact magnetic charging case"
+      "Connects in seconds with Android & iPhone",
+      "Soft silicone tips — comfortable for hours, secure on the move",
+      "Clear calls & punchy music for classes, work and the gym",
+      "Pocket-size magnetic charging case",
+      "Our lowest price on Pro 2nd Gen earbuds"
     ],
     "specs": [
       [
@@ -494,24 +496,24 @@
       ],
       [
         "Packaging",
-        "Retail box"
+        "Without retail box"
       ]
     ],
     "inBox": [
       "2 × wireless earbuds",
-      "1 × charging case",
-      "Retail box"
+      "1 × charging case"
     ],
     "faqs": [
       [
-        "What's the difference from the 'Without Box' version?",
-        "Only the packaging. Choose this one if you're gifting or want the retail box."
+        "Is this the same as the boxed version?",
+        "Yes — identical earbuds and charging case. Only the retail box is not included, which is why it costs less."
       ],
       [
-        "Can I use them for calls?",
-        "Yes — both earbuds have built-in mics for clear phone and video calls."
+        "Will it work with my Android phone?",
+        "Yes. They pair over Bluetooth with any Android phone or iPhone."
       ]
-    ]
+    ],
+    "keywords": "air pro airpods pro 2"
   },
   {
     "id": "sp-v380-wifi",
