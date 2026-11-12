@@ -4,7 +4,7 @@
 
 ## Store policies
 
-- Shipping & Delivery (https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Rs 199 delivery fee; free on orders of Rs 1,999 or more.
+- Shipping & Delivery (https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Rs 199 delivery fee; free on orders of Rs 2,499 or more.
 - Returns, Replacement & Refunds (https://theshopnest.xyz/pages/returns-policy/): Free replacement within 7 days of delivery for damaged, faulty or wrong items (an unboxing video is required). Orders can be cancelled free of charge any time before dispatch.
 - FAQ (https://theshopnest.xyz/pages/faq/): Answers about ordering, payment, delivery, replacements and order tracking.
 - Privacy Policy (https://theshopnest.xyz/pages/privacy-policy/): What customer information is stored and who it is shared with (couriers only).
@@ -1264,7 +1264,7 @@ FAQs:
 ### Velvet Potato Handmade Soap
 
 - URL: https://theshopnest.xyz/products/velvet-potato-handmade-soap/
-- Price: Rs 799 (was Rs 1,500, 47% off)
+- Price: Rs 499 (was Rs 1,500, 67% off)
 - Category: Beauty & Personal Care › Massagers & Personal Care
 - Availability: In stock · Cash on Delivery · delivery in 2–4 working days
 

@@ -8,7 +8,7 @@
   const body = document.body;
   const RULES = {
     ship: +body.dataset.ship || 199,
-    free: +body.dataset.free || 1999,
+    free: +body.dataset.free || 2499,
     cod: +body.dataset.cod || 99,
     onlineOff: +(body.dataset.onlineOff || 0), // extra online discount on top of the waived COD fee
     wa: body.dataset.wa || "923284430589",
@@ -401,6 +401,18 @@
     "gifts-toys": ["islamic-essentials"],
   };
 
+  // Margin rating used to rank add-on suggestions: 3 = high, 2 = good / unknown, 1 = low.
+  // Only the rating lives here — supplier costs never go into public site code.
+  const MARGIN = {
+    "sp-airpro-nobox": 3, "sp-w161-earbuds": 3, "sp-fd1-earbuds": 3, "sp-ulex-ux1": 3, "sp-gp07-powerbank": 3, "sp-bk530-camera": 3,
+    "sp-xc901-comb": 3, "sp-lm130-gun": 3, "sp-oknew-bulb": 3, "sp-orange-cable": 3, "sp-white-cable": 3, "sp-teardrop-brush": 3,
+    "sp-vented-brush": 3, "sp-round-brush": 3, "sp-toy-cars": 3, "sp-heart-keychain": 3, "sp-flower-keychain": 3, "sp-tasbih-compass": 3,
+    "sp-bbq-lighter": 3, "sp-glue-gun": 3,
+    "sp-cushion-brush": 2, "sp-paper-soap": 2, "sp-jy760-massager": 2, "sp-azan-counter": 2,
+    "sp-v380-wifi": 1,
+  };
+  const marginOf = (p) => MARGIN[p.id] || 2;
+
   function upsellHTML(visible = 3) {
     const sub = Cart.subtotal();
     if (!catalog || sub <= 0 || sub >= RULES.free) return "";
@@ -424,15 +436,27 @@
       return best;
     };
     const crosses = (p) => p.price >= gap;
-    const sorted = pool
-      .map((p) => ({ p, r: relevance(p), x: crosses(p) }))
-      .sort((a, b) =>
-        b.r - a.r ||                                 // closest match to what's in the cart first
-        b.x - a.x ||                                 // then: unlocks free delivery on its own
-        pairRank(a.p) - pairRank(b.p) ||             // best pairing first
-        (a.x ? a.p.price - b.p.price : 0) ||         // cheapest item that crosses the line
-        b.p.ratingCount - a.p.ratingCount);          // then popular
-    const picks = sorted.slice(0, 8);
+    const scored = pool.map((p) => ({ p, r: relevance(p), x: crosses(p), m: marginOf(p) }));
+    // Related items: closeness to the cart + margin, then "unlocks free delivery", best pairing, cheapest crossing item
+    const related = scored.filter((s) => s.r > 0).sort((a, b) =>
+      (b.r * 2 + b.m) - (a.r * 2 + a.m) ||
+      b.x - a.x ||
+      pairRank(a.p) - pairRank(b.p) ||
+      (a.x ? a.p.price - b.p.price : 0) ||
+      b.p.ratingCount - a.p.ratingCount);
+    // Other items: highest margin first. Close to free delivery -> cheapest item that unlocks it;
+    // far from it -> an affordable add-on (Rs 900 or less) rather than a big-ticket jump. Then popular.
+    const affordable = (p) => p.price <= 900;
+    const others = scored.filter((s) => s.r === 0).sort((a, b) =>
+      b.m - a.m ||
+      (gap <= 1000 ? (b.x - a.x || (a.x ? a.p.price - b.p.price : 0)) : (affordable(b.p) - affordable(a.p))) ||
+      b.p.ratingCount - a.p.ratingCount);
+    // First row: the two best related items + the best high-margin pick from the rest of the store
+    const first = [...related.slice(0, 2)];
+    const bestOther = others.find((s) => s.m === 3);
+    if (bestOther) first.push(bestOther);
+    const rest = [...related, ...others].filter((s) => !first.includes(s));
+    const picks = [...first, ...rest].slice(0, 8);
     if (!picks.length) return "";
     const title = gap <= 900 ? `Add one of these and get <b>FREE delivery</b>` : `Add <b>${money(gap)}</b> more for <b>FREE delivery</b>`;
     const more = picks.length - visible;

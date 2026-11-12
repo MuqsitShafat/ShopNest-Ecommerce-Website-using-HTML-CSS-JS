@@ -25,7 +25,7 @@ module.exports = {
 
   // Commerce rules (keep in sync with js/checkout.js, which reads them from <body data-*>)
   shippingFee: 199,
-  freeShippingOver: 1999,
+  freeShippingOver: 2499,
   codFee: 99,
   onlineDiscount: 0, // extra discount for paying online, on top of skipping the COD fee (0 = none)
   get onlineSaving() { return this.codFee + this.onlineDiscount; }, // what a customer saves by paying online
