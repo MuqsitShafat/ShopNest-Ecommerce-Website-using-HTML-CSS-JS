@@ -17,7 +17,11 @@ const G = require("./guides-pages");
 const { rs, productUrl, collectionUrl, catBySlug, encPath, discountPct } = require("./lib");
 
 const ROOT = path.resolve(__dirname, "..");
-const products = JSON.parse(fs.readFileSync(path.join(ROOT, "products.json"), "utf8"));
+const allProducts = JSON.parse(fs.readFileSync(path.join(ROOT, "products.json"), "utf8"));
+// "hidden": true keeps a product's data in products.json but takes it off the whole site.
+// Its old address forwards to "hiddenRedirect" (another product id), or to the shop. Delete the two lines to bring it back.
+const hiddenProducts = allProducts.filter((p) => p.hidden);
+const products = allProducts.filter((p) => !p.hidden);
 
 /* ---- validate data so mistakes fail loudly ---- */
 const errors = [];
@@ -94,6 +98,10 @@ const redirect = (to) => `<!doctype html><html lang="en"><head><meta charset="ut
 <meta name="robots" content="noindex"><link rel="canonical" href="${to}">
 <script>location.replace(${JSON.stringify(to)} + location.search + location.hash);</script>
 <meta http-equiv="refresh" content="0; url=${to}"></head><body><a href="${to}">Continue</a></body></html>\n`;
+for (const h of hiddenProducts) {
+  const to = products.find((p) => p.id === h.hiddenRedirect);
+  out(`products/${h.slug}/index.html`, redirect(to ? `../${to.slug}/` : "../../shop/"));
+}
 const LEGACY = { "shop.html": "shop/", "cart.html": "cart/", "contact.html": "contact/", "track-order.html": "track-order/" };
 for (const [from, to] of Object.entries(LEGACY)) out(from, redirect(to));
 
@@ -110,7 +118,7 @@ const live = (p) => !p.soldOut;
 
 /* ---- sitemap.xml: every indexable page, with product/guide images ---- */
 // Pages that should not be in search results (they carry noindex)
-const NOINDEX = new Set(["cart/", "track-order/"]);
+const NOINDEX = new Set(["cart/", "track-order/", ...hiddenProducts.map((h) => productUrl(h))]); // hidden products only forward
 const byProductPath = new Map(products.map((p) => [productUrl(p), p]));
 const byGuidePath = new Map(G.GUIDES.map((g) => [G.guideUrl(g), g]));
 const order = (path) => (path === "" ? 0 : path === "shop/" ? 1 : path.startsWith("collections/") ? 2 : path.startsWith("products/") ? 3 : path.startsWith("buying-guides/") ? 4 : 5);

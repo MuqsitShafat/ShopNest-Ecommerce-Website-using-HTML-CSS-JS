@@ -25,6 +25,8 @@
     return BASE + img.split("/").map(encodeURIComponent).join("/");
   };
   const ICON = {
+    store: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-2-1 2.7 2.7 0 0 1-2 1 2.7 2.7 0 0 1-2-1 2.7 2.7 0 0 1-2 1 2.7 2.7 0 0 1-2-1 2.7 2.7 0 0 1-2 1 2.7 2.7 0 0 1-2-1 2.7 2.7 0 0 1-2 1 2 2 0 0 1-2-2V7"/></svg>',
+    arrow: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
     trash: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
     minus: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg>',
     plus: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M12 5v14"/></svg>',
@@ -359,8 +361,8 @@
     "sp-fd1-earbuds": ["sp-white-cable", "sp-orange-cable"],
     "sp-gb03-earphones": ["sp-white-cable", "sp-orange-cable"],
     "sp-gp07-powerbank": ["sp-white-cable", "sp-orange-cable", "sp-oknew-bulb"],
-    "sp-orange-cable": ["sp-white-cable", "sp-airpro-nobox"],
-    "sp-white-cable": ["sp-orange-cable", "sp-airpro-nobox"],
+    "sp-orange-cable": ["sp-white-cable", "sp-airpro-box", "sp-airpro-nobox"],
+    "sp-white-cable": ["sp-orange-cable", "sp-airpro-box", "sp-airpro-nobox"],
     "sp-v380-wifi": ["sp-oknew-bulb", "sp-white-cable"],
     "sp-bk530-camera": ["sp-white-cable", "sp-oknew-bulb"],
     "sp-oknew-bulb": ["sp-wego-bulb", "sp-orange-cable"],
@@ -428,7 +430,7 @@
     const relCat = new Set(cartProducts.flatMap((p) => RELATED_CAT[p.category] || []));
     // keep suggestions sensible for the cart size: nothing far above what's needed for free delivery
     const maxPrice = Math.max(gap + 700, 700);
-    const pool = catalog.filter((p) => !p.soldOut && !p.parts && !inCart.has(p.id) && inSeason(p) && p.price <= maxPrice);
+    const pool = catalog.filter((p) => !p.hidden && !p.soldOut && !p.parts && !inCart.has(p.id) && inSeason(p) && p.price <= maxPrice);
     const relevance = (p) => (paired.has(p.id) ? 3 : sameCat.has(p.category) ? 2 : relCat.has(p.category) ? 1 : 0);
     const pairRank = (p) => { // position in the pairing list (first = best match)
       let best = 99;
@@ -457,10 +459,10 @@
     if (bestOther) first.push(bestOther);
     const rest = [...related, ...others].filter((s) => !first.includes(s));
     const picks = [...first, ...rest].slice(0, 8);
-    if (!picks.length) return "";
     const title = gap <= 900 ? `Add one of these and get <b>FREE delivery</b>` : `Add <b>${money(gap)}</b> more for <b>FREE delivery</b>`;
     const more = picks.length - visible;
-    return `<div class="upsell"><p class="upsell-title">${title}</p>${picks.map(({ p, r, x }, idx) => {
+    const browse = `<a class="upsell-browse" href="${BASE}shop/">${ICON.store}<span>Browse the shop for more items</span>${ICON.arrow}</a>`;
+    return `<div class="upsell"><p class="upsell-title">${title}</p>${browse}${picks.map(({ p, r, x }, idx) => {
       const choose = p.colors && p.colors.length > 1;
       const payload = { id: p.id, name: p.name, price: p.price, img: p.images[0], cat: p.category, slug: p.slug };
       if (p.locationPricing) payload.lp = p.locationPricing;
@@ -538,7 +540,7 @@
   }
   function searchCatalog(q) {
     const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
-    return catalog.filter((p) => tokens.every((t) => p._s.includes(t)));
+    return catalog.filter((p) => !p.hidden && tokens.every((t) => p._s.includes(t)));
   }
   function renderSearch() {
     const q = sInput.value.trim();

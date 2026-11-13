@@ -17,14 +17,17 @@ module.exports = [
   cover: "sp-w161-earbuds",
   readTime: 6,
   collections: ["electronics", "earbuds-audio"],
-  quickAnswer: "For most people, the <b>Pro 2nd Gen (Without Box)</b> at Rs 1,750 is the best value. If you take lots of calls on noisy roads, get the <b>W161 ANC + ENC</b>. If battery life matters most, the <b>FDl FD1</b> gives up to 45 hours with its case. Can't stand in-ear buds? The clip-on <b>G-Golden GB-03</b> is the most comfortable.",
+  // While Pro 2nd Gen (Without Box) is hidden, the With Box pair takes its place. Original line:
+  // quickAnswer: "For most people, the <b>Pro 2nd Gen (Without Box)</b> at Rs 1,750 is the best value. …",
+  quickAnswer: "For most people, the <b>Pro 2nd Gen (With Box)</b> at Rs 1,999 is the best value — and it comes sealed in its retail box, so it doubles as a gift. If you take lots of calls on noisy roads, get the <b>W161 ANC + ENC</b>. If battery life matters most, the <b>FDl FD1</b> gives up to 45 hours with its case. Can't stand in-ear buds? The clip-on <b>G-Golden GB-03</b> is the most comfortable.",
   picks: [
-    ["sp-airpro-nobox", "Best value overall"],
+    // ["sp-airpro-nobox", "Best value overall"], // hidden for now
+    ["sp-airpro-box", "Best value overall & best gift"],
     ["sp-w161-earbuds", "Best for calls & noisy roads"],
     ["sp-fd1-earbuds", "Longest battery life"],
     ["sp-gb03-earphones", "Most comfortable (open-ear)"],
     ["sp-ulex-ux1", "Best for gamers"],
-    ["sp-airpro-box", "Best gift"],
+    // ["sp-airpro-box", "Best gift"], // moved to the top while Without Box is hidden
   ],
   sections: [
     ["What should I look for in budget earbuds?", `
@@ -37,8 +40,12 @@ module.exports = [
         <li><b>Who stands behind them.</b> Buy where you can check the product before paying and get a replacement if it's faulty. Every order at ShopNest is Cash on Delivery with a 7-day replacement.</li>
       </ol>`],
     ["Which earbuds are best for everyday use?", `
+      <p>{{link:sp-airpro-box}} is our most-ordered pair for a reason: a clean white design, a compact magnetic case, quick pairing with Android and iPhone, and a price under Rs 2,000. They arrive sealed in their retail box, so they work just as well for yourself or as a birthday or Eid gift.</p>
+      {{cards:sp-airpro-box}}`],
+    /* Original section while Without Box was on sale — restore when it is un-hidden:
       <p>{{link:sp-airpro-nobox}} is our most-ordered pair for a reason: a clean white design, a compact magnetic case, quick pairing with Android and iPhone, and a price that leaves change from Rs 2,000. If you're buying for yourself, skip the box and save. Buying a gift? Get {{link:sp-airpro-box|the boxed version}} — identical inside.</p>
-      {{cards:sp-airpro-nobox,sp-airpro-box}}`],
+      {{cards:sp-airpro-nobox,sp-airpro-box}}
+    */
     ["What are the best earbuds for calls in traffic?", `
       <p>Most budget earbuds sound fine for music but fall apart on calls outdoors. {{link:sp-w161-earbuds}} is the exception at this price: <b>ANC</b> lowers background noise while you listen and dual-mic <b>ENC</b> cleans up your voice for the person on the other end. Add Bluetooth 5.4 and IPX4 sweat resistance and it's the pair we'd pick for riders, field staff and anyone who works on the phone.</p>
       {{cards:sp-w161-earbuds}}`],

@@ -717,6 +717,10 @@ body.has-sticky-buy .wa-float, body.page-checkout .wa-float { bottom: 84px; }
 /* ---------- free-delivery upsell ---------- */
 .upsell { margin: 1rem 0; padding: .9rem; border-radius: 14px; background: var(--brand-50); border: 1px dashed var(--brand-100); }
 .upsell-title { margin: 0 0 .6rem; font-size: .86rem; font-weight: 600; color: var(--brand-700); }
+.upsell-browse { display: flex; align-items: center; gap: .55rem; margin: 0 0 .5rem; padding: .6rem .8rem; border-radius: 12px; background: #fff; border: 1.5px solid var(--brand-100); color: var(--brand); font-size: .84rem; font-weight: 700; text-decoration: none; transition: border-color .15s, background .15s; }
+.upsell-browse span { flex: 1; }
+.upsell-browse .ic { width: 18px; height: 18px; flex: none; }
+.upsell-browse:hover { border-color: var(--brand); background: var(--brand-50); }
 .upsell-item { display: grid; grid-template-columns: 48px 1fr auto; gap: .6rem; align-items: center; padding: .45rem 0; }
 .upsell-item + .upsell-item { border-top: 1px solid var(--brand-100); }
 .upsell-item img { width: 48px; height: 60px; object-fit: cover; border-radius: 8px; background: #fff; }

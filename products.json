@@ -57,15 +57,21 @@
     ],
     "faqs": [
       [
-        "What's the difference from the 'Without Box' version?",
-        "Only the packaging. Choose this one if you're gifting or want the retail box."
+        "Do they come in a retail box?",
+        "Yes — they arrive sealed in their retail box, so they are ready to gift for a birthday, Eid or graduation."
       ],
       [
         "Can I use them for calls?",
         "Yes — both earbuds have built-in mics for clear phone and video calls."
       ]
     ],
-    "keywords": "air pro airpods pro 2"
+    "keywords": "air pro airpods pro 2",
+    "faqsWhenWithoutBoxIsShown": [
+      [
+        "What's the difference from the 'Without Box' version?",
+        "Only the packaging. Choose this one if you're gifting or want the retail box."
+      ]
+    ]
   },
   {
     "id": "sp-gp07-powerbank",
@@ -448,6 +454,8 @@
   },
   {
     "id": "sp-airpro-nobox",
+    "hidden": true,
+    "hiddenRedirect": "sp-airpro-box",
     "slug": "pro-2nd-gen-earbuds-without-box",
     "name": "Pro 2nd Gen (Without Box) Wireless Earbuds",
     "seoTitle": "Pro 2nd Gen Earbuds Without Box Price in Pakistan",
