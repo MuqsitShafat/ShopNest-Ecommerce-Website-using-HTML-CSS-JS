@@ -4,7 +4,7 @@
 
 ## Store policies
 
-- Shipping & Delivery (https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Rs 199 delivery fee; free on orders of Rs 2,499 or more.
+- Shipping & Delivery (https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Cash on Delivery: Rs 150 delivery fee (free on orders of Rs 2,499 or more) plus a Rs 50 COD fee. Online payment: free delivery and no COD fee on any order.
 - Returns, Replacement & Refunds (https://theshopnest.xyz/pages/returns-policy/): Free replacement within 7 days of delivery for damaged, faulty or wrong items (an unboxing video is required). Orders can be cancelled free of charge any time before dispatch.
 - FAQ (https://theshopnest.xyz/pages/faq/): Answers about ordering, payment, delivery, replacements and order tracking.
 - Privacy Policy (https://theshopnest.xyz/pages/privacy-policy/): What customer information is stored and who it is shared with (couriers only).
@@ -12,7 +12,7 @@
 - About ShopNest (https://theshopnest.xyz/pages/about-us/): Who we are: an online store based in Lahore that delivers nationwide.
 - Contact (https://theshopnest.xyz/contact/): WhatsApp or call +923284430589, or email shopnest260@gmail.com.
 - Track an order (https://theshopnest.xyz/track-order/): Check order status with an Order ID (e.g. SN-12345) or the phone number used to order.
-- Payment: Cash on Delivery (Rs 99 COD fee) or JazzCash / bank transfer (no COD fee — save Rs 99).
+- Payment: Cash on Delivery (Rs 150 delivery, free over Rs 2,499, + Rs 50 COD fee) or JazzCash / bank transfer (free delivery and no COD fee on any order).
 
 ## Electronics & Gadgets
 

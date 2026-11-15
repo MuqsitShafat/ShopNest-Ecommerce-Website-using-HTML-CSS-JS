@@ -543,6 +543,7 @@ body.has-sticky-buy .wa-float, body.page-checkout .wa-float { bottom: 84px; }
 .summary-hint { font-size: .84rem; font-weight: 600; margin: .9rem 0; padding: .65rem .8rem; border-radius: 10px; background: var(--warn-50); color: var(--brand-700); }
 .summary-hint:empty { display: none; }
 .summary-hint.is-ok { background: var(--ok-50); color: var(--ok); }
+.summary-hint.is-tip { border: 1.5px solid var(--ok); }
 .summary .btn { margin: .25rem 0 .6rem; }
 .pay-reassure { color: var(--ok); font-weight: 600; margin: 0 0 .4rem; }
 .summary-trust { list-style: none; padding: .9rem 0 0; margin: .5rem 0 0; border-top: 1px solid var(--line); display: grid; gap: .45rem; font-size: .84rem; color: var(--ink-2); }
@@ -907,6 +908,7 @@ h2 { letter-spacing: -.02em; }
 .guide-mini em { font-style: normal; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--cta); }
 .guide-mini b { font-size: .92rem; line-height: 1.3; }
 .guide-mini:hover b { color: var(--brand); }
+.pdp-fees { font-size: .8rem; font-weight: 600; color: var(--ink-2); margin: .45rem 0 0; padding: .4rem .65rem; border-radius: 10px; background: var(--brand-50); line-height: 1.5; }
 .pdp-pk { font-size: .85rem; color: var(--ink-3); margin: .35rem 0 0; }
 .pdp-pk b { color: var(--ink-2); }
 

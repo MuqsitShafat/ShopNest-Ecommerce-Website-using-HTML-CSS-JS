@@ -7,10 +7,9 @@
   const BASE = document.documentElement.dataset.base || "";
   const body = document.body;
   const RULES = {
-    ship: +body.dataset.ship || 199,
+    ship: +body.dataset.ship || 150, // Cash on Delivery delivery fee below the free-delivery line
     free: +body.dataset.free || 2499,
-    cod: +body.dataset.cod || 99,
-    onlineOff: +(body.dataset.onlineOff || 0), // extra online discount on top of the waived COD fee
+    cod: +body.dataset.cod || 50, // flat COD fee (online payment: free delivery + no COD fee)
     wa: body.dataset.wa || "923284430589",
   };
 

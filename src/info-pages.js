@@ -29,19 +29,18 @@ function doc({ slug, title, description, intro, sections, aside = true, extra = 
 const shipping = () =>
   doc({
     slug: "shipping-policy", title: "Shipping & Delivery Policy",
-    description: `ShopNest delivers all over Pakistan in ${C.deliveryTime}. Free delivery on orders over ${rs(C.freeShippingOver)}. Cash on Delivery available.`,
+    description: `ShopNest delivers all over Pakistan in ${C.deliveryTime}. Free delivery on orders over ${rs(C.freeShippingOver)}, or on any order paid online. Cash on Delivery available.`,
     intro: `From Karachi to Gilgit — we deliver everywhere in Pakistan. Here's exactly how long it takes, what it costs and how to pay.`,
     sections: [
       ["Where we deliver", `<p>We deliver nationwide — to all major cities, towns and most rural areas of Pakistan through trusted courier partners. Orders are dispatched from ${C.city}.</p>`],
       ["Delivery time", `<p>Orders are delivered within <b>${C.deliveryTime}</b> after your order is confirmed.</p><ul><li>We take and process orders <b>24/7</b> — every day of the week, including weekends and holidays.</li><li>Remote areas, bad weather, strikes or courier delays can occasionally add 1–3 days. We'll keep you updated if that happens.</li></ul>`],
       ["Delivery charges", `<table class="specs"><tbody>
-        <tr><th>Order total below ${rs(C.freeShippingOver)}</th><td>${rs(C.shippingFee)} delivery fee</td></tr>
-        <tr><th>Order total ${rs(C.freeShippingOver)} or more</th><td><b>FREE delivery</b></td></tr>
-        <tr><th>Cash on Delivery</th><td>+${rs(C.codFee)} COD fee on every COD order</td></tr>
-        <tr><th>Online payment (JazzCash / bank transfer)</th><td><b>No COD fee</b> — you save ${rs(C.onlineSaving)}</td></tr>
-      </tbody></table><p><b>How the COD fee works:</b> every Cash on Delivery order has a flat ${rs(C.codFee)} COD fee, whatever the order amount — even when delivery is free. Pay online by JazzCash or bank transfer instead and the COD fee is removed, so you save ${rs(C.onlineSaving)}.</p><p>The exact charges are always shown in your order summary before you place your order. Some bundle deals have their own city-based package price, shown on the product page.</p>`],
+        <tr><th>Cash on Delivery — order below ${rs(C.freeShippingOver)}</th><td>${rs(C.shippingFee)} delivery + ${rs(C.codFee)} COD fee</td></tr>
+        <tr><th>Cash on Delivery — order ${rs(C.freeShippingOver)} or more</th><td><b>FREE delivery</b> + ${rs(C.codFee)} COD fee</td></tr>
+        <tr><th>Online payment (JazzCash / bank transfer) — any amount</th><td><b>FREE delivery + no COD fee</b></td></tr>
+      </tbody></table><p><b>How the COD fee works:</b> every Cash on Delivery order has a flat ${rs(C.codFee)} COD fee, whatever the order amount — even when delivery is free. Pay online by JazzCash or bank transfer instead and you get FREE delivery with no COD fee — you save up to ${rs(C.maxOnlineSaving)}.</p><p>The exact charges are always shown in your order summary before you place your order. Some bundle deals have their own city-based package price, shown on the product page.</p>`],
       ["Order confirmation", `<p>After you place an order, you'll see your <b>Order ID</b> (e.g. SN-12345) on screen. Our team will call or WhatsApp you to confirm your order and address before dispatch. Please keep your phone reachable — unconfirmed orders may be delayed or cancelled.</p>`],
-      ["Payment methods", `<ul><li><b>Cash on Delivery (COD):</b> pay the rider in cash when your parcel arrives. A flat ${rs(C.codFee)} COD fee is added to every COD order.</li><li><b>Online payment:</b> send payment via JazzCash or bank transfer (account details are shown at checkout) and WhatsApp us the screenshot. No COD fee — you save ${rs(C.onlineSaving)}.</li></ul><p>Please only place Cash on Delivery orders you intend to receive. Refused parcels cost us two-way courier charges.</p>`],
+      ["Payment methods", `<ul><li><b>Cash on Delivery (COD):</b> pay the rider in cash when your parcel arrives. A ${rs(C.shippingFee)} delivery fee (FREE on orders of ${rs(C.freeShippingOver)} or more) plus a flat ${rs(C.codFee)} COD fee apply.</li><li><b>Online payment:</b> send payment via JazzCash or bank transfer (account details are shown at checkout) and WhatsApp us the screenshot. Delivery is FREE and there's no COD fee, whatever the order amount.</li></ul><p>Please only place Cash on Delivery orders you intend to receive. Refused parcels cost us two-way courier charges.</p>`],
       ["Tracking your order", `<p>Use our <a href="${B}track-order/">Track Order</a> page with your Order ID or phone number, or message us on ${wa} for an update.</p>`],
       ["Receiving your parcel", `<p>Please check that the outer packaging is intact when you receive your parcel. We strongly recommend recording a short <b>unboxing video</b> — it's required if you need a replacement for a damaged, faulty or wrong item (see our <a href="${B}pages/returns-policy/">Returns &amp; Replacement Policy</a>).</p>`],
     ],
@@ -86,7 +85,7 @@ const terms = () =>
     intro: `By using this website and placing an order with ${C.name}, you agree to these terms.`,
     sections: [
       ["Orders", `<p>Placing an order is an offer to buy. An order is accepted once we confirm it with you by call or WhatsApp. We may decline or cancel an order if a product is out of stock, the address can't be reached, the contact number is unreachable, or we suspect a fraudulent or fake order. If you've paid online for a cancelled order, we refund you in full.</p>`],
-      ["Prices & offers", `<p>All prices are in Pakistani Rupees (PKR). Delivery, COD fee and any discount are shown in your order summary before you order. Prices and offers may change without notice, but changes won't affect orders already confirmed. If an item is listed at an obviously wrong price due to an error, we'll contact you before processing the order.</p>`],
+      ["Prices & offers", `<p>All prices are in Pakistani Rupees (PKR). Delivery and COD fees are shown in your order summary before you order. Prices and offers may change without notice, but changes won't affect orders already confirmed. If an item is listed at an obviously wrong price due to an error, we'll contact you before processing the order.</p>`],
       ["Product information", `<p>We do our best to describe and photograph products accurately. Colours may look slightly different depending on your screen, and packaging may change from time to time. Specifications are provided by manufacturers.</p>`],
       ["Payment", `<p>You can pay by Cash on Delivery or by online transfer (JazzCash / bank). For online payments, your order is processed once we've verified your payment.</p>`],
       ["Delivery, returns & cancellation", `<p>Delivery is covered by our <a href="${B}pages/shipping-policy/">Shipping &amp; Delivery Policy</a>. Replacements, refunds and cancellations are covered by our <a href="${B}pages/returns-policy/">Returns &amp; Replacement Policy</a>.</p>`],
@@ -105,13 +104,13 @@ const FAQ_GROUPS = [
     ["Can I change or cancel my order?", `Yes — any time before dispatch. Message us on WhatsApp with your Order ID.`],
   ]],
   ["Payment", [
-    ["Is Cash on Delivery available?", `Yes, all over Pakistan. A flat ${rs(C.codFee)} COD fee is added to every Cash on Delivery order, whatever the order amount. Pay online and you skip it.`],
-    ["How do I pay online?", `Choose <b>Pay Online</b> at checkout to see our JazzCash and bank account details. Send the payment, place your order and WhatsApp us the screenshot. There's no COD fee, so you save ${rs(C.onlineSaving)}.`],
+    ["Is Cash on Delivery available?", `Yes, all over Pakistan. A flat ${rs(C.codFee)} COD fee is added to every Cash on Delivery order, whatever the order amount. Pay online and you skip it — and delivery is FREE too.`],
+    ["How do I pay online?", `Choose <b>Pay Online</b> at checkout to see our JazzCash and bank account details. Send the payment, place your order and WhatsApp us the screenshot. Delivery is FREE and there's no COD fee, whatever the order amount.`],
     ["Is it safe to pay online?", `You pay directly from your own JazzCash or bank app to our registered accounts — we never ask for your card or PIN.`],
   ]],
   ["Delivery", [
     ["How long does delivery take?", `${C.deliveryTime} after confirmation, all over Pakistan.`],
-    ["How much is delivery?", `${rs(C.shippingFee)}, or <b>FREE</b> on orders of ${rs(C.freeShippingOver)} or more.`],
+    ["How much is delivery?", `With Cash on Delivery: ${rs(C.shippingFee)}, or <b>FREE</b> on orders of ${rs(C.freeShippingOver)} or more (plus the ${rs(C.codFee)} COD fee). Pay online and delivery is always <b>FREE</b>.`],
     ["How can I track my order?", `Use the <a href="${B}track-order/">Track Order</a> page with your Order ID or phone number, or ask us on WhatsApp.`],
   ]],
   ["Returns & replacement", [
@@ -157,8 +156,8 @@ function about() {
   <h2>What we promise</h2>
   <ul class="ticks">
     <li>${icon("check")}<span><b>Real products, real photos.</b> What you see is what we ship.</span></li>
-    <li>${icon("check")}<span><b>Pay the way you like.</b> Cash on Delivery nationwide, or pay online by JazzCash / bank transfer and skip the ${rs(C.codFee)} COD fee.</span></li>
-    <li>${icon("check")}<span><b>Fast, careful delivery.</b> ${C.deliveryTime}, free over ${rs(C.freeShippingOver)}.</span></li>
+    <li>${icon("check")}<span><b>Pay the way you like.</b> Cash on Delivery nationwide, or pay online by JazzCash / bank transfer for FREE delivery and no COD fee.</span></li>
+    <li>${icon("check")}<span><b>Fast, careful delivery.</b> ${C.deliveryTime}, free over ${rs(C.freeShippingOver)} — or on any order paid online.</span></li>
     <li>${icon("check")}<span><b>We stand behind every order.</b> ${C.replacementDays}-day replacement on damaged, faulty or wrong items.</span></li>
     <li>${icon("check")}<span><b>Humans, not bots.</b> Reach us on WhatsApp, phone or email.</span></li>
   </ul>

@@ -163,6 +163,17 @@ const clip = (str, n) => {
   return cut.slice(0, n - 1).replace(/[\s,;:–—-]+\S*$/, "") + "…";
 };
 /* Meta Pixel: PageView on every page; other events are sent from js/app.js, product.js and checkout.js */
+// Microsoft Clarity (heatmaps & session recordings): exact snippet from Clarity
+function clarityHead() {
+  if (!C.clarityId) return "";
+  return `<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "${C.clarityId}");
+</script>`;
+}
 function pixelHead() {
   const verify = C.metaDomainVerification ? `<meta name="facebook-domain-verification" content="${C.metaDomainVerification}">
 ` : "";
@@ -221,6 +232,7 @@ ${product ? `<meta property="product:price:amount" content="${product.price}"><m
 <link rel="stylesheet" href="${base}css/app.css${ver("css/app.css")}">
 <script type="application/ld+json">${JSON.stringify(orgLd())}</script>
 ${pixelHead()}
+${clarityHead()}
 ${extraHead}
 </head>`;
 }
@@ -243,7 +255,7 @@ function announcement() {
   const msgs = [
     `${icon("truck")} FREE delivery over ${rs(C.freeShippingOver)}`,
     `${icon("cash")} Cash on Delivery nationwide`,
-    `${icon("wallet")} Pay online &amp; save ${rs(C.onlineSaving)}`,
+    `${icon("wallet")} Pay online: FREE delivery + no COD fee`,
     `${icon("refresh")} Free ${C.replacementDays}-day replacement`,
   ];
   return `<div class="topbar"><div class="topbar-track">${msgs.map((m, i) => `<span class="topbar-msg${i === 0 ? " is-active" : ""}">${m}</span>`).join("")}</div></div>`;
@@ -316,7 +328,7 @@ function cartDrawer(base) {
 
 function trustStrip() {
   const items = [
-    ["cash", "Cash on Delivery or Online", `Pay at your door, or pay online &amp; save ${rs(C.onlineSaving)}`],
+    ["cash", "Cash on Delivery or Online", `Pay at your door, or pay online for FREE delivery &amp; no COD fee`],
     ["truck", "Fast Nationwide Delivery", `${C.deliveryTime} · FREE over ${rs(C.freeShippingOver)}`],
     ["refresh", `${C.replacementDays}-Day Replacement`, "Damaged or faulty? We replace it free"],
     ["whatsapp", "Real Human Support", "Chat with us on WhatsApp"],
@@ -371,7 +383,7 @@ function waFloat() {
 }
 
 function commerceData() {
-  return `data-ship="${C.shippingFee}" data-free="${C.freeShippingOver}" data-cod="${C.codFee}" data-online-off="${C.onlineDiscount}" data-wa="${C.whatsapp}"`;
+  return `data-ship="${C.shippingFee}" data-free="${C.freeShippingOver}" data-cod="${C.codFee}" data-wa="${C.whatsapp}"`;
 }
 
 /* Full page wrapper */

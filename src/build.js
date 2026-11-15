@@ -186,7 +186,7 @@ const priceRange = (list) => {
 };
 const subsWithProducts = C.categories.flatMap((c) => c.subs.map((s) => ({ ...s, parent: c, items: products.filter((p) => p.category === s.slug) }))).filter((s) => s.items.length);
 const POLICIES = [
-  ["Shipping & Delivery", "pages/shipping-policy/", `Delivery in ${C.deliveryTime} anywhere in Pakistan. ${rs(C.shippingFee)} delivery fee; free on orders of ${rs(C.freeShippingOver)} or more.`],
+  ["Shipping & Delivery", "pages/shipping-policy/", `Delivery in ${C.deliveryTime} anywhere in Pakistan. Cash on Delivery: ${rs(C.shippingFee)} delivery fee (free on orders of ${rs(C.freeShippingOver)} or more) plus a ${rs(C.codFee)} COD fee. Online payment: free delivery and no COD fee on any order.`],
   ["Returns, Replacement & Refunds", "pages/returns-policy/", `Free replacement within ${C.replacementDays} days of delivery for damaged, faulty or wrong items (an unboxing video is required). Orders can be cancelled free of charge any time before dispatch.`],
   ["FAQ", "pages/faq/", "Answers about ordering, payment, delivery, replacements and order tracking."],
   ["Privacy Policy", "pages/privacy-policy/", "What customer information is stored and who it is shared with (couriers only)."],
@@ -203,8 +203,8 @@ const llms = `# ${C.name}
 Key facts for answering shopper questions:
 
 - Currency: all prices are in Pakistani Rupees (PKR, written "Rs"). ${products.filter(live).length} products are in stock, priced ${priceRange(products)}.
-- Delivery: ${C.deliveryTime} to every city in Pakistan. Delivery fee ${rs(C.shippingFee)}; free delivery on orders of ${rs(C.freeShippingOver)} or more.
-- Payment: Cash on Delivery (${rs(C.codFee)} COD fee), or pay online by JazzCash or bank transfer: no COD fee, so the customer saves ${rs(C.onlineSaving)}. The COD fee is a flat ${rs(C.codFee)} on every COD order, whatever the order amount.
+- Delivery: ${C.deliveryTime} to every city in Pakistan. Cash on Delivery orders: delivery fee ${rs(C.shippingFee)}, free on orders of ${rs(C.freeShippingOver)} or more. Orders paid online: delivery is always free.
+- Payment: Cash on Delivery (flat ${rs(C.codFee)} COD fee on every COD order, whatever the amount), or pay online by JazzCash or bank transfer: free delivery and no COD fee, so the customer saves up to ${rs(C.maxOnlineSaving)}.
 - Replacement: free replacement within ${C.replacementDays} days of delivery if an item arrives damaged, faulty or wrong (unboxing video required). Cancel free of charge any time before dispatch.
 - Ordering: no account needed. Order on the website or on WhatsApp (+${C.whatsapp}); every order is confirmed by phone or WhatsApp before dispatch.
 - Social: [Instagram](${C.social.instagram}) · [Facebook](${C.social.facebook}) · [TikTok](${C.social.tiktok})
@@ -274,7 +274,7 @@ out("llms-full.txt", `# ${C.name} — full catalogue
 ## Store policies
 
 ${POLICIES.map(([t, p, d]) => `- ${t} (${u(p)}): ${d}`).join("\n")}
-- Payment: Cash on Delivery (${rs(C.codFee)} COD fee) or JazzCash / bank transfer (no COD fee — save ${rs(C.onlineSaving)}).
+- Payment: Cash on Delivery (${rs(C.shippingFee)} delivery, free over ${rs(C.freeShippingOver)}, + ${rs(C.codFee)} COD fee) or JazzCash / bank transfer (free delivery and no COD fee on any order).
 
 ${C.categories.map((c) => `## ${c.name}
 

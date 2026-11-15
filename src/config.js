@@ -8,7 +8,8 @@ module.exports = {
   // Used for canonical links, sitemap and WhatsApp/Facebook link previews.
   siteUrl: "https://theshopnest.xyz",
   metaPixelId: "1384881198048721",
-  metaDomainVerification: "6ellnozrxdtwd1zyn09xvklq9kheg4", // Business Settings → Brand safety → Domains // Meta Pixel (Events Manager); empty string turns tracking off
+  metaDomainVerification: "6ellnozrxdtwd1zyn09xvklq9kheg4",
+  clarityId: "ze0lwm95l6", // Microsoft Clarity (public pages only, never the admin panel); empty string turns it off // Business Settings → Brand safety → Domains // Meta Pixel (Events Manager); empty string turns tracking off
 
   name: "ShopNest",
   tagline: "Useful gadgets & everyday essentials, delivered to your door anywhere in Pakistan",
@@ -24,11 +25,12 @@ module.exports = {
   },
 
   // Commerce rules (keep in sync with js/checkout.js, which reads them from <body data-*>)
-  shippingFee: 199,
+  // Cash on Delivery: delivery fee below freeShippingOver (FREE at or above it) + a flat COD fee on every COD order.
+  // Online payment (JazzCash / bank transfer): always FREE delivery and no COD fee, whatever the order amount.
+  shippingFee: 150,
   freeShippingOver: 2499,
-  codFee: 99,
-  onlineDiscount: 0, // extra discount for paying online, on top of skipping the COD fee (0 = none)
-  get onlineSaving() { return this.codFee + this.onlineDiscount; }, // what a customer saves by paying online
+  codFee: 50,
+  get maxOnlineSaving() { return this.shippingFee + this.codFee; }, // most a customer saves by paying online
   deliveryTime: "2–4 working days",
   replacementDays: 7,
 

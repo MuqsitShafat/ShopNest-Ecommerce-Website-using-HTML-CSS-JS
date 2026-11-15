@@ -26,11 +26,15 @@
 
   const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms))]);
 
-  async function saveOrderToFirestore(orderData) {
+  async function firestore() {
     const { initializeApp, getApps } = await import("https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js");
-    const { getFirestore, collection, addDoc } = await import("https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js");
+    const fsMod = await import("https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js");
     const app = getApps().length ? getApps()[0] : initializeApp(FIREBASE_CONFIG);
-    await addDoc(collection(getFirestore(app), "orders"), orderData);
+    return { ...fsMod, db: fsMod.getFirestore(app) };
+  }
+  async function saveOrderToFirestore(orderData) {
+    const { db, collection, addDoc } = await firestore();
+    await addDoc(collection(db, "orders"), orderData);
   }
 
   const colorText = (i) => {
@@ -44,8 +48,9 @@
       `*SHOPNEST — NEW ORDER: ${o.orderId}*\n\n` +
       `*Customer Details:*\n--------------------------\n` +
       `*Name:* ${o.customer.name}\n*Phone:* ${o.customer.phone}\n*City:* ${o.customer.city}\n*Address:* ${o.customer.street}\n*Payment:* ${o.paymentMethod}\n\n` +
+      `*Subtotal:* PKR ${o.subtotal.toLocaleString()}\n` +
+      `*Delivery:* ${o.shipping ? `PKR ${o.shipping}` : "FREE"}\n` +
       (o.codFee ? `*COD Fee:* PKR ${o.codFee}\n` : "") +
-      (o.discount ? `*Online Discount:* PKR ${o.discount}\n` : "") +
       (o.notes ? `*Notes:* ${o.notes}\n` : "") +
       `*Items Ordered:*\n${items}\n\n*Total Amount:* PKR ${o.total.toLocaleString()}\n--------------------------\n\n` +
       (o.paymentMethod === "Online Payment" ? `*I have sent the payment — screenshot attached.*` : `*Please confirm my order. Thank you!*`)
@@ -62,6 +67,9 @@
       customer_address: `${o.customer.street}, ${o.customer.city}`,
       payment_method: o.paymentMethod,
       total_amount: `PKR ${o.total.toLocaleString()}`,
+      subtotal: `PKR ${o.subtotal.toLocaleString()}`,
+      delivery_fee: o.shipping ? `PKR ${o.shipping}` : "FREE",
+      cod_fee: o.codFee ? `PKR ${o.codFee}` : "None",
       order_items: o.items.map((i) => `• ${i.qty}x ${i.name} (${colorText(i)})`).join("\n"),
       admin_email: ADMIN_EMAIL,
     });
@@ -104,12 +112,15 @@
   }
 
   /* ---------- totals ---------- */
+  // COD: delivery fee below the free-delivery line + flat COD fee. Online: FREE delivery + no COD fee, any amount.
   function totals() {
     const subtotal = Cart.subtotal();
-    const shipping = subtotal === 0 || subtotal >= RULES.free ? 0 : RULES.ship;
-    const codFee = subtotal > 0 && payment === "cod" ? RULES.cod : 0;
-    const discount = subtotal > 0 && payment === "online" ? Math.min(RULES.onlineOff, subtotal) : 0;
-    return { subtotal, shipping, codFee, discount, total: subtotal + shipping + codFee - discount };
+    const codShipping = subtotal === 0 || subtotal >= RULES.free ? 0 : RULES.ship;
+    const codCost = subtotal > 0 ? codShipping + RULES.cod : 0; // what Cash on Delivery adds on top of the items
+    const online = payment === "online";
+    const shipping = online ? 0 : codShipping;
+    const codFee = subtotal > 0 && !online ? RULES.cod : 0;
+    return { subtotal, shipping, codFee, codShipping, onlineSaving: codCost, total: subtotal + shipping + codFee };
   }
 
   function render() {
@@ -131,19 +142,20 @@
     $("#summary-subtotal").textContent = money(t.subtotal);
     $("#summary-shipping").innerHTML = t.shipping ? money(t.shipping) : '<span style="color:var(--ok)">FREE</span>';
     $("#cod-fee-row").hidden = !t.codFee;
-    $("#discount-row").hidden = !t.discount;
-    $("#summary-discount").textContent = "− " + money(t.discount);
+    $("#summary-cod").textContent = money(RULES.cod);
     $("#summary-total").textContent = money(t.total);
     $("#sticky-total").textContent = money(t.total);
     if (!placing) btn.lastChild.textContent = " Place Order · " + money(t.total);
+    // payment options show what each method costs for this order
+    const codNote = $("#pay-cod-note");
+    if (codNote) codNote.textContent = `– ${t.codShipping ? money(t.codShipping) + " delivery" : "FREE delivery"} + ${money(RULES.cod)} COD fee`;
+    const saveBadge = $("#pay-online-save");
+    if (saveBadge) saveBadge.textContent = "Save " + money(t.onlineSaving);
     const hint = $("#summary-hint");
-    if (payment === "cod") {
-      hint.className = "summary-hint";
-      hint.innerHTML = RULES.onlineOff ? `💡 Pay online: no COD fee + ${money(RULES.onlineOff)} off — <b>save ${money(RULES.onlineOff + RULES.cod)}</b>.` : `💡 Pay online and <b>skip the ${money(RULES.cod)} COD fee</b>.`;
-    } else {
-      hint.className = "summary-hint is-ok";
-      hint.innerHTML = `✅ No COD fee — you're saving <b>${money(t.discount + RULES.cod)}</b> by paying online.`;
-    }
+    hint.className = payment === "cod" ? "summary-hint is-ok is-tip" : "summary-hint is-ok";
+    hint.innerHTML = payment === "cod"
+      ? `💡 Pay online and get <b>FREE delivery + NO COD fee</b> – save ${money(t.onlineSaving)}!`
+      : `✅ FREE delivery + NO COD fee – you're saving <b>${money(t.onlineSaving)}</b> by paying online.`;
   }
   bindLines(elLines);
   document.addEventListener("cart:change", render);
@@ -159,6 +171,7 @@
       $("#pay-accounts").hidden = payment !== "online";
       $("#pay-reassure").textContent = payment === "online" ? "✓ Send payment, place your order, then WhatsApp us the screenshot." : "✓ Pay when your order arrives.";
       render();
+      scheduleLead();
     })
   );
   $$(".copy").forEach((b) =>
@@ -224,6 +237,59 @@
     };
   }
 
+  /* ---------- abandoned checkouts ----------
+     Once a valid number (03XXXXXXXXX) is typed, save the cart as a lead so we can follow up on WhatsApp.
+     One document per phone number (the number is the document ID), updated as details change.
+     When the order is placed the lead is marked "converted" and drops out of the admin list. */
+  const LEAD_COLLECTION = "abandoned_checkouts";
+  const LEAD_KEY = "sn_lead"; // { phone, createdAt }: keeps the first-seen time across updates
+  let leadTimer = null, leadSig = "";
+  const readLeadMeta = () => { try { return JSON.parse(localStorage.getItem(LEAD_KEY) || "{}"); } catch (e) { return {}; } };
+  function leadPayload() {
+    const f = form.elements;
+    const phone = normalizePhone(f.phone.value);
+    const items = Cart.get();
+    if (!/^03\d{9}$/.test(phone) || !items.length) return null;
+    return {
+      name: f.name.value.trim().slice(0, 80),
+      phone,
+      city: f.city.value.trim().slice(0, 60),
+      items: items.slice(0, 30).map((i) => ({ id: i.id, name: i.name, qty: i.qty, price: i.price, color: i.color || null })),
+      total: totals().total,
+      paymentMethod: payment === "online" ? "Online Payment" : "Cash on Delivery",
+      status: "abandoned",
+    };
+  }
+  async function saveLead() {
+    if (placing) return;
+    const data = leadPayload();
+    if (!data) return;
+    const sig = JSON.stringify(data);
+    if (sig === leadSig) return; // nothing changed since the last save
+    const now = new Date().toISOString();
+    let meta = readLeadMeta();
+    if (meta.phone !== data.phone || !meta.createdAt) meta = { phone: data.phone, createdAt: now };
+    try {
+      const { db, doc, setDoc } = await firestore();
+      await setDoc(doc(db, LEAD_COLLECTION, data.phone), { ...data, createdAt: meta.createdAt, updatedAt: now }, { merge: true });
+      leadSig = sig;
+      try { localStorage.setItem(LEAD_KEY, JSON.stringify(meta)); } catch (e) { /* ignore */ }
+    } catch (err) { console.warn("Checkout lead not saved:", err && err.message); }
+  }
+  const scheduleLead = () => { clearTimeout(leadTimer); leadTimer = setTimeout(saveLead, 2000); };
+  ["name", "phone", "city"].forEach((n) => form.elements[n].addEventListener("input", scheduleLead));
+  document.addEventListener("cart:change", scheduleLead);
+  async function convertLead(orderId) {
+    clearTimeout(leadTimer);
+    const phone = readLeadMeta().phone;
+    if (!phone) return; // no lead was saved from this browser
+    try { localStorage.removeItem(LEAD_KEY); } catch (e) { /* ignore */ }
+    try {
+      const { db, doc, setDoc } = await firestore();
+      await setDoc(doc(db, LEAD_COLLECTION, phone), { status: "converted", orderId, updatedAt: new Date().toISOString() }, { merge: true });
+    } catch (err) { console.warn("Checkout lead not updated:", err && err.message); }
+  }
+
   /* ---------- place order ---------- */
   const generateOrderId = () => `SN-${Math.floor(10000 + Math.random() * 90000)}`;
 
@@ -247,7 +313,7 @@
         id: i.id, name: i.name, price: i.price, qty: i.qty, total: i.price * i.qty,
         color: i.color || null, colors: Array.isArray(i.colors) && i.colors.length ? i.colors : null,
       })),
-      subtotal: t.subtotal, shipping: t.shipping, codFee: t.codFee, discount: t.discount, total: t.total,
+      subtotal: t.subtotal, shipping: t.shipping, codFee: t.codFee, total: t.total,
     };
     if (cust.notes) orderData.notes = cust.notes;
 
@@ -256,9 +322,11 @@
 
     try { localStorage.setItem("sn_checkout", JSON.stringify(Object.fromEntries(FIELDS.map((f) => [f, cust[f]])))); } catch (e) { /* ignore */ }
 
+    clearTimeout(leadTimer);
     let saved = true;
     try { await withTimeout(saveOrderToFirestore(orderData), 15000); }
     catch (err) { saved = false; console.warn("Order not saved to Firestore:", err && err.message); }
+    if (saved) convertLead(orderData.orderId); // runs in the background
     try { await withTimeout(notifyAdminByEmail(orderData), 8000); }
     catch (err) { console.warn("EmailJS failed:", err && err.message); }
 
@@ -286,7 +354,9 @@
       <p>We'll call or WhatsApp you on <b>${esc(o.customer.phone)}</b> to confirm. Delivery in <b>2–4 working days</b>.</p>
       <div class="success-lines">
         ${lines.map((i) => `<div><span>${i.qty} × ${esc(i.name)}${i.color ? ` <em class="muted">(${esc(i.color)})</em>` : ""}</span><b>${money(i.price * i.qty)}</b></div>`).join("")}
-        <div style="border-top:1px dashed var(--line);margin-top:.3rem;padding-top:.5rem"><span>Total (${esc(o.paymentMethod)})</span><b>${money(o.total)}</b></div>
+        <div style="border-top:1px dashed var(--line);margin-top:.3rem;padding-top:.5rem"><span>Delivery</span><b>${o.shipping ? money(o.shipping) : "FREE"}</b></div>
+        ${o.codFee ? `<div><span>COD fee</span><b>${money(o.codFee)}</b></div>` : ""}
+        <div><span>Total (${esc(o.paymentMethod)})</span><b>${money(o.total)}</b></div>
       </div>
       <div class="success-box">
         <p><b>${o.paymentMethod === "Online Payment" ? "📲 Send your payment screenshot" : "⚡ Get faster confirmation"}</b><br>
@@ -313,4 +383,5 @@
   form.addEventListener("submit", (e) => { e.preventDefault(); placeOrder(); });
 
   render();
+  scheduleLead(); // returning customers arrive with their number already filled in
 })();

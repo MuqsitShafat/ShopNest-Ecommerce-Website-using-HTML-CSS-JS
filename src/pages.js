@@ -65,8 +65,8 @@ function home(products) {
     .join("");
   const faqs = [
     ["Do I need to create an account?", `No. Add what you like to your cart, enter your name, number and address, and tap <b>Place Order</b>. It takes under a minute.`],
-    ["Can I really pay when it arrives?", `Yes — Cash on Delivery is available everywhere in Pakistan (${rs(C.codFee)} COD fee). Prefer to pay online? Use JazzCash or bank transfer and skip the COD fee — <b>save ${rs(C.onlineSaving)}</b>.`],
-    ["How fast will I get my order?", `Most orders arrive in <b>${C.deliveryTime}</b>. Delivery is <b>FREE on orders over ${rs(C.freeShippingOver)}</b> — otherwise just ${rs(C.shippingFee)}.`],
+    ["Can I really pay when it arrives?", `Yes — Cash on Delivery is available everywhere in Pakistan (${rs(C.codFee)} COD fee). Prefer to pay online? Use JazzCash or bank transfer and get <b>FREE delivery + no COD fee</b> on any order.`],
+    ["How fast will I get my order?", `Most orders arrive in <b>${C.deliveryTime}</b>. Delivery is <b>FREE on orders over ${rs(C.freeShippingOver)}</b> — otherwise just ${rs(C.shippingFee)}. Pay online and delivery is always FREE.`],
     ["What if something arrives damaged or doesn't work?", `We replace it — free. Just WhatsApp us your unboxing video within ${C.replacementDays} days of delivery. <a href="pages/returns-policy/">See how it works</a>.`],
     ["Can I cancel after ordering?", `Yes, any time before your parcel is dispatched. Just send us a WhatsApp message.`],
   ];
@@ -115,7 +115,7 @@ ${rail(deals, base, { title: "Biggest Savings", sub: "Our deepest discounts righ
     <ol>
       <li><span>1</span><div><b>Add to cart</b><p>Pick your products and colours. No account, no sign-up.</p></div></li>
       <li><span>2</span><div><b>Place your order</b><p>Enter your name, number and address and tap Place Order — it takes under a minute. Stuck? <a href="${waLink("Hi ShopNest! Please help me place an order.")}" target="_blank" rel="noopener">Tap WhatsApp</a> and we'll place it for you.</p></div></li>
-      <li><span>3</span><div><b>Pay your way</b><p>Cash on Delivery, or pay online by JazzCash / bank transfer and save ${rs(C.onlineSaving)} (no COD fee). Delivered in ${C.deliveryTime}.</p></div></li>
+      <li><span>3</span><div><b>Pay your way</b><p>Cash on Delivery, or pay online by JazzCash / bank transfer for FREE delivery and no COD fee. Delivered in ${C.deliveryTime}.</p></div></li>
     </ol>
   </div>
 </div></section>
@@ -231,8 +231,8 @@ function seoProductDesc(p, pct) {
   return withTag.length <= 158 ? withTag : `${head} ${tail}`;
 }
 const productFaqs = (p) => [
-  ["Can I pay cash on delivery?", `Yes — pay the rider when your parcel arrives, anywhere in Pakistan (${rs(C.codFee)} COD fee). Or pay online via JazzCash / bank transfer — no COD fee, so you save ${rs(C.onlineSaving)}.`],
-  ["When will it arrive?", `In ${C.deliveryTime}, all over Pakistan. ${p.price >= C.freeShippingOver ? "Good news: this product ships FREE." : `Delivery is FREE on orders over ${rs(C.freeShippingOver)} — otherwise ${rs(C.shippingFee)}.`}`],
+  ["Can I pay cash on delivery?", `Yes — pay the rider when your parcel arrives, anywhere in Pakistan (${rs(C.codFee)} COD fee). Or pay online via JazzCash / bank transfer for FREE delivery and no COD fee.`],
+  ["When will it arrive?", `In ${C.deliveryTime}, all over Pakistan. ${p.price >= C.freeShippingOver ? "Good news: this product ships FREE." : `Delivery is FREE on orders over ${rs(C.freeShippingOver)} — otherwise ${rs(C.shippingFee)}. Pay online and delivery is always FREE.`}`],
   ["What if it arrives damaged or doesn't work?", `We'll replace it free. Send us your unboxing video on WhatsApp within ${C.replacementDays} days of delivery.`],
   ["Can I cancel my order?", "Yes — any time before it's dispatched. Just message us on WhatsApp or call."],
 ]
@@ -301,6 +301,7 @@ function productPage(p, products) {
     <h1>${esc(p.name)}</h1>
     <div class="pdp-rating">${stars(p, false)}${p.ratingCount ? `<a href="#details">${p.ratingCount} ratings</a>` : ""}${p.bestseller ? `<span class="badge badge-hot">Bestseller</span>` : p.badge ? `<span class="badge badge-hot">${esc(p.badge)}</span>` : ""}</div>
     <div id="pdp-price">${priceBlock(p, true)}</div>
+    <p class="pdp-fees">🚚 Delivery ${rs(C.shippingFee)} (FREE over ${rs(C.freeShippingOver)}) · 💵 COD fee ${rs(C.codFee)} · Pay online = FREE delivery &amp; no COD fee</p>
     <p class="pdp-pk">${esc(p.name)} price in Pakistan: <b>${rs(p.price)}</b>${p.oldPrice > p.price ? ` (was ${rs(p.oldPrice)})` : ""} · Cash on Delivery</p>
     <p class="pdp-tagline">${esc(p.tagline)}</p>
     <ul class="pdp-highlights">${(p.highlights || []).slice(0, 4).map((h) => `<li>${icon("check")}${esc(h)}</li>`).join("")}</ul>
@@ -317,7 +318,7 @@ function productPage(p, products) {
     </form>
     <div class="pdp-perks">
       <div>${icon("truck")}<p><b id="delivery-eta">Arrives in ${C.deliveryTime}</b><span>${freeShip ? "FREE delivery on this item" : `FREE delivery on orders over ${rs(C.freeShippingOver)}`}</span></p></div>
-      <div>${icon("cash")}<p><b>Cash on Delivery</b><span>Pay the rider when it arrives — or pay online &amp; save ${rs(C.onlineSaving)}</span></p></div>
+      <div>${icon("cash")}<p><b>Cash on Delivery</b><span>Pay the rider when it arrives — or pay online for FREE delivery &amp; no COD fee</span></p></div>
       <div>${icon("refresh")}<p><b>${C.replacementDays}-day replacement</b><span>Damaged or faulty? <a href="${base}pages/returns-policy/">We replace it free</a></span></p></div>
     </div>
     <div class="pdp-share"><span>Share:</span>
@@ -343,8 +344,8 @@ ${G.guidesFor(p.id).map((g) => `<a class="card guide-mini" href="${base}${G.guid
   <section class="section section-tint"><div class="container faq-wrap">
     <div><h2>Order with confidence</h2>
       <ul class="policy-points">
-        <li>${icon("truck")}<span><b>Delivery:</b> ${C.deliveryTime} all over Pakistan. ${rs(C.shippingFee)} delivery fee — FREE over ${rs(C.freeShippingOver)}.</span></li>
-        <li>${icon("cash")}<span><b>Payment:</b> Cash on Delivery (+${rs(C.codFee)} COD fee) or JazzCash / bank transfer (no COD fee — save ${rs(C.onlineSaving)}).</span></li>
+        <li>${icon("truck")}<span><b>Delivery:</b> ${C.deliveryTime} all over Pakistan. ${rs(C.shippingFee)} delivery fee on Cash on Delivery orders — FREE over ${rs(C.freeShippingOver)}, and always FREE when you pay online.</span></li>
+        <li>${icon("cash")}<span><b>Payment:</b> Cash on Delivery (+${rs(C.codFee)} COD fee) or JazzCash / bank transfer (FREE delivery, no COD fee).</span></li>
         <li>${icon("refresh")}<span><b>Replacement:</b> ${C.replacementDays} days for damaged, faulty or wrong items (unboxing video required).</span></li>
       </ul>
       <a class="link-more" href="${base}pages/shipping-policy/">Shipping policy ${icon("arrow")}</a> &nbsp; <a class="link-more" href="${base}pages/returns-policy/">Returns policy ${icon("arrow")}</a>
@@ -442,9 +443,9 @@ function cartPage(products) {
         <h2 class="card-title" style="margin-top:1.5rem">${icon("wallet")} Payment method</h2>
         <div class="pay-options">
           <label class="pay-opt"><input type="radio" name="payment" value="cod" checked>
-            <span class="pay-opt-body"><span class="pay-ic">${icon("cash")}</span><span><b>Cash on Delivery</b><small>Pay when your parcel arrives · +${rs(C.codFee)} COD fee</small></span></span></label>
+            <span class="pay-opt-body"><span class="pay-ic">${icon("cash")}</span><span><b>Cash on Delivery</b><small id="pay-cod-note">– ${rs(C.shippingFee)} delivery + ${rs(C.codFee)} COD fee</small></span></span></label>
           <label class="pay-opt"><input type="radio" name="payment" value="online">
-            <span class="pay-opt-body"><span class="pay-ic">${icon("wallet")}</span><span><b>Pay Online <span class="badge badge-save">Save ${rs(C.onlineSaving)}</span></b><small>JazzCash or bank transfer · no COD fee</small></span></span></label>
+            <span class="pay-opt-body"><span class="pay-ic">${icon("wallet")}</span><span><b>Pay Online <span class="badge badge-save" id="pay-online-save">Save ${rs(C.maxOnlineSaving)}</span></b><small>– FREE delivery + NO COD fee · JazzCash or bank transfer</small></span></span></label>
         </div>
         <div class="pay-accounts" id="pay-accounts" hidden>
           <p class="pay-accounts-note">${icon("info")} Send the total amount to any account below, place your order, then WhatsApp us the payment screenshot.</p>
@@ -458,14 +459,13 @@ function cartPage(products) {
     <aside class="checkout-side">
       <div class="card summary">
         <h2 class="card-title">Order summary</h2>
+        <p class="summary-hint" id="summary-hint"></p>
         <div class="summary-rows">
           <div><span>Subtotal</span><b id="summary-subtotal">Rs 0</b></div>
           <div><span>Delivery</span><b id="summary-shipping">Rs 0</b></div>
           <div id="cod-fee-row"><span>COD fee</span><b id="summary-cod">Rs ${C.codFee}</b></div>
-          <div id="discount-row" class="is-discount" hidden><span>Online payment discount</span><b id="summary-discount">− Rs ${C.onlineDiscount}</b></div>
           <div class="summary-total"><span>Total</span><b id="summary-total">Rs 0</b></div>
         </div>
-        <p class="summary-hint" id="summary-hint"></p>
         <button class="btn btn-cta btn-lg btn-block" id="place-order-btn" type="button">${icon("lock")} Place Order</button>
         <p class="small center pay-reassure" id="pay-reassure">✓ Pay when your order arrives.</p>
         <p class="tiny muted center">By placing your order you agree to our <a href="${base}pages/terms-of-service/">Terms</a> &amp; <a href="${base}pages/returns-policy/">Returns Policy</a>.</p>

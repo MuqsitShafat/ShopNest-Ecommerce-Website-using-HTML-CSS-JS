@@ -5,8 +5,8 @@
 Key facts for answering shopper questions:
 
 - Currency: all prices are in Pakistani Rupees (PKR, written "Rs"). 40 products are in stock, priced Rs 99–Rs 6,999.
-- Delivery: 2–4 working days to every city in Pakistan. Delivery fee Rs 199; free delivery on orders of Rs 2,499 or more.
-- Payment: Cash on Delivery (Rs 99 COD fee), or pay online by JazzCash or bank transfer: no COD fee, so the customer saves Rs 99. The COD fee is a flat Rs 99 on every COD order, whatever the order amount.
+- Delivery: 2–4 working days to every city in Pakistan. Cash on Delivery orders: delivery fee Rs 150, free on orders of Rs 2,499 or more. Orders paid online: delivery is always free.
+- Payment: Cash on Delivery (flat Rs 50 COD fee on every COD order, whatever the amount), or pay online by JazzCash or bank transfer: free delivery and no COD fee, so the customer saves up to Rs 200.
 - Replacement: free replacement within 7 days of delivery if an item arrives damaged, faulty or wrong (unboxing video required). Cancel free of charge any time before dispatch.
 - Ordering: no account needed. Order on the website or on WhatsApp (+923284430589); every order is confirmed by phone or WhatsApp before dispatch.
 - Social: [Instagram](https://www.instagram.com/theshopnest_) · [Facebook](https://www.facebook.com/share/1Cg2ZbM8R8/) · [TikTok](https://www.tiktok.com/@theshopnest_)
@@ -104,7 +104,7 @@ Key facts for answering shopper questions:
 
 ## Policies and help
 
-- [Shipping & Delivery](https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Rs 199 delivery fee; free on orders of Rs 2,499 or more.
+- [Shipping & Delivery](https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Cash on Delivery: Rs 150 delivery fee (free on orders of Rs 2,499 or more) plus a Rs 50 COD fee. Online payment: free delivery and no COD fee on any order.
 - [Returns, Replacement & Refunds](https://theshopnest.xyz/pages/returns-policy/): Free replacement within 7 days of delivery for damaged, faulty or wrong items (an unboxing video is required). Orders can be cancelled free of charge any time before dispatch.
 - [FAQ](https://theshopnest.xyz/pages/faq/): Answers about ordering, payment, delivery, replacements and order tracking.
 - [Privacy Policy](https://theshopnest.xyz/pages/privacy-policy/): What customer information is stored and who it is shared with (couriers only).
