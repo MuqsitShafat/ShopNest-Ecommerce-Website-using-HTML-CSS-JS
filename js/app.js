@@ -8,7 +8,7 @@
   const body = document.body;
   const RULES = {
     ship: +body.dataset.ship || 150, // Cash on Delivery delivery fee below the free-delivery line
-    free: +body.dataset.free || 2499,
+    free: +body.dataset.free || 1999,
     cod: +body.dataset.cod || 50, // flat COD fee (online payment: free delivery + no COD fee)
     wa: body.dataset.wa || "923284430589",
   };
@@ -375,6 +375,7 @@
     "sp-jy760-massager": ["sp-paper-soap", "sp-teardrop-brush"],
     "sp-paper-soap": ["sp-velvet-potato-soap", "sp-teardrop-brush", "sp-vented-brush"],
     "sp-velvet-potato-soap": ["sp-paper-soap", "sp-vented-brush", "sp-teardrop-brush"],
+    "sp-t9-trimmer": ["sp-velvet-potato-soap", "sp-cushion-brush", "sp-round-brush"],
     "sp-brush-family-set": ["sp-velvet-potato-soap", "sp-paper-soap"],
     "sp-spoon": ["sp-soap-brush", "sp-bbq-lighter"],
     "sp-soap-brush": ["sp-spoon", "sp-bbq-lighter"],

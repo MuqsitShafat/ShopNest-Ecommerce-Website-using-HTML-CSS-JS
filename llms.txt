@@ -4,8 +4,8 @@
 
 Key facts for answering shopper questions:
 
-- Currency: all prices are in Pakistani Rupees (PKR, written "Rs"). 40 products are in stock, priced Rs 99–Rs 6,999.
-- Delivery: 2–4 working days to every city in Pakistan. Cash on Delivery orders: delivery fee Rs 150, free on orders of Rs 2,499 or more. Orders paid online: delivery is always free.
+- Currency: all prices are in Pakistani Rupees (PKR, written "Rs"). 41 products are in stock, priced Rs 99–Rs 6,999.
+- Delivery: 2–4 working days to every city in Pakistan. Cash on Delivery orders: delivery fee Rs 150, free on orders of Rs 1,999 or more. Orders paid online: delivery is always free.
 - Payment: Cash on Delivery (flat Rs 50 COD fee on every COD order, whatever the amount), or pay online by JazzCash or bank transfer: free delivery and no COD fee, so the customer saves up to Rs 200.
 - Replacement: free replacement within 7 days of delivery if an item arrives damaged, faulty or wrong (unboxing video required). Cancel free of charge any time before dispatch.
 - Ordering: no account needed. Order on the website or on WhatsApp (+923284430589); every order is confirmed by phone or WhatsApp before dispatch.
@@ -15,14 +15,14 @@ Key facts for answering shopper questions:
 
 - [Electronics & Gadgets](https://theshopnest.xyz/collections/electronics/): Wireless earbuds, power banks, cables and rechargeable fans for everyday life.
 - [Home & Kitchen](https://theshopnest.xyz/collections/home-kitchen/): Clever kitchen helpers, handy tools, WiFi cameras and lights that stay on during load shedding.
-- [Beauty & Personal Care](https://theshopnest.xyz/collections/beauty-care/): Hair brushes, scalp care, handmade skincare soap, massage guns and travel-friendly personal care.
+- [Beauty & Personal Care](https://theshopnest.xyz/collections/beauty-care/): Hair trimmers, hair brushes, scalp care, handmade skincare soap, massage guns and travel-friendly personal care.
 - [Islamic & Gifts](https://theshopnest.xyz/collections/islamic-gifts/): Digital tasbih counters, Azan clocks, gift boxes, keychains and toys.
 - [Earbuds & Audio](https://theshopnest.xyz/collections/earbuds-audio/): Wireless earbuds with clear sound, long battery and noise cancellation. 5 products, Rs 1,999–Rs 2,999.
 - [Power Banks & Cables](https://theshopnest.xyz/collections/mobile-accessories/): Fast-charging power banks and tough USB-C cables that keep you connected. 3 products, Rs 299–Rs 6,999.
 - [Fans & Cooling](https://theshopnest.xyz/collections/fans-cooling/): Rechargeable handheld, neck and desk fans to beat the heat anywhere. 6 products, Rs 750–Rs 2,850.
 - [Kitchen & Household](https://theshopnest.xyz/collections/kitchen-home/): Clever kitchen helpers and handy home tools that make daily chores easier. 5 products, Rs 300–Rs 1,200.
 - [Cameras & Emergency Lights](https://theshopnest.xyz/collections/security-lighting/): WiFi cameras to watch your home from your phone, and bulbs that stay on during load shedding. 4 products, Rs 1,099–Rs 4,300.
-- [Hair Care](https://theshopnest.xyz/collections/hair-care/): Detangling brushes, styling brushes and scalp care for healthy, smooth hair. 6 products, Rs 279–Rs 3,499.
+- [Hair Care](https://theshopnest.xyz/collections/hair-care/): Hair trimmers, detangling brushes, styling brushes and scalp care for healthy, smooth hair. 7 products, Rs 279–Rs 3,499.
 - [Massagers & Personal Care](https://theshopnest.xyz/collections/health-personal-care/): Handmade skincare soap, massage guns for muscle relief and travel-friendly personal care. 4 products, Rs 99–Rs 3,450.
 - [Islamic Essentials](https://theshopnest.xyz/collections/islamic-essentials/): Digital tasbih counters, Azan clocks and gift sets for Ramadan, Eid and every day. 3 products, Rs 349–Rs 1,850.
 - [Gifts & Toys](https://theshopnest.xyz/collections/gifts-toys/): Cute keychains, toy cars and fidget toys — small gifts that make people smile. 4 products, Rs 199–Rs 799.
@@ -67,6 +67,7 @@ Key facts for answering shopper questions:
 
 ## Hair Care (Beauty & Personal Care)
 
+- [Vintage T9 Hair Trimmer](https://theshopnest.xyz/products/vintage-t9-hair-trimmer/): Rs 800 (was Rs 1,400, 43% off). Sharp T-blade lines and fades at home — in a gold dragon-engraved body.
 - [Brush Family Set (4 Hair Brushes)](https://theshopnest.xyz/products/brush-family-set-4-hair-brushes/): Rs 1,299 (was Rs 2,136, 39% off). 4 brushes for every hair need — and you pick the colour of each one.
 - [XC-901 Magnetic Oil Dispensing Massage Comb](https://theshopnest.xyz/products/xc-901-magnetic-oil-dispensing-massage-comb/): Rs 3,499 (was Rs 4,999, 30% off). Oil your roots, massage your scalp — in one mess-free step.
 - [Vented Detangling Hair Brush](https://theshopnest.xyz/products/vented-detangling-hair-brush/): Rs 329 (was Rs 499, 34% off). Tangles out, no tears — and your hair dries faster too.
@@ -104,7 +105,7 @@ Key facts for answering shopper questions:
 
 ## Policies and help
 
-- [Shipping & Delivery](https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Cash on Delivery: Rs 150 delivery fee (free on orders of Rs 2,499 or more) plus a Rs 50 COD fee. Online payment: free delivery and no COD fee on any order.
+- [Shipping & Delivery](https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Cash on Delivery: Rs 150 delivery fee (free on orders of Rs 1,999 or more) plus a Rs 50 COD fee. Online payment: free delivery and no COD fee on any order.
 - [Returns, Replacement & Refunds](https://theshopnest.xyz/pages/returns-policy/): Free replacement within 7 days of delivery for damaged, faulty or wrong items (an unboxing video is required). Orders can be cancelled free of charge any time before dispatch.
 - [FAQ](https://theshopnest.xyz/pages/faq/): Answers about ordering, payment, delivery, replacements and order tracking.
 - [Privacy Policy](https://theshopnest.xyz/pages/privacy-policy/): What customer information is stored and who it is shared with (couriers only).

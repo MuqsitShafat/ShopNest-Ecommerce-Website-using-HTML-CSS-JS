@@ -4,7 +4,7 @@
 
 ## Store policies
 
-- Shipping & Delivery (https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Cash on Delivery: Rs 150 delivery fee (free on orders of Rs 2,499 or more) plus a Rs 50 COD fee. Online payment: free delivery and no COD fee on any order.
+- Shipping & Delivery (https://theshopnest.xyz/pages/shipping-policy/): Delivery in 2–4 working days anywhere in Pakistan. Cash on Delivery: Rs 150 delivery fee (free on orders of Rs 1,999 or more) plus a Rs 50 COD fee. Online payment: free delivery and no COD fee on any order.
 - Returns, Replacement & Refunds (https://theshopnest.xyz/pages/returns-policy/): Free replacement within 7 days of delivery for damaged, faulty or wrong items (an unboxing video is required). Orders can be cancelled free of charge any time before dispatch.
 - FAQ (https://theshopnest.xyz/pages/faq/): Answers about ordering, payment, delivery, replacements and order tracking.
 - Privacy Policy (https://theshopnest.xyz/pages/privacy-policy/): What customer information is stored and who it is shared with (couriers only).
@@ -12,7 +12,7 @@
 - About ShopNest (https://theshopnest.xyz/pages/about-us/): Who we are: an online store based in Lahore that delivers nationwide.
 - Contact (https://theshopnest.xyz/contact/): WhatsApp or call +923284430589, or email shopnest260@gmail.com.
 - Track an order (https://theshopnest.xyz/track-order/): Check order status with an Order ID (e.g. SN-12345) or the phone number used to order.
-- Payment: Cash on Delivery (Rs 150 delivery, free over Rs 2,499, + Rs 50 COD fee) or JazzCash / bank transfer (free delivery and no COD fee on any order).
+- Payment: Cash on Delivery (Rs 150 delivery, free over Rs 1,999, + Rs 50 COD fee) or JazzCash / bank transfer (free delivery and no COD fee on any order).
 
 ## Electronics & Gadgets
 
@@ -923,7 +923,49 @@ FAQs:
 
 ## Beauty & Personal Care
 
-Hair brushes, scalp care, handmade skincare soap, massage guns and travel-friendly personal care. https://theshopnest.xyz/collections/beauty-care/
+Hair trimmers, hair brushes, scalp care, handmade skincare soap, massage guns and travel-friendly personal care. https://theshopnest.xyz/collections/beauty-care/
+
+### Vintage T9 Hair Trimmer
+
+- URL: https://theshopnest.xyz/products/vintage-t9-hair-trimmer/
+- Price: Rs 800 (was Rs 1,400, 43% off)
+- Category: Beauty & Personal Care › Hair Care
+- Availability: In stock · Cash on Delivery · delivery in 2–4 working days
+
+Sharp T-blade lines and fades at home — in a gold dragon-engraved body.
+
+Skip the barber queue for touch-ups. The Vintage T9 has a close-cutting stainless steel T-blade for clean outlines, neat necklines, fades and beard shaping.
+
+It's cordless and charges by USB through a port hidden at the bottom. Four guide combs (1.5, 2, 3 and 4 mm) give you an even short length every time.
+
+The vintage gold body with its engraved dragon looks great on any shelf — and makes it a gift men actually use.
+
+Highlights:
+- Close-cutting stainless steel T-blade
+- Cordless — USB rechargeable
+- 4 guide combs: 1.5, 2, 3 & 4 mm
+- Vintage dragon-engraved metal-look body
+
+Specifications:
+- Model: Vintage T9
+- Blade: Stainless steel T-blade
+- Charging: USB cable (port hidden at the bottom)
+- Guide combs: 1.5 mm, 2 mm, 3 mm, 4 mm
+- Use: Hair outlining, fades, beard & neckline
+
+In the box:
+- 1 × Vintage T9 trimmer
+- 4 × guide combs (1.5 / 2 / 3 / 4 mm)
+- 1 × cleaning brush
+- 1 × USB charging cable
+
+FAQs:
+- Q: Is it rechargeable?
+  A: Yes — it charges with the USB cable in the box, through a port hidden at the bottom, and works cordless.
+- Q: Can I use it for my beard and hair?
+  A: Yes — the T-blade is made for outlines, fades, beard lines and neckline touch-ups. Use the guide combs for an even short length.
+- Q: Is it a good gift?
+  A: Yes — it comes in its retail box with all accessories, and the gold dragon design looks premium.
 
 ### Brush Family Set (4 Hair Brushes)
 

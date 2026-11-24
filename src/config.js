@@ -28,7 +28,7 @@ module.exports = {
   // Cash on Delivery: delivery fee below freeShippingOver (FREE at or above it) + a flat COD fee on every COD order.
   // Online payment (JazzCash / bank transfer): always FREE delivery and no COD fee, whatever the order amount.
   shippingFee: 150,
-  freeShippingOver: 2499,
+  freeShippingOver: 1999,
   codFee: 50,
   get maxOnlineSaving() { return this.shippingFee + this.codFee; }, // most a customer saves by paying online
   deliveryTime: "2–4 working days",
@@ -58,9 +58,9 @@ module.exports = {
         { slug: "security-lighting", name: "Cameras & Emergency Lights", blurb: "WiFi cameras to watch your home from your phone, and bulbs that stay on during load shedding." },
       ] },
     { slug: "beauty-care", name: "Beauty & Personal Care", short: "Beauty & Care", icon: "comb",
-      blurb: "Hair brushes, scalp care, handmade skincare soap, massage guns and travel-friendly personal care.",
+      blurb: "Hair trimmers, hair brushes, scalp care, handmade skincare soap, massage guns and travel-friendly personal care.",
       subs: [
-        { slug: "hair-care", name: "Hair Care", blurb: "Detangling brushes, styling brushes and scalp care for healthy, smooth hair." },
+        { slug: "hair-care", name: "Hair Care", blurb: "Hair trimmers, detangling brushes, styling brushes and scalp care for healthy, smooth hair." },
         { slug: "health-personal-care", name: "Massagers & Personal Care", blurb: "Handmade skincare soap, massage guns for muscle relief and travel-friendly personal care." },
       ] },
     { slug: "islamic-gifts", name: "Islamic & Gifts", short: "Islamic & Gifts", icon: "moon-star",
