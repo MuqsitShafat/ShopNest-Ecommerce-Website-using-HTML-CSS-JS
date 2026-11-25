@@ -301,7 +301,7 @@ function productPage(p, products) {
     <h1>${esc(p.name)}</h1>
     <div class="pdp-rating">${stars(p, false)}${p.ratingCount ? `<a href="#details">${p.ratingCount} ratings</a>` : ""}${p.bestseller ? `<span class="badge badge-hot">Bestseller</span>` : p.badge ? `<span class="badge badge-hot">${esc(p.badge)}</span>` : ""}</div>
     <div id="pdp-price">${priceBlock(p, true)}</div>
-    <p class="pdp-fees">🚚 Delivery ${rs(C.shippingFee)} (FREE over ${rs(C.freeShippingOver)}) · 💵 COD fee ${rs(C.codFee)} · Pay online = FREE delivery &amp; no COD fee</p>
+    <p class="pdp-fees">🚚 FREE delivery on all orders of ${rs(C.freeShippingOver)} or more</p>
     <p class="pdp-pk">${esc(p.name)} price in Pakistan: <b>${rs(p.price)}</b>${p.oldPrice > p.price ? ` (was ${rs(p.oldPrice)})` : ""} · Cash on Delivery</p>
     <p class="pdp-tagline">${esc(p.tagline)}</p>
     <ul class="pdp-highlights">${(p.highlights || []).slice(0, 4).map((h) => `<li>${icon("check")}${esc(h)}</li>`).join("")}</ul>
